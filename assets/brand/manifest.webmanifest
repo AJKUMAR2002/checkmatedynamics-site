@@ -1,0 +1,11 @@
+{
+  "name": "Checkmate Dynamics",
+  "short_name": "Checkmate",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "display": "browser",
+  "icons": [
+    { "src": "favicon/apple-touch-icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "favicon/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

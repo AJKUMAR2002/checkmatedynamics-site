@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkmate Dynamics — Motion, sensing and sync nodes</title>
+<meta name="description" content="Motor, sensing and sync nodes on one USB-C bus. Sold to makers, built into robots, and assembled into data-station hardware.">
+<link rel="canonical" href="https://checkmatedynamics.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Checkmate Dynamics">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://checkmatedynamics.com/">
+<meta property="og:title" content="Checkmate Dynamics — Motion, sensing and sync nodes">
+<meta property="og:description" content="Motor, sensing and sync nodes on one USB-C bus. Sold to makers, built into robots, and assembled into data-station hardware.">
+<meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Checkmate Dynamics — Motion, sensing and sync nodes">
+<meta name="twitter:description" content="Motor, sensing and sync nodes on one USB-C bus. Sold to makers, built into robots, and assembled into data-station hardware.">
+<meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/brand/favicon/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon-180.png">
+<link rel="manifest" href="assets/brand/manifest.webmanifest">
+<link rel="mask-icon" href="assets/brand/favicon/safari-pinned-tab.svg" color="#D4BB8B">
+<link rel="preload" href="assets/fonts/inter-opsz-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js" defer></script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-twotone.svg" alt="Checkmate Dynamics" height="21"></a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <div class="nav-item has-menu">
+        <a href="products.html" data-nav="products" aria-haspopup="true"><sup>01</sup>Products</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Products menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Products</p>
+            <p>Complete nodes in four families. Each one works alone and joins the same USB-C bus.</p>
+            <a class="link small" href="products.html">Full index</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">A — Move</span>
+            <a href="smartstepper-17.html"><strong>SmartStepper 17</strong><span>Closed-loop NEMA 17</span></a>
+            <a href="smartservo-g.html"><strong>SmartServo G</strong><span>Brushless servo node</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">B — Sense</span>
+            <a href="contour.html"><strong>Contour</strong><span>Time-of-flight depth</span></a>
+            <a href="contour.html#wrist"><strong>Contour Wrist</strong><span>Depth at the gripper</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">C — Sync</span>
+            <a href="sync-kit.html"><strong>Sync Beacon</strong><span>Station timing instrument</span></a>
+            <a href="sync-kit.html#report"><strong>Station Report</strong><span>Per-episode certificate</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">D — Power &amp; connect</span>
+            <a href="hub-8.html"><strong>Hub 8</strong><span>Eight-port node hub</span></a>
+            <a href="hub-8.html#cable"><strong>Bus cable</strong><span>Power, USB and CAN</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="makers.html" data-nav="makers"><sup>02</sup>Makers</a></div>
+      <div class="nav-item has-menu">
+        <a href="stations.html" data-nav="stations" aria-haspopup="true"><sup>03</sup>Stations</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Stations menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Stations</p>
+            <p>Hardware and service for teleoperation data floors, built from the nodes we sell.</p>
+            <a class="link small" href="stations.html">Overview</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Sync QA</span>
+            <a href="sync-kit.html"><strong>Sync Kit</strong><span>Beacon + Contour Wrist</span></a>
+            <a href="stations.html#audit"><strong>Skew Audit</strong><span>One station, one week</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Teleoperation</span>
+            <a href="leader.html"><strong>Checkmate Leader</strong><span>Motorized leader arm</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Service</span>
+            <a href="stations.html#commissioning"><strong>Commissioning</strong><span>New rigs, signed off</span></a>
+            <a href="stations.html#service"><strong>Service plans</strong><span>Spares and reports</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="components.html" data-nav="components"><sup>04</sup>Components</a></div>
+      <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
+      <div class="nav-cta">
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking>Book a call</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="cover cm-grid">
+  <div class="cover-art" aria-hidden="true"><img src="assets/svg/contour-edge.svg" alt="" width="300" height="900"></div>
+  <div class="wrap">
+    <div class="ph-meta"><span class="label">Robotics hardware — Dallas, Texas</span><span class="label">Catalog rev. 2026.10</span></div>
+    <div class="cover-main">
+      <h1 class="d1 xl balance">Built as nodes. Measured like instruments.</h1>
+    </div>
+    <div class="cover-foot grid">
+      <p class="lede">Motor, sensing and sync nodes on one USB-C bus. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them.</p>
+      <div class="btns">
+        <a class="btn btn-ink" href="products.html">View the index</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking>Book a call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush" style="padding-top:var(--s-9);padding-bottom:var(--s-9)">
+  <div class="wrap">
+    <div class="parts" style="--cols: .8fr .8fr .8fr 1.6fr">
+      <figure class="part"><div class="plate zm ar45" style="--z:1.05;--cx:51.2;--cy:51.3"><img src="assets/img/ss17-node-hero-1200.webp" srcset="assets/img/ss17-node-hero-1200.webp 1200w, assets/img/ss17-node-hero.webp 2400w" sizes="(max-width: 800px) 90vw, 30vw" width="2400" height="1600" alt="SmartStepper 17 · 25:1 node"></div><figcaption><b>A1.3</b><span>SmartStepper 17 · <span class="mono">25:1</span></span></figcaption></figure>
+      <figure class="part"><div class="plate zm ar45" style="--z:1;--cx:51.9;--cy:52.6"><img src="assets/img/ssg-2804-1200.webp" srcset="assets/img/ssg-2804-1200.webp 1200w, assets/img/ssg-2804.webp 2400w" sizes="(max-width: 800px) 90vw, 30vw" width="2400" height="1600" alt="SmartServo G-2804 node"></div><figcaption><b>A2.3</b><span>G-2804 · <span class="mono">20:1</span></span></figcaption></figure>
+      <figure class="part"><div class="plate zm ar45" style="--z:.9;--cx:51.3;--cy:56.9"><img src="assets/img/ssg-5208-1200.webp" srcset="assets/img/ssg-5208-1200.webp 1200w, assets/img/ssg-5208.webp 2400w" sizes="(max-width: 800px) 90vw, 30vw" width="2400" height="1600" alt="SmartServo G-5208 node"></div><figcaption><b>A2.5</b><span>G-5208 · <span class="mono">25:1</span></span></figcaption></figure>
+      <figure class="part"><div class="plate zm ar85" style="--z:1.15;--cx:50;--cy:50"><img src="assets/img/hub8-hero-1200.webp" srcset="assets/img/hub8-hero-1200.webp 1200w, assets/img/hub8-hero.webp 2400w" sizes="(max-width: 800px) 90vw, 50vw" width="2400" height="1600" alt="Hub 8 Pro"></div><figcaption><b>D1</b><span>Hub 8 Pro</span></figcaption></figure>
+    </div>
+    <p class="fine mt-s">Fig. 01 — Three motor nodes and the hub, as listed below. Concept renders.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="grid sec-head">
+      <div class="c1-3 sec-index"><b>01</b>Index</div>
+      <div class="c4-10">
+        <h2 class="d2 balance">Everything we make, in one list.</h2>
+        <p class="lede">Prices are planned list prices. Nothing is on sale yet; registered interest decides what ships first.</p>
+      </div>
+    </div>
+    <div class="index">
+      <div class="index-row head"><span>No.</span><span>Product</span><span>For</span><span>Description</span><span class="right">USD</span><span></span></div>
+      <div class="index-group">A <span>Move</span></div>
+      <a class="index-row" href="smartstepper-17.html"><span class="no">A1.1</span><span class="name">SmartStepper 17 Board</span><span class="fam">Makers · OEM</span><span class="use">Closed-loop controller for your own NEMA 17</span><span class="pr">79<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartstepper-17.html"><span class="no">A1.2</span><span class="name">SmartStepper 17 · Direct</span><span class="fam">Makers · OEM</span><span class="use">Direct drive on a calibrated NEMA 17, housed</span><span class="pr">169<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartstepper-17.html"><span class="no">A1.3</span><span class="name">SmartStepper 17 · <span class="mono">25:1</span></span><span class="fam">Makers · OEM</span><span class="use">Metal cycloidal reducer and output encoder</span><span class="pr">279<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html"><span class="no">A2.1</span><span class="name">SmartServo G Board</span><span class="fam">Makers · OEM</span><span class="use">FOC servo board for 2804 and 5208 gimbal motors</span><span class="pr">89<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html"><span class="no">A2.2</span><span class="name">G-2804 · Direct</span><span class="fam">Makers · OEM</span><span class="use">Direct drive, no gearbox, no backlash</span><span class="pr">159<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html"><span class="no">A2.3</span><span class="name">G-2804 · <span class="mono">20:1</span></span><span class="fam">All</span><span class="use">Cycloidal, output encoder, I/O tile</span><span class="pr">249<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html"><span class="no">A2.4</span><span class="name">G-5208 · Direct</span><span class="fam">Makers · OEM</span><span class="use">Direct drive, larger motor, for haptics and test benches</span><span class="pr">249<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html"><span class="no">A2.5</span><span class="name">G-5208 · <span class="mono">25:1</span></span><span class="fam">All</span><span class="use">Cycloidal, output encoder, I/O tile</span><span class="pr">399<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <div class="index-group">B <span>Sense</span></div>
+      <a class="index-row" href="contour.html"><span class="no">B1</span><span class="name">Contour</span><span class="fam">Makers · OEM</span><span class="use">Time-of-flight depth over USB-C</span><span class="pr">Register interest</span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="contour.html#wrist"><span class="no">B2</span><span class="name">Contour Wrist</span><span class="fam">Stations</span><span class="use">Depth at the gripper, on the station clock</span><span class="pr">In Sync Kit</span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html#accessories"><span class="no">B3</span><span class="name">Output encoder</span><span class="fam">Makers · OEM</span><span class="use">Reads a reducer’s output angle directly</span><span class="pr">29<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <div class="index-group">C <span>Sync</span></div>
+      <a class="index-row" href="sync-kit.html"><span class="no">C1</span><span class="name">Sync Beacon · Sync Kit</span><span class="fam">Stations · OEM</span><span class="use">Station timing instrument and per-episode report. Patent pending</span><span class="pr">From 1,490<small>planned / station</small></span><span class="go" aria-hidden="true"></span></a>
+      <div class="index-group">D <span>Power &amp; connect</span></div>
+      <a class="index-row" href="hub-8.html"><span class="no">D1</span><span class="name">Hub 8 Pro</span><span class="fam">Stations · OEM</span><span class="use">Eight node ports, per-port power and CAN, e-stop</span><span class="pr">399<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="hub-8.html#cable"><span class="no">D2</span><span class="name">Bus cable</span><span class="fam">All</span><span class="use">Power, USB and CAN on one USB-C cable</span><span class="pr">In the box</span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="smartservo-g.html#accessories"><span class="no">D3</span><span class="name">I/O tile</span><span class="fam">Makers · OEM</span><span class="use">Qwiic and AUX ports for SmartServo G</span><span class="pr">19<small>planned</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="hub-8.html#cable"><span class="no">D4</span><span class="name">Cable Clip</span><span class="fam">All</span><span class="use">Anodized 6061 clamp that holds the USB-C cable in its port</span><span class="pr">9<small>or in the box</small></span><span class="go" aria-hidden="true"></span></a>
+      <div class="index-group">E <span>Systems</span></div>
+      <a class="index-row" href="leader.html"><span class="no">E1</span><span class="name">Checkmate Leader</span><span class="fam">Stations</span><span class="use">Motorized leader arm made of SmartServo G nodes</span><span class="pr">2,990<small>planned / arm</small></span><span class="go" aria-hidden="true"></span></a>
+      <a class="index-row" href="stations.html#commissioning"><span class="no">E2</span><span class="name">Station commissioning</span><span class="fam">Stations</span><span class="use">New rigs measured and signed off in sync</span><span class="pr">On call</span><span class="go" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="grid sec-head">
+      <div class="c1-3 sec-index"><b>02</b>Three ways in</div>
+      <div class="c4-10"><h2 class="d2 balance">The same parts, sold three ways.</h2></div>
+    </div>
+    <div class="doors">
+      <a class="door" href="makers.html">
+        <span class="n">01</span>
+        <span class="label">Makers, students, labs</span>
+        <h3 class="d3">Build your own robot</h3>
+        <p>Complete motor nodes that set up in a browser and script from Python. Planned prices. Register your interest.</p>
+        <span class="go">Register interest</span>
+      </a>
+      <a class="door" href="stations.html">
+        <span class="n">02</span>
+        <span class="label">Robot data floors</span>
+        <h3 class="d3">Run better stations</h3>
+        <p>Sync QA on every episode, a motorized leader arm, commissioning and service plans.</p>
+        <span class="go">Book a call</span>
+      </a>
+      <a class="door" href="components.html">
+        <span class="n">03</span>
+        <span class="label">Robotics companies</span>
+        <h3 class="d3">Build us into yours</h3>
+        <p>Nodes, hub, depth and sync modules supplied with per‑unit test records and engineering support.</p>
+        <span class="go">Talk to us</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec stmt">
+  <div class="edge" aria-hidden="true"><img src="assets/svg/contour-edge.svg" alt="" width="300" height="900" loading="lazy"></div>
+  <div class="wrap">
+    <div class="sec-index"><b>03</b>System</div>
+    <h2 class="d1 balance">One cable per device.</h2>
+    <div class="grid sec-head" style="margin-bottom:var(--s-8)">
+      <div class="c1-3"></div>
+      <div class="c4-10">
+        <p class="lede">Each node’s own USB-C port is the bus: power negotiated over PD, USB to a computer, and CAN to everything else. On a bench, a phone charger runs one node. On a floor, a Hub 8 Pro runs eight.</p>
+      </div>
+    </div>
+    <div class="diagram-stack" aria-label="Bus topology">
+      <div class="index">
+        <div class="index-row"><span class="no">A1</span><span class="name">SmartStepper 17</span><span class="fam"></span><span class="use">USB-C, PD + USB + CAN <span class="mono">1 Mbit/s</span></span><span class="pr"></span><span class="go"></span></div>
+        <div class="index-row"><span class="no">A2</span><span class="name">SmartServo G × n</span><span class="fam"></span><span class="use">USB-C, CAN-FD</span><span class="pr"></span><span class="go"></span></div>
+        <div class="index-row"><span class="no">B1</span><span class="name">Contour</span><span class="fam"></span><span class="use">USB-C, depth and sync in</span><span class="pr"></span><span class="go"></span></div>
+        <div class="index-row"><span class="no">C1</span><span class="name">Sync Beacon</span><span class="fam"></span><span class="use">USB-C, station clock</span><span class="pr"></span><span class="go"></span></div>
+        <div class="index-row"><span class="no">D1</span><span class="name">Hub 8 Pro</span><span class="fam"></span><span class="use">8 node ports with PD per port, 2 accessory ports, CAN star with isolated ports, <span class="mono">20 V</span> motor rail, E-stop in</span><span class="pr"></span><span class="go"></span></div>
+        <div class="index-row"><span class="no">PC</span><span class="name">Host PC</span><span class="fam"></span><span class="use">One USB device. Python SDK, ROS 2, LeRobot, MCAP</span><span class="pr"></span><span class="go"></span></div>
+      </div>
+    </div>
+    <div class="diagram-scroll">
+      <svg class="diagram" viewBox="0 0 1200 420" role="img" aria-label="System diagram: SmartStepper, SmartServo G, Contour and Sync Beacon each connect by one USB-C cable to Hub 8 Pro, which connects by USB to the host PC.">
+        <g>
+          <rect class="box" x="0.5" y="20.5" width="250" height="60"/><text class="t-ink" x="18" y="48">SmartStepper 17</text><text x="18" y="68">A1 · CAN 1 Mbit/s</text>
+          <rect class="box" x="0.5" y="110.5" width="250" height="60"/><text class="t-ink" x="18" y="138">SmartServo G × n</text><text x="18" y="158">A2 · CAN-FD</text>
+          <rect class="box" x="0.5" y="200.5" width="250" height="60"/><text class="t-ink" x="18" y="228">Contour</text><text x="18" y="248">B1 · depth + sync in</text>
+          <rect class="box" x="0.5" y="290.5" width="250" height="60"/><text class="t-ink" x="18" y="318">Sync Beacon</text><text x="18" y="338">C1 · station clock</text>
+          <rect class="box-dim" x="0.5" y="374.5" width="250" height="40"/><text x="18" y="399">Bench: one node + USB-C charger</text>
+        </g>
+        <g>
+          <path class="wire" d="M251 50.5 H380 V140.5 H520"/>
+          <path class="wire" d="M251 140.5 H360 V170.5 H520"/>
+          <path class="wire" d="M251 230.5 H360 V250.5 H520"/>
+          <path class="wire" d="M251 320.5 H380 V280.5 H520"/>
+          <rect class="sig" x="517.0" y="137.5" width="6" height="6"/><rect class="sig" x="517.0" y="167.5" width="6" height="6"/><rect class="sig" x="517.0" y="247.5" width="6" height="6"/><rect class="sig" x="517.0" y="277.5" width="6" height="6"/>
+          <text x="268" y="40">USB-C · PD + USB + CAN</text>
+          <text x="392" y="215">node ports</text><text x="392" y="300">accessory ports</text>
+        </g>
+        <g>
+          <rect class="box" x="520.5" y="100.5" width="230" height="220"/>
+          <text class="t-ink" x="540" y="130">Hub 8 Pro</text><text x="540" y="150">D1</text>
+          <text x="540" y="205">8 node ports, PD each</text>
+          <text x="540" y="225">2 accessory ports</text>
+          <text x="540" y="245">CAN star, ports isolated</text>
+          <text x="540" y="265">20 V motor rail</text>
+          <text x="540" y="300">E-stop in</text>
+          <path class="wire-dim" d="M635 320.5 V380.5 H700"/><rect class="box-dim" x="700.5" y="362.5" width="150" height="36"/><text x="716" y="385">E-stop pendant</text>
+        </g>
+        <g>
+          <path class="wire" d="M751 210.5 H930"/><rect class="sig" x="927.0" y="207.5" width="6" height="6"/>
+          <text x="772" y="200">USB · one device</text><text x="772" y="232">SocketCAN on Linux</text>
+          <rect class="box" x="930.5" y="160.5" width="268" height="100"/>
+          <text class="t-ink" x="950" y="190">Host PC</text>
+          <text x="950" y="214">Python SDK</text><text x="950" y="232">ROS 2 · LeRobot · MCAP</text>
+        </g>
+      </svg>
+    </div>
+    <p class="fine mt-m">Fig. 02 — Bus topology. Hub 8 Pro ports are point-to-point segments, so a damaged cable is cut off without stopping the others.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid pair">
+    <div class="c1-3 sec-index"><b>04</b>Test card</div>
+    <div class="c4-8 copy">
+      <h2 class="d2 balance">Every unit ships with its own numbers.</h2>
+      <p class="lede">Each node is calibrated and measured at final test, and the results go in the box and stay on the node. We publish measured values. Anything we haven’t measured yet is marked as a target.</p>
+      <ul class="list">
+        <li>Encoder calibration stored on the node, not in a laptop’s config file</li>
+        <li>Backlash, backdrive and torque recorded per serial number</li>
+        <li>The same record goes to makers, OEM customers and our own stations</li>
+      </ul>
+    </div>
+    <div class="c9-12">
+      <div class="card-doc" aria-label="Example test card layout">
+        <div class="top"><div><strong>Unit test card</strong>SmartServo G-2804 · <span class="mono">20:1</span></div><span class="stamp">Illustrative</span></div>
+        <div class="row"><span>Serial</span><span class="v">CM-A23-000127</span><span class="s"></span></div>
+        <div class="row"><span>Encoder calibration</span><span class="v"><span class="mono">16,384 counts</span>/turn</span><span class="s">at test</span></div>
+        <div class="row"><span>Backlash, output</span><span class="v"><span class="mono">4.6 arcmin</span></span><span class="s">at test</span></div>
+        <div class="row"><span>Backdrive, unpowered</span><span class="v"><span class="mono">0.21 N·m</span></span><span class="s">at test</span></div>
+        <div class="row"><span>Continuous torque, <span class="mono">20 V</span></span><span class="v"><span class="mono">0.93 N·m</span></span><span class="s">at test</span></div>
+        <div class="row"><span>Thermal soak, <span class="mono">30 min</span></span><span class="v"><span class="mono">41 °C</span></span><span class="s">at test</span></div>
+        <div class="row"><span>PD contract</span><span class="v"><span class="mono">20 V</span></span><span class="s">at test</span></div>
+        <div class="foot"><span>Illustrative values. Each unit’s real values are measured at final test.</span><span>Dallas, TX</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec night">
+  <div class="wrap">
+    <div class="grid sec-head">
+      <div class="c1-3 sec-index"><b>05</b>Assembled</div>
+      <div class="c4-10">
+        <h2 class="d2 balance">Our station hardware is made of this catalog.</h2>
+        <p class="lede">A floor’s spare part is a node from the index above, and a repair is a swap. Each system below is a list of catalog numbers plus a little structure.</p>
+      </div>
+    </div>
+    <div class="compose">
+      <div class="row">
+        <span class="no">E1</span><span class="name">Checkmate Leader</span>
+        <div class="eq"><a href="smartservo-g.html">A2.2 · A2.3 · A2.5 nodes</a><i aria-hidden="true">+</i><a href="hub-8.html">D1 Hub 8 Pro</a><i aria-hidden="true">+</i><span class="pt dim">links, base, handle</span></div>
+      </div>
+      <div class="row">
+        <span class="no">C1</span><span class="name">Sync Kit</span>
+        <div class="eq"><a href="sync-kit.html">C1 Sync Beacon</a><i aria-hidden="true">+</i><a href="contour.html#wrist">B2 Contour Wrist</a><i aria-hidden="true">+</i><span class="pt dim">the same bus</span></div>
+      </div>
+    </div>
+    <div class="btns mt-m"><a class="btn btn-ink" href="leader.html">Checkmate Leader</a><a class="btn btn-line" href="sync-kit.html">Sync Kit</a></div>
+  </div>
+</section>
+
+<section class="closer">
+  <div class="wrap grid">
+    <h2 class="c1-8 d2 balance">Nothing ships yet. Tell us what you’re building.</h2>
+    <div class="c9-12" style="align-self:end">
+      <p class="small muted">Makers register interest. Data floors book a call. Robotics companies talk to engineering.</p>
+      <div class="btns"><a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a><a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking>Book a call</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid foot-grid">
+      <div class="c1-4">
+        <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-twotone.svg" alt="Checkmate Dynamics" height="21"></a>
+        <p>Motion, sensing and sync nodes for robotics. Designed and tested in Dallas, Texas.</p>
+      </div>
+      <div class="c5-12 foot-links">
+        <div>
+          <span class="label">Move · Sense</span>
+          <a href="smartstepper-17.html">SmartStepper 17</a>
+          <a href="smartservo-g.html">SmartServo G</a>
+          <a href="contour.html">Contour</a>
+        </div>
+        <div>
+          <span class="label">Sync · Connect</span>
+          <a href="sync-kit.html">Sync Beacon</a>
+          <a href="hub-8.html">Hub 8</a>
+          <a href="hub-8.html#cable">Bus cable</a>
+        </div>
+        <div>
+          <span class="label">Stations &amp; kit</span>
+          <a href="makers.html">Makers</a>
+          <a href="stations.html">Stations</a>
+          <a href="leader.html">Checkmate Leader</a>
+          <a href="components.html">Components</a>
+        </div>
+        <div>
+          <span class="label">Company</span>
+          <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
+          <a href="company.html">About</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call">Book a call</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry">Talk to us</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas · <span class="mono">32.78°</span> N <span class="mono">96.80°</span> W</span>
+      <span class="fine">Images are concept renders. Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are planned. No cookies, no analytics.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
