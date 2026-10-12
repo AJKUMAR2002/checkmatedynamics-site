@@ -16,6 +16,8 @@ A Sync Beacon and Contour Wrist for each station. The beacon checks independentl
 
 Planned prices. Patent pending.
 
+**Fig. 01** Sync Beacon, operating Concept render
+
 **Station Report** episode 000127 · station B-04
 
 Gold
@@ -133,7 +135,7 @@ Metric contact-range geometry next to your RGB wrist camera: under 40 g (target)
 
 Contour Wrist | **30 Hz** | depth · USB-C · sync in
 
-**Fig. 01** Contour Wrist at a glance Specification
+**Fig. 02** Contour Wrist at a glance Specification
 
 Related: [Stations](https://checkmatedynamics.com/stations.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Checkmate Leader](https://checkmatedynamics.com/leader.html)
 

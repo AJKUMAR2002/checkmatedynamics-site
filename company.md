@@ -74,7 +74,7 @@ Makers
 
 Hear first when nodes go on sale.
 
-Waitlist
+Register interest
 
 Data floors
 
@@ -82,7 +82,7 @@ Data floors
 
 Sync Kit, Leader, commissioning, service.
 
-Book
+Book a call
 
 Robotics companies
 
@@ -90,4 +90,4 @@ Robotics companies
 
 Components, OEM modules, engineering support.
 
-Quote
+Talk to us

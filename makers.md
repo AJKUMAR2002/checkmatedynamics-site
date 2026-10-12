@@ -8,7 +8,11 @@ Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
 
-**Fig. 01** SmartServo G-2804 · 20:1 and G-5208 · 25:1, side elevation Concept render
+**A2.3 · A2.5** SmartServo G · G-2804 20:1 and G-5208 25:1
+
+**A1.3** SmartStepper 17 · 25:1, on its bus cable
+
+Fig. 01 — Two SmartServo G nodes in side elevation, and a SmartStepper 17 on its USB-C cable with a Cable Clip. Concept renders.
 
 **01** Why nodes
 

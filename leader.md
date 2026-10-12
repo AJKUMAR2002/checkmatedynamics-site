@@ -16,13 +16,9 @@ Planned prices. Nothing can be ordered or paid for on this site yet; register yo
 
 **Leader Care plan** | Per pair: spare nodes, replacement, reports | **USD 249 / mo**
 
-**A2.3** G-2804 · 20:1
+*D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
-**A2.5** G-5208 · 25:1
-
-**D1** Hub 8 Pro
-
-Fig. 01 — The catalog parts the Leader is built from, as sold. Links, base and handle are Leader-specific and not shown. Concept renders.
+Fig. 01 — Eight SmartServo G nodes on one Hub 8 Pro: the catalog parts the Leader is built from, as sold. The arm is not shown; links, base and handle are Leader-specific. Concept render.
 
 **01** Operator
 

@@ -71,9 +71,9 @@ The Leader is SmartServo G nodes on a Hub 8 Pro. The Sync Kit is a Sync Beacon a
 - Repair is a node swap measured in minutes
 - Calibration and history stay with each node
 
-*A2.3 · G-2804 · 20:1* *One node, one test card*
+*D1 · Hub 8 Pro* *One node, one test card*
 
-**Fig. 01** One node: the unit that sits on the shelf Concept render
+**Fig. 01** Eight nodes on one hub: each is a spare part Concept render
 
 **05** Service
 

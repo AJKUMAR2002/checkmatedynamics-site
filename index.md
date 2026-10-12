@@ -126,6 +126,10 @@ Illustrative values. Each unit’s real values are measured at final test. | Dal
 
 A floor’s spare part is a node from the index above, and a repair is a swap. Each system below is a list of catalog numbers plus a little structure.
 
+*D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
+
+**Fig. 03** Eight nodes on one Hub 8 Pro. No arm: the catalog parts only Concept render
+
 E1 Checkmate Leader
 
 [A2.2 · A2.3 · A2.5 nodes](https://checkmatedynamics.com/smartservo-g.html) | [D1 Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) | links, base, handle

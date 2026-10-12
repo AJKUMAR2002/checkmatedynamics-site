@@ -134,6 +134,10 @@ Illustrative values. Each unit’s real values are measured at final test. | Dal
 
 A floor’s spare part is a node from the index above, and a repair is a swap. Each system below is a list of catalog numbers plus a little structure.
 
+*D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
+
+**Fig. 03** Eight nodes on one Hub 8 Pro. No arm: the catalog parts only Concept render
+
 E1 Checkmate Leader
 
 [A2.2 · A2.3 · A2.5 nodes](https://checkmatedynamics.com/smartservo-g.html) | [D1 Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) | links, base, handle
@@ -837,6 +841,8 @@ A Sync Beacon and Contour Wrist for each station. The beacon checks independentl
 
 Planned prices. Patent pending.
 
+**Fig. 01** Sync Beacon, operating Concept render
+
 **Station Report** episode 000127 · station B-04
 
 Gold
@@ -954,7 +960,7 @@ Metric contact-range geometry next to your RGB wrist camera: under 40 g (target)
 
 Contour Wrist | **30 Hz** | depth · USB-C · sync in
 
-**Fig. 01** Contour Wrist at a glance Specification
+**Fig. 02** Contour Wrist at a glance Specification
 
 Related: [Stations](https://checkmatedynamics.com/stations.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Checkmate Leader](https://checkmatedynamics.com/leader.html)
 
@@ -984,13 +990,9 @@ Planned prices. Nothing can be ordered or paid for on this site yet; register yo
 
 **Leader Care plan** | Per pair: spare nodes, replacement, reports | **USD 249 / mo**
 
-**A2.3** G-2804 · 20:1
+*D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
-**A2.5** G-5208 · 25:1
-
-**D1** Hub 8 Pro
-
-Fig. 01 — The catalog parts the Leader is built from, as sold. Links, base and handle are Leader-specific and not shown. Concept renders.
+Fig. 01 — Eight SmartServo G nodes on one Hub 8 Pro: the catalog parts the Leader is built from, as sold. The arm is not shown; links, base and handle are Leader-specific. Concept render.
 
 **01** Operator
 
@@ -1150,9 +1152,9 @@ The Leader is SmartServo G nodes on a Hub 8 Pro. The Sync Kit is a Sync Beacon a
 - Repair is a node swap measured in minutes
 - Calibration and history stay with each node
 
-*A2.3 · G-2804 · 20:1* *One node, one test card*
+*D1 · Hub 8 Pro* *One node, one test card*
 
-**Fig. 01** One node: the unit that sits on the shelf Concept render
+**Fig. 01** Eight nodes on one hub: each is a spare part Concept render
 
 **05** Service
 
@@ -1242,7 +1244,11 @@ Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
 
-**Fig. 01** SmartServo G-2804 · 20:1 and G-5208 · 25:1, side elevation Concept render
+**A2.3 · A2.5** SmartServo G · G-2804 20:1 and G-5208 25:1
+
+**A1.3** SmartStepper 17 · 25:1, on its bus cable
+
+Fig. 01 — Two SmartServo G nodes in side elevation, and a SmartStepper 17 on its USB-C cable with a Cable Clip. Concept renders.
 
 **01** Why nodes
 
@@ -1574,7 +1580,7 @@ Makers
 
 Hear first when nodes go on sale.
 
-Waitlist
+Register interest
 
 Data floors
 
@@ -1582,7 +1588,7 @@ Data floors
 
 Sync Kit, Leader, commissioning, service.
 
-Book
+Book a call
 
 Robotics companies
 
@@ -1590,7 +1596,7 @@ Robotics companies
 
 Components, OEM modules, engineering support.
 
-Quote
+Talk to us
 
 ---
 

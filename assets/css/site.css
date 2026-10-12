@@ -482,13 +482,15 @@ body.nav-open { overflow: hidden; }
 /* ---------- zoomed plates: the same render, framed tighter (never re-rendered, never recoloured) ----------
    --ar plate aspect (w/h as a number), --z zoom (1 = image height fills the plate), --cx/--cy image point at the centre (% of the 3:2 render).
    Callouts keep render coordinates: --ox/--sx map them into the plate. */
-.plate.zm { overflow: hidden; --z: 1; --cx: 50; --cy: 50; --ar: 1;
-  --wi: calc(var(--z) * 150 / var(--ar)); --hi: calc(var(--z) * 100);
+.plate.zm { overflow: hidden; --z: 1; --cx: 50; --cy: 50; --ar: 1; --ia: 1.5;
+  --wi: calc(var(--z) * var(--ia) * 100 / var(--ar)); --hi: calc(var(--z) * 100);
   --ox: calc(50 - var(--cx) * var(--wi) / 100); --sx: calc(var(--wi) / 100);
   --oy: calc(50 - var(--cy) * var(--hi) / 100); --sy: calc(var(--hi) / 100); aspect-ratio: var(--ar); }
 .plate.zm > img { position: absolute; max-width: none; object-fit: fill;
   width: calc(var(--wi) * 1%); height: calc(var(--hi) * 1%);
   left: calc(50% - var(--cx) * var(--wi) / 100 * 1%); top: calc(50% - var(--cy) * var(--hi) / 100 * 1%); }
+/* --ia is the source image's aspect: 3:2 renders (default), 4:5 tall crops (.src45) and 1:1 crops (.src11); build.py adds the class from the real image size. */
+.plate.src45 { --ia: 0.8; } .plate.src11 { --ia: 1; }
 .plate.ar45 { --ar: 0.8; } .plate.ar11 { --ar: 1; } .plate.ar43 { --ar: 1.3333; } .plate.ar85 { --ar: 1.6; }
 
 /* ---------- cover (home hero): the kit's cover, grid + contour edge + display statement ---------- */
@@ -513,6 +515,8 @@ body.nav-open { overflow: hidden; }
 .part figcaption b { display: block; margin: 0 0 6px; font-weight: 500; color: var(--champagne); }
 .part figcaption span:not(.mono) { display: block; font: 400 var(--fs-small)/1.4 var(--font-sans); color: var(--ivory); letter-spacing: 0; }
 @media (max-width: 800px) { .parts { grid-template-columns: repeat(2, 1fr) !important; } .part:nth-child(odd) { border-left: 0; } .part:nth-child(n+3) { border-top: 1px solid var(--line); } .part:nth-child(3):last-child { grid-column: 1 / -1; } }
+
+@media (max-width: 560px) { .parts.stack { grid-template-columns: 1fr !important; } .parts.stack .part + .part { border-left: 0; border-top: 1px solid var(--line); } }
 
 /* ---------- composition list: what a system is made of, as catalogue numbers ---------- */
 .compose { border-top: 1px solid var(--line-2); }
