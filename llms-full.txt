@@ -1,0 +1,1625 @@
+# Checkmate Dynamics: full site text
+
+> Motor, sensing and sync nodes on one USB-C bus, from a robotics hardware company in Dallas, Texas. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Nothing can be ordered or paid for on this site yet; prices are planned.
+
+Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are planned list prices in USD. Images are concept renders. Every page has a markdown version at the same address ending in .md.
+
+---
+
+# Built as nodes. Measured like instruments.
+
+Source: https://checkmatedynamics.com/
+
+Robotics hardware — Dallas, Texas | Catalog rev. 2026.10
+
+Motor, sensing and sync nodes on one USB-C bus. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them.
+
+[View the index](https://checkmatedynamics.com/products.html) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+
+**A1.3** SmartStepper 17 · 25:1
+
+**A2.3** G-2804 · 20:1
+
+**A2.5** G-5208 · 25:1
+
+**D1** Hub 8 Pro
+
+Fig. 01 — Three motor nodes and the hub, as listed below. Concept renders.
+
+**01** Index
+
+## Everything we make, in one list.
+
+Prices are planned list prices. Nothing is on sale yet; registered interest decides what ships first.
+
+| No. | Product | For | Description | USD |
+|---|---|---|---|---|
+| A1.1 | SmartStepper 17 Board | Makers · OEM | Closed-loop controller for your own NEMA 17 | 79 planned |
+| A1.2 | SmartStepper 17 · Direct | Makers · OEM | Direct drive on a calibrated NEMA 17, housed | 169 planned |
+| A1.3 | SmartStepper 17 · 25:1 | Makers · OEM | Metal cycloidal reducer and output encoder | 279 planned |
+| A2.1 | SmartServo G Board | Makers · OEM | FOC servo board for 2804 and 5208 gimbal motors | 89 planned |
+| A2.2 | G-2804 · Direct | Makers · OEM | Direct drive, no gearbox, no backlash | 159 planned |
+| A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | 249 planned |
+| A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | 249 planned |
+| A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | 399 planned |
+| B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
+| B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | In Sync Kit |
+| B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | 29 planned |
+| C1 | Sync Beacon · Sync Kit | Stations · OEM | Station timing instrument and per-episode report. Patent pending | From 1,490 planned / station |
+| D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | 399 planned |
+| D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
+| D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | 19 planned |
+| D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | 9 or in the box |
+| E1 | Checkmate Leader | Stations | Motorized leader arm made of SmartServo G nodes | 2,990 planned / arm |
+| E2 | Station commissioning | Stations | New rigs measured and signed off in sync | On call |
+
+**02** Three ways in
+
+## The same parts, sold three ways.
+
+01 Makers, students, labs
+
+### Build your own robot
+
+Complete motor nodes that set up in a browser and script from Python. Planned prices. Register your interest.
+
+Register interest
+
+02 Robot data floors
+
+### Run better stations
+
+Sync QA on every episode, a motorized leader arm, commissioning and service plans.
+
+Book a call
+
+03 Robotics companies
+
+### Build us into yours
+
+Nodes, hub, depth and sync modules supplied with per‑unit test records and engineering support.
+
+Talk to us
+
+**03** System
+
+## One cable per device.
+
+Each node’s own USB-C port is the bus: power negotiated over PD, USB to a computer, and CAN to everything else. On a bench, a phone charger runs one node. On a floor, a Hub 8 Pro runs eight.
+
+|  |  |  |  |  |
+|---|---|---|---|---|
+| A1 | SmartStepper 17 |  | USB-C, PD + USB + CAN 1 Mbit/s |  |
+| A2 | SmartServo G × n |  | USB-C, CAN-FD |  |
+| B1 | Contour |  | USB-C, depth and sync in |  |
+| C1 | Sync Beacon |  | USB-C, station clock |  |
+| D1 | Hub 8 Pro |  | 8 node ports with PD per port, 2 accessory ports, CAN star with isolated ports, 20 V motor rail, E-stop in |  |
+| PC | Host PC |  | One USB device. Python SDK, ROS 2, LeRobot, MCAP |  |
+
+Fig. 02 — Bus topology. Hub 8 Pro ports are point-to-point segments, so a damaged cable is cut off without stopping the others.
+
+**04** Test card
+
+## Every unit ships with its own numbers.
+
+Each node is calibrated and measured at final test, and the results go in the box and stay on the node. We publish measured values. Anything we haven’t measured yet is marked as a target.
+
+- Encoder calibration stored on the node, not in a laptop’s config file
+- Backlash, backdrive and torque recorded per serial number
+- The same record goes to makers, OEM customers and our own stations
+
+**Unit test card** SmartServo G-2804 · 20:1
+
+Illustrative
+
+Serial | CM-A23-000127
+
+Encoder calibration | 16,384 counts/turn | at test
+
+Backlash, output | 4.6 arcmin | at test
+
+Backdrive, unpowered | 0.21 N·m | at test
+
+Continuous torque, 20 V | 0.93 N·m | at test
+
+Thermal soak, 30 min | 41 °C | at test
+
+PD contract | 20 V | at test
+
+Illustrative values. Each unit’s real values are measured at final test. | Dallas, TX
+
+**05** Assembled
+
+## Our station hardware is made of this catalog.
+
+A floor’s spare part is a node from the index above, and a repair is a swap. Each system below is a list of catalog numbers plus a little structure.
+
+E1 Checkmate Leader
+
+[A2.2 · A2.3 · A2.5 nodes](https://checkmatedynamics.com/smartservo-g.html) | [D1 Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) | links, base, handle
+
+C1 Sync Kit
+
+[C1 Sync Beacon](https://checkmatedynamics.com/sync-kit.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
+
+[Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+
+## Nothing ships yet. Tell us what you’re building.
+
+Makers register interest. Data floors book a call. Robotics companies talk to engineering.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+
+---
+
+# One family of nodes.
+
+Source: https://checkmatedynamics.com/products.html
+
+Products | Four families · one bus
+
+Every product is a finished unit that works on its own and joins the same USB-C bus as the rest. Learn one and you know the next: same cable, same status light, same app.
+
+**A** Move
+
+## Motor nodes with everything inside.
+
+Driver, encoder, controller and gearbox built in and calibrated as one unit. Reducers are part of the nodes, not separate parts.
+
+**A1** SmartStepper 17 From USD 79 planned
+
+Closed-loop NEMA 17. Board, direct-drive node, or with a 25:1 metal cycloidal.
+
+**A2** SmartServo G From USD 89 planned
+
+Brushless servo for 2804 and 5208 gimbal motors, direct drive or cycloidal. The Leader’s joints.
+
+**B** Sense
+
+## The scene around the robot, the angle inside the joint.
+
+Contour | **54 × 42 zones**
+
+Diagram
+
+**B1–B2** Contour, Contour Wrist Waitlist
+
+Metric time-of-flight depth over USB-C, synced to your cameras. The Wrist version rides on the gripper.
+
+**B3** Output encoder USD 29 planned
+
+Reads a reducer’s output angle directly. Standard on geared nodes, sold for retrofit.
+
+**C** Sync
+
+## An instrument for the station.
+
+The Sync Beacon doesn’t measure the scene or a joint. It checks that every other stream agrees on time, independently of the recorder, and certifies each episode. That’s why it has a family of its own.
+
+[Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+
+From USD 1,490 per station, planned. Patent pending.
+
+**Station Report** episode 000127
+
+Gold
+
+Cross-camera skew | 0.21 ms | Gold
+
+Frame drops | 0 / 1,812 | Gold
+
+Drift, session | 0.40 ms/h | Pass
+
+Illustrative values | C1
+
+**D** Power & connect
+
+## One cable per device.
+
+**D1** Hub 8 Pro USD 399 planned
+
+Eight node ports, per-port power and CAN, hardware e-stop.
+
+**D2** Bus cable In the box
+
+Power, USB and CAN on one USB-C cable. An anodized Cable Clip holds it in the port; one comes with every node.
+
+**D3** I/O tile USD 19 planned
+
+Qwiic and AUX ports for SmartServo G.
+
+**E** Systems
+
+## Assembled from the families above.
+
+Nothing inside is a special variant. Each system is a list of catalog numbers plus a little structure.
+
+E1 Checkmate Leader
+
+[A2.2 · A2.3 · A2.5 nodes](https://checkmatedynamics.com/smartservo-g.html) | [D1 Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) | links, base, handle
+
+C1 Sync Kit
+
+[C1 Sync Beacon](https://checkmatedynamics.com/sync-kit.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
+
+[Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Stations](https://checkmatedynamics.com/stations.html)
+
+Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Components](https://checkmatedynamics.com/components.html)
+
+## Choose how you build.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Products) | [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Products)
+
+---
+
+# SmartStepper 17
+
+Source: https://checkmatedynamics.com/smartstepper-17.html
+
+[Products](https://checkmatedynamics.com/products.html) / A — Move / A1 | Closed-loop stepper node
+
+A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Add the 25:1 metal cycloidal and it becomes a robot joint.
+
+**A1.1 · Board** | Controller for your own NEMA 17 | **USD 79**
+
+**A1.2 · SmartStepper 17 · Direct** | Direct drive: board on a calibrated NEMA 17, housed | **USD 169**
+
+**A1.3 · SmartStepper 17 · 25:1** | Cycloidal reducer and output encoder | **USD 279**
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartStepper%2017)
+
+Planned prices. Not on sale yet.
+
+*Output flange · M3 bolt circle, dowels* *25:1 cycloidal · 42 mm square* *NEMA 17 · flying-lead or socketed* *Rear unit · controller, 45.3 mm square* *USB-C · PD, USB, CAN*
+
+**Fig. 01** SmartStepper 17 · 25:1, three-quarter view Concept render
+
+Key figures
+
+- **Encoder**: 14-bit, 16,384 counts
+- **Power**: USB-C PD, 5–20 V
+- **Bus**: CAN 1 Mbit/s
+- **Reduction**: 25:1 cycloidal
+- **Backlash**: ~7 arcmin Est.
+- **Gearbox**: 42 mm square
+
+45.3 mm
+
+42 mm
+
+Plan view, to scale | Diagram
+
+**01** Overview
+
+## A stepper that knows where it is.
+
+01
+
+### Closed loop
+
+A 14-bit magnetic encoder (16,384 counts per turn) watches the shaft, so a stall is reported instead of silently losing position.
+
+02
+
+### USB-C power
+
+Any USB-C Power Delivery charger supplies 5 to 20 V. The same port carries USB to a laptop and CAN to the next node.
+
+03
+
+### Browser setup
+
+The Checkmate app runs in your browser: calibrate, set current, jog, and plot angle, current and temperature live.
+
+04
+
+### Your NEMA 17 or ours
+
+Works with flying-lead or socketed NEMA 17 motors (adapter included). The leads plug into the rear unit; closed loop needs a rear shaft for the encoder magnet.
+
+**02** Direct drive
+
+## The motor shaft is the output.
+
+SmartStepper 17 · Direct is the complete node with no reducer: the same closed-loop board and calibrated NEMA 17, housed, with the shaft driving your load.
+
+01
+
+### Full motor speed
+
+No gearbox between the motor and the load. For turntables, slides, fixtures and printer or CNC axes that need speed more than torque.
+
+02
+
+### Nothing to wear
+
+No reducer means no backlash from gearing and no gear stage to service. The encoder watches the shaft that does the work.
+
+03
+
+### Geared later
+
+The 25:1 reducer bolts to the motor face. A direct node becomes A1.3 for the price difference, and keeps its identity and calibration history.
+
+Planned list price USD 169. Direct-drive output covers and frames are in design.
+
+**03** Reducer
+
+## A metal cycloidal inside the motor’s own footprint.
+
+Two cycloid discs share the load across many rollers, which keeps the joint stiff and low in backlash without growing past the 42 mm outline.
+
+- Lost motion about 7 arcmin (estimate), measured per unit
+- Torque targets 4 N·m continuous, 8.5 N·m peak
+- Output encoder fitted as standard
+- Output face with M3 bolt circle and dowel holes
+
+*Output carrier* *Cycloid discs × 2* *Motor body, exposed*
+
+**Fig. 02** Quarter section of the reducer Concept render
+
+**04** Integration
+
+*Controller board* *NEMA 17 · flying leads*
+
+**Fig. 03** Rear unit: magnet, frame, board, cover Concept render
+
+## Drops into a printer, a CNC or an arm.
+
+Drive it over CAN from Python, or take STEP/DIR from Klipper, Marlin or GRBL boards on the AUX port. To Klipper it is an ordinary external driver.
+
+- Qwiic port for I²C sensors and displays
+- AUX: STEP/DIR, endstop, UART or sync
+- Chain nodes over CAN on the same cable
+- An anodized aluminum Cable Clip holds the USB-C cable in place (in the box)
+
+**05** Specification
+
+|  | SmartStepper 17 · Direct | SmartStepper 17 · 25:1 |
+|---|---|---|
+| Motor | NEMA 17, pre-mounted and calibrated. Board: your own flying-lead or socketed NEMA 17 (adapter included) with a rear shaft for the encoder magnet | Same, with 25:1 metal cycloidal |
+| Size | 45.3 mm square rear unit | 42 mm square gearbox · 45.3 mm square rear unit |
+| Controller / driver | ESP32-S3 (USB; Wi-Fi and BLE off by default, enabled in the app) / TMC2209 | Same |
+| Encoder | MT6701, 14-bit, motor shaft | Same, plus output encoder |
+| Power | USB-C PD sink, 5–20 V | Same |
+| Bus | CAN 1 Mbit/s on the USB-C cable | Same |
+| Ports | USB-C · Qwiic · AUX 4-pin JST-SH | Same |
+| Backlash | — | ~7 arcmin Estimate |
+| Torque | Motor-dependent, measured per unit | 4 N·m cont. / 8.5 N·m peak Target |
+| Software | Checkmate browser app · Python SDK · Klipper STEP/DIR guide |  |
+| Compliance | FCC Part 15B testing before shipping · US only at launch |  |
+
+CAN needs a full-featured USB-C cable; charge-only cables don’t carry it. Targets are design goals; every unit ships with its measured test card.
+
+**06** Figures
+
+## The node from other angles.
+
+**Fig. 04** Output face
+
+**Fig. 05** Rear unit, Cable Clip on USB-C
+
+**Fig. 06** Controller board
+
+Related: [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html) · [Products](https://checkmatedynamics.com/products.html)
+
+## First batch: tell us which version you want.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [For makers](https://checkmatedynamics.com/makers.html)
+
+---
+
+# SmartServo G
+
+Source: https://checkmatedynamics.com/smartservo-g.html
+
+[Products](https://checkmatedynamics.com/products.html) / A — Move / A2 | Brushless gimbal-motor servo
+
+A complete brushless actuator: gimbal motor, field-oriented control, magnetic encoder and housing, on one USB-C cable. The Checkmate Leader is built from these.
+
+**A2.1 · Board** | One board for 2804 and 5208 motors | **USD 89**
+
+**A2.2 · G-2804 · Direct** | Direct drive, no gearbox, no backlash | **USD 159**
+
+**A2.3 · G-2804 · 20:1** | Cycloidal, output encoder, I/O tile | **USD 249**
+
+**A2.4 · G-5208 · Direct** | Direct drive, larger motor | **USD 249**
+
+**A2.5 · G-5208 · 25:1** | Cycloidal, output encoder, I/O tile | **USD 399**
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartServo%20G)
+
+Planned prices. Not on sale yet.
+
+*G-2804 · iFlight GBM2804H-100T* *G-5208 · iFlight GM5208, 24 winding*
+
+**Fig. 01** SmartServo G nodes, both motor sizes Concept render
+
+Key figures
+
+- **Motors**: 2804 · 5208
+- **Reduction**: 20:1 · 25:1
+- **Encoder**: 14-bit
+- **Power**: USB-C PD, 5–20 V
+- **Bus**: CAN-FD
+- **Torque**: Per unit Test card
+
+Ø35 mm
+
+Controller board, to scale | Diagram
+
+**01** Overview
+
+## Built for feel and fidelity, not raw force.
+
+01
+
+### Quiet
+
+Field-oriented control on a gimbal motor: smooth motion with no stepping and almost no sound.
+
+02
+
+### Absolute
+
+A 14-bit encoder on the motor axis with calibration stored on the node. Geared versions add an output encoder.
+
+03
+
+### Backdrivable
+
+Move it by hand and record the motion. Made for leader arms, wrists, grippers, camera heads and haptics.
+
+04
+
+### One cable
+
+USB-C PD power and CAN-FD between nodes on the same cable. Setup runs in the Checkmate app in your browser.
+
+Not for lifting shoulders or wheels. For those you want a higher-torque actuator, and we’ll say so.
+
+**02** Direct drive
+
+## No gearbox between you and the motor.
+
+G-2804 · Direct and G-5208 · Direct are complete nodes with the gimbal motor driving your load. Both use the same board, the same cable and the same app as the geared nodes.
+
+01
+
+### Backdrivable
+
+With no gear stage to fight, the shaft can be moved by hand. That is the feel haptics, knobs and hand-held controls depend on.
+
+02
+
+### Smooth and quiet
+
+Field-oriented control on a gimbal motor, with no gear stage to add backlash.
+
+03
+
+### Test fixtures and benches
+
+Rate tables, load stages, camera heads and teaching benches need speed and clean torque more than reduction. The G-5208 · Direct is the larger of the two.
+
+Planned list prices USD 159 and USD 249. Torque is measured per unit and printed on the test card. Direct-drive output covers and frames are in design.
+
+**03** Construction
+
+*I/O tile (optional)* *Ø35 mm controller board* *Base plate* *Gimbal motor*
+
+**Fig. 02** The stack, 2804 version Concept render
+
+## A round board that sits on the motor.
+
+Controller, driver and encoder share one board on the motor’s back. The optional I/O tile stacks on top, and an aluminum cover closes it.
+
+- STM32G431 controller, DRV8316 driver
+- USB-C PD sink, capped at 20 V
+- Calibration stored on the node
+- Two dowels in every cap face for repeatable swaps
+
+**04** Variants
+
+## Two motors, direct or geared.
+
+**A2.2–A2.3** G-2804 · Direct and G-2804 · 20:1 USD 159 / 249
+
+Compact and light. Direct drive for handle roll, camera pan and haptic knobs. The 20:1 cycloidal for wrists, grippers and leader joints.
+
+**A2.4–A2.5** G-5208 · Direct and G-5208 · 25:1 USD 249 / 399
+
+Larger and stronger. Direct drive for haptics and camera heads. The 25:1 cycloidal for the heavier joints of a leader arm.
+
+**05** Specification
+
+|  | G-2804 · Direct | G-2804 · 20:1 | G-5208 · Direct | G-5208 · 25:1 |
+|---|---|---|---|---|
+| Motor | iFlight GBM2804H-100T | iFlight GM5208, 24 winding |  |  |
+| Reducer | Direct | 20:1 cycloidal | Direct | 25:1 cycloidal |
+| Lost motion | 0 | ~8 arcmin Estimate | 0 | ~4 arcmin Estimate |
+| Encoders | Motor, 14-bit | Motor + output | Motor, 14-bit | Motor + output |
+| Torque | Measured per unit and printed on the test card; curves published after the first batch |  |  |  |
+| Controller / driver | STM32G431 / DRV8316 |  |  |  |
+| Power | USB-C PD sink, 5–20 V |  |  |  |
+| Bus | CAN-FD on the USB-C cable; classic CAN when mixed with SmartStepper |  |  |  |
+| I/O | Optional tile | Tile included | Optional tile | Tile included |
+| Software | Checkmate browser app over USB (Chrome, Edge) · Python SDK · LeRobot |  |  |  |
+
+Design values. Estimates and targets are marked; each unit ships with its own measured test card.
+
+**06** Accessories
+
+### D3 · I/O tile
+
+Stacks on the board. Adds Qwiic and a 4-pin AUX port for sensors, endstops and triggers.
+
+USD 19 planned
+
+Ring magnet and side sensor 3-axis
+
+### B3 · Output encoder
+
+A 3-axis magnetic sensor and ring magnet in the reducer cap. Standard on geared nodes, sold for retrofit.
+
+USD 29 planned
+
+### D2 · Bus cable
+
+Full-featured USB-C carrying power, USB and CAN, with a clip that holds it in the port.
+
+In the box
+
+Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html)
+
+## The exact node inside our leader arm.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Checkmate Leader](https://checkmatedynamics.com/leader.html)
+
+---
+
+# Contour
+
+Source: https://checkmatedynamics.com/contour.html
+
+[Products](https://checkmatedynamics.com/products.html) / B — Sense / B1–B2 | Direct time-of-flight depth
+
+Metric depth from a sensor the size of a thumb, over one USB-C cable and on the same clock as your cameras. It measures distance directly, so plain, textureless surfaces read as well as patterned ones.
+
+**B1 · Contour** | USB-C depth sensor | **Register interest**
+
+**B2 · Contour Wrist** | Gripper mount, part of the Sync Kit | **Stations**
+
+**Contour OEM** | Module for your own housing | **Talk to us**
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour) | [OEM enquiry](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Contour)
+
+Sensor figures from ST’s datasheet. Size and mass come from our design and will be replaced by measurements.
+
+Resolution | **54 × 42 zones**
+
+Field of view | **55° × 42°**
+
+Frame rate | **30 Hz**
+
+Sensor range | **0.05–8.8 m**
+
+Diagram, not a product image
+
+**Fig. 01** Depth as contour lines, with the sensor’s figures Diagram
+
+Key figures
+
+- **Sensor**: VL53L9CX
+- **Wavelength**: 940 nm
+- **Resolution**: 54 × 42
+- **Frame rate**: 30 Hz
+- **Mass**: 37 g Est.
+- **Interface**: USB-C
+
+45 mm
+
+40 mm
+
+Front view, to scale, est. | Diagram
+
+**01** Overview
+
+## Geometry at contact range.
+
+01
+
+### Metric
+
+Direct time-of-flight returns absolute distance whatever the surface color or texture.
+
+02
+
+### Small
+
+About 45 × 40 × 12 mm and under 40 g (target): light enough for a small follower arm’s gripper.
+
+03
+
+### On the clock
+
+A sync input lines depth frames up with your RGB cameras and the rest of the station.
+
+04
+
+### In your pipeline
+
+Appears as a camera in LeRobot, with depth and confidence for every frame.
+
+**02** Contour Wrist
+
+## Depth beside the gripper, next to the camera you already run.
+
+Contour Wrist mounts on the follower’s wrist with adapters for common arms and adds contact-range depth on the station clock. It ships in the [Sync Kit](https://checkmatedynamics.com/sync-kit.html).
+
+- Station profile tuned for 5 cm to 1.5 m
+- Per‑unit calibration file in the box
+- Mounted on the follower, never the leader
+
+Where it fits
+
+| Lighting | Indoor, LED-lit stations |
+|---|---|
+| Frame rate | 30 Hz, depth + confidence |
+| Resolution | 54 × 42 zones: contact geometry, not an RGB replacement |
+| Not for | Direct sunlight, halogen lamps, scenes full of glass |
+
+**03** Specification
+
+| Sensor | ST VL53L9CX direct time-of-flight, 940 nm, Class 1 laser |
+|---|---|
+| Resolution | 54 × 42 zones; binned modes down to 4 × 4 |
+| Field of view | 55° × 42° |
+| Range | 0.05–8.8 m sensor range; 1.5 m clamp in the station profile |
+| Frame rate | 30 Hz over USB, depth and confidence |
+| Size, mass | About 45 × 40 × 12 mm, about 37 g Estimate |
+| Power | USB-C; under 1 W in the station profile Target |
+| Interfaces | USB-C · sync input |
+| Software | LeRobot camera plugin · Python |
+
+Sensor figures from ST’s datasheet. Size, mass and power come from our design and will be replaced by measurements.
+
+**04** OEM
+
+## The same module, in your product.
+
+For headsets, wrist rigs and handheld grippers: the Contour module with the same calibration and sync, supplied with per‑unit test records and integration support.
+
+[Talk to engineering](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Engineering) | [Components](https://checkmatedynamics.com/components.html)
+
+Related: [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html)
+
+## On the waitlist, no ship date yet.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour)
+
+---
+
+# Hub 8 Pro
+
+Source: https://checkmatedynamics.com/hub-8.html
+
+[Products](https://checkmatedynamics.com/products.html) / D — Power & connect / D1 | Eight-port node hub
+
+Powers, connects and protects a whole arm of nodes. Every port is its own USB-C power source and its own CAN segment, so one damaged cable can’t take the rest down.
+
+**D1 · Hub 8 Pro** | Hub only; power supply optional | **USD 399 planned**
+
+[Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
+
+Planned price. Part of the Checkmate Leader and planned as a stand-alone unit.
+
+*P1–P8 · node ports, PD + CAN each* *Machined 6061 case*
+
+**Fig. 01** Hub 8 Pro, port side Concept render
+
+Key figures
+
+- **Node ports**: 8 + 2 accessory
+- **Port power**: 20 V / 1.5 A Design
+- **Bus**: CAN-FD star
+- **Power in**: 12–48 V DC
+- **Host**: 1 × USB
+- **E-stop**: 2-channel NC
+
+218 mm
+
+120 mm
+
+Plan view, to scale, est. | Diagram
+
+**01** Overview
+
+## A star, not a chain.
+
+01
+
+### Eight node ports
+
+Plus two accessory ports for a Sync Beacon or Contour, and an upstream port to chain hubs for bimanual stations.
+
+02
+
+### Power per port
+
+Each port is a USB-C PD source: off when empty, 20 V at 1.5 A once a node asks for it, and 3 A on up to two ports.
+
+03
+
+### Isolated CAN
+
+Every port is its own CAN segment, bridged inside the hub. A crushed cable is cut off; the others keep running.
+
+04
+
+### Hardware e-stop
+
+A two-channel input removes motor power in hardware, with no firmware in the path.
+
+**02** Host
+
+## One cable to the PC, one device for every node.
+
+The hub appears as a single USB device whose CAN channels show up as standard SocketCAN interfaces on Linux. Each node’s own USB stays reachable for setup and updates.
+
+- CAN-FD for SmartServo G, classic CAN for SmartStepper and accessories
+- Shared 20 V motor rail: one node’s braking feeds another
+- Per-port power and bus telemetry
+- Machined aluminum case
+
+*Power in* *E-stop · link · sync*
+
+**Fig. 02** Rear panel Concept render
+
+**03** Bus cable
+
+**Fig. 03** A node’s USB-C cable held by the Cable Clip Concept render
+
+## Power, USB and CAN on one cable.
+
+Every Checkmate device uses its own USB-C port as the bus. Any full-featured USB-C cable carries all three; charge-only cables won’t carry CAN.
+
+- One cable and one Cable Clip (anodized 6061) ship in every node box; extra clips USD 9 planned
+- The Clip Bar 8 screws across all eight ports and clamps every cable, so a snag can’t pull a joint offline
+
+**04** Specification
+
+| Ports | 8 node · 2 accessory · 1 upstream; USB-C with M2 threads for the Clip Bar 8 |
+|---|---|
+| Port power | USB-C PD source per port: 5 V on attach, 20 V / 1.5 A on request; 3 A on up to 2 ports |
+| Bus | Active CAN star with CAN-FD and classic domains; ports isolated |
+| Host link | One USB device per hub; SocketCAN-compatible channels |
+| Safety | Two-channel normally-closed e-stop input; hardware cut of motor power |
+| Power in | 12–48 V DC or USB-C PD; supply optional |
+| Enclosure | Machined 6061 aluminum, about 218 × 120 × 34 mm Design |
+| Cascading | Second hub’s upstream port into an accessory port; one hub per arm |
+
+Design values for the current board. A unit has not been measured yet; each shipped unit comes with its own measured test card.
+
+**05** Figures
+
+## The hub from other angles.
+
+**Fig. 04** Exploded: lid, board, base
+
+**Fig. 05** Cut-away, port side
+
+**Fig. 06** Top
+
+Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Components](https://checkmatedynamics.com/components.html)
+
+## Eight nodes on one hub.
+
+[Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Components](https://checkmatedynamics.com/components.html)
+
+---
+
+# Sync Kit
+
+Source: https://checkmatedynamics.com/sync-kit.html
+
+[Stations](https://checkmatedynamics.com/stations.html) / C — Sync / C1 | Station timing instrument · Patent pending
+
+A Sync Beacon and Contour Wrist for each station. The beacon checks independently that every camera, joint log and depth stream agrees on time, repairs the timestamps, and writes a signed Station Report into every episode.
+
+**Single-arm station** | Sync Beacon and Contour Wrist | **USD 1,490**
+
+**Bimanual station** | Sync Beacon and two Contour Wrists | **USD 1,890**
+
+**Sync Certified plan** | Per station: reports, recalibration, replacement | **USD 149 / mo**
+
+[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Kit) | [Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+
+Planned prices. Patent pending.
+
+**Station Report** episode 000127 · station B-04
+
+Gold
+
+Cross-camera skew | 0.21 ± 0.08 ms | Gold
+
+Camera to action | 0.40 ± 0.10 ms | Gold
+
+Leader to follower | 0.05 ± 0.01 ms | Gold
+
+Frame drops | 0 / 1,812 | Gold
+
+Timestamp jitter, std dev | 0.32 ± 0.06 ms | Gold
+
+Drift, session | 0.08 ms/h | Gold
+
+Camera pose | 0.04° · 0.6 mm | Gold
+
+Camera config | matches profile | Gold
+
+Illustrative layout, example values. Signed and written into the episode. | Ed25519
+
+**01** What it checks
+
+## The station, graded independently of the recorder.
+
+Recording software shouldn’t be the only thing grading recording software. The beacon grades each episode on its own, then reports before the scene is torn down.
+
+01
+
+### Re-timed, not re-recorded
+
+True capture time for every frame goes into the dataset next to the nominal timestamp, so a skewed episode is repaired instead of discarded.
+
+02
+
+### Drops, per camera
+
+Dropped and duplicated frames, frame-rate mismatches and capture-to-host latency, counted for every stream.
+
+03
+
+### Camera bumps
+
+A camera that has moved since commissioning is flagged in the episode.
+
+04
+
+### Configuration
+
+Catches swapped camera indices and camera settings that no longer match the station profile.
+
+05
+
+### Flag before reset
+
+The operator sees FLAG or REJECT at the station while the scene is still set, and redoes the take on the spot.
+
+06
+
+### Station ID
+
+Each beacon carries its station’s ID, so a row of identical stations never borrows another’s timing.
+
+**02** Tiers
+
+## A certificate a data buyer can check.
+
+Gold and Pass are our target limits for teleoperation data timing. A line passes only if its measured value plus its uncertainty sits inside the limit, and every line prints both.
+
+| Line, per episode | Gold Target | Pass Target | Reject |
+|---|---|---|---|
+| Cross-camera skew | 0.5 ms max | 1 ms max | > 33 ms |
+| Camera to action | 1 ms max | 5 ms max | > 33 ms |
+| Leader to follower | 0.1 ms max | 1 ms max | > 33 ms |
+| Frame drops + duplicates | 0.05 % max | 0.1 % max | > 1 % |
+| Timestamp jitter, std dev | 0.5 ms max | 2 ms max | > 10 ms |
+| Drift, session | 0.1 ms/h max | 0.5 ms/h max | > 5 ms/h |
+| Camera pose (docked) | 0.25° · 2.5 mm max | 0.5° · 5 mm max | Bumped mid-episode |
+| Identity and config | Matches the station profile | Streams mislabeled |  |
+
+The episode takes its worst line’s grade. Lines we can’t measure print “not measured”. Which grade a line can reach depends on the cameras at the station; Gold on USB webcams waits on our bench validation. Leader-to-follower timing is measured on Checkmate nodes.
+
+Patent pending. U.S. provisional patent application No. 64/174,473, filed October 12, 2026, covers the Sync Beacon and the per-episode Station Report.
+
+**03** Setup
+
+## One cable and one plugin.
+
+01
+
+### Dock the beacon
+
+Place it at the station and connect it by USB-C. No radio, no network, nothing to change on the cameras.
+
+02
+
+### Install the plugin
+
+One package for your recorder, with LeRobot, ROS 2 and MCAP output.
+
+03
+
+### Record as usual
+
+Every episode gets its Station Report and true capture times. Flags show at the station before the reset.
+
+**04** In the kit
+
+## Contour Wrist: depth at the gripper, on the same clock.
+
+Metric contact-range geometry next to your RGB wrist camera: under 40 g (target), 30 frames per second, for indoor LED-lit stations.
+
+[Contour Wrist](https://checkmatedynamics.com/contour.html#wrist)
+
+Contour Wrist | **30 Hz** | depth · USB-C · sync in
+
+**Fig. 01** Contour Wrist at a glance Specification
+
+Related: [Stations](https://checkmatedynamics.com/stations.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Checkmate Leader](https://checkmatedynamics.com/leader.html)
+
+## Find out what skew costs your floor.
+
+A Skew Audit on one station gives you the number in the first week.
+
+[Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Beacon%20and%20Sync%20Kit)
+
+---
+
+# Checkmate Leader
+
+Source: https://checkmatedynamics.com/leader.html
+
+[Stations](https://checkmatedynamics.com/stations.html) / E — Systems / E1 | Motorized leader arm
+
+A leader arm that carries its own weight, lets the operator feel the follower’s limits and grip, and returns home by itself. Every joint is a SmartServo G node, the same unit sold on its own.
+
+[Register interest as a design partner](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader)
+
+Planned prices. Nothing can be ordered or paid for on this site yet; register your interest and we talk.
+
+**One arm** | Nodes, Hub 8 Pro, structure, handle | **USD 2,990**
+
+**Pair** | Two arms | **USD 5,980**
+
+**Leader Care plan** | Per pair: spare nodes, replacement, reports | **USD 249 / mo**
+
+**A2.3** G-2804 · 20:1
+
+**A2.5** G-5208 · 25:1
+
+**D1** Hub 8 Pro
+
+Fig. 01 — The catalog parts the Leader is built from, as sold. Links, base and handle are Leader-specific and not shown. Concept renders.
+
+**01** Operator
+
+## More good episodes per operator-hour.
+
+01
+
+### Weightless
+
+Active gravity compensation at every joint. Operators guide the arm instead of holding it up.
+
+02
+
+### Felt limits
+
+Haptic walls at the follower’s joint limits, and trigger force feedback from the follower’s gripper.
+
+03
+
+### No drift
+
+Absolute encoders hold calibration through every power cycle. No re-zeroing at the start of a shift.
+
+04
+
+### Hands stay on
+
+REC and DISCARD on the handle; the arm returns home between episodes on its own.
+
+**02** Construction
+
+## Nothing inside is special.
+
+The arm is built only from finished Checkmate nodes and a hub. No springs, counterweights or one-off parts. Links, base and handle are the only Leader-specific hardware.
+
+- A spare part is one node on a shelf
+- A repair is a node swap, measured in minutes
+- Each node ships with its own test card
+- Kinematics matched to your follower arm
+
+Nodes used
+
+| A2.2 | [G-2804](https://checkmatedynamics.com/smartservo-g.html) · direct |
+|---|---|
+| A2.3 | [G-2804 · 20:1](https://checkmatedynamics.com/smartservo-g.html) |
+| A2.5 | [G-5208 · 25:1](https://checkmatedynamics.com/smartservo-g.html) |
+| D1 | [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) |
+
+**03** Design partners
+
+## Shape the first arms.
+
+A limited number of floors and labs register interest in the first Leaders and help shape them before the design is frozen.
+
+01
+
+### Call
+
+Your follower arm, tasks and station layout.
+
+02
+
+### Register interest
+
+Tell us your volumes. No payment is taken on this site; any terms are agreed on a call.
+
+03
+
+### Co-design
+
+Input on handle, joint limits and software.
+
+04
+
+### See it first
+
+The first arm runs for you on a video call before you commit to anything.
+
+Related: [Stations](https://checkmatedynamics.com/stations.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+
+## Twenty minutes to see if it fits your floor.
+
+[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader) | [Leader Care](https://checkmatedynamics.com/stations.html#service)
+
+---
+
+# Fewer rejected episodes. Every stream on one clock.
+
+Source: https://checkmatedynamics.com/stations.html
+
+Ways in / 02 | Robot data floors
+
+Sync QA, a motorized leader arm, commissioning and service for teleoperation stations, built from the nodes we sell on their own.
+
+[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Stations) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+
+**01** Context
+
+## Data floors now compete on yield.
+
+The price of finished teleop data has fallen fast. What’s left to win on is usable episodes per operator-hour, and stations that stay up.
+
+**$340 to $118**
+
+Price of an hour of finished teleop data, early 2024 to March 2026.
+
+[Robotics landscape deep dive](https://github.com/altanapps/awesome-robotics-landscape/blob/main/data-collection-deep-dive.md), Apr 2026
+
+**20–30%**
+
+Episodes rejected on new rigs, with timing skew named as the top reason.
+
+[Dexset](https://dexset.ai/blogs/teleoperation-data-collection-robot-learning-complete-2026/), 2026, vendor source
+
+**200–400 h**
+
+Engineering time to build a teleop station in-house, before upkeep.
+
+[Robotics Center buyer’s guide](https://www.roboticscenter.ai/guides/teleoperation-solution-buyers-guide), Apr 2026
+
+**02** Offer
+
+## What we bring to a station.
+
+|  |  |  |  |  |
+|---|---|---|---|---|
+| C1 | Sync Kit | Sync QA | Beacon and Contour Wrist; a signed Station Report in every episode. Patent pending | From 1,490 planned / station |
+| E1 | Checkmate Leader | Teleoperation | Motorized leader arm made of SmartServo G nodes | 2,990 planned / arm |
+| E2 | Station commissioning | New rigs | Every stream measured and signed off before your data counts | On call |
+| E3 | Skew Audit | Trial | One station, a loaner beacon, a readout of what skew costs you | Free planned |
+| E4 | Service plans | Uptime | Spares, advance replacement, recalibration, reports | From 149 planned / mo |
+
+Planned prices.
+
+**03** Commissioning
+
+## New rigs, measured and signed off before the data counts.
+
+Standing up a new floor or lab? We commission each station remotely: every stream measured, every camera checked, and a signed baseline that says the rig is in sync. A beacon stays on the station.
+
+[Plan commissioning](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Commissioning)
+
+Skew Audit
+
+### A number about your own stations, in week one.
+
+Record 20 episodes on one station with a loaner beacon. We read out every stream’s skew and the episodes it’s costing you.
+
+[Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+
+**04** Built from nodes
+
+## A spare part is one node on a shelf.
+
+The Leader is SmartServo G nodes on a Hub 8 Pro. The Sync Kit is a Sync Beacon and Contour Wrist on the same bus. The same units go to makers and robotics companies, built and tested in volume.
+
+- Repair is a node swap measured in minutes
+- Calibration and history stay with each node
+
+*A2.3 · G-2804 · 20:1* *One node, one test card*
+
+**Fig. 01** One node: the unit that sits on the shelf Concept render
+
+**05** Service
+
+## Measured in episodes recovered.
+
+Planned monthly prices. Plans apply to installed stations.
+
+Per station · USD 149 / mo
+
+### Sync Certified
+
+For every Sync Kit station
+
+- Signed Station Report in every dataset
+- Monthly drift report
+- Recalibration
+- Advance replacement of beacon and Contour
+- Software updates
+
+Per pair · USD 249 / mo
+
+### Leader Care
+
+For every Leader pair
+
+- Spare-node kit on site, one of each type
+- Advance replacement of any node
+- Annual recalibration and firmware
+- Monthly report: episodes per operator-hour
+
+Per station · USD 399 / mo
+
+### Floor Uptime
+
+For 24/7 floors with 10+ stations
+
+- Spare-node pool sized to your fleet
+- Covers Sync and Leader
+
+Planned prices and planned scope. Terms are confirmed with you before a plan starts.
+
+**06** Questions
+
+**Who is Checkmate Dynamics?**
+
+A robotics hardware company in Dallas, Texas. We design motion, sensing and sync hardware (SmartStepper, SmartServo G, Contour, the Sync Beacon and Hub 8 Pro) and build station products from it.
+
+**What happens when something breaks?**
+
+Every Leader joint is the same kind of node, so a repair is a swap, not a visit. Planned service plans include advance replacement; terms are confirmed before a plan starts.
+
+**Do you see our data?**
+
+No. Recordings stay on your machines and everything works on-prem. We see only the reports you choose to send us.
+
+**Do the devices touch our network?**
+
+No. The beacon and Contour are USB devices with no radio and no network connection. The recorder plugin runs on your PC.
+
+**Will the beacon affect our training data?**
+
+It should not: the beacon is a separate USB device and changes nothing on your cameras. We walk through the details on a call.
+
+**We already sync our cameras in hardware.**
+
+Keep it. Hardware sync ties those cameras together; the beacon checks every stream on the station, including webcams, joint logs and wrist depth, and certifies each episode.
+
+**Can we try it first?**
+
+Start with a Skew Audit on one station. Register your interest and we agree the details on a call.
+
+Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html)
+
+## Twenty minutes, one station, a real number.
+
+[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Stations) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+
+---
+
+# Robot parts that arrive finished.
+
+Source: https://checkmatedynamics.com/makers.html
+
+Ways in / 01 | Makers, students, labs
+
+Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a USB-C charger, open the app in a browser, move. They’re the units our commercial leader arm is built from.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
+
+**Fig. 01** SmartServo G-2804 · 20:1 and G-5208 · 25:1, side elevation Concept render
+
+**01** Why nodes
+
+## It’s found, named and ready when you plug it in.
+
+01
+
+### No wiring puzzle
+
+No driver, encoder, microcontroller and supply to match up. One calibrated unit.
+
+02
+
+### One app
+
+Calibration, limits, jogging and live plots in the browser. The same app runs one node or a full station.
+
+03
+
+### Python when ready
+
+Script one node or a dozen over CAN, from Python, ROS 2 or LeRobot.
+
+04
+
+### Test card in the box
+
+Each unit’s measured numbers, printed and stored on the node.
+
+**02** Planned prices
+
+## Every node, in one list.
+
+| No. | Node | Best for | What it is | USD |
+|---|---|---|---|---|
+| A1.1 | SmartStepper 17 Board | Printers, CNC | Closed-loop controller for your own NEMA 17 | 79 |
+| A1.2 | SmartStepper 17 · Direct | Axes, turntables | Direct drive on a calibrated NEMA 17 | 169 |
+| A1.3 | SmartStepper 17 · 25:1 | Arm joints | Metal cycloidal and output encoder | 279 |
+| A2.1 | SmartServo G Board | Own motors | FOC board for 2804 and 5208 motors | 89 |
+| A2.2 | G-2804 · Direct | Pan, haptics | Direct-drive gimbal servo, no backlash | 159 |
+| A2.3 | G-2804 · 20:1 | Wrists, grippers | Cycloidal, output encoder, I/O tile | 249 |
+| A2.4 | G-5208 · Direct | Camera heads, benches | Larger direct-drive gimbal servo | 249 |
+| A2.5 | G-5208 · 25:1 | Heavier joints | Cycloidal, output encoder, I/O tile | 399 |
+| D3 | I/O tile | SmartServo G | Qwiic and AUX ports | 19 |
+| B3 | Output encoder | Retrofit | Reads a reducer’s output angle | 29 |
+| B1 | Contour | Depth | Time-of-flight depth over USB-C | Register interest |
+
+Planned list prices. Nothing is on sale yet; registered interest sets the order of the first batch.
+
+**03** Upgrade path
+
+## Board, then node, then geared node.
+
+Start with a board on your own motor, add our motor and housing later, then a reducer. The node keeps its identity and calibration history as it grows.
+
+**Fig. 02** SmartServo G stack Concept render
+
+**04** Who it’s for
+
+## For people who build.
+
+01
+
+### Printer and CNC upgraders
+
+Closed-loop axes that report a stall instead of shifting a layer, on STEP/DIR from Klipper, Marlin or GRBL.
+
+02
+
+### Robot-arm builders
+
+Joints that know their position, on one cable, without a pile of separate electronics.
+
+03
+
+### LeRobot and SO-101
+
+Quiet, backdrivable joints with calibration that lives on the node, for leaders, wrists and grippers.
+
+04
+
+### FOC tinkerers
+
+Field-oriented control on gimbal motors without assembling a driver, encoder, MCU and supply.
+
+05
+
+### Camera and astro rigs
+
+Silent, repeatable moves for sliders, pan heads and turntables.
+
+06
+
+### University labs
+
+Documented parts for courses and research rigs.
+
+Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Components](https://checkmatedynamics.com/components.html)
+
+## Tell us what to build first.
+
+Tell us which nodes you want. Registered interest sets the order of the first batch.
+
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
+
+---
+
+# Our nodes, inside your robot.
+
+Source: https://checkmatedynamics.com/components.html
+
+Ways in / 03 | Robotics companies
+
+For teams building their own arms, grippers, handhelds and rigs: the motion, sensing and sync nodes we use in our own stations, supplied with the records and support a production line needs.
+
+[Talk to engineering](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Engineering)
+
+**A2** SmartServo G, exploded
+
+**A1** SmartStepper 17, exploded
+
+Fig. 01 — The two motor nodes, opened up. Concept renders.
+
+**01** Terms
+
+## Fewer engineering hours per node.
+
+01
+
+### Per‑unit records
+
+Calibration file and measured test card for every unit, traceable by serial number.
+
+02
+
+### Engineer to engineer
+
+Integration help from the people who designed the boards: mounting, wiring, bus timing, firmware.
+
+03
+
+### Documented interfaces
+
+CAN protocol specification, Python SDK and host tools. No black box to reverse-engineer.
+
+04
+
+### Production terms
+
+Volume supply terms are agreed with engineering before any order.
+
+**02** Parts
+
+## Every part is a finished node.
+
+|  |  |  |  |  |
+|---|---|---|---|---|
+| A1 | SmartStepper 17 | Move | Closed-loop NEMA 17; board-only for your housing | Talk to us |
+| A2 | SmartServo G | Move | Brushless servo, direct or cycloidal; board-only available | Talk to us |
+| B1 | Contour OEM | Sense | Time-of-flight depth module for your own housing | Talk to us |
+| C1 | Sync Beacon | Sync | Independent timing and per-episode certificates for your capture rig. Patent pending | Talk to us |
+| D1 | Hub 8 Pro | Connect | Per-port power and CAN, e-stop, one USB link | Talk to us |
+
+**03** Process
+
+## From first sample to production.
+
+01
+
+### Talk to engineering
+
+What you’re building, the joints or sensing you need, and your volumes.
+
+02
+
+### Evaluate
+
+Evaluation units with full test records, and help bringing them up in your system.
+
+03
+
+### Supply
+
+Production supply on commercial terms, with records for every unit you receive.
+
+Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Stations](https://checkmatedynamics.com/stations.html)
+
+## Talk to engineering first.
+
+[Talk to engineering](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Engineering)
+
+---
+
+# Tell us what you’re building.
+
+Source: https://checkmatedynamics.com/contact.html
+
+Contact | Interest · Call · Parts
+
+Makers register interest, data floors book a call, robotics companies talk to engineering.
+
+**01** Register interest
+
+## Makers, students and labs.
+
+Nothing is on sale yet. Tell us what you want and we will write when it is ready. Registered interest decides what we build first.
+
+One email when it is ready, and the occasional build note.
+
+Registration opens soon
+
+### Not open yet.
+
+This form is not connected, so nothing can be sent from this page yet.
+
+[contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
+
+**02** Call
+
+## Robot data floors.
+
+Twenty minutes about your stations: Sync Kit, Leader design-partner interest, commissioning, service, or a Skew Audit on one station. You leave with what we’d measure first.
+
+Nothing can be ordered or paid for on this site yet.
+
+[Open the calendar](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+
+Registration opens soon
+
+### Not open yet.
+
+This form is not connected, so nothing can be sent from this page yet.
+
+[contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+
+**03** Components
+
+## Robotics companies.
+
+Nodes, Hub 8 Pro, Contour OEM or the Sync Beacon inside your product. Talk to engineering first.
+
+- Per‑unit calibration and test records
+- Evaluation units and integration support
+- Volume terms discussed with engineering
+
+Registration opens soon
+
+### Not open yet.
+
+This form is not connected, so nothing can be sent from this page yet.
+
+[contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)
+
+---
+
+# Perfect the nodes. Build everything else from them.
+
+Source: https://checkmatedynamics.com/company.html
+
+Company | Dallas, Texas
+
+Checkmate Dynamics designs complete motion, sensing and sync nodes, sells them to people building robots, and builds its own station products from the very same units.
+
+**01** Principles
+
+## How we build.
+
+01
+
+### One family
+
+Same cable, connector, bus, clock, app and look across every product. Own one node and you know the next.
+
+02
+
+### Plug in, then work
+
+Plug it in and it’s found, named and ready. Settings exist; nobody needs them to start.
+
+03
+
+### Measured, not promised
+
+We publish measurements. Anything not yet measured is marked as a target, and every unit ships with its own test card.
+
+04
+
+### Value first
+
+We aim for the best part in its class, judged by the work it saves you.
+
+05
+
+### Built from the same nodes
+
+Our larger products are assemblies of the retail nodes, hub and cable. Improve one node and everything improves.
+
+06
+
+### Continuity
+
+Identity, calibration and history travel with a node from a maker’s bench to a data floor.
+
+07
+
+### Your data is yours
+
+Everything works on-prem; the cloud is optional. Station devices have no radio, any node radio is off until you turn it on in the app, and we never receive your recordings.
+
+08
+
+### Finished
+
+Closed housings, labeled ports, and one look from the product to the box to this page.
+
+**02** Record
+
+## From one stepper board to a platform.
+
+It started with SmartStepper, a closed-loop NEMA 17 that runs on a USB-C charger. Then SmartServo G for brushless gimbal motors, Contour for depth, cycloidal reducers for both node families, the Sync Beacon for station timing, and Hub 8 Pro to power and connect it all.
+
+**Fig. 01** SmartStepper 17, exploded Concept render
+
+**03** Contact
+
+Makers
+
+### Register interest
+
+Hear first when nodes go on sale.
+
+Waitlist
+
+Data floors
+
+### Book a call
+
+Sync Kit, Leader, commissioning, service.
+
+Book
+
+Robotics companies
+
+### Talk to us
+
+Components, OEM modules, engineering support.
+
+Quote
+
+---
+
+# This site collects nothing about you.
+
+Source: https://checkmatedynamics.com/privacy.html
+
+Privacy | Updated October 12, 2026
+
+No cookies, no analytics and no third-party requests. The forms are off, so nothing you type here is sent anywhere.
+
+**01** Plainly
+
+## What this site does
+
+It shows pages, images and type that we host ourselves. Fonts are served from this site. It sets no cookies and uses no local storage for tracking. There are no analytics, advertising or social-media scripts.
+
+## What the host sees
+
+Any web host keeps ordinary server logs, such as your IP address, the page and the time. We do not use them to track people or build profiles.
+
+## Links to other sites
+
+Some figures link to their sources on other sites. Those sites have their own privacy practices.
+
+## When the forms open
+
+The interest, call and parts forms are not connected yet. Before they are, this page will say exactly what they collect (name, email, what you are interested in and any note you add), why, and how to have it deleted. We will use it only to reply to you, and we will not sell it.
+
+## Contact
+
+Questions about this page: [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Privacy%20question).

@@ -1,0 +1,42 @@
+# Checkmate Dynamics
+
+> Motor, sensing and sync nodes on one USB-C bus, from a robotics hardware company in Dallas, Texas. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Nothing can be ordered or paid for on this site yet; prices are planned.
+
+Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are planned list prices in USD. Images are concept renders. Every page has a markdown version at the same address ending in .md.
+
+## Overview
+
+- [Home](https://checkmatedynamics.com/index.md): Motor, sensing and sync nodes on one USB-C bus. Makers use them one at a time, robotics companies build them in, and data-station hardware is built from them.
+- [Products](https://checkmatedynamics.com/products.md): One family of complete motion, sensing and sync nodes in four groups: Move, Sense, Sync, Power and connect. Each works alone and joins the same USB-C bus.
+
+## Products
+
+- [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.md): A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint.
+- [SmartServo G](https://checkmatedynamics.com/smartservo-g.md): A silent, backdrivable brushless servo node for 2804 and 5208 gimbal motors. Direct drive or cycloidal, with power and CAN-FD on one USB-C cable.
+- [Contour](https://checkmatedynamics.com/contour.md): Metric depth from a sensor the size of a thumb, over one USB-C cable and on the same clock as your cameras. Contour, Contour Wrist and Contour OEM.
+- [Hub 8 Pro](https://checkmatedynamics.com/hub-8.md): Eight USB-C node ports, each its own power source and CAN segment, with a hardware e-stop and one USB link to the host. Part of the Checkmate Leader.
+
+## Stations
+
+- [Sync Beacon and Sync Kit](https://checkmatedynamics.com/sync-kit.md): An independent timing instrument for each teleoperation station. It checks that all streams agree on time and writes a signed Station Report into each episode.
+- [Checkmate Leader](https://checkmatedynamics.com/leader.md): A leader arm that carries its own weight, lets the operator feel the follower’s limits and grip, and returns home by itself. Every joint is a SmartServo G node.
+- [Stations](https://checkmatedynamics.com/stations.md): Sync QA, a motorized leader arm, commissioning and service for teleoperation stations, built from the nodes we sell on their own. Fewer rejected episodes.
+
+## Ways in
+
+- [Makers](https://checkmatedynamics.com/makers.md): Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a USB-C charger, open the app in a browser, move. Script from Python when ready.
+- [Components](https://checkmatedynamics.com/components.md): For teams building their own arms, grippers, handhelds and rigs: the motion, sensing and sync nodes we use in our stations, with per-unit test records.
+- [Contact](https://checkmatedynamics.com/contact.md): Makers register interest, data floors book a call, robotics companies talk to engineering. Nothing is on sale yet; we will write when it is ready.
+
+## Company
+
+- [Company](https://checkmatedynamics.com/company.md): Checkmate Dynamics designs motion, sensing and sync nodes, sells them to people building robots, and builds its own station products from the same units.
+
+## Data
+
+- [Catalog (JSON)](https://checkmatedynamics.com/catalog.json): every catalogue number with name, group, status, planned price and the Key figures as shown on the pages
+- [Full text of the site](https://checkmatedynamics.com/llms-full.txt): every page as markdown in one file
+
+## Optional
+
+- [Privacy](https://checkmatedynamics.com/privacy.md): No cookies, no analytics and no third-party requests. The forms are off, so nothing you type here is sent anywhere. Here is what changes when the forms open.

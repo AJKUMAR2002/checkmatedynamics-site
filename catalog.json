@@ -1,0 +1,483 @@
+{
+  "name": "Checkmate Dynamics",
+  "url": "https://checkmatedynamics.com/",
+  "currency": "USD",
+  "note": "Prices are planned list prices. Nothing is on sale and nothing can be ordered or paid for on the site yet. Specifications are design values until a unit is measured; Target and Est. mark goals and estimates. Status is one of: in design, prototype, planned service.",
+  "families": [
+    {
+      "id": "A1",
+      "name": "SmartStepper 17",
+      "url": "https://checkmatedynamics.com/smartstepper-17.html",
+      "key_specs_as_shown": [
+        {
+          "name": "Encoder",
+          "value": "14-bit, 16,384 counts"
+        },
+        {
+          "name": "Power",
+          "value": "USB-C PD, 5–20 V"
+        },
+        {
+          "name": "Bus",
+          "value": "CAN 1 Mbit/s"
+        },
+        {
+          "name": "Reduction",
+          "value": "25:1 cycloidal"
+        },
+        {
+          "name": "Backlash",
+          "value": "~7 arcmin Est."
+        },
+        {
+          "name": "Gearbox",
+          "value": "42 mm square"
+        }
+      ],
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+    },
+    {
+      "id": "A2",
+      "name": "SmartServo G",
+      "url": "https://checkmatedynamics.com/smartservo-g.html",
+      "key_specs_as_shown": [
+        {
+          "name": "Motors",
+          "value": "2804 · 5208"
+        },
+        {
+          "name": "Reduction",
+          "value": "20:1 · 25:1"
+        },
+        {
+          "name": "Encoder",
+          "value": "14-bit"
+        },
+        {
+          "name": "Power",
+          "value": "USB-C PD, 5–20 V"
+        },
+        {
+          "name": "Bus",
+          "value": "CAN-FD"
+        },
+        {
+          "name": "Torque",
+          "value": "Per unit Test card"
+        }
+      ],
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+    },
+    {
+      "id": "B1",
+      "name": "Contour",
+      "url": "https://checkmatedynamics.com/contour.html",
+      "key_specs_as_shown": [
+        {
+          "name": "Sensor",
+          "value": "VL53L9CX"
+        },
+        {
+          "name": "Wavelength",
+          "value": "940 nm"
+        },
+        {
+          "name": "Resolution",
+          "value": "54 × 42"
+        },
+        {
+          "name": "Frame rate",
+          "value": "30 Hz"
+        },
+        {
+          "name": "Mass",
+          "value": "37 g Est."
+        },
+        {
+          "name": "Interface",
+          "value": "USB-C"
+        }
+      ],
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+    },
+    {
+      "id": "D1",
+      "name": "Hub 8 Pro",
+      "url": "https://checkmatedynamics.com/hub-8.html",
+      "key_specs_as_shown": [
+        {
+          "name": "Node ports",
+          "value": "8 + 2 accessory"
+        },
+        {
+          "name": "Port power",
+          "value": "20 V / 1.5 A Design"
+        },
+        {
+          "name": "Bus",
+          "value": "CAN-FD star"
+        },
+        {
+          "name": "Power in",
+          "value": "12–48 V DC"
+        },
+        {
+          "name": "Host",
+          "value": "1 × USB"
+        },
+        {
+          "name": "E-stop",
+          "value": "2-channel NC"
+        }
+      ],
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+    }
+  ],
+  "products": [
+    {
+      "code": "A1.1",
+      "name": "SmartStepper 17 Board",
+      "type": "product",
+      "group": "Move",
+      "for": "Makers · OEM",
+      "description": "Closed-loop controller for your own NEMA 17",
+      "status": "in design",
+      "price": {
+        "amount": 79,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "79 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartstepper-17.html",
+      "family": "A1",
+      "image": "https://checkmatedynamics.com/assets/img/ss17-board-top-1200.webp"
+    },
+    {
+      "code": "A1.2",
+      "name": "SmartStepper 17 · Direct",
+      "type": "product",
+      "group": "Move",
+      "for": "Makers · OEM",
+      "description": "Direct drive on a calibrated NEMA 17, housed",
+      "status": "in design",
+      "price": {
+        "amount": 169,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "169 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartstepper-17.html",
+      "family": "A1",
+      "image": "https://checkmatedynamics.com/assets/img/ss17-node-rear-1200.webp"
+    },
+    {
+      "code": "A1.3",
+      "name": "SmartStepper 17 · 25:1",
+      "type": "product",
+      "group": "Move",
+      "for": "Makers · OEM",
+      "description": "Metal cycloidal reducer and output encoder",
+      "status": "in design",
+      "price": {
+        "amount": 279,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "279 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartstepper-17.html",
+      "family": "A1",
+      "image": "https://checkmatedynamics.com/assets/img/ss17-node-hero-1200.webp"
+    },
+    {
+      "code": "A2.1",
+      "name": "SmartServo G Board",
+      "type": "product",
+      "group": "Move",
+      "for": "Makers · OEM",
+      "description": "FOC servo board for 2804 and 5208 gimbal motors",
+      "status": "in design",
+      "price": {
+        "amount": 89,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "89 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html",
+      "family": "A2",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-board-top-1200.webp"
+    },
+    {
+      "code": "A2.2",
+      "name": "G-2804 · Direct",
+      "type": "product",
+      "group": "Move",
+      "for": "Makers · OEM",
+      "description": "Direct drive, no gearbox, no backlash",
+      "status": "in design",
+      "price": {
+        "amount": 159,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "159 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html",
+      "family": "A2",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-2804-1200.webp"
+    },
+    {
+      "code": "A2.3",
+      "name": "G-2804 · 20:1",
+      "type": "product",
+      "group": "Move",
+      "for": "All",
+      "description": "Cycloidal, output encoder, I/O tile",
+      "status": "in design",
+      "price": {
+        "amount": 249,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "249 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html",
+      "family": "A2",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-2804-1200.webp"
+    },
+    {
+      "code": "A2.4",
+      "name": "G-5208 · Direct",
+      "type": "product",
+      "group": "Move",
+      "for": "Makers · OEM",
+      "description": "Direct drive, larger motor, for haptics and test benches",
+      "status": "in design",
+      "price": {
+        "amount": 249,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "249 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html",
+      "family": "A2",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-5208-1200.webp"
+    },
+    {
+      "code": "A2.5",
+      "name": "G-5208 · 25:1",
+      "type": "product",
+      "group": "Move",
+      "for": "All",
+      "description": "Cycloidal, output encoder, I/O tile",
+      "status": "in design",
+      "price": {
+        "amount": 399,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "399 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html",
+      "family": "A2",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-5208-1200.webp"
+    },
+    {
+      "code": "B1",
+      "name": "Contour",
+      "type": "product",
+      "group": "Sense",
+      "for": "Makers · OEM",
+      "description": "Time-of-flight depth over USB-C",
+      "status": "prototype",
+      "price": null,
+      "price_as_shown": "Register interest",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/contour.html",
+      "family": "B1",
+      "image": "https://checkmatedynamics.com/assets/img/og.png"
+    },
+    {
+      "code": "B2",
+      "name": "Contour Wrist",
+      "type": "product",
+      "group": "Sense",
+      "for": "Stations",
+      "description": "Depth at the gripper, on the station clock",
+      "status": "prototype",
+      "price": null,
+      "price_as_shown": "In Sync Kit",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/contour.html#wrist",
+      "image": "https://checkmatedynamics.com/assets/img/og.png"
+    },
+    {
+      "code": "B3",
+      "name": "Output encoder",
+      "type": "product",
+      "group": "Sense",
+      "for": "Makers · OEM",
+      "description": "Reads a reducer’s output angle directly",
+      "status": "in design",
+      "price": {
+        "amount": 29,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "29 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html#accessories",
+      "image": "https://checkmatedynamics.com/assets/img/og.png"
+    },
+    {
+      "code": "C1",
+      "name": "Sync Beacon · Sync Kit",
+      "type": "product",
+      "group": "Sync",
+      "for": "Stations · OEM",
+      "description": "Station timing instrument and per-episode report. Patent pending",
+      "status": "in design",
+      "price": {
+        "amount": 1490,
+        "currency": "USD",
+        "planned": true,
+        "from": true,
+        "note": "planned / station"
+      },
+      "price_as_shown": "From 1,490 planned / station",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/sync-kit.html",
+      "image": "https://checkmatedynamics.com/assets/img/og.png"
+    },
+    {
+      "code": "D1",
+      "name": "Hub 8 Pro",
+      "type": "product",
+      "group": "Power & connect",
+      "for": "Stations · OEM",
+      "description": "Eight node ports, per-port power and CAN, e-stop",
+      "status": "in design",
+      "price": {
+        "amount": 399,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "399 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/hub-8.html",
+      "family": "D1",
+      "image": "https://checkmatedynamics.com/assets/img/hub8-hero-1200.webp"
+    },
+    {
+      "code": "D2",
+      "name": "Bus cable",
+      "type": "product",
+      "group": "Power & connect",
+      "for": "All",
+      "description": "Power, USB and CAN on one USB-C cable",
+      "status": "in design",
+      "price": null,
+      "price_as_shown": "In the box",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/hub-8.html#cable",
+      "image": "https://checkmatedynamics.com/assets/img/ss17-node-rear-1200.webp"
+    },
+    {
+      "code": "D3",
+      "name": "I/O tile",
+      "type": "product",
+      "group": "Power & connect",
+      "for": "Makers · OEM",
+      "description": "Qwiic and AUX ports for SmartServo G",
+      "status": "in design",
+      "price": {
+        "amount": 19,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned"
+      },
+      "price_as_shown": "19 planned",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/smartservo-g.html#accessories",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-io-tile-1200.webp"
+    },
+    {
+      "code": "D4",
+      "name": "Cable Clip",
+      "type": "product",
+      "group": "Power & connect",
+      "for": "All",
+      "description": "Anodized 6061 clamp that holds the USB-C cable in its port",
+      "status": "in design",
+      "price": {
+        "amount": 9,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "or in the box"
+      },
+      "price_as_shown": "9 or in the box",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/hub-8.html#cable",
+      "image": "https://checkmatedynamics.com/assets/img/ss17-node-rear-1200.webp"
+    },
+    {
+      "code": "E1",
+      "name": "Checkmate Leader",
+      "type": "product",
+      "group": "Systems",
+      "for": "Stations",
+      "description": "Motorized leader arm made of SmartServo G nodes",
+      "status": "in design",
+      "price": {
+        "amount": 2990,
+        "currency": "USD",
+        "planned": true,
+        "from": false,
+        "note": "planned / arm"
+      },
+      "price_as_shown": "2,990 planned / arm",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/leader.html",
+      "image": "https://checkmatedynamics.com/assets/img/ssg-nodes-1200.webp"
+    },
+    {
+      "code": "E2",
+      "name": "Station commissioning",
+      "type": "service",
+      "group": "Systems",
+      "for": "Stations",
+      "description": "New rigs measured and signed off in sync",
+      "status": "planned service",
+      "price": null,
+      "price_as_shown": "On call",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/stations.html#commissioning"
+    }
+  ]
+}
