@@ -32,8 +32,12 @@ body { font: 300 16px/1.6 var(--font-sans); font-feature-settings: var(--font-fe
 
 input { background: var(--black); color: var(--ivory); border: 1px solid var(--line-2); border-radius: 2px; padding: 8px 12px; font-size: 13px; width: 96px; }
 input.grow { width: auto; min-width: 0; flex: 1 1 120px; }
+select { background: var(--black); color: var(--ivory); border: 1px solid var(--line-2); border-radius: 2px; padding: 8px 12px;
+         font: 400 13px var(--font-mono); max-width: 100%; }
+input[type="range"] { padding: 0; border: 0; background: transparent; accent-color: var(--champagne); height: 32px; }
+#apionly[hidden], #apiset[hidden] { display: none; }
 input, button, pre, img { max-width: 100%; }
-input:focus-visible, button:focus-visible, :focus-visible { outline: 1px solid var(--champagne); outline-offset: 3px; }
+input:focus-visible, button:focus-visible, select:focus-visible, :focus-visible { outline: 1px solid var(--champagne); outline-offset: 3px; }
 /* Brand ghost button (BRAND-AGENTS §5 .btn--ghost); the one champagne button is STOP */
 button { background: transparent; color: var(--ivory); border: 1px solid var(--line-2); border-radius: 0; padding: 12px 16px;
          font: 500 12px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;

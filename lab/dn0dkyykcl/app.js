@@ -136,7 +136,7 @@ function kv(el, rows) {
   el.innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${v == null ? "—" : esc(v)}</dd>`).join("");
 }
 
-let limitsFilled = false, boardsKey = "";
+let limitsFilled = false, cfgFilled = false, boardsKey = "";
 function renderBoards(s) {
   const boards = s.boards || [];
   const key = JSON.stringify([boards.map((b) => [b.uid64, b.ip, b.fw, b.verified, b.notes]), s.connected_uid64]);
@@ -174,6 +174,12 @@ function render(s) {
     ["Encoder", `${st.enc} counts`],
     ["Run current", m.run_ma ? `${m.run_ma} mA RMS set` + (m.enabled && d.actual_ma != null ? ` · ${d.actual_ma} mA driver now` : "") : null],
     ["Speed · accel", m.rpm ? `${m.rpm} rpm · ${m.accel} rpm/s` : null],
+    ...(s.live ? [
+      ["Speed now", `${(s.live.rpm ?? 0).toFixed(1)} rpm measured · ${s.live.cmd_rpm == null ? "—" : s.live.cmd_rpm.toFixed(1) + " rpm"} commanded`],
+      ["StallGuard", s.live.sg == null ? "— (driver off)" : `${s.live.sg} (higher = less load)`],
+      ["Board state", s.live.state],
+      ["Telemetry", `${s.live.age_ms ?? "—"} ms old · ${s.live.gaps} gaps`],
+    ] : []),
     ["Microsteps", m.usteps],
     ["VIN", st.vin !== undefined ? `${st.vin.toFixed(2)} V${st.vin_alarm ? "  ALARM" : ""}` : null],
     ["PD contract", st.pd],
@@ -196,6 +202,12 @@ function render(s) {
     ["Encoder", `${cl.encoder_rev.toFixed(3)} rev · ${cl.cpr} counts/rev · direction ${cl.direction}`],
     ["Stall at", `${cl.stall_at.toFixed(1)} full steps`],
   ] : [["State", "not calibrated: Enable, then Calibrate"]]);
+  $("apionly").hidden = $("apiset").hidden = !s.api;
+  if (s.limits) { $("vel").min = -s.limits.max_rpm; $("vel").max = s.limits.max_rpm; }
+  if (s.cfg && !cfgFilled) {
+    $("usteps").value = String(s.cfg.usteps); $("standstill").value = s.cfg.standstill;
+    $("accel").value = s.cfg.accel; $("sgthrs").value = s.cfg.sgthrs; cfgFilled = true;
+  }
   if (!limitsFilled && s.limits) {
     $("lim_ma").value = s.limits.max_ma; $("lim_rpm").value = s.limits.max_rpm; $("lim_rev").value = s.limits.soft_revs;
     $("lim_ma").max = s.limits.hard_max_ma; limitsFilled = true;
@@ -225,6 +237,27 @@ $("hostform").onsubmit = async (e) => {
   e.preventDefault();
   msg("connecting ..."); const r = await api("connect", { host: $("host").value.trim() }); if (r.ok) msg("connected");
 };
+// Velocity: drag to run, release (or leave the slider) to stop. Sends at most every 100 ms; the bridge caps it.
+let velSent = 0, velTimer = null;
+const velSend = () => { velTimer = null; velSent = Date.now(); api("vel", { rpm: +$("vel").value }); };
+$("vel").oninput = () => {
+  $("velval").textContent = `${$("vel").value} rpm`;
+  if (!velTimer) velTimer = setTimeout(velSend, Math.max(0, 100 - (Date.now() - velSent)));
+};
+const velRelease = () => {
+  if (+$("vel").value === 0) return;
+  $("vel").value = 0; $("velval").textContent = "0 rpm";
+  clearTimeout(velTimer); velTimer = null; api("vel", { rpm: 0 });
+};
+["pointerup", "pointercancel", "blur", "keyup"].forEach((ev) => $("vel").addEventListener(ev, velRelease));
+$("homeneg").onclick = () => { msg(""); api("home", { dir: -1 }); };
+$("homepos").onclick = () => { msg(""); api("home", { dir: 1 }); };
+$("standstill").onchange = () => api("standstill", { mode: $("standstill").value });
+$("applyset").onclick = async () => {
+  const r = await api("settings", { usteps: +$("usteps").value, accel: +$("accel").value, sgthrs: +$("sgthrs").value });
+  if (r.ok) { cfgFilled = false; msg("settings applied"); }
+};
+$("savecfg").onclick = async () => { const r = await api("cfg_save"); if (r.ok) msg("saved on the board"); };
 $("enable").onclick = async () => { msg(""); const r = await api("enable"); if (r.ok) msg("motor enabled"); };
 $("disable").onclick = () => api("disable");
 $("zero").onclick = () => api("zero");
