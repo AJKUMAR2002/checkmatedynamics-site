@@ -56,7 +56,7 @@ button.inline { padding: 4px 8px; margin-left: 8px; font-size: 11px; }
 .boards li .small { flex-basis: 100%; }
 
 /* Hosted build: password gate and bridge pairing sit over a hidden app */
-body.locked main, body.locked .stop, body.locked .alarm, body.waiting main { display: none; }
+body.locked main, body.locked .stop, body.locked .alarm, body.waiting main, body.waiting .stop { display: none; }   /* no bridge: STOP can't reach anything */
 .overlay { display: flex; justify-content: center; padding: 64px 16px; }
 .overlay[hidden] { display: none; }
 .card { overflow-wrap: anywhere; background: var(--surface); border: 1px solid var(--line); padding: 8px 32px 32px; max-width: 560px; width: 100%; }

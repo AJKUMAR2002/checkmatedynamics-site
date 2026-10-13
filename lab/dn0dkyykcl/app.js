@@ -364,7 +364,7 @@ function onSetup(kind, m) {
         : "Paired (pairing v2, unproven). Choose the network for this motor.");
       $("netstep").hidden = false; $("netsel").innerHTML = '<option value="">scanning ...</option>'; setupNets = {};
       setup.scan();
-      api("pc_wifi").then((r) => { pcSsid = r.ok ? r.ssid : null; });
+      if (wsReady || tokenGood) api("pc_wifi").then((r) => { pcSsid = r.ok ? r.ssid : null; });
     }
   } else if (kind === "failed" || kind === "rejected") {
     $("arrows").innerHTML = ""; $("netstep").hidden = true; $("pairretry").hidden = false;
@@ -380,7 +380,14 @@ function onSetup(kind, m) {
   } else if (kind === "wifi") {
     if (m.state === "joining") setupMsg(`Joining ${m.ssid} ...`);
     else if (m.state === "connected") {
-      setupMsg(`On Wi-Fi at ${m.ip}. Connecting ...`); setup.done();
+      setup.done();
+      if (!wsReady && !tokenGood) {                 // no bridge here (a phone): browsers can't open the board's TCP API
+        const who = lastJoin.name || (setup.info && setup.info.name) || "The board";
+        setupMsg(`${who} joined ${lastJoin.ssid || "the network"} as ${m.ip}. Open the app on a computer with Checkmate Link to control it.`);
+        $("netstep").hidden = true;
+        return;
+      }
+      setupMsg(`On Wi-Fi at ${m.ip}. Connecting ...`);
       api("discover"); waitAndConnect(setupUid, Date.now() + 30000);
     } else if (m.state === "failed") {
       setupMsg(m.why === "decrypt" ? "The board couldn't decrypt the password: pair again." : `Couldn't join (${m.why}). Check the password and try again.`);
@@ -409,8 +416,10 @@ $("pairretry").onclick = () => {
   $("pairretry").hidden = true; setupMsg("Pairing ...");
   if (setupMode === "bridge") api("ble_retry"); else if (setup) setup.pair();
 };
+let lastJoin = {};
 $("joinbtn").onclick = async () => {
   const ssid = $("netsel").value, pass = $("netpass").value, name = $("boardname").value.trim();
+  lastJoin = { ssid, name };
   $("netpass").value = "";                                  // never keep the password in the page
   if (!ssid) { setupMsg("Choose a network."); return; }
   if (setupMode === "bridge") {
@@ -421,6 +430,9 @@ $("joinbtn").onclick = async () => {
   try { await setup.join(ssid, pass, name); } catch (e) { setupMsg(`Error: ${e.message || e}`); }
 };
 $("setupclose").onclick = closeSetup;
+// Phones and bridge-less browsers: Bluetooth setup straight from the "Start Checkmate Link" screen.
+if (window.SS17Pair && SS17Pair.PairSession.supported()) $("blerow").hidden = false;
+$("bleonly").onclick = () => $("addboard").onclick();
 $("homeneg").onclick = () => { msg(""); api("home", { dir: -1 }); };
 $("homepos").onclick = () => { msg(""); api("home", { dir: 1 }); };
 $("standstill").onchange = () => api("standstill", { mode: $("standstill").value });
