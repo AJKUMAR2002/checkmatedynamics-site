@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="cm-mode" content="hosted">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob:; connect-src 'self' http://127.0.0.1:* ws://127.0.0.1:*; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="cm-gate" content="b24a5c2a0355e0cc:66d1a668befa8b52036eea3714cbb18a44f80fd999ea40319b6e02806ca79c98">
+<title>Checkmate · SS17 V1.1 bench (internal prototype)</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<header class="top">
+  <img src="logo.svg" alt="Checkmate Dynamics" height="22">
+  <div class="banner"><span class="overline">Internal prototype · bench only · hand on the power plug</span><span class="small">SmartStepper 17 V1.1 test bench · not a product · no e-stop</span></div>
+  <div class="conn">
+    <span id="paircode" class="label" hidden></span>
+    <span id="link" class="label">—</span>
+  </div>
+</header>
+
+<!-- Hosted build only: keeps casual visitors out. Not security: the bridge's pairing code is the real lock. -->
+<section class="overlay" id="gate" hidden>
+  <form class="card" id="gateform">
+    <h2 class="label">Internal prototype</h2>
+    <p>This page is for Checkmate Dynamics bench testing only.</p>
+    <div class="row"><input id="gatepw" class="mono grow" type="password" autocomplete="current-password" aria-label="Password" placeholder="password"><button>Enter</button></div>
+    <p class="msg" id="gatemsg" role="status"></p>
+  </form>
+</section>
+
+<!-- Hosted build only: find and pair with the local bridge. -->
+<section class="overlay" id="bridge" hidden>
+  <div class="card">
+    <div id="nobridge" hidden>
+      <h2 class="label">Start Checkmate Link (bridge) to see your devices</h2>
+      <p>The bridge runs on this PC and talks to the board on your network. In a terminal:</p>
+      <pre class="console mono">cd %USERPROFILE%\checkmatedynamics
+py -I software\app\beta\run.py</pre>
+      <p class="small">This page finds it on 127.0.0.1 port <span id="portshow" class="mono">8790</span> and keeps looking. Use Chrome or Edge, and allow access to devices on this computer if the browser asks.</p>
+      <div class="row"><input id="bport" class="mono" type="number" min="1024" max="65535" aria-label="Bridge port"><span class="unit">bridge port</span><button id="bportset">Use port</button></div>
+    </div>
+    <form id="pairform" hidden>
+      <h2 class="label">Pair with the bridge</h2>
+      <p>Enter the pairing code the bridge printed in its terminal. It changes every time the bridge starts.</p>
+      <div class="row"><input id="paircodein" class="mono grow" autocomplete="off" spellcheck="false" maxlength="9" placeholder="XXXX-XXXX" aria-label="Pairing code"><button>Pair</button></div>
+      <p class="msg" id="pairmsg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<div class="alarm" id="alarm" hidden>
+  <span class="overline">Alarm</span><span id="alarmtext"></span>
+  <button id="clearalarm">Clear alarm</button>
+</div>
+
+<main class="grid">
+  <section class="panel">
+    <h2 class="label">Boards on your network <button id="search" class="inline">Search again</button></h2>
+    <ul class="list boards" id="boards"></ul>
+    <form id="hostform" class="row">
+      <input id="host" class="mono grow" placeholder="or type the board IP (wifi over USB)" aria-label="Board IP">
+      <button>Connect</button>
+    </form>
+    <h2 class="label">Device</h2>
+    <dl class="kv" id="device"></dl>
+    <h2 class="label">Live status</h2>
+    <dl class="kv" id="status"></dl>
+    <h2 class="label">Warnings</h2>
+    <ul class="list" id="warnings"></ul>
+  </section>
+
+  <section class="panel">
+    <h2 class="label">Motor</h2>
+    <div class="row">
+      <button id="enable">Enable</button>
+      <button id="disable">Disable</button>
+      <button id="zero">Set zero</button>
+    </div>
+    <h2 class="label">Jog</h2>
+    <div class="row jog">
+      <button data-jog="-1">−1 rev</button><button data-jog="-0.1">−0.1</button>
+      <button data-jog="0.1">+0.1</button><button data-jog="1">+1 rev</button>
+    </div>
+    <h2 class="label">Move to</h2>
+    <div class="row">
+      <input id="target" class="mono" type="number" step="0.1" value="0" aria-label="Target position in rev"><span class="unit">rev</span>
+      <input id="rpm" class="mono" type="number" step="10" value="60" aria-label="Speed in rpm"><span class="unit">rpm</span>
+      <button id="move">Move</button>
+    </div>
+    <h2 class="label">Closed loop <span class="hint" id="clhint"></span></h2>
+    <dl class="kv" id="clstat"></dl>
+    <div class="row" id="clrow">
+      <button id="clcal" title="Moves +1 rev and back">Calibrate</button>
+      <button id="clon">On</button><button id="cloff">Off</button>
+      <button id="clsync">Sync to encoder</button>
+    </div>
+    <div class="row">
+      <input id="stall" class="mono" type="number" step="0.5" min="0.5" max="50" value="2" aria-label="Stall threshold"><span class="unit">full steps stall</span>
+      <button id="setstall">Set</button>
+      <input id="gototgt" class="mono" type="number" step="0.1" value="0" aria-label="Goto target in rev"><span class="unit">rev</span>
+      <button id="goto">Goto</button>
+    </div>
+    <h2 class="label">Current</h2>
+    <div class="row">
+      <input id="ma" class="mono" type="number" step="50" value="600" aria-label="Run current in mA"><span class="unit">mA RMS</span>
+      <button id="setma">Set</button>
+    </div>
+    <h2 class="label">Safety limits <span class="hint">(enforced by the bridge)</span></h2>
+    <div class="row">
+      <input id="lim_ma" class="mono" type="number" step="50" aria-label="Current cap"><span class="unit">mA cap</span>
+      <input id="lim_rpm" class="mono" type="number" step="10" aria-label="Speed cap"><span class="unit">rpm cap</span>
+      <input id="lim_rev" class="mono" type="number" step="0.5" aria-label="Soft limit"><span class="unit">± rev</span>
+      <button id="setlim">Apply</button>
+    </div>
+    <p class="msg" id="msg" role="status"></p>
+  </section>
+
+  <section class="panel">
+    <h2 class="label">Console <span class="hint">(allow-listed commands only)</span></h2>
+    <pre class="console mono" id="console"></pre>
+    <form id="conform" class="row">
+      <input id="conline" class="mono grow" placeholder="stat · pd · tmc · enc · mot · cl" aria-label="Console command">
+      <button>Send</button>
+    </form>
+    <h2 class="label">Events</h2>
+    <pre class="console mono small" id="events"></pre>
+    <button id="exportlog" class="link">Export session log</button>
+  </section>
+</main>
+
+<button id="stop" class="stop" title="Stop and disable the driver (Esc)">STOP</button>
+<script src="app.js"></script>
+</body>
+</html>
