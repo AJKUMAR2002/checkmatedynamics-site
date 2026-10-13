@@ -140,6 +140,7 @@ let limitsFilled = false, cfgFilled = false, boardsKey = "";
 function renderBoards(s) {
   const boards = s.boards || [];
   window.__boards = boards;
+  renderNearby(s);
   const key = JSON.stringify([boards.map((b) => [b.uid64, b.ip, b.fw, b.verified, b.notes]), s.connected_uid64]);
   if (key === boardsKey) return;
   boardsKey = key;
@@ -287,30 +288,87 @@ $("focoff").onclick = () => api("foc", { mode: "off" });
 $("spring").onclick = () => { msg(""); api("foc", { mode: "spring", k: +$("sk").value, d: +$("sd").value,
                                                      detents: +$("sdet").value, detent_pct: +$("sdetp").value }); };
 $("servo").onclick = () => { msg(""); api("foc", { mode: "servo", target: +$("servotgt").value, rpm: +$("rpm").value }); };
-// ------------------------------------------------------------------ Bluetooth setup of a new board
+// ------------------------------------------------------------------ Bluetooth setup run by the bridge (zero typing)
+let setupMode = null, bridgeCodeKey = "", bridgeScanned = false;
+function renderNearby(s) {
+  const ble = s.ble || {}, list = (ble.nearby || []).filter((n) => n.unconfigured || n.pairing_open);
+  $("nearby").innerHTML = list.map((n) => `<li><span class="mono">${esc(n.name || "SmartStepper")} · new board nearby · Bluetooth ${n.rssi} dBm</span>
+    <button data-ble="${esc(n.address)}">Set up</button></li>`).join("");
+  if (setupMode === "bridge" && ble.setup) renderBridgeSetup(ble.setup, s);
+}
+$("nearby").onclick = async (e) => {
+  const addr = e.target.dataset && e.target.dataset.ble;
+  if (!addr) return;
+  setupMode = "bridge"; bridgeCodeKey = ""; bridgeScanned = false;
+  $("setup").hidden = false; $("netstep").hidden = $("pcwifi").hidden = $("pairretry").hidden = $("setupwarn").hidden = true;
+  $("arrows").innerHTML = ""; setupMsg("Connecting over Bluetooth ...");
+  const r = await api("ble_setup", { address: addr });
+  if (!r.ok) setupMsg(r.error);
+};
+function renderBridgeSetup(v, s) {
+  const key = v.code.join("");
+  if (key !== bridgeCodeKey) {
+    bridgeCodeKey = key;
+    $("arrows").innerHTML = v.code.map((d) => `<span aria-label="${["up", "right", "down", "left"][d]}">${ARROWS[d]}</span>`).join("");
+  }
+  fillArrows(v.state === "confirmed" ? 6 : v.entered);
+  setupMsg(v.error || ({ joining: "Joining the network ...", connected: `On Wi-Fi at ${v.ip}. Connecting ...` }[v.phase]) || v.msg);
+  $("pairretry").hidden = !["failed", "rejected"].includes(v.state);
+  $("setupwarn").hidden = !(v.version === 2);
+  $("setupwarn").textContent = "This board's firmware (pairing v2) can't prove it's the board in front of you. Don't share a Wi-Fi network that matters until the firmware update (inbox #93). 'Use this PC's Wi-Fi' needs the update.";
+  const choose = v.state === "confirmed" && v.phase === "confirmed";
+  $("pcwifi").hidden = !(choose && v.use_pc_wifi && $("netstep").hidden);
+  if (choose && v.use_pc_wifi) $("pcwifimsg").textContent = `Use this PC's Wi-Fi: ${v.pc_ssid}? The bridge sends it to the board encrypted; the password never reaches this page.`;
+  if (choose && !v.use_pc_wifi && $("netstep").hidden) showManualNets();
+  if (!$("netstep").hidden && v.nets.length) {
+    const cur = $("netsel").value;
+    $("netsel").innerHTML = v.nets.map((n) => `<option value="${esc(n.ssid)}">${esc(n.ssid)} · ${n.rssi} dBm · ${n.secure ? "secured" : "open"}</option>`).join("");
+    if (cur) $("netsel").value = cur; else if (v.pc_ssid && v.nets.some((n) => n.ssid === v.pc_ssid)) $("netsel").value = v.pc_ssid;
+  }
+  if (s.connected_uid64 && s.connected_uid64 === v.uid64) { msg("new board connected"); closeSetup(); }
+}
+function showManualNets() {
+  $("pcwifi").hidden = true; $("netstep").hidden = false;
+  if (!bridgeScanned) { bridgeScanned = true; $("netsel").innerHTML = '<option value="">scanning ...</option>'; api("ble_scan"); }
+}
+$("usepc").onclick = async () => {
+  const r = await api("ble_use_pc_wifi", { name: $("pcname").value.trim() });
+  if (!r.ok) setupMsg(r.error);
+};
+$("chooseother").onclick = showManualNets;
+// ------------------------------------------------------------------ Bluetooth setup of a new board (browser, Web Bluetooth)
 const ARROWS = ["↑", "→", "↓", "←"];
 let setup = null, setupNets = {}, setupUid = null, pcSsid = null;
 const setupMsg = (t) => { $("setupmsg").textContent = t; };
 const fillArrows = (n) => [...$("arrows").children].forEach((el, i) => el.classList.toggle("on", i < n));
-function closeSetup() { if (setup) setup.disconnect(); setup = null; $("setup").hidden = true; $("netpass").value = ""; }
+function closeSetup() {
+  if (setupMode === "bridge") api("ble_cancel");
+  if (setup) setup.disconnect();
+  setup = null; setupMode = null; $("setup").hidden = true; $("netpass").value = "";
+}
 function onSetup(kind, m) {
   if (kind === "found") { setupMsg(`Found ${m.name || "a board"}. Pairing ...`); setup.pair(); }
   else if (kind === "code") {
     $("arrows").innerHTML = m.dirs.map((d) => `<span aria-label="${["up", "right", "down", "left"][d]}">${ARROWS[d]}</span>`).join("");
+    $("setupwarn").hidden = m.version !== 2;
+    $("setupwarn").textContent = "This board's firmware (pairing v2) can't prove it's the board in front of you. Don't share a Wi-Fi network that matters until the firmware update (inbox #93).";
+    if (m.notice) setupMsg(m.notice);
   } else if (kind === "pair") {
-    if (m.state === "enter_code") setupMsg(`Press these ${m.len || 6} on the board's switch, in order (${m.timeout_s || 60} s). CENTER starts over.`);
+    if (m.state === "enter_code") setupMsg(`Press these ${m.len || 6} on the board's switch, in order (${m.timeout_s || 60} s). CENTER removes the last one.`);
     else if (m.state === "entry") fillArrows(m.n);
+    else if (m.state === "entered") setupMsg("Checking the code with the board ...");
     else if (m.state === "wrong_code") { fillArrows(0); setupMsg(`Wrong code: try again (${m.tries_left} left).`); }
     else if (m.state === "confirmed") {
-      fillArrows(6); setupMsg("Paired. Choose the network for this motor.");
+      fillArrows(6);
+      setupMsg(m.authenticated ? "Paired: the board proved the code. Choose the network for this motor."
+        : "Paired (pairing v2, unproven). Choose the network for this motor.");
       $("netstep").hidden = false; $("netsel").innerHTML = '<option value="">scanning ...</option>'; setupNets = {};
       setup.scan();
       api("pc_wifi").then((r) => { pcSsid = r.ok ? r.ssid : null; });
-    } else if (m.state === "failed" || m.state === "timeout") {
-      $("arrows").innerHTML = ""; $("pairretry").hidden = false;
-      setupMsg(m.state === "timeout" ? "Time ran out. Try again."
-        : m.why === "commit" ? "Pairing check failed (possible interference). Try again." : "Too many wrong codes. Try again.");
     }
+  } else if (kind === "failed" || kind === "rejected") {
+    $("arrows").innerHTML = ""; $("netstep").hidden = true; $("pairretry").hidden = false;
+    setupMsg(m.message);
   } else if (kind === "net") {
     const prev = setupNets[m.ssid];
     if (m.ssid && (!prev || m.rssi > prev.rssi)) setupNets[m.ssid] = m;           // one entry per network, strongest
@@ -337,7 +395,8 @@ function waitAndConnect(uid, until) {
   } else setTimeout(() => waitAndConnect(uid, until), 1000);
 }
 $("addboard").onclick = async () => {
-  $("setup").hidden = false; $("netstep").hidden = true; $("pairretry").hidden = true; $("arrows").innerHTML = "";
+  setupMode = "web";
+  $("setup").hidden = false; $("pcwifi").hidden = $("setupwarn").hidden = true; $("netstep").hidden = true; $("pairretry").hidden = true; $("arrows").innerHTML = "";
   if (!SS17Pair.PairSession.supported()) {
     setupMsg("Bluetooth setup needs Chrome or Edge (Windows, Android or macOS). On iPhone, use the board's Wi-Fi setup network.");
     return;
@@ -346,11 +405,19 @@ $("addboard").onclick = async () => {
   setup = new SS17Pair.PairSession(onSetup);
   try { const info = await setup.find(); setupUid = info.uid64; } catch (e) { setupMsg(`No board chosen (${e.message || e}).`); }
 };
-$("pairretry").onclick = () => { $("pairretry").hidden = true; setupMsg("Pairing ..."); if (setup) setup.pair(); };
+$("pairretry").onclick = () => {
+  $("pairretry").hidden = true; setupMsg("Pairing ...");
+  if (setupMode === "bridge") api("ble_retry"); else if (setup) setup.pair();
+};
 $("joinbtn").onclick = async () => {
   const ssid = $("netsel").value, pass = $("netpass").value, name = $("boardname").value.trim();
   $("netpass").value = "";                                  // never keep the password in the page
   if (!ssid) { setupMsg("Choose a network."); return; }
+  if (setupMode === "bridge") {
+    const r = await api("ble_wifi", { ssid, password: pass, name });
+    if (!r.ok) setupMsg(r.error);
+    return;
+  }
   try { await setup.join(ssid, pass, name); } catch (e) { setupMsg(`Error: ${e.message || e}`); }
 };
 $("setupclose").onclick = closeSetup;
