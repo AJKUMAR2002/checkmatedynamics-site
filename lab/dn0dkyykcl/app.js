@@ -292,8 +292,12 @@ $("servo").onclick = () => { msg(""); api("foc", { mode: "servo", target: +$("se
 let setupMode = null, bridgeCodeKey = "", bridgeScanned = false;
 function renderNearby(s) {
   const ble = s.ble || {}, list = (ble.nearby || []).filter((n) => n.unconfigured || n.pairing_open);
-  $("nearby").innerHTML = list.map((n) => `<li><span class="mono">${esc(n.name || "SmartStepper")} · new board nearby · Bluetooth ${n.rssi} dBm</span>
-    <button data-ble="${esc(n.address)}">Set up</button></li>`).join("");
+  $("nearby").innerHTML = list.map((n) => {
+    const what = n.unconfigured ? "new board nearby" : n.wifi_up ? "ready to pair" : "can't reach Wi-Fi: update it";
+    const btn = n.unconfigured ? "Set up" : n.known ? "Update (paired before)" : "Update";
+    return `<li><span class="mono">${esc(n.name || "SmartStepper")} · ${what} · Bluetooth ${n.rssi} dBm</span>
+    <button data-ble="${esc(n.address)}">${btn}</button></li>`;
+  }).join("");
   if (setupMode === "bridge" && ble.setup) renderBridgeSetup(ble.setup, s);
 }
 $("nearby").onclick = async (e) => {
@@ -312,6 +316,7 @@ function renderBridgeSetup(v, s) {
     $("arrows").innerHTML = v.code.map((d) => `<span aria-label="${["up", "right", "down", "left"][d]}">${ARROWS[d]}</span>`).join("");
   }
   fillArrows(v.state === "confirmed" ? 6 : v.entered);
+  showDial(v.clicks, v.haptic, v.state === "enter_code");
   setupMsg(v.error || ({ joining: "Joining the network ...", connected: `On Wi-Fi at ${v.ip}. Connecting ...` }[v.phase]) || v.msg);
   $("pairretry").hidden = !["failed", "rejected"].includes(v.state);
   $("setupwarn").hidden = !(v.version === 2);
@@ -327,6 +332,15 @@ function renderBridgeSetup(v, s) {
   }
   if (s.connected_uid64 && s.connected_uid64 === v.uid64) { msg("new board connected"); closeSetup(); }
 }
+// Dial entry (founder Oct 13): turn the shaft r+1 clicks per number, reversing between numbers; arrows stay as a fallback.
+function showDial(clicks, haptic, active) {
+  const show = active && clicks && clicks.length;
+  $("dial").hidden = !show;
+  if (!show) return;
+  $("dialnums").textContent = clicks.join(" · ") + " clicks";
+  $("dialhint").textContent = `Turn the shaft that many clicks for each number, changing direction between numbers (start either way). `
+    + (haptic ? "You'll feel each click." : "LED2 flashes on each click.") + " Or press the arrows below on the switch.";
+}
 function showManualNets() {
   $("pcwifi").hidden = true; $("netstep").hidden = false;
   if (!bridgeScanned) { bridgeScanned = true; $("netsel").innerHTML = '<option value="">scanning ...</option>'; api("ble_scan"); }
@@ -338,7 +352,7 @@ $("usepc").onclick = async () => {
 $("chooseother").onclick = showManualNets;
 // ------------------------------------------------------------------ Bluetooth setup of a new board (browser, Web Bluetooth)
 const ARROWS = ["↑", "→", "↓", "←"];
-let setup = null, setupNets = {}, setupUid = null, pcSsid = null;
+let setup = null, setupNets = {}, setupUid = null, pcSsid = null, webCode = [];
 const setupMsg = (t) => { $("setupmsg").textContent = t; };
 const fillArrows = (n) => [...$("arrows").children].forEach((el, i) => el.classList.toggle("on", i < n));
 function closeSetup() {
@@ -349,14 +363,20 @@ function closeSetup() {
 function onSetup(kind, m) {
   if (kind === "found") { setupMsg(`Found ${m.name || "a board"}. Pairing ...`); setup.pair(); }
   else if (kind === "code") {
+    webCode = m.dirs;
     $("arrows").innerHTML = m.dirs.map((d) => `<span aria-label="${["up", "right", "down", "left"][d]}">${ARROWS[d]}</span>`).join("");
     $("setupwarn").hidden = m.version !== 2;
     $("setupwarn").textContent = "This board's firmware (pairing v2) can't prove it's the board in front of you. Don't share a Wi-Fi network that matters until the firmware update (inbox #93).";
     if (m.notice) setupMsg(m.notice);
   } else if (kind === "pair") {
-    if (m.state === "enter_code") setupMsg(`Press these ${m.len || 6} on the board's switch, in order (${m.timeout_s || 60} s). CENTER removes the last one.`);
+    if (m.state === "enter_code") {
+      const dial = (m.inputs || []).includes("dial");
+      showDial(dial ? webCode.map((d) => d + 1) : [], m.dial && m.dial.haptic, dial);
+      setupMsg(dial ? "Enter the code on the board: turn the shaft, or press the arrows on the switch."
+        : `Press these ${m.len || 6} on the board's switch, in order (${m.timeout_s || 60} s). CENTER removes the last one.`);
+    }
     else if (m.state === "entry") fillArrows(m.n);
-    else if (m.state === "entered") setupMsg("Checking the code with the board ...");
+    else if (m.state === "entered") { showDial([], false, false); setupMsg("Checking the code with the board ..."); }
     else if (m.state === "wrong_code") { fillArrows(0); setupMsg(`Wrong code: try again (${m.tries_left} left).`); }
     else if (m.state === "confirmed") {
       fillArrows(6);
