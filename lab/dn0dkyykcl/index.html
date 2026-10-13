@@ -53,6 +53,23 @@ py -I software\app\beta\run.py</pre>
   </div>
 </section>
 
+<!-- Bluetooth setup of a new board (pairing v2: passkey arrows pressed on the board, password encrypted in this page) -->
+<section class="overlay cm-grid cm-grid--flat" id="setup" hidden>
+  <div class="card">
+    <h2 class="label">Add a new board <button id="setupclose" class="inline">Close</button></h2>
+    <p id="setupmsg" role="status"></p>
+    <div id="arrows" class="arrows" aria-live="polite"></div>
+    <div id="netstep" hidden>
+      <div class="row"><select id="netsel" class="grow" aria-label="Wi-Fi network"></select></div>
+      <div class="row"><input id="netpass" class="mono grow" type="password" autocomplete="off" placeholder="Wi-Fi password (empty for an open network)" aria-label="Wi-Fi password"></div>
+      <div class="row"><input id="boardname" class="mono grow" maxlength="24" placeholder="Name this motor" aria-label="Motor name"></div>
+      <div class="row"><button id="joinbtn">Join</button></div>
+    </div>
+    <div class="row"><button id="pairretry" hidden>Try again</button></div>
+    <p class="small">The password is encrypted in this page before it goes over Bluetooth. The arrows you press on the board prove this page is talking to that board.</p>
+  </div>
+</section>
+
 <div class="alarm" id="alarm" hidden>
   <span class="overline">Alarm</span><span id="alarmtext"></span>
   <button id="clearalarm">Clear alarm</button>
@@ -60,7 +77,7 @@ py -I software\app\beta\run.py</pre>
 
 <main class="grid">
   <section class="panel">
-    <h2 class="label">Boards on your network <button id="search" class="inline">Search again</button></h2>
+    <h2 class="label">Boards on your network <button id="search" class="inline">Search again</button><button id="addboard" class="inline">Add a new board</button></h2>
     <ul class="list boards" id="boards"></ul>
     <form id="hostform" class="row">
       <input id="host" class="mono grow" placeholder="or type the board IP (wifi over USB)" aria-label="Board IP">
@@ -185,6 +202,7 @@ py -I software\app\beta\run.py</pre>
 </main>
 
 <button id="stop" class="stop" title="Stop and disable the driver (Esc)">STOP</button>
+<script src="pair.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
