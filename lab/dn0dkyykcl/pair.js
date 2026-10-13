@@ -53,6 +53,7 @@
     constructor(onEvent) {
       this.onEvent = onEvent;          // (kind, data) -> UI
       this.ctrl = null; this.info = null; this.client = null; this.key = null; this.boardPub = null; this.dev = null;
+      this.waiters = [];               // [pred, resolve] for replies the flow must wait on (e.g. name saved)
     }
     static supported() { return !!(root.navigator && root.navigator.bluetooth); }
     async find() {
@@ -80,7 +81,15 @@
       this.key = null; this.boardPub = null;
       await this.send({ cmd: "pair", commit: b64(await commitOf(this.client.pub)) });
     }
+    waitFor(pred, ms) {
+      return new Promise((resolve, reject) => {
+        const w = [pred, resolve];
+        this.waiters.push(w);
+        setTimeout(() => { this.waiters = this.waiters.filter((x) => x !== w); reject(new Error("the board didn't answer")); }, ms);
+      });
+    }
     async handle(m) {
+      for (const w of this.waiters.filter(([pred]) => pred(m))) { this.waiters = this.waiters.filter((x) => x !== w); w[1](m); }
       if (m.t === "pair" && m.state === "key") {
         this.boardPub = unb64(m.pub);
         this.key = await sessionKey(this.client.keyPair.privateKey, this.boardPub, this.info.uid64);
@@ -96,7 +105,11 @@
     }
     scan() { return this.send({ cmd: "scan" }); }
     async join(ssid, password, name) {
-      if (name) await this.send({ cmd: "name", name });
+      if (name) {                      // name first, and wait for it: the board's first UDP HELLO then carries it
+        const saved = this.waitFor((m) => m.t === "name" && m.state === "saved", 3000);
+        await this.send({ cmd: "name", name });
+        await saved;
+      }
       if (!password) return this.send({ cmd: "wifi", ssid });             // open network
       if (!this.key) throw new Error("not paired yet");
       const { iv, ct } = await encryptPassword(this.key, ssid, password);
