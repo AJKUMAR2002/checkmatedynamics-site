@@ -15,7 +15,7 @@
 </head>
 <body class="locked">
 <header class="top">
-  <img src="logo.svg" alt="Checkmate Dynamics" height="22">
+  <img src="logo.svg" alt="Checkmate Dynamics" height="28">
   <div class="banner"><span class="overline">Internal prototype · bench only · hand on the power plug</span><span class="small">SmartStepper 17 V1.1 test bench · not a product · no e-stop</span></div>
   <div class="conn">
     <span id="paircode" class="label" hidden></span>
@@ -24,7 +24,7 @@
 </header>
 
 <!-- Hosted build only: keeps casual visitors out. Not security: the bridge's pairing code is the real lock. -->
-<section class="overlay" id="gate" hidden>
+<section class="overlay cm-grid cm-grid--flat" id="gate" hidden>
   <form class="card" id="gateform">
     <h2 class="label">Internal prototype</h2>
     <p>This page is for Checkmate Dynamics bench testing only.</p>
@@ -34,7 +34,7 @@
 </section>
 
 <!-- Hosted build only: find and pair with the local bridge. -->
-<section class="overlay" id="bridge" hidden>
+<section class="overlay cm-grid cm-grid--flat" id="bridge" hidden>
   <div class="card">
     <div id="nobridge" hidden>
       <h2 class="label">Start Checkmate Link (bridge) to see your devices</h2>

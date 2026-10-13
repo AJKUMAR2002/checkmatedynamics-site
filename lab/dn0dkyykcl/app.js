@@ -155,7 +155,10 @@ function render(s) {
   const where = MODE === "local" ? "" : `bridge 127.0.0.1:${port} · `;
   $("link").textContent = where + (s.connected ? `${s.host}` : "no board connected");
   renderBoards(s);
-  if (!s.connected) { $("device").innerHTML = ""; $("status").innerHTML = ""; return; }
+  if (!s.connected) {
+    kv($("device"), [["Board", s.error || "not connected: pick a board above, or type its IP"]]);
+    $("status").innerHTML = ""; return;
+  }
   const st = s.status || {}, m = s.motor || {}, d = s.driver || {};
   kv($("device"), [
     ["Product", `${s.device.product} ${s.device.hw_rev}`],

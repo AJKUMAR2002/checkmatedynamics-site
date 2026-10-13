@@ -5,19 +5,23 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; background: var(--black); color: var(--ivory); }
-body { font: 300 16px/1.6 var(--font-sans); font-feature-settings: var(--font-features); padding-bottom: 120px; }
+html { overflow-x: clip; }            /* the page never scrolls sideways, whatever a board sends */
+body { font: 300 16px/1.6 var(--font-sans); font-feature-settings: var(--font-features); -webkit-font-smoothing: antialiased; padding-bottom: 128px; }   /* room under the fixed STOP */
 .mono, input, pre, dd { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .label, h2.label { font: 500 11px/1.2 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); margin: 24px 0 8px; }
 .overline { font: 600 11px/1.2 var(--font-sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--champagne); }
 .small { font-size: 14px; color: var(--text-2); }
 .hint { text-transform: none; letter-spacing: 0; color: var(--text-3); }
 
-.top { display: flex; align-items: center; gap: 32px; padding: 16px 32px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-.banner { display: flex; flex-direction: column; gap: 2px; }
-.conn { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+.top { display: flex; align-items: center; gap: 12px 32px; padding: 16px 32px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.top > img { flex: none; }
+.banner { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 320px; }
+.conn { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; justify-content: flex-end; min-width: 0; flex: 0 1 auto; }
+.conn .label { margin: 0; overflow-wrap: anywhere; }
 
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 8px 32px; max-width: 1440px; }
-.panel { background: var(--surface); border: 1px solid var(--line); padding: 8px 24px 24px; min-width: 0; }
+/* Panels wrap: 3 across when each gets >= 360 px, then 2, then 1 */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 24px; padding: 8px 32px; max-width: 1440px; }   /* brand layout: 24 px gutter, 32 px margin, max 1440 */
+.panel { background: var(--surface); border: 1px solid var(--line); padding: 8px 24px 24px; min-width: 0; overflow-wrap: anywhere; }
 .kv { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0; font-size: 13px; }
 .kv dt { color: var(--text-2); font: 300 14px/1.5 var(--font-sans); }
 .kv dd { margin: 0; overflow-wrap: anywhere; }
@@ -27,16 +31,19 @@ body { font: 300 16px/1.6 var(--font-sans); font-feature-settings: var(--font-fe
 .grow { flex: 1; }
 
 input { background: var(--black); color: var(--ivory); border: 1px solid var(--line-2); border-radius: 2px; padding: 8px 12px; font-size: 13px; width: 96px; }
-input.grow { width: auto; }
-input:focus, button:focus-visible { outline: 2px solid var(--champagne); outline-offset: 1px; }
-button { background: var(--black); color: var(--ivory); border: 1px solid var(--line-2); border-radius: 2px; padding: 8px 16px;
-         font: 500 13px var(--font-mono); cursor: pointer; transition: border-color 120ms cubic-bezier(0.16, 1, 0.3, 1); }
+input.grow { width: auto; min-width: 0; flex: 1 1 120px; }
+input, button, pre, img { max-width: 100%; }
+input:focus-visible, button:focus-visible, :focus-visible { outline: 1px solid var(--champagne); outline-offset: 3px; }
+/* Brand ghost button (BRAND-AGENTS §5 .btn--ghost); the one champagne button is STOP */
+button { background: transparent; color: var(--ivory); border: 1px solid var(--line-2); border-radius: 0; padding: 12px 16px;
+         font: 500 12px/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+         transition: border-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out); }
 button:hover { border-color: var(--champagne); }
-.console { background: var(--black); border: 1px solid var(--line); padding: 12px; height: 240px; overflow: auto; font-size: 13px; margin: 0 0 8px; white-space: pre-wrap; }
+.console { background: var(--black); border: 1px solid var(--line); padding: 12px; height: 240px; overflow: auto; font-size: 13px; margin: 0 0 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
 .console.small { height: 160px; }
 .msg { min-height: 24px; font: 400 13px var(--font-mono); color: var(--champagne); }
 .link { color: var(--champagne); font: 500 13px var(--font-mono); background: none; border: 0; padding: 0; text-decoration: underline; }
-button.inline { padding: 2px 8px; margin-left: 8px; font-size: 11px; text-transform: none; letter-spacing: 0; }
+button.inline { padding: 4px 8px; margin-left: 8px; font-size: 11px; }
 
 /* Boards found by UDP discovery */
 .boards { list-style: none; padding: 0; margin-bottom: 12px; }
@@ -48,7 +55,7 @@ button.inline { padding: 2px 8px; margin-left: 8px; font-size: 11px; text-transf
 body.locked main, body.locked .stop, body.locked .alarm, body.waiting main { display: none; }
 .overlay { display: flex; justify-content: center; padding: 64px 16px; }
 .overlay[hidden] { display: none; }
-.card { background: var(--surface); border: 1px solid var(--line); padding: 8px 32px 32px; max-width: 560px; width: 100%; }
+.card { overflow-wrap: anywhere; background: var(--surface); border: 1px solid var(--line); padding: 8px 32px 32px; max-width: 560px; width: 100%; }
 .card p { color: var(--text-2); margin: 8px 0 16px; }
 .card .console { height: auto; }
 
@@ -56,13 +63,18 @@ body.locked main, body.locked .stop, body.locked .alarm, body.waiting main { dis
 .alarm { display: flex; gap: 16px; align-items: center; margin: 16px 32px 0; padding: 12px 16px; border: 2px solid var(--champagne);
          background: var(--fill-1); font: 500 14px/1.4 var(--font-mono); color: var(--ivory); }
 .alarm[hidden] { display: none; }
-.alarm button { margin-left: auto; }
-button:disabled { opacity: 0.4; cursor: not-allowed; }
+.alarm { flex-wrap: wrap; }
+.alarm #alarmtext { min-width: 0; flex: 1 1 240px; overflow-wrap: anywhere; }
+.alarm button { margin-left: auto; flex: none; }
+button:disabled { color: var(--text-3); border-color: var(--line); cursor: not-allowed; }   /* tints only, no opacity tricks */
 
 /* STOP: the one champagne block, always visible, under 5 % of the view */
-.stop { position: fixed; right: 32px; bottom: 24px; width: 240px; height: 80px; background: var(--champagne); color: var(--black);
-        border: 0; border-radius: 2px; font: 600 28px/1 var(--font-sans); letter-spacing: 0.16em; z-index: 10; }
+/* Fixed inside the viewport at every size: never wider than the window minus the gutters */
+/* Always fully inside the viewport; champagne area kept under ~5 % even on a phone (min(240 px, 40vw) x 56-80 px) */
+.stop { position: fixed; right: 16px; bottom: 16px; width: min(240px, 40vw); min-width: 140px; height: clamp(56px, 10vh, 80px);
+        background: var(--champagne); color: var(--black); border: 0; border-radius: 0; padding: 0;
+        font: 500 28px/1 var(--font-sans); letter-spacing: 0.16em; text-transform: uppercase; z-index: 10; }
 .stop:hover { background: var(--ivory); }
 
-@media (max-width: 1100px) { .grid { grid-template-columns: 1fr; padding: 8px 16px; } .top { padding: 16px; } .stop { right: 16px; } }
+@media (max-width: 800px) { .grid { padding: 8px 16px; } .top { padding: 16px; } .alarm { margin: 16px 16px 0; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
