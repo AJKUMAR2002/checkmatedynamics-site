@@ -22,7 +22,7 @@ const wsUrl = () => (MODE === "local" ? `ws://${location.host}/ws` : `ws://127.0
 let ws = null, wsReady = false, nextId = 1, started = false;
 let tokenGood = MODE === "local";   // HTTP fallback only with a code the bridge accepted (bad codes count toward its lockout)
 const pending = new Map();
-const SLOW = new Set(["cl_cal", "goto", "connect", "move"]);
+const SLOW = new Set(["cl_cal", "foc_cal", "goto", "connect", "move"]);
 
 function openWs() {
   if (ws) return;
@@ -64,7 +64,7 @@ async function api(action, args = {}) {
         pending.set(id, resolve);
         ws.send(JSON.stringify({ type: "call", id, action, args }));
         setTimeout(() => { if (pending.delete(id)) resolve({ ok: false, error: "no answer from the bridge" }); },
-          SLOW.has(action) ? 60000 : 5000);
+          action === "foc_cal" ? 120000 : SLOW.has(action) ? 60000 : 5000);
       });
     } else if (tokenGood) {
       j = await http(action, args);
@@ -203,6 +203,20 @@ function render(s) {
     ["Stall at", `${cl.stall_at.toFixed(1)} full steps`],
   ] : [["State", "not calibrated: Enable, then Calibrate"]]);
   $("apionly").hidden = $("apiset").hidden = !s.api;
+  const foc = s.api && s.live && (s.live.caps || []).includes("foc");
+  $("focpanel").hidden = !foc;
+  if (foc) {
+    const L = s.live, fc = L.foc_cal;
+    kv($("focstat"), [
+      ["Mode", L.mode === "step" || !L.mode ? "off (step mode)" : L.mode],
+      ...(L.mode && L.mode !== "step" ? [
+        ["Torque", `${(L.torque ?? 0).toFixed(1)} % demand · current ${L.i_pct ?? "—"} % · lead ${L.lead == null ? "—" : L.lead.toFixed(1) + "°"}`],
+      ] : []),
+      ["Encoder table", L.lut ? "active" : "not active (turn the shaft one revolution after power-up)"],
+      ["Linearisation", fc ? (fc.ok ? `max error ${fc.max_counts} counts (${fc.max_deg}°)${fc.saved ? ", saved" : ""}` : `failed: ${fc.why}`) : "—"],
+    ]);
+    if (s.limits) { $("torq").min = -s.limits.max_torque_pct; $("torq").max = s.limits.max_torque_pct; }
+  }
   if (s.limits) { $("vel").min = -s.limits.max_rpm; $("vel").max = s.limits.max_rpm; }
   if (s.cfg && !cfgFilled) {
     $("usteps").value = String(s.cfg.usteps); $("standstill").value = s.cfg.standstill;
@@ -210,6 +224,7 @@ function render(s) {
   }
   if (!limitsFilled && s.limits) {
     $("lim_ma").value = s.limits.max_ma; $("lim_rpm").value = s.limits.max_rpm; $("lim_rev").value = s.limits.soft_revs;
+    $("lim_tq").value = s.limits.max_torque_pct;
     $("lim_ma").max = s.limits.hard_max_ma; limitsFilled = true;
   }
 }
@@ -250,6 +265,27 @@ const velRelease = () => {
   clearTimeout(velTimer); velTimer = null; api("vel", { rpm: 0 });
 };
 ["pointerup", "pointercancel", "blur", "keyup"].forEach((ev) => $("vel").addEventListener(ev, velRelease));
+// Torque control. The torque slider works like the velocity slider: drag to apply, release to return to 0 %.
+let tqSent = 0, tqTimer = null;
+const tqSend = () => { tqTimer = null; tqSent = Date.now(); api("foc", { mode: "torque", pct: +$("torq").value, max_rpm: +$("torqrpm").value }); };
+$("torq").oninput = () => {
+  $("torqval").textContent = `${$("torq").value} %`;
+  if (!tqTimer) tqTimer = setTimeout(tqSend, Math.max(0, 100 - (Date.now() - tqSent)));
+};
+const tqRelease = () => {
+  if (+$("torq").value === 0) return;
+  $("torq").value = 0; $("torqval").textContent = "0 %";
+  clearTimeout(tqTimer); tqTimer = null; api("foc", { mode: "torque", pct: 0, max_rpm: +$("torqrpm").value });
+};
+["pointerup", "pointercancel", "blur", "keyup"].forEach((ev) => $("torq").addEventListener(ev, tqRelease));
+$("foccal").onclick = async () => {
+  if (!confirm("Encoder calibration turns the shaft for about 30 s. Clear the pointer path, then OK.")) return;
+  msg("calibrating the encoder (about 30 s) ..."); const r = await api("foc_cal"); if (r.ok) msg("encoder calibrated");
+};
+$("focoff").onclick = () => api("foc", { mode: "off" });
+$("spring").onclick = () => { msg(""); api("foc", { mode: "spring", k: +$("sk").value, d: +$("sd").value,
+                                                     detents: +$("sdet").value, detent_pct: +$("sdetp").value }); };
+$("servo").onclick = () => { msg(""); api("foc", { mode: "servo", target: +$("servotgt").value, rpm: +$("rpm").value }); };
 $("homeneg").onclick = () => { msg(""); api("home", { dir: -1 }); };
 $("homepos").onclick = () => { msg(""); api("home", { dir: 1 }); };
 $("standstill").onchange = () => api("standstill", { mode: $("standstill").value });
@@ -275,7 +311,8 @@ document.querySelectorAll("[data-jog]").forEach((b) => (b.onclick = () => { msg(
 $("move").onclick = () => { msg(""); api("move", { revs: +$("target").value, rpm: +$("rpm").value }); };
 $("setma").onclick = () => { msg(""); api("current", { ma: +$("ma").value }); };
 $("setlim").onclick = async () => {
-  const r = await api("limits", { max_ma: +$("lim_ma").value, max_rpm: +$("lim_rpm").value, soft_revs: +$("lim_rev").value });
+  const r = await api("limits", { max_ma: +$("lim_ma").value, max_rpm: +$("lim_rpm").value, soft_revs: +$("lim_rev").value,
+                                   max_torque_pct: +$("lim_tq").value });
   if (r.ok) { limitsFilled = false; msg("limits applied"); }
 };
 $("conform").onsubmit = async (e) => {

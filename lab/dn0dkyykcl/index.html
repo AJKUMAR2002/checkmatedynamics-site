@@ -95,6 +95,35 @@ py -I software\app\beta\run.py</pre>
       <h2 class="label">Home <span class="hint">(runs until a stall, then sets zero)</span></h2>
       <div class="row"><button id="homeneg">Home −</button><button id="homepos">Home +</button></div>
     </div>
+    <div id="focpanel" hidden>
+      <h2 class="label">Torque control <span class="hint">(needs Calibrate first)</span></h2>
+      <dl class="kv" id="focstat"></dl>
+      <div class="row">
+        <button id="foccal" title="Linearises the encoder; turns the shaft for about 30 s">Calibrate encoder</button>
+        <button id="focoff">Off</button>
+      </div>
+      <h2 class="label">Torque <span class="hint">(release to zero)</span></h2>
+      <div class="row">
+        <input id="torq" type="range" min="-50" max="50" step="1" value="0" class="grow" aria-label="Torque in percent of run current">
+        <span class="unit" id="torqval">0 %</span>
+      </div>
+      <div class="row"><input id="torqrpm" class="mono" type="number" value="60" step="10" min="1" aria-label="Soft speed limit"><span class="unit">rpm soft speed limit (torque backs off above it)</span></div>
+      <h2 class="label">Spring / knob</h2>
+      <div class="row">
+        <input id="sk" class="mono" type="number" value="200" step="50" min="0" aria-label="Stiffness"><span class="unit">%/rev stiffness</span>
+        <input id="sd" class="mono" type="number" value="0.2" step="0.1" min="0" aria-label="Damping"><span class="unit">%/rpm damping</span>
+      </div>
+      <div class="row">
+        <input id="sdet" class="mono" type="number" value="0" step="1" min="0" aria-label="Detents per rev"><span class="unit">detents/rev</span>
+        <input id="sdetp" class="mono" type="number" value="30" step="5" min="0" aria-label="Detent strength"><span class="unit">% detent</span>
+        <button id="spring">Set</button>
+      </div>
+      <h2 class="label">Servo</h2>
+      <div class="row">
+        <input id="servotgt" class="mono" type="number" value="0" step="0.1" aria-label="Servo target in rev"><span class="unit">rev</span>
+        <button id="servo">Go</button>
+      </div>
+    </div>
     <h2 class="label">Move to</h2>
     <div class="row">
       <input id="target" class="mono" type="number" step="0.1" value="0" aria-label="Target position in rev"><span class="unit">rev</span>
@@ -136,6 +165,7 @@ py -I software\app\beta\run.py</pre>
       <input id="lim_ma" class="mono" type="number" step="50" aria-label="Current cap"><span class="unit">mA cap</span>
       <input id="lim_rpm" class="mono" type="number" step="10" aria-label="Speed cap"><span class="unit">rpm cap</span>
       <input id="lim_rev" class="mono" type="number" step="0.5" aria-label="Soft limit"><span class="unit">± rev</span>
+      <input id="lim_tq" class="mono" type="number" step="5" aria-label="Torque cap"><span class="unit">% torque cap</span>
       <button id="setlim">Apply</button>
     </div>
     <p class="msg" id="msg" role="status"></p>
