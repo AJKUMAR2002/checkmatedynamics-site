@@ -212,7 +212,7 @@ function render(s) {
       ...(L.mode && L.mode !== "step" ? [
         ["Torque", `${(L.torque ?? 0).toFixed(1)} % demand · current ${L.i_pct ?? "—"} % · lead ${L.lead == null ? "—" : L.lead.toFixed(1) + "°"}`],
       ] : []),
-      ["Encoder table", L.lut ? "active" : "not active (turn the shaft one revolution after power-up)"],
+      ["Encoder correction", L.lut ? "active" : "activates after the shaft turns one revolution (Calibrate encoder finds it by itself)"],
       ["Linearisation", fc ? (fc.ok ? `max error ${fc.max_counts} counts (${fc.max_deg}°)${fc.saved ? ", saved" : ""}` : `failed: ${fc.why}`) : "—"],
     ]);
     if (s.limits) { $("torq").min = -s.limits.max_torque_pct; $("torq").max = s.limits.max_torque_pct; }
