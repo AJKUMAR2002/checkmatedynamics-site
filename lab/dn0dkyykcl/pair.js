@@ -47,24 +47,65 @@
     return subtle().deriveKey({ name: "HKDF", hash: "SHA-256", salt: hexBytes(uid64hex), info: enc.encode(version >= 3 ? "ss17-pair-v3" : "ss17-pair-v2") },
       hk, { name: "AES-GCM", length: 256 }, false, ["encrypt"]);
   }
-  async function encryptPassword(key, ssid, password) {
+  async function encryptPassword(key, ssid, password, aad) {
     const iv = cr().getRandomValues(new Uint8Array(12));
-    const ct = new Uint8Array(await subtle().encrypt({ name: "AES-GCM", iv, additionalData: enc.encode(ssid) }, key, enc.encode(password)));
+    const ct = new Uint8Array(await subtle().encrypt({ name: "AES-GCM", iv, additionalData: aad || enc.encode(ssid) }, key, enc.encode(password)));
     return { iv: b64(iv), ct: b64(ct) };
   }
 
+
+  // ---------------------------------------------------------------- v4: printed setup key (docs/pairing-v4-setup-key.md)
+  const CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+  function normaliseSetupKey(code) {           // -> 20 ASCII bytes, or throws
+    const c = String(code).toUpperCase().replace(/[-\s]/g, "").replace(/[IL]/g, "1").replace(/O/g, "0");
+    if (c.length !== 20 || [...c].some((ch) => !CROCKFORD.includes(ch))) throw new Error("a setup key is 20 characters: 0-9 and A-Z without I, L, O, U");
+    return enc.encode(c);
+  }
+  function checkPoint(pub) {
+    if (pub.length !== 65 || pub[0] !== 4) throw new Error("bad public key");   // importKey also rejects off-curve points
+    return pub;
+  }
+  async function v4Keys(privateKey, pka, pkb, uid64hex, s) {
+    const peer = await subtle().importKey("raw", pkb, { name: "ECDH", namedCurve: "P-256" }, false, []);
+    const x = new Uint8Array(await subtle().deriveBits({ name: "ECDH", public: peer }, privateKey, 256));
+    const salt = await sha256(cat(hexBytes(uid64hex), pka, pkb));
+    const hk = await subtle().importKey("raw", cat(x, s), "HKDF", false, ["deriveKey"]);
+    const conf = await subtle().deriveKey({ name: "HKDF", hash: "SHA-256", salt, info: enc.encode("ss17-pair-v4 conf") }, hk,
+      { name: "HMAC", hash: "SHA-256", length: 256 }, false, ["sign"]);
+    const sess = await subtle().deriveKey({ name: "HKDF", hash: "SHA-256", salt, info: enc.encode("ss17-pair-v4 sess") }, hk,
+      { name: "AES-GCM", length: 256 }, false, ["encrypt"]);
+    return { conf, sess };
+  }
+  async function v4Mac(conf, label, uid64hex, first, second) {
+    return new Uint8Array(await subtle().sign("HMAC", conf, cat(enc.encode(label), hexBytes(uid64hex), Uint8Array.of(4), first, second)));
+  }
+  const v4WifiAad = (uid64hex, ssid) => cat(enc.encode("ss17-v4 wifi"), hexBytes(uid64hex), enc.encode(ssid));
+
   // ---------------------------------------------------------------- protocol (transport-agnostic; `send(obj)` is async)
   class PairCore {
-    constructor(send, uid64, onEvent) {
+    constructor(send, uid64, onEvent, setupKey) {
       this.send = send; this.uid64 = uid64; this.onEvent = onEvent || (() => {});
+      this.setupKey = setupKey ? normaliseSetupKey(setupKey) : null;      // v4: from the label, kept in memory only
       this.state = "idle"; this.version = 0; this.authenticated = false; this.attempts = 0;
     }
     async start(notice = "") {
       this.client = await newClientKey();
       this.boardPub = null; this.key = null; this.code = []; this.rounds = 0; this.roundsOk = false;
       this.na = []; this.cb = []; this.authenticated = false; this.notice = notice; this.attempts += 1;
-      this.state = "pairing";
-      await this.send({ cmd: "pair", v: 3, commit: b64(await commitOf(this.client.pub)) });
+      this.state = "pairing"; this.wifiSent = false; this.via = "";
+      await this.send({ cmd: "pair", v: this.setupKey ? 4 : 3, commit: b64(await commitOf(this.client.pub)) });
+    }
+    async useKey(code) { this.setupKey = normaliseSetupKey(code); return this.start("Using the setup key."); }
+    async lostLabel() { this.setupKey = null; return this.start("Using the dial code (weaker than the label key)."); }
+    async _v4key(m) {
+      try { this.boardPub = checkPoint(unb64(m.pub)); } catch { await this.send({ cmd: "cancel" }).catch(() => {}); return this.fail("rejected", "The board sent an invalid key. Stop."); }
+      // Holding the label key means v4 or nothing: never let a board talk us down (validator finding 1).
+      if (m.v !== 4 || m.setup !== true) { await this.send({ cmd: "cancel" }).catch(() => {}); return this.fail("rejected", "This board didn't offer setup-key pairing, so it may not be your board. Stop."); }
+      this.version = 4;
+      const k = await v4Keys(this.client.keyPair.privateKey, this.client.pub, this.boardPub, this.uid64, this.setupKey);
+      this.kconf = k.conf; this.key = k.sess; this.state = "setup";
+      this.onEvent("pair", { state: "setup_checking" });
+      await this.send({ cmd: "reveal", pub: b64(this.client.pub), auth: "setup" });
     }
     fail(state, message) {
       this.state = state; this.key = null;
@@ -72,7 +113,21 @@
     }
     async handle(m) {
       const t = m.t, st = m.state;
-      if (t === "pair" && st === "key" && this.state === "pairing" && !this.boardPub) {   // once per key
+      if (t === "pair" && st === "key" && this.state === "pairing" && !this.boardPub && this.setupKey) {
+        await this._v4key(m);
+      } else if (t === "pair" && st === "setup_wait" && this.state === "setup") {
+        // Our mac goes to a board that hasn't proved itself yet: fine only because S has 100 bits (2^100 offline).
+        await this.send({ cmd: "setup_auth", mac: b64(await v4Mac(this.kconf, "ss17-v4-c", this.uid64, this.client.pub, this.boardPub)) });
+      } else if (t === "pair" && st === "confirmed" && this.state === "setup") {
+        const want = await v4Mac(this.kconf, "ss17-v4-b", this.uid64, this.boardPub, this.client.pub);
+        if (!m.mac || !eq(unb64(m.mac), want)) { await this.send({ cmd: "cancel" }).catch(() => {}); return this.fail("rejected", "This board couldn't prove it knows the setup key. Stop: it isn't your board."); }
+        this.authenticated = true; this.state = "confirmed"; this.via = "setup"; this.kconf = null;
+        this.onEvent("pair", { state: "confirmed", authenticated: true, version: 4, via: "setup" });
+      } else if (t === "pair" && st === "failed" && m.why === "setup") {
+        this.fail("failed", "The board didn't accept this setup key. Check the code on the label (or scan its QR).");
+      } else if (t === "pair" && st === "failed" && m.why === "needs_setup_key") {
+        this.fail("need_key", "This board needs its setup key: scan the label's QR or type the code. Lost the label? Hold CENTER 3 s on the board, then choose the dial code.");
+      } else if (t === "pair" && st === "key" && this.state === "pairing" && !this.boardPub) {   // once per key
         this.boardPub = unb64(m.pub);
         this.version = m.v === 3 ? 3 : 2;
         this.code = this.version >= 3 ? [] : await passkey(this.client.pub, this.boardPub);   // v3: drawn at enter_code
@@ -123,14 +178,16 @@
     }
     async wifiMessage(ssid, password) {
       if (this.state !== "confirmed" || !this.key) throw new Error("not paired");
+      if (this.wifiSent) throw new Error("Wi-Fi already sent in this session");
+      this.wifiSent = true;
       if (!password) return { cmd: "wifi", ssid };
-      return { cmd: "wifi", ssid, ...(await encryptPassword(this.key, ssid, password)) };
+      return { cmd: "wifi", ssid, ...(await encryptPassword(this.key, ssid, password, this.version >= 4 ? v4WifiAad(this.uid64, ssid) : null)) };
     }
   }
 
   // ---------------------------------------------------------------- Web Bluetooth session
   class PairSession {
-    constructor(onEvent) { this.onEvent = onEvent; this.ctrl = null; this.info = null; this.dev = null; this.waiters = []; this.queue = Promise.resolve(); }
+    constructor(onEvent, setupKey) { this.onEvent = onEvent; this.setupKey = setupKey || null; this.ctrl = null; this.info = null; this.dev = null; this.waiters = []; this.queue = Promise.resolve(); }
     static supported() { return !!(root.navigator && root.navigator.bluetooth); }
     async find() {
       this.dev = await navigator.bluetooth.requestDevice({ filters: [{ services: [SVC] }] });
@@ -140,7 +197,7 @@
       this.info = JSON.parse(new TextDecoder().decode(await (await svc.getCharacteristic(INFO)).readValue()));
       this.ctrl = await svc.getCharacteristic(CTRL);
       const st = await svc.getCharacteristic(STATUS);
-      this.core = new PairCore((o) => this.send(o), this.info.uid64, this.onEvent);
+      this.core = new PairCore((o) => this.send(o), this.info.uid64, this.onEvent, this.setupKey);
       this.listener = (e) => {
         let m;
         try { m = JSON.parse(new TextDecoder().decode(e.target.value)); } catch { return; }
@@ -181,7 +238,8 @@
     }
   }
 
-  const api = { SVC, b64, unb64, newClientKey, commitOf, passkey, randomCode, roundCommit, sessionKey, encryptPassword, PairCore, PairSession };
+  const api = { SVC, b64, unb64, newClientKey, commitOf, passkey, randomCode, roundCommit, sessionKey, encryptPassword,
+    normaliseSetupKey, v4Keys, v4Mac, v4WifiAad, PairCore, PairSession };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.SS17Pair = api;
 })(typeof window !== "undefined" ? window : globalThis);

@@ -39,7 +39,7 @@
     <div id="nobridge" hidden>
       <div id="blerow" hidden>
         <h2 class="label">New board?</h2>
-        <p>Set it up from this device over Bluetooth. No computer needed: pick the network, type its password, name the motor.</p>
+        <p id="bletext">Set it up from this device over Bluetooth. No computer needed: pick the network, type its password, name the motor.</p>
         <div class="row"><button id="bleonly">Set up a new board (Bluetooth)</button></div>
       </div>
       <h2 class="label">Start Checkmate Link (bridge) to see your devices</h2>
@@ -69,6 +69,10 @@ py -I software\app\beta\run.py</pre>
     </div>
     <div id="arrows" class="arrows" aria-live="polite"></div>
     <p id="setupwarn" class="warnbox" hidden></p>
+    <div id="keyrow" hidden>
+      <div class="row"><input id="setupkey" class="mono grow" maxlength="29" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" aria-label="Setup key from the label"><button id="usekey">Use key</button></div>
+      <div class="row"><button id="lostlabel">I lost the label (dial code)</button></div>
+    </div>
     <div id="pcwifi" hidden>
       <p id="pcwifimsg"></p>
       <div class="row"><input id="pcname" class="mono grow" maxlength="24" placeholder="Name this motor" aria-label="Motor name"></div>

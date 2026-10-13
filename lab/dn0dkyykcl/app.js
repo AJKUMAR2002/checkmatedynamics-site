@@ -288,6 +288,18 @@ $("focoff").onclick = () => api("foc", { mode: "off" });
 $("spring").onclick = () => { msg(""); api("foc", { mode: "spring", k: +$("sk").value, d: +$("sd").value,
                                                      detents: +$("sdet").value, detent_pct: +$("sdetp").value }); };
 $("servo").onclick = () => { msg(""); api("foc", { mode: "servo", target: +$("servotgt").value, rpm: +$("rpm").value }); };
+// ------------------------------------------------------------------ setup key from the label (pairing v4)
+// The label QR opens .../s#<key>. Read it once, keep it in memory only, and take it out of the address bar.
+let labelKey = null;
+(() => {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (!h) return;
+  try { if (window.SS17Pair) { SS17Pair.normaliseSetupKey(h); labelKey = h; } } catch { /* not a key */ }
+  history.replaceState(null, "", location.pathname + location.search);
+})();
+const takeLabelKey = () => { const k = labelKey; labelKey = null; return k; };      // one setup per scan
+function showKeyRow(show) { $("keyrow").hidden = !show; if (show) $("setupkey").focus(); }
+
 // ------------------------------------------------------------------ Bluetooth setup run by the bridge (zero typing)
 let setupMode = null, bridgeCodeKey = "", bridgeScanned = false;
 function renderNearby(s) {
@@ -306,7 +318,7 @@ $("nearby").onclick = async (e) => {
   setupMode = "bridge"; bridgeCodeKey = ""; bridgeScanned = false;
   $("setup").hidden = false; $("netstep").hidden = $("pcwifi").hidden = $("pairretry").hidden = $("setupwarn").hidden = true;
   $("arrows").innerHTML = ""; setupMsg("Connecting over Bluetooth ...");
-  const r = await api("ble_setup", { address: addr });
+  const r = await api("ble_setup", { address: addr, setup_key: takeLabelKey() });
   if (!r.ok) setupMsg(r.error);
 };
 function renderBridgeSetup(v, s) {
@@ -319,6 +331,7 @@ function renderBridgeSetup(v, s) {
   showDial(v.clicks, v.haptic, v.state === "enter_code");
   setupMsg(v.error || ({ joining: "Joining the network ...", connected: `On Wi-Fi at ${v.ip}. Connecting ...` }[v.phase]) || v.msg);
   $("pairretry").hidden = !["failed", "rejected"].includes(v.state);
+  $("keyrow").hidden = !(v.state === "need_key" || (v.state === "failed" && /setup key/.test(v.msg || "")));
   $("setupwarn").hidden = !(v.version === 2);
   $("setupwarn").textContent = "This board's firmware (pairing v2) can't prove it's the board in front of you. Don't share a Wi-Fi network that matters until the firmware update (inbox #93). 'Use this PC's Wi-Fi' needs the update.";
   const choose = v.state === "confirmed" && v.phase === "confirmed";
@@ -377,16 +390,21 @@ function onSetup(kind, m) {
     }
     else if (m.state === "entry") fillArrows(m.n);
     else if (m.state === "entered") { showDial([], false, false); setupMsg("Checking the code with the board ..."); }
+    else if (m.state === "setup_checking") { showKeyRow(false); setupMsg("Checking the setup key with the board ..."); }
     else if (m.state === "wrong_code") { fillArrows(0); setupMsg(`Wrong code: try again (${m.tries_left} left).`); }
     else if (m.state === "confirmed") {
       fillArrows(6);
-      setupMsg(m.authenticated ? "Paired: the board proved the code. Choose the network for this motor."
+      setupMsg(m.via === "setup" ? "Paired with the setup key. Choose the network for this motor."
+        : m.authenticated ? "Paired: the board proved the code. Choose the network for this motor."
         : "Paired (pairing v2, unproven). Choose the network for this motor.");
       $("netstep").hidden = false; $("netsel").innerHTML = '<option value="">scanning ...</option>'; setupNets = {};
       setup.scan();
       if (wsReady || tokenGood) api("pc_wifi").then((r) => { pcSsid = r.ok ? r.ssid : null; });
     }
+  } else if (kind === "need_key") {
+    $("arrows").innerHTML = ""; showDial([], false, false); setupMsg(m.message); showKeyRow(true);
   } else if (kind === "failed" || kind === "rejected") {
+    showKeyRow(/setup key/.test(m.message || ""));
     $("arrows").innerHTML = ""; $("netstep").hidden = true; $("pairretry").hidden = false;
     setupMsg(m.message);
   } else if (kind === "net") {
@@ -429,7 +447,7 @@ $("addboard").onclick = async () => {
     return;
   }
   setupMsg("Choose the board in the browser's list.");
-  setup = new SS17Pair.PairSession(onSetup);
+  setup = new SS17Pair.PairSession(onSetup, takeLabelKey());
   try { const info = await setup.find(); setupUid = info.uid64; } catch (e) { setupMsg(`No board chosen (${e.message || e}).`); }
 };
 $("pairretry").onclick = () => {
@@ -450,6 +468,19 @@ $("joinbtn").onclick = async () => {
   try { await setup.join(ssid, pass, name); } catch (e) { setupMsg(`Error: ${e.message || e}`); }
 };
 $("setupclose").onclick = closeSetup;
+$("usekey").onclick = async () => {
+  const k = $("setupkey").value.trim();
+  $("setupkey").value = "";
+  try { SS17Pair.normaliseSetupKey(k); } catch (e) { setupMsg(e.message); showKeyRow(true); return; }
+  showKeyRow(false); $("pairretry").hidden = true;
+  if (setupMode === "bridge") { const r = await api("ble_use_key", { key: k }); if (!r.ok) setupMsg(r.error); }
+  else if (setup && setup.core) setup.core.useKey(k).catch((e) => setupMsg(String(e)));
+};
+$("lostlabel").onclick = () => {
+  showKeyRow(false); $("pairretry").hidden = true;
+  if (setupMode === "bridge") api("ble_lost_label"); else if (setup && setup.core) setup.core.lostLabel();
+};
+if (labelKey) $("bletext").textContent = "The setup key from your label is loaded. Tap below and pick the board: no buttons to press on it.";
 // Phones and bridge-less browsers: Bluetooth setup straight from the "Start Checkmate Link" screen.
 if (window.SS17Pair && SS17Pair.PairSession.supported()) $("blerow").hidden = false;
 $("bleonly").onclick = () => $("addboard").onclick();
