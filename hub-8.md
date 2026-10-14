@@ -12,6 +12,8 @@ Powers, connects and protects a whole arm of nodes. Every port is its own USB-C 
 
 Ships inside the Checkmate Leader and on its own.
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 *P1–P8 · node ports, PD + CAN each* *Machined 6061 case*
 
 **Fig. 01** Hub 8 Pro, port side Concept render

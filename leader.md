@@ -14,6 +14,8 @@ A leader arm that carries its own weight, lets the operator feel the follower’
 
 **Leader Care plan** | Per pair: spare nodes, replacement, reports | **$249 / mo**
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
 Fig. 01 — Eight SmartServo G nodes on one Hub 8 Pro: the catalog parts the Leader is built from, as sold. The arm is not shown; links, base and handle are Leader-specific. Concept render.

@@ -14,6 +14,8 @@ A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Add
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartStepper%2017)
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 *Output flange · M3 bolt circle, dowels* *25:1 cycloidal · 42 mm square* *NEMA 17 · flying-lead or socketed* *Rear unit · controller, 45.3 mm square* *USB-C · PD, USB, CAN*
 
 **Fig. 01** SmartStepper 17 · 25:1, three-quarter view Concept render

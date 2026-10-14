@@ -18,6 +18,8 @@ A complete brushless actuator: gimbal motor, field-oriented control, magnetic en
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartServo%20G)
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 *G-2804 · iFlight GBM2804H-100T* *G-5208 · iFlight GM5208, 24 winding*
 
 **Fig. 01** SmartServo G nodes, both motor sizes Concept render

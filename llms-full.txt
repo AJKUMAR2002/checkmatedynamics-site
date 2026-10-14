@@ -272,6 +272,8 @@ A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Add
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartStepper%2017)
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 *Output flange · M3 bolt circle, dowels* *25:1 cycloidal · 42 mm square* *NEMA 17 · flying-lead or socketed* *Rear unit · controller, 45.3 mm square* *USB-C · PD, USB, CAN*
 
 **Fig. 01** SmartStepper 17 · 25:1, three-quarter view Concept render
@@ -430,6 +432,8 @@ A complete brushless actuator: gimbal motor, field-oriented control, magnetic en
 **A2.5 · G-5208 · 25:1** | Cycloidal, output encoder, I/O tile | **$399**
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartServo%20G)
+
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
 
 *G-2804 · iFlight GBM2804H-100T* *G-5208 · iFlight GM5208, 24 winding*
 
@@ -594,6 +598,8 @@ Metric depth from a sensor the size of a thumb, over one USB-C cable and on the 
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour) | [OEM enquiry](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Contour)
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 Sensor figures from ST’s datasheet. Size and mass come from our design and will be replaced by measurements.
 
 Resolution | **54 × 42 zones**
@@ -713,6 +719,8 @@ Powers, connects and protects a whole arm of nodes. Every port is its own USB-C 
 [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
 
 Ships inside the Checkmate Leader and on its own.
+
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
 
 *P1–P8 · node ports, PD + CAN each* *Machined 6061 case*
 
@@ -836,6 +844,8 @@ A Sync Beacon and Contour Wrist for each station. The beacon checks independentl
 [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Kit) | [Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
 
 Patent pending.
+
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
 
 **Fig. 01** Sync Beacon, operating Concept render
 
@@ -983,6 +993,8 @@ A leader arm that carries its own weight, lets the operator feel the follower’
 **Pair** | Two arms | **$5,980**
 
 **Leader Care plan** | Per pair: spare nodes, replacement, reports | **$249 / mo**
+
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
 
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 

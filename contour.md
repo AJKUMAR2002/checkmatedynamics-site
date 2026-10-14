@@ -14,6 +14,8 @@ Metric depth from a sensor the size of a thumb, over one USB-C cable and on the 
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour) | [OEM enquiry](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Contour)
 
+This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
+
 Sensor figures from ST’s datasheet. Size and mass come from our design and will be replaced by measurements.
 
 Resolution | **54 × 42 zones**
