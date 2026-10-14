@@ -64,7 +64,7 @@
       } else if (m.state === "failed") msg(m.why === "decrypt" ? "The board couldn't decrypt the password: start again." : `Couldn't join (${m.why}). Check the password and try again.`);
     } else if (kind === "need_key") {
       reset(m.message); show("keyentry", true); $("setupkey").focus();
-    } else if (kind === "failed" || kind === "rejected") {
+    } else if (kind === "failed" || kind === "rejected" || kind === "motor_enabled") {   // every pair.js fail() state
       show("code", false); show("net", false); show("retry", true); msg(m.message);
       if (/setup key/.test(m.message || "")) { show("start", true); show("keyentry", true); }
     } else if (kind === "disconnected" && $("done").hidden) msg("Bluetooth disconnected. Try again.");

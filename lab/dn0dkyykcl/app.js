@@ -403,7 +403,7 @@ function onSetup(kind, m) {
     }
   } else if (kind === "need_key") {
     $("arrows").innerHTML = ""; showDial([], false, false); setupMsg(m.message); showKeyRow(true);
-  } else if (kind === "failed" || kind === "rejected") {
+  } else if (kind === "failed" || kind === "rejected" || kind === "motor_enabled") {   // every pair.js fail() state
     showKeyRow(/setup key/.test(m.message || ""));
     $("arrows").innerHTML = ""; $("netstep").hidden = true; $("pairretry").hidden = false;
     setupMsg(m.message);
