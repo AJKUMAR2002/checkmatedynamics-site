@@ -124,9 +124,9 @@
         this.authenticated = true; this.state = "confirmed"; this.via = "setup"; this.kconf = null;
         this.onEvent("pair", { state: "confirmed", authenticated: true, version: 4, via: "setup" });
       } else if (t === "pair" && st === "failed" && m.why === "setup") {
-        this.fail("failed", "The board didn't accept this setup key. Check the code on the label (or scan its QR).");
+        this.fail("failed", "The board didn't accept this setup key. Check the code on the label or card (or scan its QR).");
       } else if (t === "pair" && st === "failed" && m.why === "needs_setup_key") {
-        this.fail("need_key", "This board needs its setup key: scan the label's QR or type the code. Lost the label? Hold CENTER 3 s on the board, then choose the dial code.");
+        this.fail("need_key", "This board needs its setup key: scan the QR on the motor's label or the box card, or type the code. Lost the label? Hold CENTER 3 s on the board, then choose the dial code.");
       } else if (t === "pair" && st === "key" && this.state === "pairing" && !this.boardPub) {   // once per key
         this.boardPub = unb64(m.pub);
         this.version = m.v === 3 ? 3 : 2;

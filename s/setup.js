@@ -90,11 +90,11 @@
     if (!key && typed) {
       try { SS17Pair.normaliseSetupKey(typed); key = typed; } catch (e) { msg(e.message); return; }
     }
-    if (!key) { msg("Scan the QR on the board's label, or type the code printed under it."); show("keyentry", true); return; }
+    if (!key) { msg("Scan the QR on the motor's label or on the card in the box, or type the code printed under it."); show("keyentry", true); return; }
     begin(key);
   };
   $("lostlabel").onclick = () => {
-    msg("Without the label, hold CENTER on the board for 3 s first (this opens setup by hand), then continue. The code you'll enter on the board is weaker than the label key.");
+    msg("Without the label or the card, hold CENTER on the board for 3 s first (this opens setup by hand), then continue. The code you'll enter on the board is weaker than the label key.");
     labelKey = null;
     begin(null);                                                 // v3: dial or arrows on the board
   };
@@ -113,5 +113,5 @@
   }
   show("start", true);
   if (labelKey) keyLoaded();
-  else { $("keynote").textContent = "Scan the QR on the board's label with your phone camera, or type the code printed under it."; show("keyentry", true); }
+  else { $("keynote").textContent = "Scan the QR on the motor's label or on the card in the box with your phone camera, or type the code printed under it."; show("keyentry", true); }
 })();
