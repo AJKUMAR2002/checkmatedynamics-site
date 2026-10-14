@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>Checkmate · Set up a board</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="setup.css">
+</head>
+<body>
+<!-- Setup only (founder S-URL d): pairs a board over Bluetooth and gives it Wi-Fi. No motor control, no network calls.
+     The label key arrives after '#', is used once from memory and is never sent anywhere except, encrypted, to the board. -->
+<header class="top">
+  <img src="logo.svg" alt="Checkmate Dynamics" height="28">
+</header>
+<main class="card">
+  <p class="overline">Set up a board</p>
+  <h1 id="title">Connect your motor to Wi-Fi</h1>
+  <p id="msg" role="status"></p>
+
+  <section id="start" hidden>
+    <p id="keynote" class="small"></p>
+    <div class="row" id="keyentry" hidden>
+      <input id="setupkey" class="mono grow" maxlength="29" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" aria-label="Setup key from the label">
+    </div>
+    <div class="row"><button id="go" class="primary">Set up this board</button></div>
+    <div class="row"><button id="lostlabel" class="ghost">I lost the label</button></div>
+  </section>
+
+  <section id="code" hidden>
+    <p id="dialnums" class="dialnums" aria-live="polite"></p>
+    <div id="arrows" class="arrows" aria-live="polite"></div>
+  </section>
+
+  <section id="net" hidden>
+    <div class="row"><select id="netsel" class="grow" aria-label="Wi-Fi network"></select></div>
+    <div class="row"><input id="netpass" class="mono grow" type="password" autocomplete="off" placeholder="Wi-Fi password (empty for an open network)" aria-label="Wi-Fi password"></div>
+    <div class="row"><input id="boardname" class="mono grow" maxlength="24" placeholder="Name this motor" aria-label="Motor name"></div>
+    <div class="row"><button id="join" class="primary">Join</button></div>
+  </section>
+
+  <section id="done" hidden>
+    <p id="donemsg"></p>
+    <p class="small">To drive the motor, open the Checkmate app on a computer with Checkmate Link. This page only sets boards up.</p>
+  </section>
+
+  <div class="row"><button id="retry" class="ghost" hidden>Try again</button></div>
+  <p class="small fine">Your Wi-Fi password goes to the board only, encrypted over Bluetooth. Nothing on this page is sent to Checkmate or anyone else.</p>
+</main>
+<script src="pair.js"></script>
+<script src="setup.js"></script>
+</body>
+</html>
