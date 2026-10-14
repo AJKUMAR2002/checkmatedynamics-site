@@ -123,6 +123,8 @@
         if (!m.mac || !eq(unb64(m.mac), want)) { await this.send({ cmd: "cancel" }).catch(() => {}); return this.fail("rejected", "This board couldn't prove it knows the setup key. Stop: it isn't your board."); }
         this.authenticated = true; this.state = "confirmed"; this.via = "setup"; this.kconf = null;
         this.onEvent("pair", { state: "confirmed", authenticated: true, version: 4, via: "setup" });
+      } else if (t === "pair" && st === "failed" && m.why === "motor_enabled") {     // spec §10.4.0 item 3
+        this.fail("motor_enabled", "The motor is on. Disable the motor first (press CENTER or Stop), then try again: pairing never runs while the motor is enabled.");
       } else if (t === "pair" && st === "failed" && m.why === "setup") {
         this.fail("failed", "The board didn't accept this setup key. Check the code on the label or card (or scan its QR).");
       } else if (t === "pair" && st === "failed" && m.why === "needs_setup_key") {

@@ -352,7 +352,7 @@ function showDial(clicks, haptic, active) {
   if (!show) return;
   $("dialnums").textContent = clicks.join(" · ") + " clicks";
   $("dialhint").textContent = `Turn the shaft that many clicks for each number, changing direction between numbers (start either way). `
-    + (haptic ? "You'll feel each click." : "LED2 flashes on each click.") + " Or press the arrows below on the switch.";
+    + "LED2 flashes on each click (the motor stays off while pairing)." + " Or press the arrows below on the switch.";
 }
 function showManualNets() {
   $("pcwifi").hidden = true; $("netstep").hidden = false;
