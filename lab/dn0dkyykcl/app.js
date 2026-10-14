@@ -141,6 +141,7 @@ function renderBoards(s) {
   const boards = s.boards || [];
   window.__boards = boards;
   renderNearby(s);
+  renderUsb(s);
   const key = JSON.stringify([boards.map((b) => [b.uid64, b.ip, b.fw, b.verified, b.notes]), s.connected_uid64]);
   if (key === boardsKey) return;
   boardsKey = key;
@@ -312,6 +313,27 @@ function renderNearby(s) {
   }).join("");
   if (setupMode === "bridge" && ble.setup) renderBridgeSetup(ble.setup, s);
 }
+// Pairing v5 AP6: a board plugged in over USB shows up at once. The toast is a prompt; setup still pairs (§10.4).
+let lastNearby = [];
+function renderUsb(s) {
+  lastNearby = (s.ble && s.ble.nearby) || [];
+  $("usbfound").innerHTML = (s.usb || []).map((u) => {
+    const what = u.state === "probing" ? "checking ..." : u.product_name ? `${u.product_name} found` : "an Espressif USB device";
+    return `<li><span class="mono">${esc(u.name || "")} · ${esc(what)} on ${esc(u.port)} (USB)</span>
+    ${u.product ? `<button data-usbsetup="${esc(u.name || "")}">Set up</button>` : ""}
+    <button data-usbdismiss="${esc(u.port)}" class="ghost">Dismiss</button></li>`;
+  }).join("");
+}
+$("usbfound").onclick = async (e) => {
+  const d = e.target.dataset || {};
+  if (d.usbdismiss) { await api("usb_dismiss", { port: d.usbdismiss }); return; }
+  if (d.usbsetup !== undefined) {
+    const n = lastNearby.find((x) => x.name && x.name === d.usbsetup);
+    if (n) { $("nearby").querySelector(`[data-ble="${CSS.escape(n.address)}"]`)?.click(); return; }
+    $("setup").hidden = false;
+    setupMsg("Plugged in and powered: if it's new, its setup window is open. If it's yours already, hold CENTER (or PAIR) 3 s. It then appears under the new boards above.");
+  }
+};
 $("nearby").onclick = async (e) => {
   const addr = e.target.dataset && e.target.dataset.ble;
   if (!addr) return;
