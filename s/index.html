@@ -24,11 +24,20 @@
 
   <section id="start" hidden>
     <p id="keynote" class="small"></p>
+    <div class="row" id="guestrow" hidden>
+      <input id="guestname" class="mono grow" maxlength="24" autocomplete="off" spellcheck="false" placeholder="Name this phone (the owner sees it)" aria-label="Name this phone">
+    </div>
     <div class="row" id="keyentry" hidden>
       <input id="setupkey" class="mono grow" maxlength="29" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX" aria-label="Setup key from the label">
     </div>
     <div class="row"><button id="go" class="primary">Set up this board</button></div>
     <div class="row"><button id="lostlabel" class="ghost">I lost the label and the card</button></div>
+  </section>
+
+  <section id="invitecode" hidden>
+    <p class="overline">Code</p>
+    <p id="words" class="words mono" aria-live="polite"></p>
+    <p class="small">The owner's screen shows four words too. If they match, the owner taps Approve. If they don't, the owner rejects this phone.</p>
   </section>
 
   <section id="code" hidden>

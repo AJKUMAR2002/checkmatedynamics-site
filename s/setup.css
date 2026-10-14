@@ -25,6 +25,7 @@ button.ghost:hover { border-color: var(--champagne); }
 :focus-visible { outline: 1px solid var(--champagne); outline-offset: 3px; }
 #msg { min-height: 24px; }
 [hidden] { display: none !important; }
+.words { font: 500 24px/1.4 var(--font-mono); text-align: center; margin: 8px 0 16px; color: var(--champagne); word-spacing: 0.4em; }
 .dialnums { font: 500 32px/1.1 var(--font-mono); text-align: center; margin: 16px 0 8px; }
 .arrows { display: flex; gap: 12px; justify-content: center; margin: 16px 0 24px; font: 400 40px/1 var(--font-mono); }
 .arrows span { color: var(--text-3); border: 1px solid var(--line); width: 56px; height: 56px; display: grid; place-items: center; }

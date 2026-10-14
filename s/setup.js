@@ -23,9 +23,14 @@
   let session = null, code = [], lastJoin = {}, nets = {};
   // AP2/R2 (pairing v5): the label names the product; public, so it may stay in the address bar
   const PRODUCT_NAMES = { ss17: "SmartStepper 17", ss23: "SmartStepper 23", ssg: "SmartServo G", hub4: "Hub 4", hub8: "Hub 8 Pro" };
-  const product = new URLSearchParams(location.search).get("p");
+  const params = new URLSearchParams(location.search);
+  const product = params.get("p");
   const productName = PRODUCT_NAMES[product] || null;
-  if (productName) $("title").textContent = `Set up your ${productName}`;
+  // Pairing v5 guest invite (10.4.9): the owner's QR is /s?p=<product>&i=1#<G>. G is used like a label key, once.
+  const invite = params.get("i") === "1";
+  const hold = SS17Pair.holdText(product);
+  if (invite) $("title").textContent = `Join ${productName ? "a " + productName : "a board"}`;
+  else if (productName) $("title").textContent = `Set up your ${productName}`;
   // R5 (founder, Oct 14): remember ONLY the last network name, never a password. The one storage key on this page.
   const SSID_KEY = "cm.lastSsid";
   const lastSsid = () => { try { return localStorage.getItem(SSID_KEY); } catch { return null; } };
@@ -39,11 +44,18 @@
 
   function onEvent(kind, m) {
     if (kind === "found") { msg(`Found ${m.name || "your board"}. Pairing ...`); session.pair(); }
+    else if (kind === "invite") {                       // the guest fp as four words, the same on the owner's screen
+      show("start", false); show("invitecode", true);
+      $("words").textContent = (m.words || []).join(" ");
+      msg("Waiting for the owner to approve this phone.");
+    }
     else if (kind === "code") {
       code = m.dirs;
       $("arrows").innerHTML = code.map((d) => `<span>${ARROWS[d]}</span>`).join("");
     } else if (kind === "pair") {
       if (m.state === "setup_checking") msg("Checking the setup key with the board ...");
+      else if (m.state === "invite_checking") msg("Checking the invite with the board ...");
+      else if (m.state === "invite_accepted") msg("The board accepted the invite. Asking the owner to approve this phone ...");
       else if (m.state === "enter_code" && !m.ready) { show("start", false); show("code", false); msg("Getting the board ready ..."); }
       else if (m.state === "enter_code") {
         show("start", false); show("code", true);
@@ -54,8 +66,9 @@
       } else if (m.state === "entry") [...$("arrows").children].forEach((el, i) => el.classList.toggle("on", i < m.n));
       else if (m.state === "entered") msg("Checking the code with the board ...");
       else if (m.state === "confirmed") {
-        show("start", false); show("code", false); show("net", true);
-        msg(m.via === "setup" ? "Paired with the setup key. Choose the network for this motor." : "Paired. Choose the network for this motor.");
+        show("start", false); show("code", false); show("invitecode", false); show("net", true);
+        msg(m.via === "invite" ? "Approved: this phone can set the board up. Choose its network."
+          : m.via === "setup" ? "Paired with the setup key. Choose the network for this motor." : "Paired. Choose the network for this motor.");
         nets = {}; $("netsel").innerHTML = '<option value="">scanning ...</option>'; session.scan();
       }
     } else if (kind === "net") {
@@ -75,6 +88,9 @@
         show("net", false); show("done", true); msg("");
         $("donemsg").textContent = `${lastJoin.name || (session.info && session.info.name) || "Your board"} joined ${lastJoin.ssid} as ${m.ip}.`;
       } else if (m.state === "failed") msg(m.why === "decrypt" ? "The board couldn't decrypt the password: start again." : `Couldn't join (${m.why}). Check the password and try again.`);
+    } else if (kind === "invite_ended") {               // single use: a retry needs a new QR from the owner
+      ["code", "net", "invitecode", "start", "retry"].forEach((id) => show(id, false));
+      msg(m.message);
     } else if (kind === "need_key") {
       reset(m.message); show("keyentry", true); $("setupkey").focus();
     } else if (kind === "failed" || kind === "rejected" || kind === "motor_enabled") {   // every pair.js fail() state
@@ -86,12 +102,14 @@
   async function begin(key) {
     show("retry", false);
     if (!SS17Pair.PairSession.supported()) {
-      msg("This browser can't use Bluetooth. Use Chrome on Android or a computer. On iPhone, join the board's own Wi-Fi network (SS17-XXXX: hold CENTER while powering it up) and follow the page it opens.");
+      if (invite) msg("This browser can't use Bluetooth, and invites work over Bluetooth only. Open the link in Chrome on Android or on a computer.");
+      else msg(`This browser can't use Bluetooth. Use Chrome on Android or a computer.${softap()}`);
       return;
     }
     if (session) session.disconnect();
-    session = new SS17Pair.PairSession(onEvent, key, product);
-    msg("Choose your board in the browser's list.");
+    session = new SS17Pair.PairSession(onEvent, key, product,
+      invite ? { invite: true, name: $("guestname").value.trim().slice(0, 24) } : {});
+    msg(key ? "Choose your board in the browser's list." : `First ${hold} (that opens setup by hand). Then choose your board in the browser's list.`);
     try { await session.find(); } catch (e) { msg(`No board chosen (${e.message || e}).`); }
   }
 
@@ -103,11 +121,12 @@
     if (!key && typed) {
       try { SS17Pair.normaliseSetupKey(typed); key = typed; } catch (e) { msg(e.message); return; }
     }
+    if (invite && !key) { msg("This invite link has no code, or it was used already: ask the owner for a new QR."); return; }
     if (!key) { msg("Scan the QR on the motor's label or on the card in the box, or type the code printed under it."); show("keyentry", true); return; }
     begin(key);
   };
   $("lostlabel").onclick = () => {
-    msg("Without the label or the card, hold CENTER (or PAIR) on the board for 3 s first (this opens setup by hand), then continue. The code you'll enter on the board is weaker than the label key.");
+    msg(`Without the label or the card, first ${hold} (this opens setup by hand), then continue. The code you'll enter on the board is weaker than the label key.`);
     labelKey = null;
     begin(null);                                                 // v3: dial or arrows on the board
   };
@@ -120,11 +139,27 @@
     try { await session.join(ssid, pass, name); } catch (e) { msg(`Error: ${e.message || e}`); }
   };
 
+  // The SS17 / SS23 Wi-Fi setup network is for phones without Web Bluetooth (label key only, never an invite).
+  function softap() {
+    if (product === "ss17") return " On iPhone, join the motor's own Wi-Fi network (SS17-XXXX: hold CENTER while powering it up, release within 2 s) and follow the page it opens.";
+    if (product === "ss23") return " On iPhone, join the motor's own Wi-Fi network (SS23-XXXX: hold the PAIR button while powering it up, release within 2 s) and follow the page it opens.";
+    return "";
+  }
+
   function keyLoaded() {
-    $("keynote").textContent = `The setup key from your label is loaded. If the ${productName || "motor"} is new, plug it in (that opens setup), then tap below and pick it: nothing to press on it.`;
+    if (invite) {
+      $("keynote").textContent = `An owner invited this phone to their ${productName || "board"}. Name this phone, tap below and pick the board. The owner then approves it on their screen.`;
+      show("guestrow", true); show("lostlabel", false); $("go").textContent = "Join this board";
+    } else {
+      $("keynote").textContent = `The setup key from your label is loaded. If the ${productName || "motor"} is new, plug it in (that opens setup), then tap below and pick it: nothing to press on it.`;
+    }
     show("keyentry", false);
   }
   show("start", true);
-  if (labelKey) keyLoaded();
-  else { $("keynote").textContent = "Scan the QR on the motor's label or on the card in the box with your phone camera, or type the code printed under it."; show("keyentry", true); }
+  if (SS17Pair.NO_RADIO[product] && !invite) {         // SS-G and Hub 8 Pro have no radio: they set up over a hub or USB
+    show("start", false);
+    msg(`The ${productName} has no Bluetooth: it sets up through a hub or a USB cable. A new one opens setup by itself when you plug it into a Hub 4, a Hub 8 Pro or a computer running Checkmate Link. Already owned? First ${hold}, then add it in the Checkmate app.`);
+  } else if (labelKey) keyLoaded();
+  else if (invite) { msg("This invite link has no code, or it was used already: ask the owner for a new QR."); show("start", false); }
+  else { $("keynote").textContent = `Scan the QR on the ${productName ? productName + "'s" : "motor's"} label or on the card in the box with your phone camera, or type the code printed under it.`; show("keyentry", true); }
 })();

@@ -304,10 +304,12 @@ function showKeyRow(show) { $("keyrow").hidden = !show; if (show) $("setupkey").
 // ------------------------------------------------------------------ Bluetooth setup run by the bridge (zero typing)
 let setupMode = null, bridgeCodeKey = "", bridgeScanned = false;
 function renderNearby(s) {
-  const ble = s.ble || {}, list = (ble.nearby || []).filter((n) => n.unconfigured || n.pairing_open);
+  const ble = s.ble || {}, list = (ble.nearby || []).filter((n) => n.unconfigured || n.pairing_open || n.owner_beacon);
   $("nearby").innerHTML = list.map((n) => {
-    const what = n.unconfigured ? "new board nearby" : n.wifi_up ? "ready to pair" : "can't reach Wi-Fi: update it";
-    const btn = n.unconfigured ? "Set up" : n.known ? "Update (paired before)" : "Update";
+    // v5: an owner beacon matched by K_ob is one of your boards (UX only: owner login is the proof)
+    const what = n.owner_beacon ? "your board, nearby" : n.v5 ? (n.invite ? "invite window open" : "setup window open")
+      : n.unconfigured ? "new board nearby" : n.wifi_up ? "ready to pair" : "can't reach Wi-Fi: update it";
+    const btn = n.owner_beacon ? "Connect" : n.unconfigured || n.v5 ? "Set up" : n.known ? "Update (paired before)" : "Update";
     return `<li><span class="mono">${esc(n.name || "SmartStepper")} · ${what} · Bluetooth ${n.rssi} dBm</span>
     <button data-ble="${esc(n.address)}">${btn}</button></li>`;
   }).join("");
@@ -315,8 +317,10 @@ function renderNearby(s) {
 }
 // Pairing v5 AP6: a board plugged in over USB shows up at once. The toast is a prompt; setup still pairs (§10.4).
 let lastNearby = [];
+let lastUsb = [];
 function renderUsb(s) {
   lastNearby = (s.ble && s.ble.nearby) || [];
+  lastUsb = s.usb || [];
   $("usbfound").innerHTML = (s.usb || []).map((u) => {
     const what = u.state === "probing" ? "checking ..." : u.product_name ? `${u.product_name} found` : "an Espressif USB device";
     return `<li><span class="mono">${esc(u.name || "")} · ${esc(what)} on ${esc(u.port)} (USB)</span>
@@ -331,7 +335,9 @@ $("usbfound").onclick = async (e) => {
     const n = lastNearby.find((x) => x.name && x.name === d.usbsetup);
     if (n) { $("nearby").querySelector(`[data-ble="${CSS.escape(n.address)}"]`)?.click(); return; }
     $("setup").hidden = false;
-    setupMsg("Plugged in and powered: if it's new, its setup window is open. If it's yours already, hold CENTER (or PAIR) 3 s. It then appears under the new boards above.");
+    const u = (lastUsb || []).find((x) => (x.name || "") === d.usbsetup) || {};
+    const hold = window.SS17Pair ? SS17Pair.holdText(u.product) : "hold CENTER (or PAIR) 3 s";
+    setupMsg(`Plugged in and powered: if it's new, its setup window is open. If it's yours already, ${hold}. It then appears under the new boards above.`);
   }
 };
 $("nearby").onclick = async (e) => {
@@ -365,8 +371,39 @@ function renderBridgeSetup(v, s) {
     $("netsel").innerHTML = v.nets.map((n) => `<option value="${esc(n.ssid)}">${esc(n.ssid)} · ${n.rssi} dBm · ${n.secure ? "secured" : "open"}</option>`).join("");
     if (cur) $("netsel").value = cur; else if (v.pc_ssid && v.nets.some((n) => n.ssid === v.pc_ssid)) $("netsel").value = v.pc_ssid;
   }
+  renderInvite(v);
   if (s.connected_uid64 && s.connected_uid64 === v.uid64) { msg("new board connected"); closeSetup(); }
 }
+// Pairing v5 guest invite (10.4.9): this PC, signed in as an owner inside its own hand window, invites a phone. The QR
+// holds G (single use, 5 min, this board only); the name is the guest's own choice and is never trusted; the four
+// words are the check: the guest's screen shows the same four.
+let inviteQrKey = "";
+function qrSvg(rows) {
+  const n = rows.length, q = 2;
+  let d = "";
+  rows.forEach((r, y) => { for (let x = 0; x < n; x++) if (r[x] === "1") d += `M${x + q} ${y + q}h1v1h-1z`; });
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${n + 2 * q} ${n + 2 * q}" shape-rendering="crispEdges" role="img" aria-label="Invite QR code"><path d="${d}" fill="#000"/></svg>`;
+}
+function renderInvite(v) {
+  const inv = v.invite, owner = v.state === "confirmed" && v.via === "owner";
+  $("invite").hidden = !owner;
+  if (!owner) return;
+  $("invitebtn").hidden = !!inv && ["issuing", "waiting", "approve", "approving"].includes(inv.state);
+  const qr = inv && inv.state === "waiting" && inv.qr;
+  $("inviteqr").hidden = !qr;
+  const key = qr ? inv.qr.join("") : "";
+  if (key !== inviteQrKey) { inviteQrKey = key; $("inviteqr").innerHTML = qr ? qrSvg(inv.qr) : ""; }
+  const asking = inv && inv.state === "approve";
+  $("invitedecide").hidden = !asking;
+  $("invitewords").hidden = !asking;
+  $("invitewords").textContent = asking ? inv.words.join(" ") : "";
+  $("invitemsg").textContent = !inv ? "Add another phone as an owner of this board, without its label."
+    : asking ? `Add a phone named "${inv.name}"? The name is the other phone's own choice, so don't trust it. Approve only if that phone shows this code:`
+    : inv.msg;
+}
+$("invitebtn").onclick = async () => { const r = await api("ble_invite"); if (!r.ok) $("invitemsg").textContent = r.error; };
+$("inviteok").onclick = async () => { const r = await api("ble_invite_approve"); if (!r.ok) $("invitemsg").textContent = r.error; };
+$("inviteno").onclick = async () => { const r = await api("ble_invite_reject"); if (!r.ok) $("invitemsg").textContent = r.error; };
 // Dial entry (founder Oct 13): turn the shaft r+1 clicks per number, reversing between numbers; arrows stay as a fallback.
 function showDial(clicks, haptic, active) {
   const show = active && clicks && clicks.length;
@@ -426,6 +463,9 @@ function onSetup(kind, m) {
     }
   } else if (kind === "need_key") {
     $("arrows").innerHTML = ""; showDial([], false, false); setupMsg(m.message); showKeyRow(true);
+  } else if (kind === "invite_ended") {                                            // a guest invite is single use
+    $("arrows").innerHTML = ""; $("netstep").hidden = true; $("pairretry").hidden = true;
+    setupMsg(m.message);
   } else if (kind === "failed" || kind === "rejected" || kind === "motor_enabled") {   // every pair.js fail() state
     showKeyRow(/setup key/.test(m.message || ""));
     $("arrows").innerHTML = ""; $("netstep").hidden = true; $("pairretry").hidden = false;

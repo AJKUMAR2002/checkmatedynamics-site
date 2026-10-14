@@ -92,3 +92,7 @@ button:disabled { color: var(--text-3); border-color: var(--line); cursor: not-a
 
 @media (max-width: 800px) { .grid { padding: 8px 16px; } .top { padding: 16px; } .alarm { margin: 16px 16px 0; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* pairing v5 invite QR (bridge mode) */
+.qr { display: flex; justify-content: center; margin: 12px 0; }
+.qr svg { width: 220px; height: 220px; background: #fff; padding: 8px; }

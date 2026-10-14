@@ -84,6 +84,13 @@ py -I software\app\beta\run.py</pre>
       <div class="row"><input id="boardname" class="mono grow" maxlength="24" placeholder="Name this motor" aria-label="Motor name"></div>
       <div class="row"><button id="joinbtn">Join</button></div>
     </div>
+    <div id="invite" hidden>
+      <div class="row"><button id="invitebtn">Invite a phone</button></div>
+      <div id="inviteqr" class="qr" hidden></div>
+      <p id="invitemsg" role="status"></p>
+      <p id="invitewords" class="dialnums" hidden></p>
+      <div class="row" id="invitedecide" hidden><button id="inviteok">Approve</button><button id="inviteno">Reject</button></div>
+    </div>
     <div class="row"><button id="pairretry" hidden>Try again</button></div>
     <p class="small">Wi-Fi passwords go over Bluetooth only encrypted. With current board firmware (pairing v3), the arrows are a fresh random code and the board must prove it saw the same arrows before anything is sent.</p>
   </div>
