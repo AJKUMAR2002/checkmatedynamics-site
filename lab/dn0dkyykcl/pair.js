@@ -82,7 +82,7 @@
   const v4WifiAad = (uid64hex, ssid) => cat(enc.encode("ss17-v4 wifi"), hexBytes(uid64hex), enc.encode(ssid));
   // Pairing v5 advert (platform-spec §10.4.1, AP3): tag = trunc24(HMAC(K_adv, nonce)), K_adv = HKDF(S, "", "cmd-adv-v5").
   // UX only (it narrows the chooser); the v4 exchange is the proof.
-  const PRODUCTS = { ss17: 1, ss23: 2, ssg: 3, hub4: 4, hub8: 5 };
+  const PRODUCTS = { ss17: 1, ss23: 2, hub4: 4 };      // advert codes: products with a radio only (§10.4.1 r11)
   async function advTag(setupKey, nonce) {
     const hk = await subtle().importKey("raw", normaliseSetupKey(setupKey), "HKDF", false, ["deriveKey"]);   // 20 ASCII bytes
     const k = await subtle().deriveKey({ name: "HKDF", hash: "SHA-256", salt: new Uint8Array(0), info: enc.encode("cmd-adv-v5") }, hk,
