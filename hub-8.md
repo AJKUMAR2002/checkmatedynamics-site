@@ -6,11 +6,11 @@ Source: https://checkmatedynamics.com/hub-8.html
 
 Powers, connects and protects a whole arm of nodes. Every port is its own USB-C power source and its own CAN segment, so one damaged cable can’t take the rest down.
 
-**D1 · Hub 8 Pro** | Hub only; power supply optional | **USD 399 planned**
+**D1 · Hub 8 Pro** | Hub only; power supply optional | **$399**
 
 [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
 
-Planned price. Part of the Checkmate Leader and planned as a stand-alone unit.
+Ships inside the Checkmate Leader and on its own.
 
 *P1–P8 · node ports, PD + CAN each* *Machined 6061 case*
 
@@ -82,7 +82,7 @@ The hub appears as a single USB device whose CAN channels show up as standard So
 
 Every Checkmate device uses its own USB-C port as the bus. Any full-featured USB-C cable carries all three; charge-only cables won’t carry CAN.
 
-- One cable and one Cable Clip (anodized 6061) ship in every node box; extra clips USD 9 planned
+- One cable and one Cable Clip (anodized 6061) ship in every node box; extra clips $9
 - The Clip Bar 8 screws across all eight ports and clamps every cable, so a snag can’t pull a joint offline
 
 **04** Specification

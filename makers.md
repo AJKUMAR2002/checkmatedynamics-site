@@ -42,25 +42,23 @@ Script one node or a dozen over CAN, from Python, ROS 2 or LeRobot.
 
 Each unit’s measured numbers, printed and stored on the node.
 
-**02** Planned prices
+**02** Prices
 
 ## Every node, in one list.
 
-| No. | Node | Best for | What it is | USD |
+| No. | Node | Best for | What it is | Price |
 |---|---|---|---|---|
-| A1.1 | SmartStepper 17 Board | Printers, CNC | Closed-loop controller for your own NEMA 17 | 79 |
-| A1.2 | SmartStepper 17 · Direct | Axes, turntables | Direct drive on a calibrated NEMA 17 | 169 |
-| A1.3 | SmartStepper 17 · 25:1 | Arm joints | Metal cycloidal and output encoder | 279 |
-| A2.1 | SmartServo G Board | Own motors | FOC board for 2804 and 5208 motors | 89 |
-| A2.2 | G-2804 · Direct | Pan, haptics | Direct-drive gimbal servo, no backlash | 159 |
-| A2.3 | G-2804 · 20:1 | Wrists, grippers | Cycloidal, output encoder, I/O tile | 249 |
-| A2.4 | G-5208 · Direct | Camera heads, benches | Larger direct-drive gimbal servo | 249 |
-| A2.5 | G-5208 · 25:1 | Heavier joints | Cycloidal, output encoder, I/O tile | 399 |
-| D3 | I/O tile | SmartServo G | Qwiic and AUX ports | 19 |
-| B3 | Output encoder | Retrofit | Reads a reducer’s output angle | 29 |
+| A1.1 | SmartStepper 17 Board | Printers, CNC | Closed-loop controller for your own NEMA 17 | $79 |
+| A1.2 | SmartStepper 17 · Direct | Axes, turntables | Direct drive on a calibrated NEMA 17 | $169 |
+| A1.3 | SmartStepper 17 · 25:1 | Arm joints | Metal cycloidal and output encoder | $279 |
+| A2.1 | SmartServo G Board | Own motors | FOC board for 2804 and 5208 motors | $89 |
+| A2.2 | G-2804 · Direct | Pan, haptics | Direct-drive gimbal servo, no backlash | $159 |
+| A2.3 | G-2804 · 20:1 | Wrists, grippers | Cycloidal, output encoder, I/O tile | $249 |
+| A2.4 | G-5208 · Direct | Camera heads, benches | Larger direct-drive gimbal servo | $249 |
+| A2.5 | G-5208 · 25:1 | Heavier joints | Cycloidal, output encoder, I/O tile | $399 |
+| D3 | I/O tile | SmartServo G | Qwiic and AUX ports | $19 |
+| B3 | Output encoder | Retrofit | Reads a reducer’s output angle | $29 |
 | B1 | Contour | Depth | Time-of-flight depth over USB-C | Register interest |
-
-Planned list prices. Nothing is on sale yet; registered interest sets the order of the first batch.
 
 **03** Upgrade path
 
@@ -114,6 +112,6 @@ Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) �
 
 ## Tell us what to build first.
 
-Tell us which nodes you want. Registered interest sets the order of the first batch.
+Tell us which nodes you want and what you are building.
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)

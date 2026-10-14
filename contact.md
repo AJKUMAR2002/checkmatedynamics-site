@@ -10,15 +10,15 @@ Makers register interest, data floors book a call, robotics companies talk to en
 
 ## Makers, students and labs.
 
-Nothing is on sale yet. Tell us what you want and we will write when it is ready. Registered interest decides what we build first.
+Tell us which nodes you want and what you are building, and we will write back.
 
-One email when it is ready, and the occasional build note.
+A reply from the team, and the occasional build note.
 
-Registration opens soon
+By email
 
-### Not open yet.
+### Write to us.
 
-This form is not connected, so nothing can be sent from this page yet.
+Send a line and a person on the team replies.
 
 [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
 
@@ -28,15 +28,13 @@ This form is not connected, so nothing can be sent from this page yet.
 
 Twenty minutes about your stations: Sync Kit, Leader design-partner interest, commissioning, service, or a Skew Audit on one station. You leave with what we’d measure first.
 
-Nothing can be ordered or paid for on this site yet.
-
 [Open the calendar](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
-Registration opens soon
+By email
 
-### Not open yet.
+### Write to us.
 
-This form is not connected, so nothing can be sent from this page yet.
+Send a line and a person on the team replies.
 
 [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
@@ -50,10 +48,10 @@ Nodes, Hub 8 Pro, Contour OEM or the Sync Beacon inside your product. Talk to en
 - Evaluation units and integration support
 - Volume terms discussed with engineering
 
-Registration opens soon
+By email
 
-### Not open yet.
+### Write to us.
 
-This form is not connected, so nothing can be sent from this page yet.
+Send a line and a person on the team replies.
 
 [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)

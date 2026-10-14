@@ -114,6 +114,6 @@ For headsets, wrist rigs and handheld grippers: the Contour module with the same
 
 Related: [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html)
 
-## On the waitlist, no ship date yet.
+## Tell us where Contour goes in your build.
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour)

@@ -8,13 +8,11 @@ A leader arm that carries its own weight, lets the operator feel the follower’
 
 [Register interest as a design partner](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader)
 
-Planned prices. Nothing can be ordered or paid for on this site yet; register your interest and we talk.
+**One arm** | Nodes, Hub 8 Pro, structure, handle | **$2,990**
 
-**One arm** | Nodes, Hub 8 Pro, structure, handle | **USD 2,990**
+**Pair** | Two arms | **$5,980**
 
-**Pair** | Two arms | **USD 5,980**
-
-**Leader Care plan** | Per pair: spare nodes, replacement, reports | **USD 249 / mo**
+**Leader Care plan** | Per pair: spare nodes, replacement, reports | **$249 / mo**
 
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
@@ -83,7 +81,7 @@ Your follower arm, tasks and station layout.
 
 ### Register interest
 
-Tell us your volumes. No payment is taken on this site; any terms are agreed on a call.
+Tell us your volumes. Terms are agreed on a call.
 
 03
 

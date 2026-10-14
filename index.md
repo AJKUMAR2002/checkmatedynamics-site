@@ -22,27 +22,27 @@ Fig. 01 — Three motor nodes and the hub, as listed below. Concept renders.
 
 ## Everything we make, in one list.
 
-Prices are planned list prices. Nothing is on sale yet; registered interest decides what ships first.
+Every node, sensor, hub and station product, with its catalog number and list price.
 
-| No. | Product | For | Description | USD |
+| No. | Product | For | Description | Price |
 |---|---|---|---|---|
-| A1.1 | SmartStepper 17 Board | Makers · OEM | Closed-loop controller for your own NEMA 17 | 79 planned |
-| A1.2 | SmartStepper 17 · Direct | Makers · OEM | Direct drive on a calibrated NEMA 17, housed | 169 planned |
-| A1.3 | SmartStepper 17 · 25:1 | Makers · OEM | Metal cycloidal reducer and output encoder | 279 planned |
-| A2.1 | SmartServo G Board | Makers · OEM | FOC servo board for 2804 and 5208 gimbal motors | 89 planned |
-| A2.2 | G-2804 · Direct | Makers · OEM | Direct drive, no gearbox, no backlash | 159 planned |
-| A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | 249 planned |
-| A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | 249 planned |
-| A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | 399 planned |
+| A1.1 | SmartStepper 17 Board | Makers · OEM | Closed-loop controller for your own NEMA 17 | $79 |
+| A1.2 | SmartStepper 17 · Direct | Makers · OEM | Direct drive on a calibrated NEMA 17, housed | $169 |
+| A1.3 | SmartStepper 17 · 25:1 | Makers · OEM | Metal cycloidal reducer and output encoder | $279 |
+| A2.1 | SmartServo G Board | Makers · OEM | FOC servo board for 2804 and 5208 gimbal motors | $89 |
+| A2.2 | G-2804 · Direct | Makers · OEM | Direct drive, no gearbox, no backlash | $159 |
+| A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | $249 |
+| A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | $249 |
+| A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | $399 |
 | B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | In Sync Kit |
-| B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | 29 planned |
-| C1 | Sync Beacon · Sync Kit | Stations · OEM | Station timing instrument and per-episode report. Patent pending | From 1,490 planned / station |
-| D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | 399 planned |
+| B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
+| C1 | Sync Beacon · Sync Kit | Stations · OEM | Station timing instrument and per-episode report. Patent pending | From $1,490 / station |
+| D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
-| D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | 19 planned |
-| D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | 9 or in the box |
-| E1 | Checkmate Leader | Stations | Motorized leader arm made of SmartServo G nodes | 2,990 planned / arm |
+| D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | $19 |
+| D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | $9 or in the box |
+| E1 | Checkmate Leader | Stations | Motorized leader arm made of SmartServo G nodes | $2,990 / arm |
 | E2 | Station commissioning | Stations | New rigs measured and signed off in sync | On call |
 
 **02** Three ways in
@@ -53,7 +53,7 @@ Prices are planned list prices. Nothing is on sale yet; registered interest deci
 
 ### Build your own robot
 
-Complete motor nodes that set up in a browser and script from Python. Planned prices. Register your interest.
+Complete motor nodes that set up in a browser and script from Python. Register your interest.
 
 Register interest
 
@@ -140,7 +140,7 @@ C1 Sync Kit
 
 [Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
 
-## Nothing ships yet. Tell us what you’re building.
+## Tell us what you’re building.
 
 Makers register interest. Data floors book a call. Robotics companies talk to engineering.
 

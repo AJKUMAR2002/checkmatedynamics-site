@@ -6,19 +6,17 @@ Source: https://checkmatedynamics.com/smartservo-g.html
 
 A complete brushless actuator: gimbal motor, field-oriented control, magnetic encoder and housing, on one USB-C cable. The Checkmate Leader is built from these.
 
-**A2.1 · Board** | One board for 2804 and 5208 motors | **USD 89**
+**A2.1 · Board** | One board for 2804 and 5208 motors | **$89**
 
-**A2.2 · G-2804 · Direct** | Direct drive, no gearbox, no backlash | **USD 159**
+**A2.2 · G-2804 · Direct** | Direct drive, no gearbox, no backlash | **$159**
 
-**A2.3 · G-2804 · 20:1** | Cycloidal, output encoder, I/O tile | **USD 249**
+**A2.3 · G-2804 · 20:1** | Cycloidal, output encoder, I/O tile | **$249**
 
-**A2.4 · G-5208 · Direct** | Direct drive, larger motor | **USD 249**
+**A2.4 · G-5208 · Direct** | Direct drive, larger motor | **$249**
 
-**A2.5 · G-5208 · 25:1** | Cycloidal, output encoder, I/O tile | **USD 399**
+**A2.5 · G-5208 · 25:1** | Cycloidal, output encoder, I/O tile | **$399**
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartServo%20G)
-
-Planned prices. Not on sale yet.
 
 *G-2804 · iFlight GBM2804H-100T* *G-5208 · iFlight GM5208, 24 winding*
 
@@ -91,7 +89,7 @@ Field-oriented control on a gimbal motor, with no gear stage to add backlash.
 
 Rate tables, load stages, camera heads and teaching benches need speed and clean torque more than reduction. The G-5208 · Direct is the larger of the two.
 
-Planned list prices USD 159 and USD 249. Torque is measured per unit and printed on the test card. Direct-drive output covers and frames are in design.
+List prices $159 and $249. Torque is measured per unit and printed on the test card. Direct-drive output covers and frames are in design.
 
 **03** Construction
 
@@ -112,11 +110,11 @@ Controller, driver and encoder share one board on the motor’s back. The option
 
 ## Two motors, direct or geared.
 
-**A2.2–A2.3** G-2804 · Direct and G-2804 · 20:1 USD 159 / 249
+**A2.2–A2.3** G-2804 · Direct and G-2804 · 20:1 $159 / $249
 
 Compact and light. Direct drive for handle roll, camera pan and haptic knobs. The 20:1 cycloidal for wrists, grippers and leader joints.
 
-**A2.4–A2.5** G-5208 · Direct and G-5208 · 25:1 USD 249 / 399
+**A2.4–A2.5** G-5208 · Direct and G-5208 · 25:1 $249 / $399
 
 Larger and stronger. Direct drive for haptics and camera heads. The 25:1 cycloidal for the heavier joints of a leader arm.
 
@@ -143,7 +141,7 @@ Design values. Estimates and targets are marked; each unit ships with its own me
 
 Stacks on the board. Adds Qwiic and a 4-pin AUX port for sensors, endstops and triggers.
 
-USD 19 planned
+$19
 
 Ring magnet and side sensor 3-axis
 
@@ -151,7 +149,7 @@ Ring magnet and side sensor 3-axis
 
 A 3-axis magnetic sensor and ring magnet in the reducer cap. Standard on geared nodes, sold for retrofit.
 
-USD 29 planned
+$29
 
 ### D2 · Bus cable
 

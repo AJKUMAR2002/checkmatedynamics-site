@@ -12,11 +12,11 @@ Every product is a finished unit that works on its own and joins the same USB-C 
 
 Driver, encoder, controller and gearbox built in and calibrated as one unit. Reducers are part of the nodes, not separate parts.
 
-**A1** SmartStepper 17 From USD 79 planned
+**A1** SmartStepper 17 From $79
 
 Closed-loop NEMA 17. Board, direct-drive node, or with a 25:1 metal cycloidal.
 
-**A2** SmartServo G From USD 89 planned
+**A2** SmartServo G From $89
 
 Brushless servo for 2804 and 5208 gimbal motors, direct drive or cycloidal. The Leader’s joints.
 
@@ -32,7 +32,7 @@ Diagram
 
 Metric time-of-flight depth over USB-C, synced to your cameras. The Wrist version rides on the gripper.
 
-**B3** Output encoder USD 29 planned
+**B3** Output encoder $29
 
 Reads a reducer’s output angle directly. Standard on geared nodes, sold for retrofit.
 
@@ -44,7 +44,7 @@ The Sync Beacon doesn’t measure the scene or a joint. It checks that every oth
 
 [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
 
-From USD 1,490 per station, planned. Patent pending.
+From $1,490 per station. Patent pending.
 
 **Station Report** episode 000127
 
@@ -62,7 +62,7 @@ Illustrative values | C1
 
 ## One cable per device.
 
-**D1** Hub 8 Pro USD 399 planned
+**D1** Hub 8 Pro $399
 
 Eight node ports, per-port power and CAN, hardware e-stop.
 
@@ -70,7 +70,7 @@ Eight node ports, per-port power and CAN, hardware e-stop.
 
 Power, USB and CAN on one USB-C cable. An anodized Cable Clip holds it in the port; one comes with every node.
 
-**D3** I/O tile USD 19 planned
+**D3** I/O tile $19
 
 Qwiic and AUX ports for SmartServo G.
 

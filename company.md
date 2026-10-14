@@ -72,7 +72,7 @@ Makers
 
 ### Register interest
 
-Hear first when nodes go on sale.
+Tell us which nodes you want.
 
 Register interest
 

@@ -20,9 +20,9 @@ Any web host keeps ordinary server logs, such as your IP address, the page and t
 
 Some figures link to their sources on other sites. Those sites have their own privacy practices.
 
-## When the forms open
+## Email
 
-The interest, call and parts forms are not connected yet. Before they are, this page will say exactly what they collect (name, email, what you are interested in and any note you add), why, and how to have it deleted. We will use it only to reply to you, and we will not sell it.
+You reach us by email. We use what you send only to reply to you, we do not sell it, and we delete it on request. If we add forms, this page will first say exactly what they collect and why.
 
 ## Contact
 

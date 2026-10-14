@@ -6,15 +6,15 @@ Source: https://checkmatedynamics.com/sync-kit.html
 
 A Sync Beacon and Contour Wrist for each station. The beacon checks independently that every camera, joint log and depth stream agrees on time, repairs the timestamps, and writes a signed Station Report into every episode.
 
-**Single-arm station** | Sync Beacon and Contour Wrist | **USD 1,490**
+**Single-arm station** | Sync Beacon and Contour Wrist | **$1,490**
 
-**Bimanual station** | Sync Beacon and two Contour Wrists | **USD 1,890**
+**Bimanual station** | Sync Beacon and two Contour Wrists | **$1,890**
 
-**Sync Certified plan** | Per station: reports, recalibration, replacement | **USD 149 / mo**
+**Sync Certified plan** | Per station: reports, recalibration, replacement | **$149 / mo**
 
 [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Kit) | [Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
 
-Planned prices. Patent pending.
+Patent pending.
 
 **Fig. 01** Sync Beacon, operating Concept render
 

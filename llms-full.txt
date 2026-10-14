@@ -1,8 +1,8 @@
 # Checkmate Dynamics: full site text
 
-> Motor, sensing and sync nodes on one USB-C bus, from a robotics hardware company in Dallas, Texas. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Nothing can be ordered or paid for on this site yet; prices are planned.
+> Motor, sensing and sync nodes on one USB-C bus, from a robotics hardware company in Dallas, Texas. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Prices are list prices in US dollars.
 
-Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are planned list prices in USD. Images are concept renders. Every page has a markdown version at the same address ending in .md.
+Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are list prices in USD. Images are concept renders. Every page has a markdown version at the same address ending in .md.
 
 ---
 
@@ -30,27 +30,27 @@ Fig. 01 — Three motor nodes and the hub, as listed below. Concept renders.
 
 ## Everything we make, in one list.
 
-Prices are planned list prices. Nothing is on sale yet; registered interest decides what ships first.
+Every node, sensor, hub and station product, with its catalog number and list price.
 
-| No. | Product | For | Description | USD |
+| No. | Product | For | Description | Price |
 |---|---|---|---|---|
-| A1.1 | SmartStepper 17 Board | Makers · OEM | Closed-loop controller for your own NEMA 17 | 79 planned |
-| A1.2 | SmartStepper 17 · Direct | Makers · OEM | Direct drive on a calibrated NEMA 17, housed | 169 planned |
-| A1.3 | SmartStepper 17 · 25:1 | Makers · OEM | Metal cycloidal reducer and output encoder | 279 planned |
-| A2.1 | SmartServo G Board | Makers · OEM | FOC servo board for 2804 and 5208 gimbal motors | 89 planned |
-| A2.2 | G-2804 · Direct | Makers · OEM | Direct drive, no gearbox, no backlash | 159 planned |
-| A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | 249 planned |
-| A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | 249 planned |
-| A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | 399 planned |
+| A1.1 | SmartStepper 17 Board | Makers · OEM | Closed-loop controller for your own NEMA 17 | $79 |
+| A1.2 | SmartStepper 17 · Direct | Makers · OEM | Direct drive on a calibrated NEMA 17, housed | $169 |
+| A1.3 | SmartStepper 17 · 25:1 | Makers · OEM | Metal cycloidal reducer and output encoder | $279 |
+| A2.1 | SmartServo G Board | Makers · OEM | FOC servo board for 2804 and 5208 gimbal motors | $89 |
+| A2.2 | G-2804 · Direct | Makers · OEM | Direct drive, no gearbox, no backlash | $159 |
+| A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | $249 |
+| A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | $249 |
+| A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | $399 |
 | B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | In Sync Kit |
-| B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | 29 planned |
-| C1 | Sync Beacon · Sync Kit | Stations · OEM | Station timing instrument and per-episode report. Patent pending | From 1,490 planned / station |
-| D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | 399 planned |
+| B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
+| C1 | Sync Beacon · Sync Kit | Stations · OEM | Station timing instrument and per-episode report. Patent pending | From $1,490 / station |
+| D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
-| D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | 19 planned |
-| D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | 9 or in the box |
-| E1 | Checkmate Leader | Stations | Motorized leader arm made of SmartServo G nodes | 2,990 planned / arm |
+| D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | $19 |
+| D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | $9 or in the box |
+| E1 | Checkmate Leader | Stations | Motorized leader arm made of SmartServo G nodes | $2,990 / arm |
 | E2 | Station commissioning | Stations | New rigs measured and signed off in sync | On call |
 
 **02** Three ways in
@@ -61,7 +61,7 @@ Prices are planned list prices. Nothing is on sale yet; registered interest deci
 
 ### Build your own robot
 
-Complete motor nodes that set up in a browser and script from Python. Planned prices. Register your interest.
+Complete motor nodes that set up in a browser and script from Python. Register your interest.
 
 Register interest
 
@@ -148,7 +148,7 @@ C1 Sync Kit
 
 [Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
 
-## Nothing ships yet. Tell us what you’re building.
+## Tell us what you’re building.
 
 Makers register interest. Data floors book a call. Robotics companies talk to engineering.
 
@@ -170,11 +170,11 @@ Every product is a finished unit that works on its own and joins the same USB-C 
 
 Driver, encoder, controller and gearbox built in and calibrated as one unit. Reducers are part of the nodes, not separate parts.
 
-**A1** SmartStepper 17 From USD 79 planned
+**A1** SmartStepper 17 From $79
 
 Closed-loop NEMA 17. Board, direct-drive node, or with a 25:1 metal cycloidal.
 
-**A2** SmartServo G From USD 89 planned
+**A2** SmartServo G From $89
 
 Brushless servo for 2804 and 5208 gimbal motors, direct drive or cycloidal. The Leader’s joints.
 
@@ -190,7 +190,7 @@ Diagram
 
 Metric time-of-flight depth over USB-C, synced to your cameras. The Wrist version rides on the gripper.
 
-**B3** Output encoder USD 29 planned
+**B3** Output encoder $29
 
 Reads a reducer’s output angle directly. Standard on geared nodes, sold for retrofit.
 
@@ -202,7 +202,7 @@ The Sync Beacon doesn’t measure the scene or a joint. It checks that every oth
 
 [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
 
-From USD 1,490 per station, planned. Patent pending.
+From $1,490 per station. Patent pending.
 
 **Station Report** episode 000127
 
@@ -220,7 +220,7 @@ Illustrative values | C1
 
 ## One cable per device.
 
-**D1** Hub 8 Pro USD 399 planned
+**D1** Hub 8 Pro $399
 
 Eight node ports, per-port power and CAN, hardware e-stop.
 
@@ -228,7 +228,7 @@ Eight node ports, per-port power and CAN, hardware e-stop.
 
 Power, USB and CAN on one USB-C cable. An anodized Cable Clip holds it in the port; one comes with every node.
 
-**D3** I/O tile USD 19 planned
+**D3** I/O tile $19
 
 Qwiic and AUX ports for SmartServo G.
 
@@ -264,15 +264,13 @@ Source: https://checkmatedynamics.com/smartstepper-17.html
 
 A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Add the 25:1 metal cycloidal and it becomes a robot joint.
 
-**A1.1 · Board** | Controller for your own NEMA 17 | **USD 79**
+**A1.1 · Board** | Controller for your own NEMA 17 | **$79**
 
-**A1.2 · SmartStepper 17 · Direct** | Direct drive: board on a calibrated NEMA 17, housed | **USD 169**
+**A1.2 · SmartStepper 17 · Direct** | Direct drive: board on a calibrated NEMA 17, housed | **$169**
 
-**A1.3 · SmartStepper 17 · 25:1** | Cycloidal reducer and output encoder | **USD 279**
+**A1.3 · SmartStepper 17 · 25:1** | Cycloidal reducer and output encoder | **$279**
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartStepper%2017)
-
-Planned prices. Not on sale yet.
 
 *Output flange · M3 bolt circle, dowels* *25:1 cycloidal · 42 mm square* *NEMA 17 · flying-lead or socketed* *Rear unit · controller, 45.3 mm square* *USB-C · PD, USB, CAN*
 
@@ -345,7 +343,7 @@ No reducer means no backlash from gearing and no gear stage to service. The enco
 
 The 25:1 reducer bolts to the motor face. A direct node becomes A1.3 for the price difference, and keeps its identity and calibration history.
 
-Planned list price USD 169. Direct-drive output covers and frames are in design.
+List price $169. Direct-drive output covers and frames are in design.
 
 **03** Reducer
 
@@ -407,7 +405,7 @@ CAN needs a full-featured USB-C cable; charge-only cables don’t carry it. Targ
 
 Related: [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html) · [Products](https://checkmatedynamics.com/products.html)
 
-## First batch: tell us which version you want.
+## Tell us which version you want.
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [For makers](https://checkmatedynamics.com/makers.html)
 
@@ -421,19 +419,17 @@ Source: https://checkmatedynamics.com/smartservo-g.html
 
 A complete brushless actuator: gimbal motor, field-oriented control, magnetic encoder and housing, on one USB-C cable. The Checkmate Leader is built from these.
 
-**A2.1 · Board** | One board for 2804 and 5208 motors | **USD 89**
+**A2.1 · Board** | One board for 2804 and 5208 motors | **$89**
 
-**A2.2 · G-2804 · Direct** | Direct drive, no gearbox, no backlash | **USD 159**
+**A2.2 · G-2804 · Direct** | Direct drive, no gearbox, no backlash | **$159**
 
-**A2.3 · G-2804 · 20:1** | Cycloidal, output encoder, I/O tile | **USD 249**
+**A2.3 · G-2804 · 20:1** | Cycloidal, output encoder, I/O tile | **$249**
 
-**A2.4 · G-5208 · Direct** | Direct drive, larger motor | **USD 249**
+**A2.4 · G-5208 · Direct** | Direct drive, larger motor | **$249**
 
-**A2.5 · G-5208 · 25:1** | Cycloidal, output encoder, I/O tile | **USD 399**
+**A2.5 · G-5208 · 25:1** | Cycloidal, output encoder, I/O tile | **$399**
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartServo%20G)
-
-Planned prices. Not on sale yet.
 
 *G-2804 · iFlight GBM2804H-100T* *G-5208 · iFlight GM5208, 24 winding*
 
@@ -506,7 +502,7 @@ Field-oriented control on a gimbal motor, with no gear stage to add backlash.
 
 Rate tables, load stages, camera heads and teaching benches need speed and clean torque more than reduction. The G-5208 · Direct is the larger of the two.
 
-Planned list prices USD 159 and USD 249. Torque is measured per unit and printed on the test card. Direct-drive output covers and frames are in design.
+List prices $159 and $249. Torque is measured per unit and printed on the test card. Direct-drive output covers and frames are in design.
 
 **03** Construction
 
@@ -527,11 +523,11 @@ Controller, driver and encoder share one board on the motor’s back. The option
 
 ## Two motors, direct or geared.
 
-**A2.2–A2.3** G-2804 · Direct and G-2804 · 20:1 USD 159 / 249
+**A2.2–A2.3** G-2804 · Direct and G-2804 · 20:1 $159 / $249
 
 Compact and light. Direct drive for handle roll, camera pan and haptic knobs. The 20:1 cycloidal for wrists, grippers and leader joints.
 
-**A2.4–A2.5** G-5208 · Direct and G-5208 · 25:1 USD 249 / 399
+**A2.4–A2.5** G-5208 · Direct and G-5208 · 25:1 $249 / $399
 
 Larger and stronger. Direct drive for haptics and camera heads. The 25:1 cycloidal for the heavier joints of a leader arm.
 
@@ -558,7 +554,7 @@ Design values. Estimates and targets are marked; each unit ships with its own me
 
 Stacks on the board. Adds Qwiic and a 4-pin AUX port for sensors, endstops and triggers.
 
-USD 19 planned
+$19
 
 Ring magnet and side sensor 3-axis
 
@@ -566,7 +562,7 @@ Ring magnet and side sensor 3-axis
 
 A 3-axis magnetic sensor and ring magnet in the reducer cap. Standard on geared nodes, sold for retrofit.
 
-USD 29 planned
+$29
 
 ### D2 · Bus cable
 
@@ -698,7 +694,7 @@ For headsets, wrist rigs and handheld grippers: the Contour module with the same
 
 Related: [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html)
 
-## On the waitlist, no ship date yet.
+## Tell us where Contour goes in your build.
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour)
 
@@ -712,11 +708,11 @@ Source: https://checkmatedynamics.com/hub-8.html
 
 Powers, connects and protects a whole arm of nodes. Every port is its own USB-C power source and its own CAN segment, so one damaged cable can’t take the rest down.
 
-**D1 · Hub 8 Pro** | Hub only; power supply optional | **USD 399 planned**
+**D1 · Hub 8 Pro** | Hub only; power supply optional | **$399**
 
 [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
 
-Planned price. Part of the Checkmate Leader and planned as a stand-alone unit.
+Ships inside the Checkmate Leader and on its own.
 
 *P1–P8 · node ports, PD + CAN each* *Machined 6061 case*
 
@@ -788,7 +784,7 @@ The hub appears as a single USB device whose CAN channels show up as standard So
 
 Every Checkmate device uses its own USB-C port as the bus. Any full-featured USB-C cable carries all three; charge-only cables won’t carry CAN.
 
-- One cable and one Cable Clip (anodized 6061) ship in every node box; extra clips USD 9 planned
+- One cable and one Cable Clip (anodized 6061) ship in every node box; extra clips $9
 - The Clip Bar 8 screws across all eight ports and clamps every cable, so a snag can’t pull a joint offline
 
 **04** Specification
@@ -831,15 +827,15 @@ Source: https://checkmatedynamics.com/sync-kit.html
 
 A Sync Beacon and Contour Wrist for each station. The beacon checks independently that every camera, joint log and depth stream agrees on time, repairs the timestamps, and writes a signed Station Report into every episode.
 
-**Single-arm station** | Sync Beacon and Contour Wrist | **USD 1,490**
+**Single-arm station** | Sync Beacon and Contour Wrist | **$1,490**
 
-**Bimanual station** | Sync Beacon and two Contour Wrists | **USD 1,890**
+**Bimanual station** | Sync Beacon and two Contour Wrists | **$1,890**
 
-**Sync Certified plan** | Per station: reports, recalibration, replacement | **USD 149 / mo**
+**Sync Certified plan** | Per station: reports, recalibration, replacement | **$149 / mo**
 
 [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Kit) | [Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
 
-Planned prices. Patent pending.
+Patent pending.
 
 **Fig. 01** Sync Beacon, operating Concept render
 
@@ -982,13 +978,11 @@ A leader arm that carries its own weight, lets the operator feel the follower’
 
 [Register interest as a design partner](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader)
 
-Planned prices. Nothing can be ordered or paid for on this site yet; register your interest and we talk.
+**One arm** | Nodes, Hub 8 Pro, structure, handle | **$2,990**
 
-**One arm** | Nodes, Hub 8 Pro, structure, handle | **USD 2,990**
+**Pair** | Two arms | **$5,980**
 
-**Pair** | Two arms | **USD 5,980**
-
-**Leader Care plan** | Per pair: spare nodes, replacement, reports | **USD 249 / mo**
+**Leader Care plan** | Per pair: spare nodes, replacement, reports | **$249 / mo**
 
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
@@ -1057,7 +1051,7 @@ Your follower arm, tasks and station layout.
 
 ### Register interest
 
-Tell us your volumes. No payment is taken on this site; any terms are agreed on a call.
+Tell us your volumes. Terms are agreed on a call.
 
 03
 
@@ -1119,13 +1113,11 @@ Engineering time to build a teleop station in-house, before upkeep.
 
 |  |  |  |  |  |
 |---|---|---|---|---|
-| C1 | Sync Kit | Sync QA | Beacon and Contour Wrist; a signed Station Report in every episode. Patent pending | From 1,490 planned / station |
-| E1 | Checkmate Leader | Teleoperation | Motorized leader arm made of SmartServo G nodes | 2,990 planned / arm |
+| C1 | Sync Kit | Sync QA | Beacon and Contour Wrist; a signed Station Report in every episode. Patent pending | From $1,490 / station |
+| E1 | Checkmate Leader | Teleoperation | Motorized leader arm made of SmartServo G nodes | $2,990 / arm |
 | E2 | Station commissioning | New rigs | Every stream measured and signed off before your data counts | On call |
-| E3 | Skew Audit | Trial | One station, a loaner beacon, a readout of what skew costs you | Free planned |
-| E4 | Service plans | Uptime | Spares, advance replacement, recalibration, reports | From 149 planned / mo |
-
-Planned prices.
+| E3 | Skew Audit | Trial | One station, a loaner beacon, a readout of what skew costs you | Free |
+| E4 | Service plans | Uptime | Spares, advance replacement, recalibration, reports | From $149 / mo |
 
 **03** Commissioning
 
@@ -1160,9 +1152,9 @@ The Leader is SmartServo G nodes on a Hub 8 Pro. The Sync Kit is a Sync Beacon a
 
 ## Measured in episodes recovered.
 
-Planned monthly prices. Plans apply to installed stations.
+Monthly plans for installed stations.
 
-Per station · USD 149 / mo
+Per station · $149 / mo
 
 ### Sync Certified
 
@@ -1174,7 +1166,7 @@ For every Sync Kit station
 - Advance replacement of beacon and Contour
 - Software updates
 
-Per pair · USD 249 / mo
+Per pair · $249 / mo
 
 ### Leader Care
 
@@ -1185,7 +1177,7 @@ For every Leader pair
 - Annual recalibration and firmware
 - Monthly report: episodes per operator-hour
 
-Per station · USD 399 / mo
+Per station · $399 / mo
 
 ### Floor Uptime
 
@@ -1194,7 +1186,7 @@ For 24/7 floors with 10+ stations
 - Spare-node pool sized to your fleet
 - Covers Sync and Leader
 
-Planned prices and planned scope. Terms are confirmed with you before a plan starts.
+Terms are confirmed with you before a plan starts.
 
 **06** Questions
 
@@ -1204,7 +1196,7 @@ A robotics hardware company in Dallas, Texas. We design motion, sensing and sync
 
 **What happens when something breaks?**
 
-Every Leader joint is the same kind of node, so a repair is a swap, not a visit. Planned service plans include advance replacement; terms are confirmed before a plan starts.
+Every Leader joint is the same kind of node, so a repair is a swap, not a visit. Service plans include advance replacement; terms are confirmed before a plan starts.
 
 **Do you see our data?**
 
@@ -1278,25 +1270,23 @@ Script one node or a dozen over CAN, from Python, ROS 2 or LeRobot.
 
 Each unit’s measured numbers, printed and stored on the node.
 
-**02** Planned prices
+**02** Prices
 
 ## Every node, in one list.
 
-| No. | Node | Best for | What it is | USD |
+| No. | Node | Best for | What it is | Price |
 |---|---|---|---|---|
-| A1.1 | SmartStepper 17 Board | Printers, CNC | Closed-loop controller for your own NEMA 17 | 79 |
-| A1.2 | SmartStepper 17 · Direct | Axes, turntables | Direct drive on a calibrated NEMA 17 | 169 |
-| A1.3 | SmartStepper 17 · 25:1 | Arm joints | Metal cycloidal and output encoder | 279 |
-| A2.1 | SmartServo G Board | Own motors | FOC board for 2804 and 5208 motors | 89 |
-| A2.2 | G-2804 · Direct | Pan, haptics | Direct-drive gimbal servo, no backlash | 159 |
-| A2.3 | G-2804 · 20:1 | Wrists, grippers | Cycloidal, output encoder, I/O tile | 249 |
-| A2.4 | G-5208 · Direct | Camera heads, benches | Larger direct-drive gimbal servo | 249 |
-| A2.5 | G-5208 · 25:1 | Heavier joints | Cycloidal, output encoder, I/O tile | 399 |
-| D3 | I/O tile | SmartServo G | Qwiic and AUX ports | 19 |
-| B3 | Output encoder | Retrofit | Reads a reducer’s output angle | 29 |
+| A1.1 | SmartStepper 17 Board | Printers, CNC | Closed-loop controller for your own NEMA 17 | $79 |
+| A1.2 | SmartStepper 17 · Direct | Axes, turntables | Direct drive on a calibrated NEMA 17 | $169 |
+| A1.3 | SmartStepper 17 · 25:1 | Arm joints | Metal cycloidal and output encoder | $279 |
+| A2.1 | SmartServo G Board | Own motors | FOC board for 2804 and 5208 motors | $89 |
+| A2.2 | G-2804 · Direct | Pan, haptics | Direct-drive gimbal servo, no backlash | $159 |
+| A2.3 | G-2804 · 20:1 | Wrists, grippers | Cycloidal, output encoder, I/O tile | $249 |
+| A2.4 | G-5208 · Direct | Camera heads, benches | Larger direct-drive gimbal servo | $249 |
+| A2.5 | G-5208 · 25:1 | Heavier joints | Cycloidal, output encoder, I/O tile | $399 |
+| D3 | I/O tile | SmartServo G | Qwiic and AUX ports | $19 |
+| B3 | Output encoder | Retrofit | Reads a reducer’s output angle | $29 |
 | B1 | Contour | Depth | Time-of-flight depth over USB-C | Register interest |
-
-Planned list prices. Nothing is on sale yet; registered interest sets the order of the first batch.
 
 **03** Upgrade path
 
@@ -1350,7 +1340,7 @@ Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) �
 
 ## Tell us what to build first.
 
-Tell us which nodes you want. Registered interest sets the order of the first batch.
+Tell us which nodes you want and what you are building.
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
 
@@ -1454,15 +1444,15 @@ Makers register interest, data floors book a call, robotics companies talk to en
 
 ## Makers, students and labs.
 
-Nothing is on sale yet. Tell us what you want and we will write when it is ready. Registered interest decides what we build first.
+Tell us which nodes you want and what you are building, and we will write back.
 
-One email when it is ready, and the occasional build note.
+A reply from the team, and the occasional build note.
 
-Registration opens soon
+By email
 
-### Not open yet.
+### Write to us.
 
-This form is not connected, so nothing can be sent from this page yet.
+Send a line and a person on the team replies.
 
 [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
 
@@ -1472,15 +1462,13 @@ This form is not connected, so nothing can be sent from this page yet.
 
 Twenty minutes about your stations: Sync Kit, Leader design-partner interest, commissioning, service, or a Skew Audit on one station. You leave with what we’d measure first.
 
-Nothing can be ordered or paid for on this site yet.
-
 [Open the calendar](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
-Registration opens soon
+By email
 
-### Not open yet.
+### Write to us.
 
-This form is not connected, so nothing can be sent from this page yet.
+Send a line and a person on the team replies.
 
 [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
@@ -1494,11 +1482,11 @@ Nodes, Hub 8 Pro, Contour OEM or the Sync Beacon inside your product. Talk to en
 - Evaluation units and integration support
 - Volume terms discussed with engineering
 
-Registration opens soon
+By email
 
-### Not open yet.
+### Write to us.
 
-This form is not connected, so nothing can be sent from this page yet.
+Send a line and a person on the team replies.
 
 [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)
 
@@ -1578,7 +1566,7 @@ Makers
 
 ### Register interest
 
-Hear first when nodes go on sale.
+Tell us which nodes you want.
 
 Register interest
 
@@ -1622,9 +1610,9 @@ Any web host keeps ordinary server logs, such as your IP address, the page and t
 
 Some figures link to their sources on other sites. Those sites have their own privacy practices.
 
-## When the forms open
+## Email
 
-The interest, call and parts forms are not connected yet. Before they are, this page will say exactly what they collect (name, email, what you are interested in and any note you add), why, and how to have it deleted. We will use it only to reply to you, and we will not sell it.
+You reach us by email. We use what you send only to reply to you, we do not sell it, and we delete it on request. If we add forms, this page will first say exactly what they collect and why.
 
 ## Contact
 

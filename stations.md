@@ -38,13 +38,11 @@ Engineering time to build a teleop station in-house, before upkeep.
 
 |  |  |  |  |  |
 |---|---|---|---|---|
-| C1 | Sync Kit | Sync QA | Beacon and Contour Wrist; a signed Station Report in every episode. Patent pending | From 1,490 planned / station |
-| E1 | Checkmate Leader | Teleoperation | Motorized leader arm made of SmartServo G nodes | 2,990 planned / arm |
+| C1 | Sync Kit | Sync QA | Beacon and Contour Wrist; a signed Station Report in every episode. Patent pending | From $1,490 / station |
+| E1 | Checkmate Leader | Teleoperation | Motorized leader arm made of SmartServo G nodes | $2,990 / arm |
 | E2 | Station commissioning | New rigs | Every stream measured and signed off before your data counts | On call |
-| E3 | Skew Audit | Trial | One station, a loaner beacon, a readout of what skew costs you | Free planned |
-| E4 | Service plans | Uptime | Spares, advance replacement, recalibration, reports | From 149 planned / mo |
-
-Planned prices.
+| E3 | Skew Audit | Trial | One station, a loaner beacon, a readout of what skew costs you | Free |
+| E4 | Service plans | Uptime | Spares, advance replacement, recalibration, reports | From $149 / mo |
 
 **03** Commissioning
 
@@ -79,9 +77,9 @@ The Leader is SmartServo G nodes on a Hub 8 Pro. The Sync Kit is a Sync Beacon a
 
 ## Measured in episodes recovered.
 
-Planned monthly prices. Plans apply to installed stations.
+Monthly plans for installed stations.
 
-Per station · USD 149 / mo
+Per station · $149 / mo
 
 ### Sync Certified
 
@@ -93,7 +91,7 @@ For every Sync Kit station
 - Advance replacement of beacon and Contour
 - Software updates
 
-Per pair · USD 249 / mo
+Per pair · $249 / mo
 
 ### Leader Care
 
@@ -104,7 +102,7 @@ For every Leader pair
 - Annual recalibration and firmware
 - Monthly report: episodes per operator-hour
 
-Per station · USD 399 / mo
+Per station · $399 / mo
 
 ### Floor Uptime
 
@@ -113,7 +111,7 @@ For 24/7 floors with 10+ stations
 - Spare-node pool sized to your fleet
 - Covers Sync and Leader
 
-Planned prices and planned scope. Terms are confirmed with you before a plan starts.
+Terms are confirmed with you before a plan starts.
 
 **06** Questions
 
@@ -123,7 +121,7 @@ A robotics hardware company in Dallas, Texas. We design motion, sensing and sync
 
 **What happens when something breaks?**
 
-Every Leader joint is the same kind of node, so a repair is a swap, not a visit. Planned service plans include advance replacement; terms are confirmed before a plan starts.
+Every Leader joint is the same kind of node, so a repair is a swap, not a visit. Service plans include advance replacement; terms are confirmed before a plan starts.
 
 **Do you see our data?**
 

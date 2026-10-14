@@ -6,15 +6,13 @@ Source: https://checkmatedynamics.com/smartstepper-17.html
 
 A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Add the 25:1 metal cycloidal and it becomes a robot joint.
 
-**A1.1 · Board** | Controller for your own NEMA 17 | **USD 79**
+**A1.1 · Board** | Controller for your own NEMA 17 | **$79**
 
-**A1.2 · SmartStepper 17 · Direct** | Direct drive: board on a calibrated NEMA 17, housed | **USD 169**
+**A1.2 · SmartStepper 17 · Direct** | Direct drive: board on a calibrated NEMA 17, housed | **$169**
 
-**A1.3 · SmartStepper 17 · 25:1** | Cycloidal reducer and output encoder | **USD 279**
+**A1.3 · SmartStepper 17 · 25:1** | Cycloidal reducer and output encoder | **$279**
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartStepper%2017)
-
-Planned prices. Not on sale yet.
 
 *Output flange · M3 bolt circle, dowels* *25:1 cycloidal · 42 mm square* *NEMA 17 · flying-lead or socketed* *Rear unit · controller, 45.3 mm square* *USB-C · PD, USB, CAN*
 
@@ -87,7 +85,7 @@ No reducer means no backlash from gearing and no gear stage to service. The enco
 
 The 25:1 reducer bolts to the motor face. A direct node becomes A1.3 for the price difference, and keeps its identity and calibration history.
 
-Planned list price USD 169. Direct-drive output covers and frames are in design.
+List price $169. Direct-drive output covers and frames are in design.
 
 **03** Reducer
 
@@ -149,6 +147,6 @@ CAN needs a full-featured USB-C cable; charge-only cables don’t carry it. Targ
 
 Related: [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html) · [Products](https://checkmatedynamics.com/products.html)
 
-## First batch: tell us which version you want.
+## Tell us which version you want.
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017) | [For makers](https://checkmatedynamics.com/makers.html)

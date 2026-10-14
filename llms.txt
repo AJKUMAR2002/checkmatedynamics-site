@@ -1,8 +1,8 @@
 # Checkmate Dynamics
 
-> Motor, sensing and sync nodes on one USB-C bus, from a robotics hardware company in Dallas, Texas. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Nothing can be ordered or paid for on this site yet; prices are planned.
+> Motor, sensing and sync nodes on one USB-C bus, from a robotics hardware company in Dallas, Texas. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Prices are list prices in US dollars.
 
-Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are planned list prices in USD. Images are concept renders. Every page has a markdown version at the same address ending in .md.
+Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices are list prices in USD. Images are concept renders. Every page has a markdown version at the same address ending in .md.
 
 ## Overview
 
@@ -26,7 +26,7 @@ Specifications are design values until a unit is measured; “Target” and “E
 
 - [Makers](https://checkmatedynamics.com/makers.md): Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a USB-C charger, open the app in a browser, move. Script from Python when ready.
 - [Components](https://checkmatedynamics.com/components.md): For teams building their own arms, grippers, handhelds and rigs: the motion, sensing and sync nodes we use in our stations, with per-unit test records.
-- [Contact](https://checkmatedynamics.com/contact.md): Makers register interest, data floors book a call, robotics companies talk to engineering. Nothing is on sale yet; we will write when it is ready.
+- [Contact](https://checkmatedynamics.com/contact.md): Makers register interest, data floors book a call, robotics companies talk to engineering. Write to the team at contact@checkmatedynamics.com.
 
 ## Company
 
@@ -34,7 +34,7 @@ Specifications are design values until a unit is measured; “Target” and “E
 
 ## Data
 
-- [Catalog (JSON)](https://checkmatedynamics.com/catalog.json): every catalogue number with name, group, status, planned price and the Key figures as shown on the pages
+- [Catalog (JSON)](https://checkmatedynamics.com/catalog.json): every catalogue number with name, group, status, list price and the Key figures as shown on the pages
 - [Full text of the site](https://checkmatedynamics.com/llms-full.txt): every page as markdown in one file
 
 ## Optional
