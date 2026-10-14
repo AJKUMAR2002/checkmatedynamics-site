@@ -388,7 +388,7 @@ function renderInvite(v) {
   const inv = v.invite, owner = v.state === "confirmed" && v.via === "owner";
   $("invite").hidden = !owner;
   if (!owner) return;
-  $("invitebtn").hidden = !!inv && ["issuing", "waiting", "approve", "approving"].includes(inv.state);
+  $("invitebtn").hidden = !!inv && ["issuing", "waiting", "approve", "approving", "approved", "committed"].includes(inv.state);
   const qr = inv && inv.state === "waiting" && inv.qr;
   $("inviteqr").hidden = !qr;
   const key = qr ? inv.qr.join("") : "";

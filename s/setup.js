@@ -20,7 +20,7 @@
   readKey();
   window.addEventListener("hashchange", () => { if (readKey()) keyLoaded(); });   // page already open when scanned
 
-  let session = null, code = [], lastJoin = {}, nets = {};
+  let session = null, code = [], lastJoin = {}, nets = {}, joined = false;
   // AP2/R2 (pairing v5): the label names the product; public, so it may stay in the address bar
   const PRODUCT_NAMES = { ss17: "SmartStepper 17", ss23: "SmartStepper 23", ssg: "SmartServo G", hub4: "Hub 4", hub8: "Hub 8 Pro" };
   const params = new URLSearchParams(location.search);
@@ -44,6 +44,11 @@
 
   function onEvent(kind, m) {
     if (kind === "found") { msg(`Found ${m.name || "your board"}. Pairing ...`); session.pair(); }
+    else if (kind === "invite" && m.state === "committed") {   // 10.4.9a r15: added; the guest link ends here
+      ["code", "net", "invitecode", "start", "retry"].forEach((id) => show(id, false));
+      joined = true; session.disconnect();
+      msg("Added: this phone is now an owner of the board. This page keeps no keys, so set up Wi-Fi from the Checkmate app or the owner's phone.");
+    }
     else if (kind === "invite") {                       // the guest fp as four words, the same on the owner's screen
       show("start", false); show("invitecode", true);
       $("words").textContent = (m.words || []).join(" ");
@@ -96,7 +101,7 @@
     } else if (kind === "failed" || kind === "rejected" || kind === "motor_enabled") {   // every pair.js fail() state
       show("code", false); show("net", false); show("retry", true); msg(m.message);
       if (/setup key/.test(m.message || "")) { show("start", true); show("keyentry", true); }
-    } else if (kind === "disconnected" && $("done").hidden) msg("Bluetooth disconnected. Try again.");
+    } else if (kind === "disconnected" && $("done").hidden && !joined) msg("Bluetooth disconnected. Try again.");
   }
 
   async function begin(key) {

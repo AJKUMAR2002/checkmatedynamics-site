@@ -199,15 +199,23 @@
       } else if (t === "owner" && st === "held" && this.via === "invite") {
         this.onEvent("invite", { state: "held", words: this.words });
       } else if (t === "owner" && st === "committed" && this.via === "invite" && this.ownerKey) {
-        this.state = "confirmed"; this.kconf = null;
-        this.onEvent("pair", { state: "confirmed", authenticated: true, version: 4, via: "invite" });
+        // 10.4.9a r15: the guest link ends here (no Wi-Fi on it). This page keeps no keys, so Wi-Fi is set in the app.
+        this.state = "joined"; this.kconf = null; this.key = null; this.ownerKey = null;
+        this.onEvent("invite", { state: "committed", words: this.words });
       } else if (t === "owner" && st === "freed" && this.via === "invite") {
         this.ownerKey = null; this.kconf = null;
         const why = m.why || "";
         this.fail("invite_ended", { rejected: "The owner didn't approve this phone.",
           approval_timeout: "The owner didn't approve in time (2 min). Ask them for a new invite.",
           stop: "The board was stopped, which ends the invite. Ask the owner for a new one.",
-          enabled: "The motor was turned on, which ends the invite. Ask the owner for a new one." }[why]
+          enabled: "The motor was turned on, which ends the invite. Ask the owner for a new one.",
+          timeout: "The invite ran out (5 min). Ask the owner for a new one.",
+          cancel: "The owner closed the invite.",
+          replaced: "The owner started a new invite or pairing window: ask them for the new QR.",
+          guest_cancel: "Cancelled. Ask the owner for a new invite if you change your mind.",
+          inviter_gone: "The owner's phone or computer left, so nobody could approve. Ask them for a new invite.",
+          commit_timeout: "This phone didn't confirm in time. Ask the owner for a new invite.",
+          bad_commit: "The board didn't accept this phone's confirmation. Ask the owner for a new invite." }[why]
           || `The invite ended (${why || "?"}). Ask the owner for a new one.`);
       } else if (t === "pair" && st === "kob") {
         /* owner-beacon key: this page keeps nothing (the app stores it) */
@@ -258,6 +266,8 @@
       } else if (t === "pair" && st === "wrong_code") {
         if (this.version >= 3) return this.start("Wrong arrows. Here's a new code.");    // never reuse a code
         this.state = "enter_code"; this.onEvent("pair", m);
+      } else if (t === "pair" && st === "failed" && m.why === "committed") {
+        /* r16: our cancel crossed `committed`: committed wins and is final */
       } else if (t === "pair" && st === "cancelled") {
         /* our own cancel acknowledged */
       } else if (t === "pair" && (st === "failed" || st === "timeout")) {
