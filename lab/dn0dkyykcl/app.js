@@ -328,7 +328,7 @@ function renderBridgeSetup(v, s) {
     $("arrows").innerHTML = v.code.map((d) => `<span aria-label="${["up", "right", "down", "left"][d]}">${ARROWS[d]}</span>`).join("");
   }
   fillArrows(v.state === "confirmed" ? 6 : v.entered);
-  showDial(v.clicks, v.haptic, v.state === "enter_code");
+  showDial(v.clicks, v.haptic, v.state === "enter_code" && v.ready !== false);   // v5: only once the board listens
   setupMsg(v.error || ({ joining: "Joining the network ...", connected: `On Wi-Fi at ${v.ip}. Connecting ...` }[v.phase]) || v.msg);
   $("pairretry").hidden = !["failed", "rejected"].includes(v.state);
   $("keyrow").hidden = !(v.state === "need_key" || (v.state === "failed" && /setup key/.test(v.msg || "")));
@@ -382,7 +382,8 @@ function onSetup(kind, m) {
     $("setupwarn").textContent = "This board's firmware (pairing v2) can't prove it's the board in front of you. Don't share a Wi-Fi network that matters until the firmware update (inbox #93).";
     if (m.notice) setupMsg(m.notice);
   } else if (kind === "pair") {
-    if (m.state === "enter_code") {
+    if (m.state === "enter_code" && m.ready === false) setupMsg("Getting the board ready ...");   // v5: arrows only once it listens
+    else if (m.state === "enter_code") {
       const dial = (m.inputs || []).includes("dial");
       showDial(dial ? webCode.map((d) => d + 1) : [], m.dial && m.dial.haptic, dial);
       setupMsg(dial ? "Enter the code on the board: turn the shaft, or press the arrows on the switch."

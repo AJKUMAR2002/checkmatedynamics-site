@@ -8,7 +8,7 @@
   const ARROWS = ["↑", "→", "↓", "←"];
   if (window.top !== window.self) { document.body.textContent = "This page can't run inside a frame."; return; }
 
-  // The label QR opens /s#<key>: read it once, keep it in memory only, and take it out of the address bar.
+  // The label QR opens /s?p=<product>#<key>: read the key once, keep it in memory only, and take it out of the address bar.
   let labelKey = null;
   function readKey() {
     const h = decodeURIComponent(location.hash.slice(1));
@@ -21,6 +21,15 @@
   window.addEventListener("hashchange", () => { if (readKey()) keyLoaded(); });   // page already open when scanned
 
   let session = null, code = [], lastJoin = {}, nets = {};
+  // AP2/R2 (pairing v5): the label names the product; public, so it may stay in the address bar
+  const PRODUCT_NAMES = { ss17: "SmartStepper 17", ss23: "SmartStepper 23", ssg: "SmartServo G", hub4: "Hub 4", hub8: "Hub 8 Pro" };
+  const product = new URLSearchParams(location.search).get("p");
+  const productName = PRODUCT_NAMES[product] || null;
+  if (productName) $("title").textContent = `Set up your ${productName}`;
+  // R5 (founder, Oct 14): remember ONLY the last network name, never a password. The one storage key on this page.
+  const SSID_KEY = "cm.lastSsid";
+  const lastSsid = () => { try { return localStorage.getItem(SSID_KEY); } catch { return null; } };
+  const rememberSsid = (s) => { try { localStorage.setItem(SSID_KEY, s); } catch { /* private mode: fine */ } };
 
   function reset(text) {
     ["code", "net", "done", "retry"].forEach((id) => show(id, false));
@@ -35,6 +44,7 @@
       $("arrows").innerHTML = code.map((d) => `<span>${ARROWS[d]}</span>`).join("");
     } else if (kind === "pair") {
       if (m.state === "setup_checking") msg("Checking the setup key with the board ...");
+      else if (m.state === "enter_code" && !m.ready) { show("start", false); show("code", false); msg("Getting the board ready ..."); }
       else if (m.state === "enter_code") {
         show("start", false); show("code", true);
         const dial = (m.inputs || []).includes("dial");
@@ -54,10 +64,13 @@
     } else if (kind === "scan" && m.state === "done") {
       const opt = (n) => { const o = document.createElement("option"); o.value = n.ssid; o.textContent = `${n.ssid} · ${n.rssi} dBm · ${n.secure ? "secured" : "open"}`; return o; };
       $("netsel").replaceChildren(...Object.values(nets).sort((a, b) => b.rssi - a.rssi).map(opt));
+      const prev = lastSsid();
+      if (prev && nets[prev]) { $("netsel").value = prev; msg(`Same Wi-Fi as last time (${prev})? Type its password and tap Join.`); }
       if (!$("netsel").options.length) $("netsel").innerHTML = '<option value="">no networks found</option>';
     } else if (kind === "wifi") {
       if (m.state === "joining") msg(`Joining ${m.ssid} ...`);
       else if (m.state === "connected") {
+        if (lastJoin.ssid) rememberSsid(lastJoin.ssid);
         session.done();
         show("net", false); show("done", true); msg("");
         $("donemsg").textContent = `${lastJoin.name || (session.info && session.info.name) || "Your board"} joined ${lastJoin.ssid} as ${m.ip}.`;
@@ -77,7 +90,7 @@
       return;
     }
     if (session) session.disconnect();
-    session = new SS17Pair.PairSession(onEvent, key);
+    session = new SS17Pair.PairSession(onEvent, key, product);
     msg("Choose your board in the browser's list.");
     try { await session.find(); } catch (e) { msg(`No board chosen (${e.message || e}).`); }
   }
@@ -94,7 +107,7 @@
     begin(key);
   };
   $("lostlabel").onclick = () => {
-    msg("Without the label or the card, hold CENTER on the board for 3 s first (this opens setup by hand), then continue. The code you'll enter on the board is weaker than the label key.");
+    msg("Without the label or the card, hold CENTER (or PAIR) on the board for 3 s first (this opens setup by hand), then continue. The code you'll enter on the board is weaker than the label key.");
     labelKey = null;
     begin(null);                                                 // v3: dial or arrows on the board
   };
@@ -108,7 +121,7 @@
   };
 
   function keyLoaded() {
-    $("keynote").textContent = "The setup key from your label is loaded. Tap below and pick the board: nothing to press on it.";
+    $("keynote").textContent = `The setup key from your label is loaded. If the ${productName || "motor"} is new, plug it in (that opens setup), then tap below and pick it: nothing to press on it.`;
     show("keyentry", false);
   }
   show("start", true);

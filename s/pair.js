@@ -80,6 +80,20 @@
     return new Uint8Array(await subtle().sign("HMAC", conf, cat(enc.encode(label), hexBytes(uid64hex), Uint8Array.of(4), first, second)));
   }
   const v4WifiAad = (uid64hex, ssid) => cat(enc.encode("ss17-v4 wifi"), hexBytes(uid64hex), enc.encode(ssid));
+  // Pairing v5 advert (platform-spec §10.4.1, AP3): tag = trunc24(HMAC(K_adv, nonce)), K_adv = HKDF(S, "", "cmd-adv-v5").
+  // UX only (it narrows the chooser); the v4 exchange is the proof.
+  const PRODUCTS = { ss17: 1, ss23: 2, ssg: 3, hub4: 4, hub8: 5 };
+  async function advTag(setupKey, nonce) {
+    const hk = await subtle().importKey("raw", normaliseSetupKey(setupKey), "HKDF", false, ["deriveKey"]);   // 20 ASCII bytes
+    const k = await subtle().deriveKey({ name: "HKDF", hash: "SHA-256", salt: new Uint8Array(0), info: enc.encode("cmd-adv-v5") }, hk,
+      { name: "HMAC", hash: "SHA-256", length: 256 }, false, ["sign"]);
+    return new Uint8Array(await subtle().sign("HMAC", k, nonce)).slice(0, 3);
+  }
+  function deviceFilters(product) {      // serviceData is ignored where unsupported: the services match still applies
+    const f = { services: [SVC] };
+    if (PRODUCTS[product]) f.serviceData = [{ service: SVC, dataPrefix: Uint8Array.of(1, PRODUCTS[product]), mask: Uint8Array.of(0x07, 0xff) }];
+    return [f];
+  }
 
   // ---------------------------------------------------------------- protocol (transport-agnostic; `send(obj)` is async)
   class PairCore {
@@ -143,7 +157,10 @@
           this.code = randomCode(n);
           this.onEvent("code", { dirs: this.code, version: this.version, notice: this.notice });
         }
-        this.state = "enter_code"; this.onEvent("pair", m);
+        this.state = "enter_code"; this.lastEnter = m;
+        this.onEvent("pair", { ...m, ready: m.ready !== false });          // v5 boards send ready:false, then entry_ready
+      } else if (t === "pair" && st === "entry_ready" && this.state === "enter_code") {
+        this.onEvent("pair", { ...(this.lastEnter || {}), state: "enter_code", ready: true });
       } else if (t === "pair" && st === "entry") {
         this.onEvent("pair", { state: "entry", n: m.n });                                // never show right/wrong (v3)
       } else if (t === "pair" && st === "entered" && this.version >= 3) {
@@ -189,14 +206,21 @@
 
   // ---------------------------------------------------------------- Web Bluetooth session
   class PairSession {
-    constructor(onEvent, setupKey) { this.onEvent = onEvent; this.setupKey = setupKey || null; this.ctrl = null; this.info = null; this.dev = null; this.waiters = []; this.queue = Promise.resolve(); }
+    constructor(onEvent, setupKey, product) { this.onEvent = onEvent; this.setupKey = setupKey || null; this.product = product || null; this.ctrl = null; this.info = null; this.dev = null; this.waiters = []; this.queue = Promise.resolve(); }
     static supported() { return !!(root.navigator && root.navigator.bluetooth); }
     async find() {
-      this.dev = await navigator.bluetooth.requestDevice({ filters: [{ services: [SVC] }] });
+      this.dev = await navigator.bluetooth.requestDevice({ filters: deviceFilters(this.product) });
       this.dev.addEventListener("gattserverdisconnected", () => this.onEvent("disconnected", {}));
       const gatt = await this.dev.gatt.connect();
       const svc = await gatt.getPrimaryService(SVC);
       this.info = JSON.parse(new TextDecoder().decode(await (await svc.getCharacteristic(INFO)).readValue()));
+      if (this.setupKey && this.info.adv && this.info.adv.nonce && this.info.adv.tag) {     // v5 board: is it the label's board?
+        const want = await advTag(this.setupKey, hexBytes(this.info.adv.nonce));
+        if (!eq(want, hexBytes(this.info.adv.tag))) {
+          try { this.dev.gatt.disconnect(); } catch { /* ignore */ }
+          throw new Error("That isn't the board on your label. Try again and pick the other one.");
+        }
+      }
       this.ctrl = await svc.getCharacteristic(CTRL);
       const st = await svc.getCharacteristic(STATUS);
       this.core = new PairCore((o) => this.send(o), this.info.uid64, this.onEvent, this.setupKey);
@@ -241,7 +265,7 @@
   }
 
   const api = { SVC, b64, unb64, newClientKey, commitOf, passkey, randomCode, roundCommit, sessionKey, encryptPassword,
-    normaliseSetupKey, v4Keys, v4Mac, v4WifiAad, PairCore, PairSession };
+    normaliseSetupKey, v4Keys, v4Mac, v4WifiAad, advTag, deviceFilters, PRODUCTS, PairCore, PairSession };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.SS17Pair = api;
 })(typeof window !== "undefined" ? window : globalThis);
