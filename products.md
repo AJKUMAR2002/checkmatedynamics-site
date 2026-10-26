@@ -26,7 +26,7 @@ Brushless servo for 2804 and 5208 gimbal motors, direct drive or cycloidal. The 
 
 Contour | **54 × 42 zones**
 
-Diagram
+Wireframe from CAD
 
 **B1–B2** Contour, Contour Wrist Waitlist
 

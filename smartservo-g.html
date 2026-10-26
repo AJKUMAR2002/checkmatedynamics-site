@@ -27,7 +27,7 @@
 <link rel="icon" href="assets/brand/favicon/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon-180.png">
 <link rel="manifest" href="assets/brand/manifest.webmanifest">
-<link rel="mask-icon" href="assets/brand/favicon/safari-pinned-tab.svg" color="#D4BB8B">
+<link rel="mask-icon" href="assets/brand/favicon/safari-pinned-tab.svg" color="#000000">
 <link rel="preload" href="assets/fonts/inter-opsz-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="theme-color" content="#000000">
@@ -179,7 +179,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-twotone.svg" alt="Checkmate Dynamics" height="21"></a>
+    <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
 
@@ -260,11 +260,11 @@
       <div class="phx-txt">
         <p class="lede">A complete brushless actuator: gimbal motor, field-oriented control, magnetic encoder and housing, on one USB-C cable. The Checkmate Leader is built from these.</p>
         <div class="variants">
-          <div class="variant"><strong>A2.1 · Board</strong><span>One board for 2804 and 5208 motors</span><b><span class="mono">$89</span></b></div>
-          <div class="variant"><strong>A2.2 · G-2804 · Direct</strong><span>Direct drive, no gearbox, no backlash</span><b><span class="mono">$159</span></b></div>
-          <div class="variant"><strong>A2.3 · G-2804 · <span class="mono">20:1</span></strong><span>Cycloidal, output encoder, I/O tile</span><b><span class="mono">$249</span></b></div>
-          <div class="variant"><strong>A2.4 · G-5208 · Direct</strong><span>Direct drive, larger motor</span><b><span class="mono">$249</span></b></div>
-          <div class="variant"><strong>A2.5 · G-5208 · <span class="mono">25:1</span></strong><span>Cycloidal, output encoder, I/O tile</span><b><span class="mono">$399</span></b></div>
+          <div class="variant" data-sku="ssg-board"><strong>A2.1 · Board</strong><span>One board for 2804 and 5208 motors</span><b data-price><span class="mono">$89</span></b></div>
+          <div class="variant" data-sku="g2804-direct"><strong>A2.2 · G-2804 · Direct</strong><span>Direct drive, no gearbox, no backlash</span><b data-price><span class="mono">$159</span></b></div>
+          <div class="variant" data-sku="g2804-20"><strong>A2.3 · G-2804 · <span class="mono">20:1</span></strong><span>Cycloidal, output encoder, I/O tile</span><b data-price><span class="mono">$249</span></b></div>
+          <div class="variant" data-sku="g5208-direct"><strong>A2.4 · G-5208 · Direct</strong><span>Direct drive, larger motor</span><b data-price><span class="mono">$249</span></b></div>
+          <div class="variant" data-sku="g5208-25"><strong>A2.5 · G-5208 · <span class="mono">25:1</span></strong><span>Cycloidal, output encoder, I/O tile</span><b data-price><span class="mono">$399</span></b></div>
         </div>
         <div class="btns">
           <a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G">Register interest</a>
@@ -308,7 +308,7 @@
 </section>
 
 <section class="sec flush stmt">
-  <div class="edge" aria-hidden="true"><img src="assets/svg/contour-edge.svg" alt="" width="300" height="900" loading="lazy"></div>
+  <div class="edge" aria-hidden="true"><img src="assets/img/wf-g5208-1200.webp" srcset="assets/img/wf-g5208-1200.webp 1200w, assets/img/wf-g5208.webp 2400w" sizes="(max-width: 900px) 1px, 50vw" width="2400" height="1600" alt="" loading="lazy"></div>
   <div class="wrap">
     <div class="sec-index"><b>01</b>Overview</div>
     <h2 class="d1 balance">Built for feel and fidelity, not raw force.</h2>
@@ -411,19 +411,19 @@
   <div class="wrap grid">
     <div class="c1-3 sec-index"><b>06</b>Accessories</div>
     <div class="c4-12 gallery">
-      <div class="tile">
+      <div class="tile" data-sku="io-tile">
         <figure class="fig"><div class="plate r4x3"><img src="assets/img/ssg-io-tile-1200.webp" srcset="assets/img/ssg-io-tile-1200.webp 1200w, assets/img/ssg-io-tile.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="I/O tile circuit board with Qwiic and AUX ports for SmartServo G, concept render" loading="lazy"></div></figure>
-        <h3 class="h3">D3 · I/O tile</h3><p>Stacks on the board. Adds Qwiic and a 4-pin AUX port for sensors, endstops and triggers.</p><span class="pr"><span class="mono">$19</span></span>
+        <h3 class="h3">D3 · I/O tile</h3><p>Stacks on the board. Adds Qwiic and a 4-pin AUX port for sensors, endstops and triggers.</p><span class="pr" data-price><span class="mono">$19</span></span>
       </div>
-      <div class="tile">
+      <div class="tile" data-sku="encoder">
         <figure class="fig"><div class="plate r4x3 sheet"><div class="svg-wrap"><svg viewBox="0 0 400 300" style="width:100%;height:100%" role="img" aria-label="Output encoder: ring magnet on the reducer output, 3-axis sensor beside it">
-          <circle cx="170" cy="150" r="86" fill="none" stroke="var(--ivory)" stroke-width="1"/><circle cx="170" cy="150" r="64" fill="none" stroke="var(--ivory)" stroke-width="1"/>
-          <g stroke="var(--ivory)" stroke-width="1"><line x1="234.0" y1="150.0" x2="256.0" y2="150.0"/><line x1="229.1" y1="174.5" x2="249.5" y2="182.9"/><line x1="215.3" y1="195.3" x2="230.8" y2="210.8"/><line x1="194.5" y1="209.1" x2="202.9" y2="229.5"/><line x1="170.0" y1="214.0" x2="170.0" y2="236.0"/><line x1="145.5" y1="209.1" x2="137.1" y2="229.5"/><line x1="124.7" y1="195.3" x2="109.2" y2="210.8"/><line x1="110.9" y1="174.5" x2="90.5" y2="182.9"/><line x1="106.0" y1="150.0" x2="84.0" y2="150.0"/><line x1="110.9" y1="125.5" x2="90.5" y2="117.1"/><line x1="124.7" y1="104.7" x2="109.2" y2="89.2"/><line x1="145.5" y1="90.9" x2="137.1" y2="70.5"/><line x1="170.0" y1="86.0" x2="170.0" y2="64.0"/><line x1="194.5" y1="90.9" x2="202.9" y2="70.5"/><line x1="215.3" y1="104.7" x2="230.8" y2="89.2"/><line x1="229.1" y1="125.5" x2="249.5" y2="117.1"/></g>
-          <rect x="170" y="150" width="6" height="6" transform="translate(-3 -3)" fill="var(--champagne)"/>
-          <rect x="282" y="134" width="40" height="32" fill="var(--surface)" stroke="var(--ivory)"/>
-          <line x1="256" y1="150" x2="282" y2="150" stroke="var(--champagne)" stroke-opacity=".46" stroke-dasharray="3 3"/>
+          <circle cx="170" cy="150" r="86" fill="none" stroke="var(--white)" stroke-width="1"/><circle cx="170" cy="150" r="64" fill="none" stroke="var(--white)" stroke-width="1"/>
+          <g stroke="var(--white)" stroke-width="1"><line x1="234.0" y1="150.0" x2="256.0" y2="150.0"/><line x1="229.1" y1="174.5" x2="249.5" y2="182.9"/><line x1="215.3" y1="195.3" x2="230.8" y2="210.8"/><line x1="194.5" y1="209.1" x2="202.9" y2="229.5"/><line x1="170.0" y1="214.0" x2="170.0" y2="236.0"/><line x1="145.5" y1="209.1" x2="137.1" y2="229.5"/><line x1="124.7" y1="195.3" x2="109.2" y2="210.8"/><line x1="110.9" y1="174.5" x2="90.5" y2="182.9"/><line x1="106.0" y1="150.0" x2="84.0" y2="150.0"/><line x1="110.9" y1="125.5" x2="90.5" y2="117.1"/><line x1="124.7" y1="104.7" x2="109.2" y2="89.2"/><line x1="145.5" y1="90.9" x2="137.1" y2="70.5"/><line x1="170.0" y1="86.0" x2="170.0" y2="64.0"/><line x1="194.5" y1="90.9" x2="202.9" y2="70.5"/><line x1="215.3" y1="104.7" x2="230.8" y2="89.2"/><line x1="229.1" y1="125.5" x2="249.5" y2="117.1"/></g>
+          <rect x="170" y="150" width="6" height="6" transform="translate(-3 -3)" fill="var(--white)"/>
+          <rect x="282" y="134" width="40" height="32" fill="var(--surface)" stroke="var(--white)"/>
+          <line x1="256" y1="150" x2="282" y2="150" stroke="var(--white)" stroke-opacity=".46" stroke-dasharray="3 3"/>
         </svg><span class="dl" style="left:5%;top:6%">Ring magnet and side sensor</span><span class="dl" style="left:68%;top:61%">3-axis</span></div></div></figure>
-        <h3 class="h3">B3 · Output encoder</h3><p>A 3-axis magnetic sensor and ring magnet in the reducer cap. Standard on geared nodes, sold for retrofit.</p><span class="pr"><span class="mono">$29</span></span>
+        <h3 class="h3">B3 · Output encoder</h3><p>A 3-axis magnetic sensor and ring magnet in the reducer cap. Standard on geared nodes, sold for retrofit.</p><span class="pr" data-price><span class="mono">$29</span></span>
       </div>
       <a class="tile" href="hub-8.html#cable">
         <figure class="fig"><div class="plate r4x3"><img src="assets/img/hub8-rear-1200.webp" srcset="assets/img/hub8-rear-1200.webp 1200w, assets/img/hub8-rear.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="USB-C cable held in a Hub 8 Pro port by a Cable Clip, concept render" loading="lazy"></div></figure>
@@ -448,7 +448,7 @@
   <div class="wrap">
     <div class="grid foot-grid">
       <div class="c1-4">
-        <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-twotone.svg" alt="Checkmate Dynamics" height="21"></a>
+        <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
         <p>Motion, sensing and sync nodes for robotics. Designed and tested in Dallas, Texas.</p>
       </div>
       <div class="c5-12 foot-links">

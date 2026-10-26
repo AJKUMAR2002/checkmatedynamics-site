@@ -26,9 +26,7 @@ Frame rate | **30 Hz**
 
 Sensor range | **0.05–8.8 m**
 
-Diagram, not a product image
-
-**Fig. 01** Depth as contour lines, with the sensor’s figures Diagram
+**Fig. 01** Contour development unit (case rev B), with the sensor’s figures Wireframe from CAD
 
 Key figures
 

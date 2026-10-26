@@ -184,7 +184,7 @@ Brushless servo for 2804 and 5208 gimbal motors, direct drive or cycloidal. The 
 
 Contour | **54 × 42 zones**
 
-Diagram
+Wireframe from CAD
 
 **B1–B2** Contour, Contour Wrist Waitlist
 
@@ -610,9 +610,7 @@ Frame rate | **30 Hz**
 
 Sensor range | **0.05–8.8 m**
 
-Diagram, not a product image
-
-**Fig. 01** Depth as contour lines, with the sensor’s figures Diagram
+**Fig. 01** Contour development unit (case rev B), with the sensor’s figures Wireframe from CAD
 
 Key figures
 
@@ -847,7 +845,7 @@ Patent pending.
 
 This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
 
-**Fig. 01** Sync Beacon, operating Concept render
+**Fig. 01** Sync Beacon, exterior Wireframe from CAD
 
 **Station Report** episode 000127 · station B-04
 
@@ -1604,7 +1602,7 @@ Talk to us
 
 Source: https://checkmatedynamics.com/privacy.html
 
-Privacy | Updated October 12, 2026
+Privacy | Updated October 14, 2026
 
 No cookies, no analytics and no third-party requests. The forms are off, so nothing you type here is sent anywhere.
 
@@ -1625,6 +1623,7 @@ Some figures link to their sources on other sites. Those sites have their own pr
 ## Email
 
 You reach us by email. We use what you send only to reply to you, we do not sell it, and we delete it on request. If we add forms, this page will first say exactly what they collect and why.
+
 
 ## Contact
 

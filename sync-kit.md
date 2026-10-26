@@ -18,7 +18,7 @@ Patent pending.
 
 This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
 
-**Fig. 01** Sync Beacon, operating Concept render
+**Fig. 01** Sync Beacon, exterior Wireframe from CAD
 
 **Station Report** episode 000127 · station B-04
 

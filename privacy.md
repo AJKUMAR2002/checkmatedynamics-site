@@ -2,7 +2,7 @@
 
 Source: https://checkmatedynamics.com/privacy.html
 
-Privacy | Updated October 12, 2026
+Privacy | Updated October 14, 2026
 
 No cookies, no analytics and no third-party requests. The forms are off, so nothing you type here is sent anywhere.
 
@@ -23,6 +23,7 @@ Some figures link to their sources on other sites. Those sites have their own pr
 ## Email
 
 You reach us by email. We use what you send only to reply to you, we do not sell it, and we delete it on request. If we add forms, this page will first say exactly what they collect and why.
+
 
 ## Contact
 
