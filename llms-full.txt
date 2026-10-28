@@ -987,13 +987,13 @@ Commission a station, find the camera that runs late and confirm the fix, with t
 
 ## Check one station, or keep a beacon.
 
-Start with a visit or a rental. Buy one when you want it on your own bench.
+Rent one for 14 days, or own one from the start.
 
 Rental
 
 ### 14-day rental
 
-A beacon ships to your lab. A 60-minute setup call, a Station Report for one station, a closing call to go through it, and shipping both ways. US only.
+A beacon ships to your lab. A 60-minute setup call, a Station Report for one station, a closing call to go through it, and shipping both ways. US only. Keep that beacon within 30 days of the rental starting and $500 of the rental counts toward it.
 
 **$1,250** | per station, 14 days | [Reserve a rental](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%2014-day%20rental&body=Cameras%20and%20frame%20rates%3A%0APreferred%20dates%3A)
 
@@ -1009,7 +1009,7 @@ Own
 
 ### Own one
 
-A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return.
+A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return. At $999 it fits a university P-card.
 
 **$999** | per beacon | [Ask to buy one](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A)
 
