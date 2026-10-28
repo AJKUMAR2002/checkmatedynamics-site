@@ -945,7 +945,7 @@ Illustrative layout, example values. Not a measurement.
 
 ### Place it in view
 
-Set the beacon where every camera can see its face, on a tripod or clamp. Up to 1.1 m from a 640 × 480 camera, 2.1 m at 720p, within 60° of straight on (calculated). Power by USB-C from your PC.
+Set the beacon where every camera can see its face, on a tripod or clamp. Up to 0.6 m from a 640 × 480 camera and within 45° of straight on, or up to 2.1 m from a 720p camera facing it (simulation, Oct 28). Power from any USB port.
 
 02
 
@@ -1025,7 +1025,7 @@ This device has not been authorized as required by the rules of the Federal Comm
 |---|---|
 | LED face | 8 × 8 green LEDs, 525 nm |
 | Cameras | Built for any camera that can see the face; confirmed per camera in the Station Report. No wiring to the camera |
-| Placement | Up to 1.1 m from a 640 × 480 camera, 2.1 m at 720p, within 60° of straight on (calculated) |
+| Placement | 640 × 480: up to 0.6 m, within 45° of straight on. 720p: up to 2.1 m, facing the camera. From simulated video, Oct 28; confirmed per camera in the Station Report |
 | Reference pulses | Two SYNC outputs, 100 µs active-low pulses, 30 Hz by default |
 | Clock stability | ±0.14 ppm over 3 h on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate |
 | Power | USB-C, 5 V. No radio, no network |
