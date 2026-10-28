@@ -111,7 +111,7 @@ Design values for the current board. A unit has not been measured yet; each ship
 
 **Fig. 06** Top
 
-Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Components](https://checkmatedynamics.com/components.html)
+Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Components](https://checkmatedynamics.com/components.html)
 
 ## Eight nodes on one hub.
 

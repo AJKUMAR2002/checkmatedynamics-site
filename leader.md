@@ -97,7 +97,7 @@ Input on handle, joint limits and software.
 
 The first arm runs for you on a video call before you commit to anything.
 
-Related: [Stations](https://checkmatedynamics.com/stations.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+Related: [Stations](https://checkmatedynamics.com/stations.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html)
 
 ## Twenty minutes to see if it fits your floor.
 

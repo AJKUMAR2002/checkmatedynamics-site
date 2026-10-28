@@ -8,7 +8,7 @@ Metric depth from a sensor the size of a thumb, over one USB-C cable and on the 
 
 **B1 · Contour** | USB-C depth sensor | **Register interest**
 
-**B2 · Contour Wrist** | Gripper mount, part of the Sync Kit | **Stations**
+**B2 · Contour Wrist** | Gripper mount, on the station clock | **Stations**
 
 **Contour OEM** | Module for your own housing | **Talk to us**
 
@@ -75,7 +75,7 @@ Appears as a camera in LeRobot, with depth and confidence for every frame.
 
 ## Depth beside the gripper, next to the camera you already run.
 
-Contour Wrist mounts on the follower’s wrist with adapters for common arms and adds contact-range depth on the station clock. It ships in the [Sync Kit](https://checkmatedynamics.com/sync-kit.html).
+Contour Wrist mounts on the follower’s wrist with adapters for common arms and adds contact-range depth on the station clock. It is in development alongside the [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html).
 
 - Station profile tuned for 5 cm to 1.5 m
 - Per‑unit calibration file in the box
@@ -112,7 +112,7 @@ For headsets, wrist rigs and handheld grippers: the Contour module with the same
 
 [Talk to engineering](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Engineering) | [Components](https://checkmatedynamics.com/components.html)
 
-Related: [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html)
+Related: [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Components](https://checkmatedynamics.com/components.html)
 
 ## Tell us where Contour goes in your build.
 

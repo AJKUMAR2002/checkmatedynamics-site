@@ -143,7 +143,7 @@ Keep it. Hardware sync ties those cameras together; the beacon checks every stre
 
 Start with a Skew Audit on one station. Register your interest and we agree the details on a call.
 
-Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html)
+Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html)
 
 ## Twenty minutes, one station, a real number.
 

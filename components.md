@@ -76,7 +76,7 @@ Evaluation units with full test records, and help bringing them up in your syste
 
 Production supply on commercial terms, with records for every unit you receive.
 
-Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Stations](https://checkmatedynamics.com/stations.html)
+Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Stations](https://checkmatedynamics.com/stations.html)
 
 ## Talk to engineering first.
 

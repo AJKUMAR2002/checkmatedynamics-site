@@ -26,7 +26,7 @@ Send a line and a person on the team replies.
 
 ## Robot data floors.
 
-Twenty minutes about your stations: Sync Kit, Leader design-partner interest, commissioning, service, or a Skew Audit on one station. You leave with what we’d measure first.
+Twenty minutes about your stations: Sync Beacon, Leader design-partner interest, commissioning, service, or a Skew Audit on one station. You leave with what we’d measure first.
 
 [Open the calendar](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 

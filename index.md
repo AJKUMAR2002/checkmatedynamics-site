@@ -35,7 +35,7 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | $249 |
 | A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | $399 |
 | B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
-| B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | In Sync Kit |
+| B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | Register interest |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
 | C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
@@ -134,11 +134,11 @@ E1 Checkmate Leader
 
 [A2.2 · A2.3 · A2.5 nodes](https://checkmatedynamics.com/smartservo-g.html) | [D1 Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) | links, base, handle
 
-C1 Sync Kit
+C1 Station timing
 
 [C1 Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
 
-[Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+[Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html)
 
 ## Tell us what you’re building.
 

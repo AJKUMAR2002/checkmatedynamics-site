@@ -42,7 +42,7 @@ Reads a reducer’s output angle directly. Standard on geared nodes, sold for re
 
 The Sync Beacon doesn’t measure the scene or a joint. It is a clock your cameras film, so every stream can be placed on one timeline and checked against the others. That’s why it has a family of its own.
 
-[Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+[Sync Beacon](https://checkmatedynamics.com/sync-beacon.html)
 
 A 14-day timing check is $1,250 per station; owning a beacon is $999. Patent pending.
 
@@ -84,7 +84,7 @@ E1 Checkmate Leader
 
 [A2.2 · A2.3 · A2.5 nodes](https://checkmatedynamics.com/smartservo-g.html) | [D1 Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) | links, base, handle
 
-C1 Sync Kit
+C1 Station timing
 
 [C1 Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
 

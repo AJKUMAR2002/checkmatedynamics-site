@@ -205,7 +205,7 @@ This device has not been authorized as required by the rules of the Federal Comm
 | Mounting | 1/4”-20 tripod adapter |
 | Decoder | Runs on your PC in Python 3 with numpy and OpenCV |
 
-Related: [Stations](https://checkmatedynamics.com/stations.html) · [Sync Kit](https://checkmatedynamics.com/sync-kit.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html)
+Related: [Stations](https://checkmatedynamics.com/stations.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Checkmate Leader](https://checkmatedynamics.com/leader.html)
 
 ## Find out how far apart your streams really are.
 
