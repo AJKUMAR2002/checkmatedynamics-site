@@ -196,14 +196,6 @@ A founding Sync Beacon, numbered on its calibration certificate. With a tripod a
 
 **$790** | per beacon | [Ask to buy one](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A)
 
-Optional
-
-### Trigger cables, set of 3
-
-Reference-pulse leads from the beacon’s SYNC ports to a camera’s hardware trigger input, for checking cameras you trigger by wire. For FLIR Blackfly S, Basler ace U, Arducam OV9281 and Luxonis OAK with an M8 sync pin. Built to order from the camera makers’ published trigger specifications; you pick the three at setup. The beacon itself needs no wiring.
-
-**$159** | set of 3 | [Ask about cables](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20trigger%20cables&body=Camera%20models%3A)
-
 Prices in US dollars. Invoiced by card, ACH, P-card or purchase order. Shipped offers are US only. Sold and rented to labs and companies as test equipment, for timing measurement, rig validation and QA. Patent pending.
 
 This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
@@ -217,7 +209,7 @@ This device has not been authorized as required by the rules of the Federal Comm
 | LED face | 8 × 8 green LEDs, 525 nm |
 | Cameras | Any camera that can see the face. No wiring to the camera |
 | Placement | Up to 1.1 m from a 640 × 480 camera, 2.1 m at 720p, within 60° of straight on (calculated) |
-| Reference pulses | Two SYNC outputs, 100 µs active-low pulses, 30 Hz by default. Optional trigger cables for FLIR Blackfly S, Basler ace U, Arducam OV9281 and Luxonis OAK |
+| Reference pulses | Two SYNC outputs, 100 µs active-low pulses, 30 Hz by default |
 | Clock stability | ±0.14 ppm over 3 h on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate |
 | Power | USB-C, 5 V. No radio, no network |
 | Mounting | 1/4”-20 tripod adapter |
