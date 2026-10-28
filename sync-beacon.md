@@ -6,11 +6,9 @@ Source: https://checkmatedynamics.com/sync-beacon.html
 
 Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and nobody can say by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.
 
-**On-site check** | We bring a beacon to your station | **$750**
-
 **14-day rental** | A beacon ships to you, per station | **$1,250**
 
-**Own one** | A founding Sync Beacon, yours | **$790**
+**Own one** | A founding Sync Beacon, yours | **$999**
 
 [Book a timing check](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20timing%20check&body=Cameras%20and%20frame%20rates%3A%0ARobot%20and%20recorder%3A%0ALocation%3A) | See the offers
 
@@ -164,14 +162,6 @@ Commission a station, find the camera that runs late and confirm the fix, with t
 
 Start with a visit or a rental. Buy one when you want it on your own bench.
 
-On-site
-
-### On-site check
-
-We bring a beacon to your station in Dallas–Fort Worth or Austin, place it and record a test session with your operators, about three hours. You leave with a written Station Report and plain steps to change on the rig.
-
-**$750** | per station | [Book an on-site check](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20on-site%20check&body=Cameras%20and%20frame%20rates%3A%0ALocation%3A)
-
 Rental
 
 ### 14-day rental
@@ -194,7 +184,7 @@ Own
 
 A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return.
 
-**$790** | per beacon | [Ask to buy one](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A)
+**$999** | per beacon | [Ask to buy one](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A)
 
 Prices in US dollars. Invoiced by card, ACH, P-card or purchase order. Shipped offers are US only. Sold and rented to labs and companies as test equipment, for timing measurement, rig validation and QA. Patent pending.
 

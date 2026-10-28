@@ -351,12 +351,12 @@
       "description": "Timing test instrument: every camera on one clock. Patent pending",
       "status": "in design",
       "price": {
-        "amount": 750,
+        "amount": 999,
         "currency": "USD",
-        "from": true,
-        "note": "/ station"
+        "from": false,
+        "note": ""
       },
-      "price_as_shown": "From $750 / station",
+      "price_as_shown": "$999",
       "orderable": false,
       "url": "https://checkmatedynamics.com/sync-beacon.html",
       "image": "https://checkmatedynamics.com/assets/img/wf-beacon-1200.webp"

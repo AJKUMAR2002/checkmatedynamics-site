@@ -37,7 +37,7 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | In Sync Kit |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
-| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | From $750 / station |
+| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
 | D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | $19 |
