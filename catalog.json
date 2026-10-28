@@ -344,21 +344,21 @@
     },
     {
       "code": "C1",
-      "name": "Sync Beacon · Sync Kit",
+      "name": "Sync Beacon",
       "type": "product",
       "group": "Sync",
       "for": "Stations · OEM",
-      "description": "Station timing instrument and per-episode report. Patent pending",
+      "description": "Timing test instrument: every camera on one clock. Patent pending",
       "status": "in design",
       "price": {
-        "amount": 1490,
+        "amount": 750,
         "currency": "USD",
         "from": true,
         "note": "/ station"
       },
-      "price_as_shown": "From $1,490 / station",
+      "price_as_shown": "From $750 / station",
       "orderable": false,
-      "url": "https://checkmatedynamics.com/sync-kit.html",
+      "url": "https://checkmatedynamics.com/sync-beacon.html",
       "image": "https://checkmatedynamics.com/assets/img/wf-beacon-1200.webp"
     },
     {

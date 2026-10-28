@@ -37,7 +37,7 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | In Sync Kit |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
-| C1 | Sync Beacon · Sync Kit | Stations · OEM | Station timing instrument and per-episode report. Patent pending | From $1,490 / station |
+| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | From $750 / station |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
 | D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | $19 |
@@ -136,7 +136,7 @@ E1 Checkmate Leader
 
 C1 Sync Kit
 
-[C1 Sync Beacon](https://checkmatedynamics.com/sync-kit.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
+[C1 Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
 
 [Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
 

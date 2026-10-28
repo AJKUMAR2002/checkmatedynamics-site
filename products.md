@@ -40,11 +40,11 @@ Reads a reducer’s output angle directly. Standard on geared nodes, sold for re
 
 ## An instrument for the station.
 
-The Sync Beacon doesn’t measure the scene or a joint. It checks that every other stream agrees on time, independently of the recorder, and certifies each episode. That’s why it has a family of its own.
+The Sync Beacon doesn’t measure the scene or a joint. It is a clock your cameras film, so every stream can be placed on one timeline and checked against the others. That’s why it has a family of its own.
 
-[Sync Kit](https://checkmatedynamics.com/sync-kit.html)
+[Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) | [Sync Kit](https://checkmatedynamics.com/sync-kit.html)
 
-From $1,490 per station. Patent pending.
+Timing check from $750 per station. Patent pending.
 
 **Station Report** episode 000127
 
@@ -86,7 +86,7 @@ E1 Checkmate Leader
 
 C1 Sync Kit
 
-[C1 Sync Beacon](https://checkmatedynamics.com/sync-kit.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
+[C1 Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) | [B2 Contour Wrist](https://checkmatedynamics.com/contour.html#wrist) | the same bus
 
 [Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Stations](https://checkmatedynamics.com/stations.html)
 

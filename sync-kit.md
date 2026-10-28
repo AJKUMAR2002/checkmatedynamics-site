@@ -145,4 +145,4 @@ Related: [Stations](https://checkmatedynamics.com/stations.html) · [Contour](ht
 
 A Skew Audit on one station gives you the number in the first week.
 
-[Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Beacon%20and%20Sync%20Kit)
+[Request a Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Kit)

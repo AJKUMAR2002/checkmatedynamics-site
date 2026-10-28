@@ -18,7 +18,8 @@ Specifications are design values until a unit is measured; “Target” and “E
 
 ## Stations
 
-- [Sync Beacon and Sync Kit](https://checkmatedynamics.com/sync-kit.md): An independent timing instrument for each teleoperation station. It checks that all streams agree on time and writes a signed Station Report into each episode.
+- [Sync Beacon](https://checkmatedynamics.com/sync-beacon.md): An LED clock your cameras film. It puts every frame on one clock and shows how far apart your cameras and joints are. On-site, rental or own one.
+- [Sync Kit](https://checkmatedynamics.com/sync-kit.md): An independent timing instrument for each teleoperation station. It checks that all streams agree on time and writes a signed Station Report into each episode.
 - [Checkmate Leader](https://checkmatedynamics.com/leader.md): A leader arm that carries its own weight, lets the operator feel the follower’s limits and grip, and returns home by itself. Every joint is a SmartServo G node.
 - [Stations](https://checkmatedynamics.com/stations.md): Sync QA, a motorized leader arm, commissioning and service for teleoperation stations, built from the nodes we sell on their own. Fewer rejected episodes.
 

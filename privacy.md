@@ -24,7 +24,6 @@ Some figures link to their sources on other sites. Those sites have their own pr
 
 You reach us by email. We use what you send only to reply to you, we do not sell it, and we delete it on request. If we add forms, this page will first say exactly what they collect and why.
 
-
 ## Contact
 
 Questions about this page: [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Privacy%20question).

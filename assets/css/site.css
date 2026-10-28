@@ -790,3 +790,28 @@ body.bag-lock { overflow: hidden; }
 .step-n { display: block; font-size: var(--fs-small); line-height: 1.3; color: var(--white); }
 .step.next .step-n { color: var(--text-2); }
 .step-s { display: block; margin-top: 2px; }
+
+/* ---------- Sync Beacon page (Oct 28): LED face, timeline strips, offers ---------- */
+.cplate > svg.art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.ledface .frame { fill: none; stroke: var(--line-2); stroke-width: 1; }
+.ledface .off { fill: none; stroke: var(--line-2); stroke-width: 1; }
+.ledface .on { fill: var(--white); }
+.ledface .ring { fill: none; stroke: var(--line-2); stroke-width: 1; }
+.tlbox { padding: 24px 24px 20px; }
+.tl { display: grid; row-gap: 6px; }
+.tl-r { display: grid; grid-template-columns: 150px minmax(0, 1fr); column-gap: 16px; align-items: center; }
+.tl-r .label { color: var(--text-2); }
+.tl-s { display: block; width: 100%; height: 28px; border-bottom: 1px solid var(--line); overflow: visible; }
+.tl-s .t { fill: none; stroke: var(--white); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tl-s .t.r { stroke: var(--text-2); }
+.tl-s .g { fill: none; stroke: var(--line-2); stroke-width: 1; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; }
+@media (max-width: 560px) { .tl-r { grid-template-columns: 1fr; row-gap: 2px; } .tl { row-gap: 14px; } .tlbox { padding: 16px; } }
+.offers { border-top: 1px solid var(--line-2); }
+.offer { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 3fr); column-gap: var(--col-gap); row-gap: 16px; padding: 32px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.offer .o-name .label { display: block; margin-bottom: 12px; }
+.offer .o-text { margin: 0; color: var(--white); font-size: var(--fs-body); line-height: 1.6; max-width: 36em; }
+.offer .o-buy { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.offer .o-price { font: 400 var(--fs-h3)/1 var(--font-mono); letter-spacing: -0.04em; color: var(--white); font-variant-numeric: tabular-nums; font-feature-settings: normal; white-space: nowrap; }
+.offer .o-price small { font: 400 var(--fs-data) var(--font-mono); letter-spacing: 0; color: var(--text-2); margin-left: 6px; }
+.offer .o-buy .btn { margin-top: 14px; }
+@media (max-width: 900px) { .offer { grid-template-columns: 1fr; padding: 28px 0; } }
