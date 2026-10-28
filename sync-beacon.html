@@ -162,7 +162,7 @@
     <div class="ph-title"><h1 class="d1">Prove your cameras agree on time.</h1></div>
     <div class="grid phx-body">
       <div class="c1-5">
-        <p class="lede">Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and nobody can say by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.</p>
+        <p class="lede">Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and most rigs never measure by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.</p>
         <div class="variants">
           <div class="variant"><strong>14-day rental</strong><span>A beacon ships to you, per station</span><b><span class="mono">$1,250</span></b></div>
           <div class="variant"><strong>Own one</strong><span>A founding Sync Beacon, yours</span><b><span class="mono">$999</span></b></div>
@@ -195,7 +195,7 @@
     <div class="points c3">
       <div class="point"><span class="n">01</span><h3 class="h3">Cameras stamp late</h3><p>A USB camera’s timestamp is usually when the host received the frame, not when the sensor exposed it. Buffers and USB scheduling put an unknown delay between the two.</p></div>
       <div class="point"><span class="n">02</span><h3 class="h3">Clocks start apart and drift</h3><p>Joint encoders log on the controller’s clock. Cameras log on the PC’s. They start at different moments and move apart over a session.</p></div>
-      <div class="point"><span class="n">03</span><h3 class="h3">Nobody can prove by how much</h3><p>Without a shared reference, skew shows up as a policy that almost works and an episode that gets rejected with no stated cause. There is no number to point to.</p></div>
+      <div class="point"><span class="n">03</span><h3 class="h3">Most rigs never measure it</h3><p>Without a shared reference, skew shows up as a policy that almost works and an episode that gets rejected with no stated cause. Most rigs carry no number for it.</p></div>
     </div>
     <div class="grid mt-l pair">
       <div class="c1-3 sec-index"><b>—</b>Same moment</div>
@@ -212,7 +212,7 @@
           </div>
           <figcaption><span><b>Fig. 02</b>One instant, four clocks. The dashed line marks the same moment</span><span>Illustration</span></figcaption>
         </figure>
-        <div class="stat mt-m" style="max-width:34em"><b><span class="mono">20–30%</span></b><p>Episodes rejected on new rigs, with timing skew named as the top reason.</p><span class="fine"><a href="https://dexset.ai/blogs/teleoperation-data-collection-robot-learning-complete-2026/" target="_blank" rel="noopener">Dexset</a>, 2026, vendor source</span></div>
+        <div class="stat mt-m" style="max-width:34em"><b class="mono">frame_index / fps</b><p>How LeRobot computes each recorded frame’s timestamp: from the frame counter, not from the camera. It records when the recorder counted the frame, not when the camera captured it.</p><span class="fine"><a href="https://github.com/huggingface/lerobot/blob/626da71be9d21b3c740b6438514519a503a2d535/src/lerobot/datasets/dataset_writer.py#L225" target="_blank" rel="noopener">LeRobot source, dataset_writer.py line 225</a>, read Oct 28, 2026</span></div>
       </div>
     </div>
   </div>
@@ -224,7 +224,7 @@
     <div class="c4-7 copy">
       <h2 class="d2 balance">A clock your cameras can film.</h2>
       <p class="lede">The beacon sits in view of your cameras and shows an LED clock that steps every <span class="mono"><span class="mono">1 ms</span></span>. Every camera films it. The decoder reads the clock in each frame, so every frame’s exposure time lands on one clock.</p>
-      <p>You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It works with any camera that can see it. Nothing is wired to the cameras, and nothing changes in your recorder.</p>
+      <p>You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It is built for any camera that can see it, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.</p>
     </div>
     <figure class="fig c8-12">
       <div class="crop"><div class="cplate" style="aspect-ratio:1" role="img" aria-label="An eight by eight grid of small circles. One circle is lit white with a faint ring, and the two before it are dimmer, showing the lit position stepping across the face.">
@@ -302,7 +302,7 @@
     <div class="stats mt-l">
       <div class="stat"><b><span class="mono">1 ms</span></b><p>LED clock step. Selectable at <span class="mono">0.5 ms</span> and <span class="mono">2 ms</span>.</p></div>
       <div class="stat"><b><span class="mono">8 × 8</span></b><p>Green LED face, <span class="mono">525 nm</span>. Green light passes the IR-cut filter on camera sensors.</p></div>
-      <div class="stat"><b>Any camera</b><p>Webcam, machine-vision camera or phone: if it can see the face, it can be measured.</p></div>
+      <div class="stat"><b>Any camera</b><p>Built for webcams, machine-vision cameras and phones that can see the face. Your Station Report confirms each camera.</p></div>
     </div>
   </div>
 </section>
@@ -339,7 +339,7 @@
     </div>
     <div class="points c3">
       <div class="point"><span class="n">01</span><h3 class="h3">Place it in view</h3><p>Set the beacon where every camera can see its face, on a tripod or clamp. Up to <span class="mono"><span class="mono">1.1 m</span></span> from a <span class="mono">640 × 480</span> camera, <span class="mono"><span class="mono">2.1 m</span></span> at 720p, within <span class="mono"><span class="mono">60°</span></span> of straight on (calculated). Power by USB-C from your PC.</p></div>
-      <div class="point"><span class="n">02</span><h3 class="h3">Record a test session</h3><p>Set a short manual exposure and lock focus on the face. Record every camera over the same <span class="mono"><span class="mono">60 s</span></span>. A phone works for a first check.</p></div>
+      <div class="point"><span class="n">02</span><h3 class="h3">Record a test session</h3><p>Set a short manual exposure and lock focus on the face. Record every camera over the same <span class="mono"><span class="mono">60 s</span></span>.</p></div>
       <div class="point"><span class="n">03</span><h3 class="h3">Decode and read</h3><p>Run the decoder on each video on your PC. Every frame lands on the beacon clock, and the Station Report shows drops, repeats, intervals and camera-to-camera offset.</p></div>
     </div>
   </div>
@@ -403,7 +403,7 @@
           <tbody>
             <tr><th>LED clock</th><td><span class="mono">1 ms</span> step, with <span class="mono">0.5 ms</span> and <span class="mono">2 ms</span> selectable</td></tr>
             <tr><th>LED face</th><td><span class="mono">8 × 8</span> green LEDs, <span class="mono">525 nm</span></td></tr>
-            <tr><th>Cameras</th><td>Any camera that can see the face. No wiring to the camera</td></tr>
+            <tr><th>Cameras</th><td>Built for any camera that can see the face; confirmed per camera in the Station Report. No wiring to the camera</td></tr>
             <tr><th>Placement</th><td>Up to <span class="mono">1.1 m</span> from a <span class="mono">640 × 480</span> camera, <span class="mono">2.1 m</span> at 720p, within <span class="mono">60°</span> of straight on (calculated)</td></tr>
             <tr><th>Reference pulses</th><td>Two SYNC outputs, <span class="mono">100 µs</span> active-low pulses, <span class="mono">30 Hz</span> by default</td></tr>
             <tr><th>Clock stability</th><td>±<span class="mono">0.14 ppm</span> over <span class="mono">3 h</span> on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate</td></tr>

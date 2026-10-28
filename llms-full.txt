@@ -831,7 +831,7 @@ Source: https://checkmatedynamics.com/sync-beacon.html
 
 [Stations](https://checkmatedynamics.com/stations.html) / C — Sync / C1 | Timing test instrument · Patent pending
 
-Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and nobody can say by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.
+Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and most rigs never measure by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.
 
 **14-day rental** | A beacon ships to you, per station | **$1,250**
 
@@ -863,9 +863,9 @@ Joint encoders log on the controller’s clock. Cameras log on the PC’s. They 
 
 03
 
-### Nobody can prove by how much
+### Most rigs never measure it
 
-Without a shared reference, skew shows up as a policy that almost works and an episode that gets rejected with no stated cause. There is no number to point to.
+Without a shared reference, skew shows up as a policy that almost works and an episode that gets rejected with no stated cause. Most rigs carry no number for it.
 
 **—** Same moment
 
@@ -881,11 +881,11 @@ Joint log
 
 **Fig. 02** One instant, four clocks. The dashed line marks the same moment Illustration
 
-**20–30%**
+**frame_index / fps**
 
-Episodes rejected on new rigs, with timing skew named as the top reason.
+How LeRobot computes each recorded frame’s timestamp: from the frame counter, not from the camera. It records when the recorder counted the frame, not when the camera captured it.
 
-[Dexset](https://dexset.ai/blogs/teleoperation-data-collection-robot-learning-complete-2026/), 2026, vendor source
+[LeRobot source, dataset_writer.py line 225](https://github.com/huggingface/lerobot/blob/626da71be9d21b3c740b6438514519a503a2d535/src/lerobot/datasets/dataset_writer.py#L225), read Oct 28, 2026
 
 **02** The beacon
 
@@ -893,7 +893,7 @@ Episodes rejected on new rigs, with timing skew named as the top reason.
 
 The beacon sits in view of your cameras and shows an LED clock that steps every 1 ms. Every camera films it. The decoder reads the clock in each frame, so every frame’s exposure time lands on one clock.
 
-You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It works with any camera that can see it. Nothing is wired to the cameras, and nothing changes in your recorder.
+You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It is built for any camera that can see it, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.
 
 **Fig. 03** The LED face: 8 × 8, stepping every 1 ms Illustration
 
@@ -907,7 +907,7 @@ Green LED face, 525 nm. Green light passes the IR-cut filter on camera sensors.
 
 **Any camera**
 
-Webcam, machine-vision camera or phone: if it can see the face, it can be measured.
+Built for webcams, machine-vision cameras and phones that can see the face. Your Station Report confirms each camera.
 
 **03** Station Report
 
@@ -951,7 +951,7 @@ Set the beacon where every camera can see its face, on a tripod or clamp. Up to 
 
 ### Record a test session
 
-Set a short manual exposure and lock focus on the face. Record every camera over the same 60 s. A phone works for a first check.
+Set a short manual exposure and lock focus on the face. Record every camera over the same 60 s.
 
 03
 
@@ -1024,7 +1024,7 @@ This device has not been authorized as required by the rules of the Federal Comm
 | LED clock | 1 ms step, with 0.5 ms and 2 ms selectable |
 |---|---|
 | LED face | 8 × 8 green LEDs, 525 nm |
-| Cameras | Any camera that can see the face. No wiring to the camera |
+| Cameras | Built for any camera that can see the face; confirmed per camera in the Station Report. No wiring to the camera |
 | Placement | Up to 1.1 m from a 640 × 480 camera, 2.1 m at 720p, within 60° of straight on (calculated) |
 | Reference pulses | Two SYNC outputs, 100 µs active-low pulses, 30 Hz by default |
 | Clock stability | ±0.14 ppm over 3 h on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate |
