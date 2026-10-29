@@ -22,7 +22,7 @@ const wsUrl = () => (MODE === "local" ? `ws://${location.host}/ws` : `ws://127.0
 let ws = null, wsReady = false, nextId = 1, started = false;
 let tokenGood = MODE === "local";   // HTTP fallback only with a code the bridge accepted (bad codes count toward its lockout)
 const pending = new Map();
-const SLOW = new Set(["cl_cal", "foc_cal", "goto", "connect", "move"]);
+const SLOW = new Set(["cl_cal", "foc_cal", "goto", "connect", "move", "espnow_enroll"]);
 
 function openWs() {
   if (ws) return;
@@ -154,10 +154,49 @@ function renderBoards(s) {
       : "Discovery is off: type the board IP."}${s.discovery && s.discovery.note ? " " + esc(s.discovery.note) : ""}</li>`;
 }
 
+function linkLine(s) {
+  // Link status line: type · RSSI · round trip · telemetry rate · loss (ESP-NOW adds the STOP round trip)
+  const L = s.connected && s.link;
+  const el = $("linkline");
+  if (!L || L.type === "console") { el.textContent = L ? "Wi-Fi console (port 23)" : ""; el.classList.remove("warn"); return; }
+  const f = (v, u, d = 1) => (v == null ? "—" : `${(+v).toFixed(d)}${u}`);
+  const parts = [L.type === "espnow" ? `ESP-NOW ch ${L.channel}` : "Wi-Fi TCP",
+    L.type === "espnow" ? `RSSI ${L.rssi_dbm == null ? "—" : L.rssi_dbm + " dBm"}` : null,
+    `RTT ${f(L.rtt_avg_ms, " ms")}`, `${f(L.tel_hz, " Hz", 0)} telemetry`, `loss ${f(L.loss_pct, " %")}`,
+    L.type === "espnow" && L.stop_rtt_ms != null ? `STOP ack ${f(L.stop_rtt_ms, " ms")}` : null].filter(Boolean);
+  el.textContent = parts.join(" · ");
+  el.classList.toggle("warn", (L.loss_pct || 0) > 5 || (L.rtt_avg_ms || 0) > 50 || (L.bad || 0) > 0);
+}
+
+let espnowKey = "";
+function renderEspnow(s) {
+  const E = s.espnow || {};
+  $("espnowbox").hidden = !E.available;
+  if (!E.available) return;
+  const tr = s.connected && s.link ? s.link.type : null;
+  $("tr_wifi").setAttribute("aria-checked", String(tr !== "espnow"));
+  $("tr_espnow").setAttribute("aria-checked", String(tr === "espnow"));
+  $("espnowgw").textContent = `(gateway ${E.gateway_mac || "—"}${E.gateway ? " on " + E.gateway : ""})`;
+  const uid = s.connected_uid64, enrolled = (E.boards || []).some((b) => b.uid64 === uid);
+  $("espnowenroll").hidden = !(s.connected && tr === "wifi" && !enrolled);
+  $("espnowoff").hidden = !(s.connected && enrolled && tr === "wifi");
+  const key = JSON.stringify([E.boards, uid, tr]);
+  if (key === espnowKey) return;
+  espnowKey = key;
+  $("espnowboards").innerHTML = (E.boards || []).length ? E.boards.map((b) => `<li>
+      <span class="mono">${esc(b.uid64)} · ${esc(b.mac)} · ch ${esc(b.ch)}</span>
+      ${b.uid64 === uid && tr === "espnow" ? '<span class="label">connected over ESP-NOW</span>'
+        : `<button data-espnow="${esc(b.uid64)}">Connect over ESP-NOW</button>`}</li>`).join("")
+    : '<li class="small">No boards enrolled yet: connect one over Wi-Fi, then Enable ESP-NOW.</li>';
+}
+
 function render(s) {
+  window.__state = s;
   const where = MODE === "local" ? "" : `bridge 127.0.0.1:${port} · `;
   $("link").textContent = where + (s.connected ? `${s.host}` : "no board connected");
   renderBoards(s);
+  renderEspnow(s);
+  linkLine(s);
   if (!s.connected) {
     kv($("device"), [["Board", s.error || "not connected: pick a board above, or type its IP"]]);
     $("status").innerHTML = ""; return;
@@ -167,7 +206,7 @@ function render(s) {
     ["Product", `${s.device.product} ${s.device.hw_rev}`],
     ["Firmware", s.device.fw],
     ["UID64", s.device.uid64],
-    ["Link", s.sim ? "simulator" : `Wi-Fi console · ${s.host}`],
+    ["Link", (s.link && s.link.type === "espnow" ? `ESP-NOW · ${s.link.peer}` : s.api ? `Wi-Fi machine API · ${s.host}` : `Wi-Fi console · ${s.host}`) + (s.sim ? " (simulator)" : "")],
   ]);
   kv($("status"), [
     ["Motor", m.enabled ? (m.moving ? "enabled · moving" : "enabled") : "disabled"],
@@ -237,7 +276,7 @@ function render(s) {
 const stop = () => {
   api("stop");
   if (tokenGood) setTimeout(() => http("stop", {}).catch(() => {}), 150);
-  msg("STOP sent: motor stopping and disabled");
+  msg("Stop sent: motor stopping, then the driver switches off");
 };
 $("stop").onclick = stop;
 document.addEventListener("keydown", (e) => {
@@ -251,6 +290,30 @@ $("boards").onclick = async (e) => {
   msg("connecting ..."); const r = await api("connect", { uid64: uid }); if (r.ok) msg("connected");
 };
 $("search").onclick = () => { boardsKey = ""; api("discover"); };
+$("espnowboards").onclick = async (e) => {
+  const uid = e.target.dataset && e.target.dataset.espnow;
+  if (!uid) return;
+  msg("connecting over ESP-NOW ..."); const r = await api("connect", { uid64: uid, transport: "espnow" }); if (r.ok) msg("connected over ESP-NOW");
+};
+$("tr_espnow").onclick = async () => {
+  const s = window.__state || {}, E = s.espnow || {};
+  const uid = s.connected_uid64 || ((E.boards || [])[0] || {}).uid64;
+  if (!uid) { msg("no board enrolled for ESP-NOW yet"); return; }
+  msg("switching to ESP-NOW ..."); const r = await api("connect", { uid64: uid, transport: "espnow" }); if (r.ok) msg("connected over ESP-NOW");
+};
+$("tr_wifi").onclick = async () => {
+  const s = window.__state || {};
+  const b = (s.boards || []).find((x) => x.uid64 === s.connected_uid64);
+  msg("switching to Wi-Fi ...");
+  const r = await api("connect", b ? { uid64: b.uid64 } : {});
+  if (r.ok) msg("connected over Wi-Fi");
+};
+$("espnowenroll").onclick = async () => {
+  msg("enabling ESP-NOW (motor must be disabled) ...");
+  const r = await api("espnow_enroll");
+  if (r.ok) msg(`ESP-NOW enabled: peer ${r.mac}, channel ${r.ch}`);
+};
+$("espnowoff").onclick = async () => { const r = await api("espnow_off"); if (r.ok) msg("ESP-NOW switched off on the board"); };
 $("hostform").onsubmit = async (e) => {
   e.preventDefault();
   msg("connecting ..."); const r = await api("connect", { host: $("host").value.trim() }); if (r.ok) msg("connected");

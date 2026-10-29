@@ -96,3 +96,10 @@ button:disabled { color: var(--text-3); border-color: var(--line); cursor: not-a
 /* pairing v5 invite QR (bridge mode) */
 .qr { display: flex; justify-content: center; margin: 12px 0; }
 .qr svg { width: 220px; height: 220px; background: #fff; padding: 8px; }
+/* ESP-NOW: segmented link switch (ghost buttons; the selected one gets the champagne rule) and the header status line */
+.seg { gap: 0; }
+.seg button { padding: 8px 16px; }
+.seg button + button { border-left: none; }
+.seg button[aria-checked="true"] { border-color: var(--champagne); color: var(--champagne); }
+#linkline { color: var(--text-2); }
+#linkline.warn { color: var(--champagne); }

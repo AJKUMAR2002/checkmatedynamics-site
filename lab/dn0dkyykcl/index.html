@@ -16,10 +16,11 @@
 <body class="locked">
 <header class="top">
   <img src="logo.svg" alt="Checkmate Dynamics" height="28">
-  <div class="banner"><span class="overline">Internal prototype · bench only · hand on the power plug</span><span class="small">SmartStepper 17 V1.1 test bench · not a product · no e-stop</span></div>
+  <div class="banner"><span class="overline">Internal prototype · bench only · hand on the power plug</span><span class="small">SmartStepper 17 V1.1 test bench · not a product</span><span class="small" id="stopnote">Stop is a soft stop, not an emergency stop. The emergency stop is the wired STOP key or the hub e-stop; V1.1 has neither, so keep a hand on the plug.</span></div>
   <div class="conn">
     <span id="paircode" class="label" hidden></span>
     <span id="link" class="label">—</span>
+    <span id="linkline" class="label" aria-live="polite" title="Link type · signal · round trip · telemetry · loss"></span>
   </div>
 </header>
 
@@ -107,6 +108,15 @@ py -I software\app\beta\run.py</pre>
     <ul class="list boards" id="boards"></ul>
     <ul class="list boards" id="nearby" aria-label="New boards nearby (Bluetooth)"></ul>
     <ul class="list boards" id="usbfound" aria-label="Boards plugged in over USB"></ul>
+    <div id="espnowbox" hidden>
+      <h2 class="label">ESP-NOW <span class="hint" id="espnowgw"></span></h2>
+      <div class="row seg" role="radiogroup" aria-label="Link to the board">
+        <button id="tr_wifi" role="radio" aria-checked="true">Wi-Fi</button><button id="tr_espnow" role="radio" aria-checked="false">ESP-NOW</button>
+      </div>
+      <ul class="list boards" id="espnowboards" aria-label="Boards enrolled for ESP-NOW"></ul>
+      <div class="row"><button id="espnowenroll" hidden>Enable ESP-NOW on this board</button><button id="espnowoff" hidden>Switch ESP-NOW off</button></div>
+      <p class="small">ESP-NOW goes through the USB gateway on this PC. Only a board you own (paired over Bluetooth) accepts it, and every command is signed. Stop goes out first, ahead of everything: the board holds the motor, then the bridge switches the driver off with a signed command. The board also stops and switches off by itself 1 s after the radio goes quiet.</p>
+    </div>
     <form id="hostform" class="row">
       <input id="host" class="mono grow" placeholder="or type the board IP (wifi over USB)" aria-label="Board IP">
       <button>Connect</button>
@@ -229,7 +239,7 @@ py -I software\app\beta\run.py</pre>
   </section>
 </main>
 
-<button id="stop" class="stop" title="Stop and disable the driver (Esc)">STOP</button>
+<button id="stop" class="stop" title="Stop: decelerate, then switch the driver off (Esc)" aria-describedby="stopnote">Stop</button>
 <script src="pair.js"></script>
 <script src="app.js"></script>
 </body>
