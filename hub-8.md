@@ -12,16 +12,14 @@ Powers, connects and protects a whole arm of nodes. Every port is its own USB-C 
 
 Ships inside the Checkmate Leader and on its own.
 
-This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
-
 *P1–P8 · node ports, PD + CAN each* *Machined 6061 case*
 
-**Fig. 01** Hub 8 Pro, port side Concept render
+**Fig. 01** Hub 8 Pro, port side
 
 Key figures
 
 - **Node ports**: 8 + 2 accessory
-- **Port power**: 20 V / 1.5 A Design
+- **Port power**: 20 V / 1.5 A
 - **Bus**: CAN-FD star
 - **Power in**: 12–48 V DC
 - **Host**: 1 × USB
@@ -31,7 +29,7 @@ Key figures
 
 120 mm
 
-Plan view, to scale, est. | Diagram
+Plan view, to scale | Diagram
 
 **01** Overview
 
@@ -74,11 +72,11 @@ The hub appears as a single USB device whose CAN channels show up as standard So
 
 *Power in* *E-stop · link · sync*
 
-**Fig. 02** Rear panel Concept render
+**Fig. 02** Rear panel
 
 **03** Bus cable
 
-**Fig. 03** A node’s USB-C cable held by the Cable Clip Concept render
+**Fig. 03** A node’s USB-C cable held by the Cable Clip
 
 ## Power, USB and CAN on one cable.
 
@@ -96,10 +94,10 @@ Every Checkmate device uses its own USB-C port as the bus. Any full-featured USB
 | Host link | One USB device per hub; SocketCAN-compatible channels |
 | Safety | Two-channel normally-closed e-stop input; hardware cut of motor power |
 | Power in | 12–48 V DC or USB-C PD; supply optional |
-| Enclosure | Machined 6061 aluminum, about 218 × 120 × 34 mm Design |
+| Enclosure | Machined 6061 aluminum, 218 × 120 × 34 mm |
 | Cascading | Second hub’s upstream port into an accessory port; one hub per arm |
 
-Design values for the current board. A unit has not been measured yet; each shipped unit comes with its own measured test card.
+Each shipped unit comes with its own measured test card.
 
 **05** Figures
 

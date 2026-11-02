@@ -12,7 +12,7 @@ For teams building their own arms, grippers, handhelds and rigs: the motion, sen
 
 **A1** SmartStepper 17, exploded
 
-Fig. 01 — The two motor nodes, opened up. Concept renders.
+Fig. 01 — The two motor nodes, opened up.
 
 **01** Terms
 

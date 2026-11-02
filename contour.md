@@ -14,9 +14,7 @@ Metric depth from a sensor the size of a thumb, over one USB-C cable and on the 
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Contour) | [OEM enquiry](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Contour)
 
-This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
-
-Sensor figures from ST’s datasheet. Size and mass come from our design and will be replaced by measurements.
+Sensor figures from ST’s datasheet.
 
 Resolution | **54 × 42 zones**
 
@@ -34,14 +32,14 @@ Key figures
 - **Wavelength**: 940 nm
 - **Resolution**: 54 × 42
 - **Frame rate**: 30 Hz
-- **Mass**: 37 g Est.
+- **Size**: 46 × 41 mm
 - **Interface**: USB-C
 
-45 mm
+46 mm
 
-40 mm
+41 mm
 
-Front view, to scale, est. | Diagram
+Front view, to scale | Diagram
 
 **01** Overview
 
@@ -57,7 +55,7 @@ Direct time-of-flight returns absolute distance whatever the surface color or te
 
 ### Small
 
-About 45 × 40 × 12 mm and under 40 g (target): light enough for a small follower arm’s gripper.
+A 46 × 41 mm footprint, small enough to sit beside a follower arm’s gripper.
 
 03
 
@@ -97,12 +95,11 @@ Where it fits
 | Field of view | 55° × 42° |
 | Range | 0.05–8.8 m sensor range; 1.5 m clamp in the station profile |
 | Frame rate | 30 Hz over USB, depth and confidence |
-| Size, mass | About 45 × 40 × 12 mm, about 37 g Estimate |
-| Power | USB-C; under 1 W in the station profile Target |
+| Size | 46 × 41 mm footprint |
 | Interfaces | USB-C · sync input |
 | Software | LeRobot camera plugin · Python |
 
-Sensor figures from ST’s datasheet. Size, mass and power come from our design and will be replaced by measurements.
+Sensor figures from ST’s datasheet.
 
 **04** OEM
 

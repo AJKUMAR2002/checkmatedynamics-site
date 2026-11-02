@@ -12,7 +12,7 @@ Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a
 
 **A1.3** SmartStepper 17 · 25:1, on its bus cable
 
-Fig. 01 — Two SmartServo G nodes in side elevation, and a SmartStepper 17 on its USB-C cable with a Cable Clip. Concept renders.
+Fig. 01 — Two SmartServo G nodes in side elevation, and a SmartStepper 17 on its USB-C cable with a Cable Clip.
 
 **01** Why nodes
 
@@ -58,7 +58,7 @@ Each unit’s measured numbers, printed and stored on the node.
 | A2.5 | G-5208 · 25:1 | Heavier joints | Cycloidal, output encoder, I/O tile | $399 |
 | D3 | I/O tile | SmartServo G | Qwiic and AUX ports | $19 |
 | B3 | Output encoder | Retrofit | Reads a reducer’s output angle | $29 |
-| B1 | Contour | Depth | Time-of-flight depth over USB-C | Register interest |
+| B1 | Contour | Depth | Time-of-flight lidar depth sensor | Register interest |
 
 **03** Upgrade path
 
@@ -66,7 +66,7 @@ Each unit’s measured numbers, printed and stored on the node.
 
 Start with a board on your own motor, add our motor and housing later, then a reducer. The node keeps its identity and calibration history as it grows.
 
-**Fig. 02** SmartServo G stack Concept render
+**Fig. 02** SmartServo G stack
 
 **04** Who it’s for
 

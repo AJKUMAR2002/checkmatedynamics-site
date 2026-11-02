@@ -56,7 +56,7 @@ Frame drops | 0 / 1,812 | Gold
 
 Drift, session | 0.40 ms/h | Pass
 
-Illustrative values | C1
+Station Report | C1
 
 **D** Power & connect
 

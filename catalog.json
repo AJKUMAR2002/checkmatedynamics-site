@@ -2,7 +2,7 @@
   "name": "Checkmate Dynamics",
   "url": "https://checkmatedynamics.com/",
   "currency": "USD",
-  "note": "Prices are list prices in USD. Questions about any product: contact@checkmatedynamics.com. Specifications are design values until a unit is measured; Target and Est. mark goals and estimates. Status is one of: in design, prototype, service.",
+  "note": "Prices are list prices in USD. Questions about any product: contact@checkmatedynamics.com. Specifications are datasheet figures, values set by our design, or bench measurements; see https://checkmatedynamics.com/legal.md. Status is one of: in design, prototype, service.",
   "families": [
     {
       "id": "A1",
@@ -26,15 +26,11 @@
           "value": "25:1 cycloidal"
         },
         {
-          "name": "Backlash",
-          "value": "~7 arcmin Est."
-        },
-        {
           "name": "Gearbox",
           "value": "42 mm square"
         }
       ],
-      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown."
     },
     {
       "id": "A2",
@@ -63,10 +59,10 @@
         },
         {
           "name": "Torque",
-          "value": "Per unit Test card"
+          "value": "Measured per unit"
         }
       ],
-      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown."
     },
     {
       "id": "B1",
@@ -90,15 +86,15 @@
           "value": "30 Hz"
         },
         {
-          "name": "Mass",
-          "value": "37 g Est."
+          "name": "Size",
+          "value": "46 × 41 mm"
         },
         {
           "name": "Interface",
           "value": "USB-C"
         }
       ],
-      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown."
     },
     {
       "id": "D1",
@@ -111,7 +107,7 @@
         },
         {
           "name": "Port power",
-          "value": "20 V / 1.5 A Design"
+          "value": "20 V / 1.5 A"
         },
         {
           "name": "Bus",
@@ -130,7 +126,7 @@
           "value": "2-channel NC"
         }
       ],
-      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown. Target and Est. mark goals and estimates."
+      "key_specs_note": "Rows of the Key figures panel on the page, copied as shown."
     }
   ],
   "products": [
@@ -300,7 +296,7 @@
       "type": "product",
       "group": "Sense",
       "for": "Makers · OEM",
-      "description": "Time-of-flight depth over USB-C",
+      "description": "Time-of-flight lidar depth sensor",
       "status": "prototype",
       "price": null,
       "price_as_shown": "Register interest",

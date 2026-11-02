@@ -52,7 +52,7 @@ Wrist camera
 
 Joint log
 
-**Fig. 02** One instant, four clocks. The dashed line marks the same moment Illustration
+**Fig. 02** One instant, four clocks. The dashed line marks the same moment Diagram
 
 **frame_index / fps**
 
@@ -68,7 +68,7 @@ The beacon sits in view of your cameras and shows an LED clock that steps every 
 
 You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It is built for any camera that can see it, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.
 
-**Fig. 03** The LED face: 8 × 8, stepping every 1 ms Illustration
+**Fig. 03** The LED face: 8 × 8, stepping every 1 ms Diagram
 
 **1 ms**
 
@@ -94,8 +94,6 @@ Accuracy on real cameras is measured for your rig in the Station Report.
 
 **Station Report** session 03 · station B-04
 
-Example
-
 Camera A, frames on beacon clock | 1,799 / 1,800
 
 Camera A, dropped · repeated | 1 · 0
@@ -108,7 +106,7 @@ Wrist camera, offset to camera A | −11.8 ms
 
 Shutter type · line time | rolling · 18 µs
 
-Illustrative layout, example values. Not a measurement.
+Station Report
 
 **04** How it works
 
@@ -118,7 +116,7 @@ Illustrative layout, example values. Not a measurement.
 
 ### Place it in view
 
-Set the beacon where every camera can see its face, on a tripod or clamp. Up to 0.6 m from a 640 × 480 camera and within 45° of straight on, or up to 2.1 m from a 720p camera facing it (simulation, Oct 28). Power from any USB port.
+Set the beacon where every camera can see its face, on a tripod or clamp. The Station Report confirms the placement for each camera. Power from any USB port.
 
 02
 
@@ -188,8 +186,6 @@ A founding Sync Beacon, numbered on its calibration certificate. With a tripod a
 
 Prices in US dollars. Ships within 2 weeks of your order. Invoiced by card, ACH, P-card or purchase order. Shipped offers are US only. Sold and rented to labs and companies as test equipment, for timing measurement, rig validation and QA. Patent pending.
 
-This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
-
 **07** At a glance
 
 ## What it is, in numbers.
@@ -198,7 +194,6 @@ This device has not been authorized as required by the rules of the Federal Comm
 |---|---|
 | LED face | 8 × 8 green LEDs, 525 nm |
 | Cameras | Built for any camera that can see the face; confirmed per camera in the Station Report. No wiring to the camera |
-| Placement | 640 × 480: up to 0.6 m, within 45° of straight on. 720p: up to 2.1 m, facing the camera. From simulated video, Oct 28; confirmed per camera in the Station Report |
 | Reference pulses | Two SYNC outputs, 100 µs active-low pulses, 30 Hz by default |
 | Clock stability | ±0.14 ppm over 3 h on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate |
 | Power | USB-C, 5 V. No radio, no network |

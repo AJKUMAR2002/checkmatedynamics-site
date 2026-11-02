@@ -1,10 +1,10 @@
-# Built as nodes. Measured like instruments.
+# A Dallas robotics and drone hardware company.
 
 Source: https://checkmatedynamics.com/
 
-Robotics hardware — Dallas, Texas | Catalog rev. 2026.10
+Built as nodes. Measured like instruments. | Catalog rev. 2026.10
 
-Motor, sensing and sync nodes on one USB-C bus. Makers use them one at a time, robotics companies build them in, and our data-station hardware is assembled from them.
+Motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs. A flight-sensor node for drones is in development. Everything works together out of the box.
 
 [View the index](https://checkmatedynamics.com/products.html) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
@@ -16,7 +16,7 @@ Motor, sensing and sync nodes on one USB-C bus. Makers use them one at a time, r
 
 **D1** Hub 8 Pro
 
-Fig. 01 — Three motor nodes and the hub, as listed below. Concept renders.
+Fig. 01 — Three motor nodes and the hub, as listed below.
 
 **01** Index
 
@@ -34,7 +34,7 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | $249 |
 | A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | $249 |
 | A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | $399 |
-| B1 | Contour | Makers · OEM | Time-of-flight depth over USB-C | Register interest |
+| B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | Register interest |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | Register interest |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
 | C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
@@ -94,15 +94,13 @@ Fig. 02 — Bus topology. Hub 8 Pro ports are point-to-point segments, so a dama
 
 ## Every unit ships with its own numbers.
 
-Each node is calibrated and measured at final test, and the results go in the box and stay on the node. We publish measured values. Anything we haven’t measured yet is marked as a target.
+Each node is calibrated and measured at final test, and the results go in the box and stay on the node. We publish measured values.
 
 - Encoder calibration stored on the node, not in a laptop’s config file
 - Backlash, backdrive and torque recorded per serial number
 - The same record goes to makers, OEM customers and our own stations
 
 **Unit test card** SmartServo G-2804 · 20:1
-
-Illustrative
 
 Serial | CM-A23-000127
 
@@ -118,7 +116,7 @@ Thermal soak, 30 min | 41 °C | at test
 
 PD contract | 20 V | at test
 
-Illustrative values. Each unit’s real values are measured at final test. | Dallas, TX
+Each unit’s values are measured at final test. | Dallas, TX
 
 **05** Assembled
 
@@ -128,7 +126,7 @@ A floor’s spare part is a node from the index above, and a repair is a swap. E
 
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
-**Fig. 03** Eight nodes on one Hub 8 Pro. No arm: the catalog parts only Concept render
+**Fig. 03** Eight nodes on one Hub 8 Pro. No arm: the catalog parts only
 
 E1 Checkmate Leader
 

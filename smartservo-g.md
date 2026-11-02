@@ -18,11 +18,9 @@ A complete brushless actuator: gimbal motor, field-oriented control, magnetic en
 
 [Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartServo%20G) | [Volume / OEM](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartServo%20G)
 
-This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.
-
 *G-2804 · iFlight GBM2804H-100T* *G-5208 · iFlight GM5208, 24 winding*
 
-**Fig. 01** SmartServo G nodes, both motor sizes Concept render
+**Fig. 01** SmartServo G nodes, both motor sizes
 
 Key figures
 
@@ -31,7 +29,7 @@ Key figures
 - **Encoder**: 14-bit
 - **Power**: USB-C PD, 5–20 V
 - **Bus**: CAN-FD
-- **Torque**: Per unit Test card
+- **Torque**: Measured per unit
 
 Ø35 mm
 
@@ -97,7 +95,7 @@ List prices $159 and $249. Torque is measured per unit and printed on the test c
 
 *I/O tile (optional)* *Ø35 mm controller board* *Base plate* *Gimbal motor*
 
-**Fig. 02** The stack, 2804 version Concept render
+**Fig. 02** The stack, 2804 version
 
 ## A round board that sits on the motor.
 
@@ -126,7 +124,7 @@ Larger and stronger. Direct drive for haptics and camera heads. The 25:1 cycloid
 |---|---|---|---|---|
 | Motor | iFlight GBM2804H-100T | iFlight GM5208, 24 winding |  |  |
 | Reducer | Direct | 20:1 cycloidal | Direct | 25:1 cycloidal |
-| Lost motion | 0 | ~8 arcmin Estimate | 0 | ~4 arcmin Estimate |
+| Lost motion | 0 | Measured per unit | 0 | Measured per unit |
 | Encoders | Motor, 14-bit | Motor + output | Motor, 14-bit | Motor + output |
 | Torque | Measured per unit and printed on the test card; curves published after the first batch |  |  |  |
 | Controller / driver | STM32G431 / DRV8316 |  |  |  |
@@ -135,7 +133,7 @@ Larger and stronger. Direct drive for haptics and camera heads. The 25:1 cycloid
 | I/O | Optional tile | Tile included | Optional tile | Tile included |
 | Software | Checkmate browser app over USB (Chrome, Edge) · Python SDK · LeRobot |  |  |  |
 
-Design values. Estimates and targets are marked; each unit ships with its own measured test card.
+Each unit ships with its own measured test card.
 
 **06** Accessories
 

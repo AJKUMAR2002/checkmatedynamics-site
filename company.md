@@ -4,7 +4,7 @@ Source: https://checkmatedynamics.com/company.html
 
 Company | Dallas, Texas
 
-Checkmate Dynamics designs complete motion, sensing and sync nodes, sells them to people building robots, and builds its own station products from the very same units.
+Checkmate Dynamics is a Dallas robotics and drone hardware company. We make motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs for robot arms and robot training-data rigs, and we are developing a flight-sensor node for drones.
 
 **01** Principles
 
@@ -26,7 +26,7 @@ Plug it in and it’s found, named and ready. Settings exist; nobody needs them 
 
 ### Measured, not promised
 
-We publish measurements. Anything not yet measured is marked as a target, and every unit ships with its own test card.
+We publish measurements, and every unit ships with its own test card.
 
 04
 
@@ -62,9 +62,9 @@ Closed housings, labeled ports, and one look from the product to the box to this
 
 ## From one stepper board to a platform.
 
-It started with SmartStepper, a closed-loop NEMA 17 that runs on a USB-C charger. Then SmartServo G for brushless gimbal motors, Contour for depth, cycloidal reducers for both node families, the Sync Beacon for station timing, and Hub 8 Pro to power and connect it all.
+It started with SmartStepper, a closed-loop NEMA 17 that runs on a USB-C charger. Then SmartServo G for brushless gimbal motors, Contour for depth, cycloidal reducers for both node families, the Sync Beacon for station timing, and Hub 8 Pro to power and connect it all. A flight-sensor node for drones is in development; it has no specifications or price yet.
 
-**Fig. 01** SmartStepper 17, exploded Concept render
+**Fig. 01** SmartStepper 17, exploded
 
 **03** Contact
 

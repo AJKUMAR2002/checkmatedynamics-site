@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SmartStepper 17: closed-loop NEMA 17 — Checkmate Dynamics</title>
-<meta name="description" content="A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint.">
+<meta name="description" content="A closed-loop NEMA 17 stepper node that sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint. Python SDK.">
 <link rel="canonical" href="https://checkmatedynamics.com/smartstepper-17.html">
 <link rel="alternate" type="text/markdown" href="smartstepper-17.md">
 <meta property="og:type" content="website">
@@ -12,14 +12,14 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://checkmatedynamics.com/smartstepper-17.html">
 <meta property="og:title" content="SmartStepper 17: closed-loop NEMA 17 — Checkmate Dynamics">
-<meta property="og:description" content="A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint.">
+<meta property="og:description" content="A closed-loop NEMA 17 stepper node that sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint. Python SDK.">
 <meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SmartStepper 17: closed-loop NEMA 17 — Checkmate Dynamics">
-<meta name="twitter:description" content="A closed-loop NEMA 17 that runs on a USB-C charger and sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint.">
+<meta name="twitter:description" content="A closed-loop NEMA 17 stepper node that sets up in a browser. Board, motor node, or with a 25:1 metal cycloidal reducer for a robot joint. Python SDK.">
 <meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
@@ -204,12 +204,11 @@
           <a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20SmartStepper%2017">Register interest</a>
           <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20SmartStepper%2017">Volume / OEM</a>
         </div>
-        <p class="fine fcc mt-s">This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.</p>
       </div>
       <figure class="fig num phx-art">
         <div class="crop">
-          <div class="plate zm ar45 src45" style="--z:1.000;--cx:50;--cy:50">
-            <img src="assets/img/ss17-node-hero-4x5-1200.webp" srcset="assets/img/ss17-node-hero-4x5-1200.webp 800w, assets/img/ss17-node-hero-4x5.webp 1600w" sizes="(max-width: 800px) 100vw, 40vw" width="1600" height="2000" alt="SmartStepper 17 closed-loop NEMA 17 node with 25:1 cycloidal reducer, three-quarter view, concept render">
+          <div class="plate zm ar45">
+            <img src="assets/img/ss17-node-hero-4x5-1200.webp" srcset="assets/img/ss17-node-hero-4x5-1200.webp 1200w, assets/img/ss17-node-hero-4x5.webp 2400w" sizes="(max-width: 800px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 closed-loop NEMA 17 node with 25:1 cycloidal reducer, three-quarter view">
             <span class="pin" style="--x:50;--y:11"><span><em>Output flange · M3 bolt circle, dowels</em></span></span>
             <span class="pin" style="--x:50;--y:30"><span><em><span class="mono">25:1</span> cycloidal · <span class="mono">42 mm</span> square</em></span></span>
             <span class="pin" style="--x:50;--y:59"><span><em>NEMA 17 · flying-lead or socketed</em></span></span>
@@ -217,7 +216,7 @@
             <span class="pin" style="--x:37;--y:82"><span><em>USB-C · PD, USB, CAN</em></span></span>
           </div>
         </div>
-        <figcaption><span><b>Fig. 01</b>SmartStepper 17 · <span class="mono">25:1</span>, three-quarter view</span><span>Concept render</span></figcaption>
+        <figcaption><span><b>Fig. 01</b>SmartStepper 17 · <span class="mono">25:1</span>, three-quarter view</span></figcaption>
       </figure>
       <aside class="phx-rail" aria-label="Key figures">
         <div class="rail">
@@ -227,7 +226,6 @@
             <dt>Power</dt><dd>USB-C PD, <span class="mono">5–20 V</span></dd>
             <dt>Bus</dt><dd>CAN <span class="mono">1 Mbit/s</span></dd>
             <dt>Reduction</dt><dd><span class="mono">25:1</span> cycloidal</dd>
-            <dt>Backlash</dt><dd>~<span class="mono">7 arcmin</span><span class="est">Est.</span></dd>
             <dt>Gearbox</dt><dd><span class="mono">42 mm</span> square</dd>
           </dl>
         </div>
@@ -252,7 +250,7 @@
     <h2 class="d1 balance">A stepper that knows where it is.</h2>
     <div class="points">
       <div class="point"><span class="n">01</span><h3 class="h3">Closed loop</h3><p>A <span class="mono">14-bit</span> magnetic encoder (<span class="mono">16,384 counts</span> per turn) watches the shaft, so a stall is reported instead of silently losing position.</p></div>
-      <div class="point"><span class="n">02</span><h3 class="h3">USB-C power</h3><p>Any USB-C Power Delivery charger supplies 5 to <span class="mono">20 V</span>. The same port carries USB to a laptop and CAN to the next node.</p></div>
+      <div class="point"><span class="n">02</span><h3 class="h3">Runs on a charger</h3><p>Any USB-C Power Delivery charger supplies 5 to <span class="mono">20 V</span>. The same port carries USB to a laptop and CAN to the next node.</p></div>
       <div class="point"><span class="n">03</span><h3 class="h3">Browser setup</h3><p>The Checkmate app runs in your browser: calibrate, set current, jog, and plot angle, current and temperature live.</p></div>
       <div class="point"><span class="n">04</span><h3 class="h3">Your NEMA 17 or ours</h3><p>Works with flying-lead or socketed NEMA 17 motors (adapter included). The leads plug into the rear unit; closed loop needs a rear shaft for the encoder magnet.</p></div>
     </div>
@@ -284,22 +282,21 @@
       <h2 class="d3 balance">A metal cycloidal inside the motor’s own footprint.</h2>
       <p>Two cycloid discs share the load across many rollers, which keeps the joint stiff and low in backlash without growing past the <span class="mono">42 mm</span> outline.</p>
       <ul class="list">
-        <li>Lost motion about <span class="mono">7 arcmin</span> (estimate), measured per unit</li>
-        <li>Torque targets <span class="mono">4 N·m</span> continuous, <span class="mono">8.5 N·m</span> peak</li>
+        <li>Lost motion and torque measured on every unit and printed on its test card</li>
         <li>Output encoder fitted as standard</li>
         <li>Output face with M3 bolt circle and dowel holes</li>
       </ul>
     </div>
     <figure class="fig c8-12">
       <div class="crop">
-        <div class="plate zm ar11 src45" style="--z:1.000;--cx:50;--cy:50">
-          <img src="assets/img/ss17-node-cutaway-4x5-1200.webp" srcset="assets/img/ss17-node-cutaway-4x5-1200.webp 800w, assets/img/ss17-node-cutaway-4x5.webp 1600w" sizes="(max-width: 900px) 100vw, 40vw" width="1600" height="2000" alt="Quarter cut-away of the 25:1 metal cycloidal reducer, concept render" loading="lazy">
+        <div class="plate zm ar11">
+          <img src="assets/img/ss17-node-cutaway-4x5-1200.webp" srcset="assets/img/ss17-node-cutaway-4x5-1200.webp 1200w, assets/img/ss17-node-cutaway-4x5.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="Quarter cut-away of the 25:1 metal cycloidal reducer" loading="lazy">
           <span class="pin l" style="--x:47;--y:12"><span><em>Output carrier</em></span></span>
           <span class="pin" style="--x:53;--y:36"><span><em>Cycloid discs × 2</em></span></span>
           <span class="pin" style="--x:62;--y:58"><span><em>Motor body, exposed</em></span></span>
         </div>
       </div>
-      <figcaption><span><b>Fig. 02</b>Quarter section of the reducer</span><span>Concept render</span></figcaption>
+      <figcaption><span><b>Fig. 02</b>Quarter section of the reducer</span></figcaption>
     </figure>
   </div>
 </section>
@@ -309,9 +306,9 @@
     <div class="c1-3 sec-index"><b>04</b>Integration</div>
     <figure class="fig c4-8">
       <div class="crop">
-        <div class="plate r4x3"><img src="assets/img/ss17-exploded-1200.webp" srcset="assets/img/ss17-exploded-1200.webp 1200w, assets/img/ss17-exploded.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 rear unit exploded into magnet, frame, board and cover, concept render" loading="lazy"><span class="pin l" style="--x:44;--y:52"><span><em>Controller board</em></span></span><span class="pin l" style="--x:70;--y:23"><span><em>NEMA 17 · flying leads</em></span></span></div>
+        <div class="plate r4x3"><img src="assets/img/ss17-exploded-1200.webp" srcset="assets/img/ss17-exploded-1200.webp 1200w, assets/img/ss17-exploded.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 rear unit exploded into magnet, frame, board and cover" loading="lazy"><span class="pin l" style="--x:44;--y:52"><span><em>Controller board</em></span></span><span class="pin l" style="--x:70;--y:23"><span><em>NEMA 17 · flying leads</em></span></span></div>
       </div>
-      <figcaption><span><b>Fig. 03</b>Rear unit: magnet, frame, board, cover</span><span>Concept render</span></figcaption>
+      <figcaption><span><b>Fig. 03</b>Rear unit: magnet, frame, board, cover</span></figcaption>
     </figure>
     <div class="c9-12 copy">
       <h2 class="d3 balance">Drops into a printer, a CNC or an arm.</h2>
@@ -340,13 +337,13 @@
           <tr><th>Power</th><td>USB-C PD sink, <span class="mono">5–20 V</span></td><td>Same</td></tr>
           <tr><th>Bus</th><td>CAN <span class="mono">1 Mbit/s</span> on the USB-C cable</td><td>Same</td></tr>
           <tr><th>Ports</th><td>USB-C · Qwiic · AUX 4-pin JST-SH</td><td>Same</td></tr>
-          <tr><th>Backlash</th><td>—</td><td>~<span class="mono">7 arcmin</span><span class="t">Estimate</span></td></tr>
-          <tr><th>Torque</th><td>Motor-dependent, measured per unit</td><td><span class="mono">4 N·m</span> cont. / <span class="mono">8.5 N·m</span> peak<span class="t">Target</span></td></tr>
+          <tr><th>Backlash</th><td>—</td><td>Measured per unit, on the test card</td></tr>
+          <tr><th>Torque</th><td>Motor-dependent, measured per unit</td><td>Measured per unit, on the test card</td></tr>
           <tr><th>Software</th><td colspan="2">Checkmate browser app · Python SDK · Klipper STEP/DIR guide</td></tr>
-          <tr><th>Compliance</th><td colspan="2">FCC Part 15B testing before shipping · US only at launch</td></tr>
+          <tr><th>Compliance</th><td colspan="2">US only at launch</td></tr>
         </tbody>
       </table>
-      <p class="fine mt-s">CAN needs a full-featured USB-C cable; charge-only cables don’t carry it. Targets are design goals; every unit ships with its measured test card.</p>
+      <p class="fine mt-s">CAN needs a full-featured USB-C cable; charge-only cables don’t carry it. Every unit ships with its measured test card.</p>
     </div>
   </div>
 </section>
@@ -356,9 +353,9 @@
     <div class="c1-3 sec-index"><b>06</b>Figures</div>
     <div class="c4-12"><h2 class="d3 balance sec-sub">The node from other angles.</h2></div>
     <div class="c4-12 gallery">
-      <figure class="fig"><div class="plate zm ar43 src11" style="--z:1.000;--cx:50;--cy:50"><img src="assets/img/ss17-node-front-1x1-1200.webp" srcset="assets/img/ss17-node-front-1x1-1200.webp 800w, assets/img/ss17-node-front-1x1.webp 1600w" sizes="(max-width: 900px) 100vw, 40vw" width="1600" height="1600" alt="Output face of the SmartStepper 17 reducer with M3 bolt circle and dowel holes, concept render" loading="lazy"></div><figcaption><span><b>Fig. 04</b>Output face</span></figcaption></figure>
-      <figure class="fig"><div class="plate r4x3"><img src="assets/img/ss17-node-rear-1200.webp" srcset="assets/img/ss17-node-rear-1200.webp 1200w, assets/img/ss17-node-rear.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 rear unit with a Cable Clip on the USB-C cable, concept render" loading="lazy"></div><figcaption><span><b>Fig. 05</b>Rear unit, Cable Clip on USB-C</span></figcaption></figure>
-      <figure class="fig"><div class="plate r4x3"><img src="assets/img/ss17-board-top-1200.webp" srcset="assets/img/ss17-board-top-1200.webp 1200w, assets/img/ss17-board-top.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 controller board, concept render" loading="lazy"></div><figcaption><span><b>Fig. 06</b>Controller board</span></figcaption></figure>
+      <figure class="fig"><div class="plate zm ar43"><img src="assets/img/ss17-node-front-1x1-1200.webp" srcset="assets/img/ss17-node-front-1x1-1200.webp 1200w, assets/img/ss17-node-front-1x1.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="Output face of the SmartStepper 17 reducer with M3 bolt circle and dowel holes" loading="lazy"></div><figcaption><span><b>Fig. 04</b>Output face</span></figcaption></figure>
+      <figure class="fig"><div class="plate r4x3"><img src="assets/img/ss17-node-rear-1200.webp" srcset="assets/img/ss17-node-rear-1200.webp 1200w, assets/img/ss17-node-rear.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 rear unit with a Cable Clip on the USB-C cable" loading="lazy"></div><figcaption><span><b>Fig. 05</b>Rear unit, Cable Clip on USB-C</span></figcaption></figure>
+      <figure class="fig"><div class="plate r4x3"><img src="assets/img/ss17-board-top-1200.webp" srcset="assets/img/ss17-board-top-1200.webp 1200w, assets/img/ss17-board-top.webp 2400w" sizes="(max-width: 900px) 100vw, 40vw" width="2400" height="1600" alt="SmartStepper 17 controller board" loading="lazy"></div><figcaption><span><b>Fig. 06</b>Controller board</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -379,7 +376,7 @@
     <div class="grid foot-grid">
       <div class="c1-4">
         <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
-        <p>Motion, sensing and sync nodes for robotics. Designed and tested in Dallas, Texas.</p>
+        <p>Robotics and drone hardware. Designed and tested in Dallas, Texas.</p>
       </div>
       <div class="c5-12 foot-links">
         <div>
@@ -415,8 +412,7 @@
     <div class="foot-base">
       <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas · <span class="mono">32.78°</span> N <span class="mono">96.80°</span> W</span>
       <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://x.com/checkmatedyn" rel="me noopener">X</a><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
-      <span class="fine">Images are concept renders. Specifications are design values until a unit is measured; “Target” and “Est.” mark goals and estimates. Prices in US dollars. No cookies, no analytics.</span>
-      <span class="fine fcc">FCC: This device has not been authorized as required by the rules of the Federal Communications Commission. This device is not, and may not be, offered for sale or lease, or sold or leased, until authorization is obtained.</span>
+      <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
     </div>
   </div>
 </footer>

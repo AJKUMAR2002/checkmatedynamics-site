@@ -71,7 +71,7 @@ The Leader is SmartServo G nodes on a Hub 8 Pro. The Sync Kit is a Sync Beacon a
 
 *D1 · Hub 8 Pro* *One node, one test card*
 
-**Fig. 01** Eight nodes on one hub: each is a spare part Concept render
+**Fig. 01** Eight nodes on one hub: each is a spare part
 
 **05** Service
 
