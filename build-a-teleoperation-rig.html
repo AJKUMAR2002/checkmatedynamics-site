@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build a teleoperation rig for robot data — Checkmate Dynamics</title>
+<meta name="description" content="What to buy for a robot teleoperation data rig: leader arm options (SO-101, GELLO, Franka GELLO, Checkmate Leader), cameras, power and a timing check.">
+<link rel="canonical" href="https://checkmatedynamics.com/build-a-teleoperation-rig.html">
+<link rel="alternate" type="text/markdown" href="build-a-teleoperation-rig.md">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Checkmate Dynamics">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://checkmatedynamics.com/build-a-teleoperation-rig.html">
+<meta property="og:title" content="Build a teleoperation rig for robot data — Checkmate Dynamics">
+<meta property="og:description" content="What to buy for a robot teleoperation data rig: leader arm options (SO-101, GELLO, Franka GELLO, Checkmate Leader), cameras, power and a timing check.">
+<meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Build a teleoperation rig for robot data — Checkmate Dynamics">
+<meta name="twitter:description" content="What to buy for a robot teleoperation data rig: leader arm options (SO-101, GELLO, Franka GELLO, Checkmate Leader), cameras, power and a timing check.">
+<meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/brand/favicon/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon-180.png">
+<link rel="manifest" href="assets/brand/manifest.webmanifest">
+<link rel="mask-icon" href="assets/brand/favicon/safari-pinned-tab.svg" color="#000000">
+<link rel="preload" href="assets/fonts/inter-opsz-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://checkmatedynamics.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://checkmatedynamics.com/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Build a teleoperation rig",
+      "item": "https://checkmatedynamics.com/build-a-teleoperation-rig.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Build a teleoperation rig for robot data",
+  "description": "What to buy for a robot teleoperation data rig: leader arm options (SO-101, GELLO, Franka GELLO, Checkmate Leader), cameras, power and a timing check.",
+  "url": "https://checkmatedynamics.com/build-a-teleoperation-rig.html",
+  "inLanguage": "en-US",
+  "dateModified": "2026-11-10",
+  "author": {
+    "@id": "https://checkmatedynamics.com/#organization"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://checkmatedynamics.com/#organization",
+    "name": "Checkmate Dynamics"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What hardware do I need for a robot teleoperation data rig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A follower arm, a leader arm the operator moves, at least two cameras, a recorder such as LeRobot, and a way to power and connect the joints. Add a timing check so you know the camera streams share one clock."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are good leader arms besides GELLO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The SO-101 leader from the LeRobot project, built on Feetech STS3215 servos, is the common open alternative. Franka sells a pre-assembled GELLO by quote. The Checkmate Leader, which is in design, uses active gravity compensation and force feedback and costs $2,990 per arm at list."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the Checkmate Leader exist yet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is in design. The nodes it uses, SmartServo G and Hub 8 Pro, are the products on this site. No Leader ships yet; labs and floors can register interest as design partners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a hub?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for a rig built on serial-bus servos, which daisy-chain. For Checkmate nodes, Hub 8 Pro gives each port its own power and CAN segment, so one damaged cable does not take the other joints down."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <div class="nav-item has-menu">
+        <a href="products.html" data-nav="products" aria-haspopup="true"><sup>01</sup>Products</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Products menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Products</p>
+            <p>Complete nodes in four families. Each one works alone and joins the same USB-C bus.</p>
+            <a class="link small" href="products.html">Full index</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">A — Move</span>
+            <a href="smartstepper-17.html"><strong>SmartStepper 17</strong><span>Closed-loop NEMA 17</span></a>
+            <a href="smartservo-g.html"><strong>SmartServo G</strong><span>Brushless servo node</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">B — Sense</span>
+            <a href="contour.html"><strong>Contour</strong><span>Time-of-flight depth</span></a>
+            <a href="contour.html#wrist"><strong>Contour Wrist</strong><span>Depth at the gripper</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">C — Sync</span>
+            <a href="sync-beacon.html"><strong>Sync Beacon</strong><span>Camera timing instrument</span></a>
+            <a href="sync-beacon.html#report"><strong>Station Report</strong><span>Timing proof per session</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">D — Power &amp; connect</span>
+            <a href="hub-8.html"><strong>Hub 8</strong><span>Eight-port node hub</span></a>
+            <a href="hub-8.html#cable"><strong>Bus cable</strong><span>Power, USB and CAN</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="makers.html" data-nav="makers"><sup>02</sup>Makers</a></div>
+      <div class="nav-item has-menu">
+        <a href="stations.html" data-nav="stations" aria-haspopup="true"><sup>03</sup>Stations</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Stations menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Stations</p>
+            <p>Hardware and service for teleoperation data floors, built from the nodes we sell.</p>
+            <a class="link small" href="stations.html">Overview</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Sync QA</span>
+            <a href="sync-beacon.html"><strong>Sync Beacon</strong><span>Camera timing instrument</span></a>
+            <a href="stations.html#audit"><strong>Skew Audit</strong><span>One station, one week</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Teleoperation</span>
+            <a href="leader.html"><strong>Checkmate Leader</strong><span>Motorized leader arm</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Service</span>
+            <a href="stations.html#commissioning"><strong>Commissioning</strong><span>New rigs, signed off</span></a>
+            <a href="stations.html#service"><strong>Service plans</strong><span>Spares and reports</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="components.html" data-nav="components"><sup>04</sup>Components</a></div>
+      <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
+      <div class="nav-cta">
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Build%20a%20teleoperation%20rig%20for%20robot%20data">Register interest</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Build%20a%20teleoperation%20rig%20for%20robot%20data" data-booking>Book a call</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="ph cm-grid">
+  <div class="wrap">
+    <div class="ph-meta"><span class="label">Guide</span><span class="label">Updated November 10, 2026</span></div>
+    <div class="grid">
+      <h1 class="d1 balance">Build a teleoperation rig for robot training data.</h1>
+      <div class="ph-side"><p class="lede">A rig that records demonstrations for imitation learning needs five things: a follower arm, a leader the operator moves, two or more cameras, a recorder, and a way to check that all the streams share one clock.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>01</b>Answer</div>
+    <div class="c4-10 prose">
+      <h2 style="margin-top:0">The short version.</h2>
+      <p>Most open rigs pair a follower arm with a small leader that has the same joint layout. The operator moves the leader and the follower copies it while the recorder saves camera frames, joint positions and actions. LeRobot and GELLO are the common open-source starting points. Pick the leader by how much feel, durability and warranty you need.</p>
+      <ul>
+        <li><b>Follower arm:</b> the arm you want the policy to run on. The leader copies its joint layout.</li>
+        <li><b>Leader:</b> an SO-101 leader, a GELLO build, a Franka GELLO or the Checkmate Leader (below).</li>
+        <li><b>Cameras:</b> at least one wrist camera and one fixed view. Add Contour depth at the gripper if your policy uses it.</li>
+        <li><b>Power and connection:</b> one supply and bus per arm. Hub 8 Pro powers and connects up to eight Checkmate nodes over a single USB link.</li>
+        <li><b>Recorder:</b> LeRobot, or the SDK of your arm maker.</li>
+        <li><b>Timing check:</b> measure camera skew before you record, not after episodes are rejected. The <a class="link" href="sync-cameras-and-joints.html">sync guide</a> shows how.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>02</b>Leader options</div>
+    <div class="c4-12">
+      <h2 class="d2 balance" style="margin-top:0">Four ways to build the leader.</h2>
+      <table class="spec wide">
+        <thead><tr><th></th><th>SO-101 leader</th><th>GELLO</th><th>Franka GELLO</th><th>Checkmate Leader</th></tr></thead>
+        <tbody>
+          <tr><th>Joint actuator</th><td>Feetech STS3215 serial-bus servo, <span class="mono">$22.00</span> each (Seeed, read 2026-11-10)</td><td>Dynamixel XL330-M288-T, <span class="mono">$27.49</span> each (ROBOTIS US, read 2026-11-10)</td><td>7 x Dynamixel XL330-M288-T plus a trigger servo (Franka parts list, read 2026-10-09)</td><td>8 SmartServo G nodes (G-2804 and G-5208)</td></tr>
+          <tr><th>Gravity support</th><td>Passive</td><td>Passive (3D-printed frame)</td><td>Passive: torsion springs at joints 2 and 4</td><td>Active gravity compensation at every joint</td></tr>
+          <tr><th>Force feedback</th><td>None</td><td>None</td><td>None published</td><td>Haptic walls at joint limits; trigger force feedback</td></tr>
+          <tr><th>Availability</th><td>Parts you buy and print</td><td>Open-source design; parts you buy and print</td><td>Prototype, by quote; price on request (franka.de/gello, read 2026-11-10)</td><td>In design; <span class="mono">$2,990</span> per arm, register interest</td></tr>
+          <tr><th>Fit</th><td>SO-101 and LeRobot builders</td><td>Many follower arms; Franka FR3 variant exists</td><td>Franka FR3 labs</td><td>Kinematics matched to your follower</td></tr>
+        </tbody>
+      </table>
+      <p class="fine mt-m">Competitor prices were checked on the vendors’ own pages on 2026-11-10 (see <code>research/aeo/guide-price-check-2026-11-10.md</code>); the Franka parts list is from <code>research/competitor-franka-gello.md</code>, read 2026-10-09. Prices and availability change; check the vendor. Checkmate prices are the list prices on our <a class="link" href="leader.html">Leader</a> page. Checkmate products are shown before FCC authorization; see <a class="link" href="legal.html#fcc">Legal</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>03</b>Fit</div>
+    <div class="c4-10 prose">
+      <h2 style="margin-top:0">When each one makes sense.</h2>
+      <ul>
+        <li><b>SO-101 or GELLO.</b> Choose these for the lowest part cost, an open design you can print and repair yourself, and a rig that follows the LeRobot community. A maker building an SO-101 follower should buy the STS3215 servos it was designed around.</li>
+        <li><b>Franka GELLO.</b> Choose it if you run Franka FR3 arms and want a leader from the same vendor. Franka labels it a prototype and sells it by quote.</li>
+        <li><b>Checkmate Leader.</b> Choose it when operators work long shifts and the arm should hold its own weight, show the follower’s limits and gripper force, and return home between episodes. Every joint is a node you can swap on its own. It is in design: no unit ships yet, and you can register interest as a design partner.</li>
+      </ul>
+      <h2>Power and connection.</h2>
+      <p>Checkmate nodes take power and CAN over one USB-C cable. <a class="link" href="hub-8.html">Hub 8 Pro</a> (<span class="mono">$399</span>) gives each of eight node ports its own <span class="mono">20 V</span> source and its own CAN segment, plus a hardware e-stop input, and appears to the PC as one USB device.</p>
+      <h2>Cameras and depth.</h2>
+      <p>Any camera that LeRobot or your recorder supports works. <a class="link" href="contour.html">Contour</a> is a 54 x 42 zone time-of-flight depth sensor (VL53L9CX, <span class="mono">30 Hz</span>, 46 x <span class="mono">41 mm</span>) that mounts beside the follower’s gripper and takes a sync input.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>04</b>Questions</div>
+    <div class="c4-12 faq">
+      <details><summary>What hardware do I need for a robot teleoperation data rig?</summary><p>A follower arm, a leader arm the operator moves, at least two cameras, a recorder such as LeRobot, and a way to power and connect the joints. Add a timing check so you know the camera streams share one clock.</p></details>
+      <details><summary>What are good leader arms besides GELLO?</summary><p>The SO-101 leader from the LeRobot project, built on Feetech STS3215 servos, is the common open alternative. Franka sells a pre-assembled GELLO by quote. The Checkmate Leader, which is in design, uses active gravity compensation and force feedback and costs <span class="mono">$2,990</span> per arm at list.</p></details>
+      <details><summary>Does the Checkmate Leader exist yet?</summary><p>It is in design. The nodes it uses, SmartServo G and Hub 8 Pro, are the products on this site. No Leader ships yet; labs and floors can register interest as design partners.</p></details>
+      <details><summary>Do I need a hub?</summary><p>Not for a rig built on serial-bus servos, which daisy-chain. For Checkmate nodes, Hub 8 Pro gives each port its own power and CAN segment, so one damaged cable does not take the other joints down.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="guides.html">Guides</a> · <a class="link" href="leader.html">Checkmate Leader</a> · <a class="link" href="hub-8.html">Hub 8 Pro</a> · <a class="link" href="sync-beacon.html">Sync Beacon</a></p></div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid foot-grid">
+      <div class="c1-4">
+        <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
+        <p>Robotics and drone hardware. Designed and tested in Dallas, Texas.</p>
+      </div>
+      <div class="c5-12 foot-links">
+        <div>
+          <span class="label">Move · Sense</span>
+          <a href="smartstepper-17.html">SmartStepper 17</a>
+          <a href="smartservo-g.html">SmartServo G</a>
+          <a href="contour.html">Contour</a>
+        </div>
+        <div>
+          <span class="label">Sync · Connect</span>
+          <a href="sync-beacon.html">Sync Beacon</a>
+          <a href="hub-8.html">Hub 8</a>
+          <a href="hub-8.html#cable">Bus cable</a>
+        </div>
+        <div>
+          <span class="label">Stations &amp; kit</span>
+          <a href="makers.html">Makers</a>
+          <a href="stations.html">Stations</a>
+          <a href="leader.html">Checkmate Leader</a>
+          <a href="components.html">Components</a>
+        </div>
+        <div>
+          <span class="label">Company</span>
+          <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
+          <a href="company.html">About</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Build%20a%20teleoperation%20rig%20for%20robot%20data">Book a call</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Build%20a%20teleoperation%20rig%20for%20robot%20data">Talk to us</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Build%20a%20teleoperation%20rig%20for%20robot%20data">Register interest</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas · <span class="mono">32.78°</span> N <span class="mono">96.80°</span> W</span>
+      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://x.com/checkmatedyn" rel="me noopener">X</a><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
+      <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

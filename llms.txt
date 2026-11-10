@@ -32,6 +32,14 @@ Specifications are datasheet figures, values set by our design, or bench measure
 
 - [Company](https://checkmatedynamics.com/company.md): Dallas robotics and drone hardware company making motion nodes, actuators, cycloidal gearboxes, lidar sensors and hubs for robot arms and data rigs.
 
+## Guides
+
+- [Guides](https://checkmatedynamics.com/guides.md): Plain guides for robot builders: a teleoperation data rig, syncing cameras and joints, choosing a smart actuator, and a cycloidal gearbox for NEMA 17.
+- [Build a teleoperation rig](https://checkmatedynamics.com/build-a-teleoperation-rig.md): What to buy for a robot teleoperation data rig: leader arm options (SO-101, GELLO, Franka GELLO, Checkmate Leader), cameras, power and a timing check.
+- [Sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.md): How to put cameras and robot joint data on one clock for robot learning datasets, the hardware options and prices, and how to measure whether the streams agree.
+- [Smart actuators for a robot arm](https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.md): How to choose a smart actuator or closed-loop stepper for a DIY robot arm: torque, backlash, encoder, bus and price for Dynamixel, Feetech, CubeMars and ours.
+- [Cycloidal gearbox for NEMA 17](https://checkmatedynamics.com/cycloidal-gearbox-for-nema-17.md): Cycloidal gearbox for NEMA 17: how it compares with planetary and harmonic reducers on backlash, ratio and price, and what Checkmate sells today.
+
 ## Data
 
 - [Catalog (JSON)](https://checkmatedynamics.com/catalog.json): every catalogue number with name, group, status, list price and the Key figures as shown on the pages

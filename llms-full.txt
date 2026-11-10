@@ -246,7 +246,7 @@ C1 Station timing
 
 [Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Stations](https://checkmatedynamics.com/stations.html)
 
-Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Components](https://checkmatedynamics.com/components.html)
+Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Components](https://checkmatedynamics.com/components.html) · [Guides](https://checkmatedynamics.com/guides.html)
 
 ## Choose how you build.
 
@@ -1274,7 +1274,7 @@ Keep it. Hardware sync ties those cameras together; the beacon checks every stre
 
 Start with a Skew Audit on one station. Register your interest and we agree the details on a call.
 
-Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html)
+Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Guides](https://checkmatedynamics.com/guides.html)
 
 ## Twenty minutes, one station, a real number.
 
@@ -1641,6 +1641,320 @@ Robotics companies
 Components, OEM modules, engineering support.
 
 Talk to us
+
+---
+
+# Guides for robot builders.
+
+Source: https://checkmatedynamics.com/guides.html
+
+Guides | Updated November 10, 2026
+
+Answers to the questions builders ask before they buy. Each guide compares the real options, names the alternatives with their sources and dates, and says where our products fit and where they do not.
+
+**01** Guides
+
+## [Build a teleoperation rig for robot training data](https://checkmatedynamics.com/build-a-teleoperation-rig.html)
+
+The five parts of a data-collection rig, and four ways to build the leader arm: SO-101, GELLO, Franka GELLO and the Checkmate Leader.
+
+## [Sync cameras and joint data to one clock](https://checkmatedynamics.com/sync-cameras-and-joints.html)
+
+Why timestamps drift, three ways to deal with it, and how to measure the skew on your own rig.
+
+## [Choose a smart actuator for a robot arm](https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.html)
+
+Torque, backlash, encoder and bus for Dynamixel, Feetech, CubeMars, MyActuator and SmartServo G, and a closed-loop NEMA 17 you can script.
+
+## [A cycloidal gearbox for a NEMA 17 stepper](https://checkmatedynamics.com/cycloidal-gearbox-for-nema-17.html)
+
+Planetary, harmonic and cycloidal reducers for NEMA 17 compared, with list prices and backlash.
+
+Competitor figures were read on the dates shown in each guide and may have changed. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
+
+Related: [Products](https://checkmatedynamics.com/products.html) · [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https://checkmatedynamics.com/stations.html)
+
+---
+
+# Build a teleoperation rig for robot training data.
+
+Source: https://checkmatedynamics.com/build-a-teleoperation-rig.html
+
+Guide | Updated November 10, 2026
+
+A rig that records demonstrations for imitation learning needs five things: a follower arm, a leader the operator moves, two or more cameras, a recorder, and a way to check that all the streams share one clock.
+
+**01** Answer
+
+## The short version.
+
+Most open rigs pair a follower arm with a small leader that has the same joint layout. The operator moves the leader and the follower copies it while the recorder saves camera frames, joint positions and actions. LeRobot and GELLO are the common open-source starting points. Pick the leader by how much feel, durability and warranty you need.
+
+- **Follower arm:** the arm you want the policy to run on. The leader copies its joint layout.
+- **Leader:** an SO-101 leader, a GELLO build, a Franka GELLO or the Checkmate Leader (below).
+- **Cameras:** at least one wrist camera and one fixed view. Add Contour depth at the gripper if your policy uses it.
+- **Power and connection:** one supply and bus per arm. Hub 8 Pro powers and connects up to eight Checkmate nodes over a single USB link.
+- **Recorder:** LeRobot, or the SDK of your arm maker.
+- **Timing check:** measure camera skew before you record, not after episodes are rejected. The [sync guide](https://checkmatedynamics.com/sync-cameras-and-joints.html) shows how.
+
+**02** Leader options
+
+## Four ways to build the leader.
+
+|  | SO-101 leader | GELLO | Franka GELLO | Checkmate Leader |
+|---|---|---|---|---|
+| Joint actuator | Feetech STS3215 serial-bus servo, $22.00 each (Seeed, read 2026-11-10) | Dynamixel XL330-M288-T, $27.49 each (ROBOTIS US, read 2026-11-10) | 7 x Dynamixel XL330-M288-T plus a trigger servo (Franka parts list, read 2026-10-09) | 8 SmartServo G nodes (G-2804 and G-5208) |
+| Gravity support | Passive | Passive (3D-printed frame) | Passive: torsion springs at joints 2 and 4 | Active gravity compensation at every joint |
+| Force feedback | None | None | None published | Haptic walls at joint limits; trigger force feedback |
+| Availability | Parts you buy and print | Open-source design; parts you buy and print | Prototype, by quote; price on request (franka.de/gello, read 2026-11-10) | In design; $2,990 per arm, register interest |
+| Fit | SO-101 and LeRobot builders | Many follower arms; Franka FR3 variant exists | Franka FR3 labs | Kinematics matched to your follower |
+
+Competitor prices were checked on the vendors’ own pages on 2026-11-10 (see research/aeo/guide-price-check-2026-11-10.md); the Franka parts list is from research/competitor-franka-gello.md, read 2026-10-09. Prices and availability change; check the vendor. Checkmate prices are the list prices on our [Leader](https://checkmatedynamics.com/leader.html) page. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
+
+**03** Fit
+
+## When each one makes sense.
+
+- **SO-101 or GELLO.** Choose these for the lowest part cost, an open design you can print and repair yourself, and a rig that follows the LeRobot community. A maker building an SO-101 follower should buy the STS3215 servos it was designed around.
+- **Franka GELLO.** Choose it if you run Franka FR3 arms and want a leader from the same vendor. Franka labels it a prototype and sells it by quote.
+- **Checkmate Leader.** Choose it when operators work long shifts and the arm should hold its own weight, show the follower’s limits and gripper force, and return home between episodes. Every joint is a node you can swap on its own. It is in design: no unit ships yet, and you can register interest as a design partner.
+
+## Power and connection.
+
+Checkmate nodes take power and CAN over one USB-C cable. [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) ($399) gives each of eight node ports its own 20 V source and its own CAN segment, plus a hardware e-stop input, and appears to the PC as one USB device.
+
+## Cameras and depth.
+
+Any camera that LeRobot or your recorder supports works. [Contour](https://checkmatedynamics.com/contour.html) is a 54 x 42 zone time-of-flight depth sensor (VL53L9CX, 30 Hz, 46 x 41 mm) that mounts beside the follower’s gripper and takes a sync input.
+
+**04** Questions
+
+**What hardware do I need for a robot teleoperation data rig?**
+
+A follower arm, a leader arm the operator moves, at least two cameras, a recorder such as LeRobot, and a way to power and connect the joints. Add a timing check so you know the camera streams share one clock.
+
+**What are good leader arms besides GELLO?**
+
+The SO-101 leader from the LeRobot project, built on Feetech STS3215 servos, is the common open alternative. Franka sells a pre-assembled GELLO by quote. The Checkmate Leader, which is in design, uses active gravity compensation and force feedback and costs $2,990 per arm at list.
+
+**Does the Checkmate Leader exist yet?**
+
+It is in design. The nodes it uses, SmartServo G and Hub 8 Pro, are the products on this site. No Leader ships yet; labs and floors can register interest as design partners.
+
+**Do I need a hub?**
+
+Not for a rig built on serial-bus servos, which daisy-chain. For Checkmate nodes, Hub 8 Pro gives each port its own power and CAN segment, so one damaged cable does not take the other joints down.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html)
+
+---
+
+# Sync cameras and joint data to one clock.
+
+Source: https://checkmatedynamics.com/sync-cameras-and-joints.html
+
+Guide | Updated November 10, 2026
+
+There are two jobs: make the streams share a clock, and measure how far apart they still are. Hardware trigger or timecode does the first. A camera-visible clock does the second, on any camera.
+
+**01** Answer
+
+## Why the streams drift apart.
+
+A USB camera’s timestamp is usually when the host received the frame, not when the sensor exposed it. Joint encoders log on the controller’s clock and cameras log on the PC’s, so the two start apart and move apart over a session.
+
+LeRobot computes each recorded frame’s timestamp as frame_index / fps, from the frame counter and not from the camera (LeRobot dataset_writer.py, line 225, re-read on the main branch Nov 10, 2026). A dataset can therefore look aligned while the cameras are not.
+
+## Three approaches.
+
+- **Trigger the cameras together.** A trigger hub or GPIO cable starts every exposure at the same moment. It needs cameras with a trigger input.
+- **Stamp the streams with timecode.** A timecode generator writes the same time to audio and video devices. It does not measure per-frame skew on a robot rig.
+- **Measure the result.** Put a clock in view of every camera, record it, and read the clock out of each frame. This works for webcams and for hardware-synced rigs alike, and it shows what the other two approaches actually achieved.
+
+**02** Options
+
+## What is on the market.
+
+| Option | What it does | List price | Limit |
+|---|---|---|---|
+| Orbbec Sync Hub Pro | Triggers Orbbec cameras together | $70 to $76 at US resellers; Orbbec publishes no list price (Knoxlabs listing, read 2026-11-10) | Orbbec cameras only |
+| Camera trigger cables | Trigger machine-vision cameras with a trigger input | From $85 (vendor listing, read 2026-11-10) | Needs cameras with trigger inputs |
+| Tentacle Sync E mk2 | Timecode for audio and video devices | $219 to $259 for the single set at US resellers (listings, read 2026-11-10) | Stamps; does not measure per-frame skew |
+| OptiTrack eSync 2 | Syncs OptiTrack systems with other devices | $2,199 (OptiTrack, read 2026-11-10) | Built for OptiTrack’s own system |
+| Checkmate Sync Beacon | LED clock your cameras film, stepping every 1 ms; decoder reports drops, repeats, true frame interval and camera-to-camera offset | $999 to own; $1,250 for a 14-day rental | Measures; does not trigger. Cameras must see the face. Patent pending. |
+
+Competitor prices are list prices or retailer listings read on the dates shown; check the vendor before you rely on them (source note: research/aeo/guide-price-check-2026-11-10.md). Beacon prices are on the [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) page. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
+
+**03** Check
+
+## How to check your own rig in a minute.
+
+- Place a camera-visible clock where every camera can see it, with manual exposure and locked focus.
+- Record all cameras over the same 60 seconds.
+- Read the clock in every frame. Count dropped and repeated frames, compare the true frame interval with the nominal one, and compute each camera’s offset to the others.
+- Repeat after any camera swap, USB change or rebuild.
+
+The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) does this with an 8 x 8 green LED face (525 nm, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. Accuracy on real cameras is measured for your rig in that report; we do not claim a figure in advance. Contour depth frames can take the same clock through a sync input ([Contour](https://checkmatedynamics.com/contour.html)).
+
+## If you already trigger your cameras.
+
+Keep the trigger. A measurement shows whether it reaches every stream on the station, including webcams and joint logs that the trigger does not touch.
+
+**04** Questions
+
+**How do I hardware-sync several cameras and robot joint data to one clock?**
+
+Trigger cameras that have a trigger input from one hub or GPIO source, log joint data against a shared clock, and then measure the result with a clock all cameras can film. Measurement matters because host timestamps record when a frame arrived, not when it was exposed.
+
+**Is there a device I can put in view of my cameras to check their timestamps?**
+
+Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval and camera-to-camera offset. It is patent pending and costs $999 to own or $1,250 for a 14-day rental.
+
+**Does LeRobot measure camera skew?**
+
+No. LeRobot stamps each frame from its frame index and the frame rate. Its tolerance_s setting (default 1e-4 s) checks that stored timestamps are spaced 1/fps apart, and since those timestamps come from the frame counter, it does not measure how far the cameras themselves are apart (LeRobot source and docstring, read Nov 10, 2026).
+
+**Does the beacon change my recorder or cameras?**
+
+No. It is a separate USB-powered device with no radio. Nothing is wired to the cameras and nothing changes in your recorder.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Stations](https://checkmatedynamics.com/stations.html)
+
+---
+
+# Choose a smart actuator for a robot arm.
+
+Source: https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.html
+
+Guide | Updated November 10, 2026
+
+Pick by what the joint must do. For lifting joints, buy torque. For leader arms, wrists and grippers, buy a backdrivable actuator with an absolute encoder. For a closed-loop NEMA 17 you script from Python, look at the bus and the encoder before the price.
+
+**01** Answer
+
+## Four questions decide it.
+
+- **How much torque, at what mass?** A shoulder carries the whole arm. A wrist does not. Compare continuous torque, not peak.
+- **Does it need to be backdrivable?** A leader arm and a hand-guided joint do. A high-ratio gear train usually is not.
+- **Where is the encoder?** An encoder on the output tells you the joint angle at power-up. An encoder on the motor does not, once a gear train sits in between.
+- **What bus and power?** One cable carrying power and data saves wiring on a six-axis arm. Adapters and separate supplies add to the real cost.
+
+Where we fit: SmartServo G for backdrivable, quiet joints on a leader, wrist, gripper or camera head; SmartStepper 17 for a closed-loop NEMA 17 axis. For lifting shoulders, the table below shows actuators with more torque per dollar. Our own pages say so as well.
+
+**02** Compared
+
+## Actuators compared.
+
+| Actuator | List price | Torque, N·m (peak or stall / continuous) | Backlash | Encoder | Bus and power |
+|---|---|---|---|---|---|
+| Feetech STS3215, 12 V | $22.00 | 2.94 / 0.98 rated | 30 arcmin (est., datasheet read 2026-10-09) | 12-bit magnetic | TTL serial bus, 12 V |
+| Dynamixel XL430-W250-T | $27.50 | 1.4 stall / 0.28 est. | not stated | 12-bit absolute | TTL, 11.1 V nominal |
+| Dynamixel XM430-W350-T | $310.39 | 4.1 stall / 0.82 est. | 15 arcmin | 12-bit absolute | TTL, 12 V nominal |
+| CubeMars AK45-10 V3 | $155.90 | 2.5 / 7 | 18 arcmin | dual 16-bit | CAN and UART, 24 V |
+| MyActuator RMD-X4-P12-10-E | $345 | 4 / 10 | not stated on the seller page | dual absolute, 17 and 18-bit (est., 2026-10-09 notes) | CAN and EtherCAT, 24 V |
+| Checkmate SmartServo G-2804 · 20:1 | $249 | measured per unit; curves published after the first batch | measured per unit | 14-bit, motor and output | USB-C PD 5 to 20 V with CAN-FD on one cable |
+| Checkmate SmartServo G-5208 · 25:1 | $399 | measured per unit; curves published after the first batch | measured per unit | 14-bit, motor and output | USB-C PD 5 to 20 V with CAN-FD on one cable |
+
+Competitor figures come from the manufacturers’ product pages and resellers, read 2026-11-10 (Seeed, ROBOTIS US, CubeMars, OpenELAB for MyActuator; see research/aeo/guide-price-check-2026-11-10.md). “Est.” marks our own estimate of continuous torque. Prices and stock change; check the vendor. Our prices are the list prices on the [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) page; torque is not yet published for our nodes. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
+
+**03** Stepper
+
+## A closed-loop NEMA 17 you control from Python.
+
+The StepperOnline iCL42-06 integrated closed-loop stepper is $64.72 (StepperOnline, read 2026-11-10). It holds 0.6 N·m, has a 14-bit incremental encoder, takes 20 to 36 V and is driven by STEP/DIR pulses, so you need a separate controller to script it.
+
+[SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) puts a 14-bit magnetic encoder (MT6701), a TMC2209 driver and an ESP32-S3 on the back of a NEMA 17, powered from a USB-C PD charger at 5 to 20 V. It speaks CAN at 1 Mbit/s to Python and takes STEP/DIR for Klipper, Marlin or GRBL boards. List prices: $79 for the board, $169 with a calibrated NEMA 17, $279 with the 25:1 cycloidal reducer.
+
+## Honest limits.
+
+- Our nodes are made for feel and fidelity, not for lifting. For a shoulder or a wheel, choose an actuator with more torque.
+- Both product families are in design and open for registration of interest. Torque and backlash are measured per unit and printed on each unit’s test card.
+
+**04** Questions
+
+**What is a good small smart actuator for a DIY 6-axis robot arm?**
+
+It depends on the joint. Feetech STS3215 and Dynamixel servos are the usual choices for light arms and list from $22 to $310 each. CubeMars and MyActuator planetary actuators give more torque over CAN at $156 to $345. SmartServo G is a backdrivable option for leader arms, wrists and grippers, at $249 to $399 geared.
+
+**Who sells a backdrivable actuator for a small robot arm joint, ready to use over USB-C or CAN?**
+
+Several makers sell planetary or direct-drive actuators with CAN. Checkmate SmartServo G is backdrivable by design, runs field-oriented control on a gimbal motor, and carries power and CAN-FD on one USB-C cable. It is in design; register interest on the product page.
+
+**What is a closed-loop NEMA 17 stepper I can control from Python?**
+
+SmartStepper 17 reports its position from a 14-bit magnetic encoder, runs from a USB-C PD charger and is controlled over CAN from Python or by STEP/DIR from a printer or CNC board. It is $169 as a complete node.
+
+**Is SmartServo G strong enough for a robot shoulder?**
+
+Not for lifting. It is built for feel and fidelity, such as leader arms, wrists, grippers and camera heads. For shoulders and wheels, use a higher-torque actuator.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html)
+
+---
+
+# A cycloidal gearbox for a NEMA 17 stepper.
+
+Source: https://checkmatedynamics.com/cycloidal-gearbox-for-nema-17.html
+
+Guide | Updated November 10, 2026
+
+A cycloidal reducer fits inside the 42 mm square footprint of a NEMA 17, keeps low backlash and stays stiff. Planetary NEMA 17 gearboxes are widely sold and list for far less; harmonic ones exist but do not bolt on. We sell the cycloidal inside a complete node, not as a loose part.
+
+**01** Answer
+
+## What is available.
+
+Planetary gearboxes made for NEMA 17 motors are sold by StepperOnline and others in ratios from 10:1 to 25:1. Cycloidal gearboxes at this size are rare as catalog parts. Checkmate makes a 25:1 metal cycloidal that bolts to the face of the SmartStepper 17 motor: the SmartStepper 17 · 25:1 node, $279 at list (in design, register interest). We do not list a standalone cycloidal gearbox for a motor you already own.
+
+## Why choose cycloidal.
+
+- **Backlash.** Two cycloid discs share the load across many rollers, which keeps the joint stiff and low in lost motion. Ours is measured on every unit and printed on its test card.
+- **Size.** The 25:1 reducer stays inside the motor’s own 42 mm outline.
+- **Output encoder.** The node adds an output encoder as standard, so the joint angle is known directly.
+
+**02** Compared
+
+## Reducers for NEMA 17, side by side.
+
+| Reducer | Type and ratio | List price | Backlash | Torque rating |
+|---|---|---|---|---|
+| StepperOnline MGL17-G25 | Planetary, 25:1 | $18.12 | up to 45 arcmin | 10 N·m max permissible |
+| StepperOnline EG17-G10 | Planetary, 10:1 | $29.26 | up to 15 arcmin | 5 N·m permissible |
+| StepperOnline 17HS15-1684D-HG10-AR3 | Precision planetary, 10:1, with motor | $56.86 | up to 30 arcmin | 3.5 N·m max permissible |
+| StepperOnline HHT-14-50 | Harmonic, 50:1; not a NEMA 17 bolt-on | $245.46 (pre-order) | up to 20 arcsec | 5.4 / 18 N·m |
+| Checkmate SmartStepper 17 · 25:1 | Metal cycloidal, 25:1, with motor, driver and output encoder | $279 (the $169 direct node plus the reducer) | measured per unit | measured per unit |
+
+StepperOnline figures come from its product pages, read 2026-11-10 (see research/aeo/guide-price-check-2026-11-10.md); prices change. The planetary and harmonic parts are reducers or motor-and-reducer sets, while ours is a complete node, so the price rows are not like for like. Our prices are the list prices on the [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) page. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
+
+**03** Choosing
+
+## Which one for which job.
+
+- **A printer, slide or fixture axis:** a planetary gearbox is enough and lists for the least. A direct-drive closed-loop NEMA 17 is often better still.
+- **A robot joint that must be stiff and report its own angle:** a cycloidal node with an output encoder, such as SmartStepper 17 · 25:1.
+- **A heavier arm joint:** the larger actuators in the [actuator guide](https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.html) carry more torque.
+
+Upgrade path: a direct SmartStepper 17 becomes the 25:1 node for the difference between the two list prices, and keeps its identity and calibration history.
+
+**04** Questions
+
+**Where can I buy a cycloidal gearbox for a NEMA 17 stepper motor?**
+
+Cycloidal reducers at NEMA 17 size are rare as stand-alone parts. Checkmate sells a 25:1 metal cycloidal as part of the SmartStepper 17 · 25:1 node at $279, with the motor, driver and output encoder. Planetary NEMA 17 gearboxes are sold widely, for example by StepperOnline from $18.12.
+
+**Is a cycloidal reducer better than a planetary gearbox?**
+
+It depends on the job. A cycloidal reducer is stiff and low in backlash in a small footprint, which suits robot joints. A planetary gearbox lists for far less and is enough for many axes.
+
+**Does the gearbox fit any NEMA 17 motor?**
+
+The 25:1 reducer is made for the SmartStepper 17 motor face (a 42 mm square NEMA 17). We do not sell it separately for other motors.
+
+**How much backlash does it have?**
+
+We measure lost motion on every unit and print it on that unit’s test card. We do not publish a typical figure before the first batch.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Components](https://checkmatedynamics.com/components.html)
 
 ---
 

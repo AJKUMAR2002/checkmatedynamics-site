@@ -90,7 +90,7 @@ C1 Station timing
 
 [Checkmate Leader](https://checkmatedynamics.com/leader.html) | [Stations](https://checkmatedynamics.com/stations.html)
 
-Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Components](https://checkmatedynamics.com/components.html)
+Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https://checkmatedynamics.com/stations.html) · [Components](https://checkmatedynamics.com/components.html) · [Guides](https://checkmatedynamics.com/guides.html)
 
 ## Choose how you build.
 
