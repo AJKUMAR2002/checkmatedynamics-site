@@ -42,11 +42,12 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | $249 |
 | A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | $249 |
 | A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | $399 |
-| B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | Register interest |
+| B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | $349 |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | Register interest |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
 | C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
+| D5 | Hub 5 | Makers · OEM | Five node ports on one USB-C power input, CAN and a hardware stop | $89 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
 | D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | $19 |
 | D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | $9 or in the box |
@@ -184,7 +185,7 @@ Contour | **54 × 42 zones**
 
 Wireframe from CAD
 
-**B1–B2** Contour, Contour Wrist Waitlist
+**B1–B2** Contour, Contour Wrist Contour $349
 
 Metric time-of-flight depth over USB-C, synced to your cameras. The Wrist version rides on the gripper.
 
@@ -582,7 +583,7 @@ Source: https://checkmatedynamics.com/contour.html
 
 Metric depth from a sensor the size of a thumb, over one USB-C cable and on the same clock as your cameras. It measures distance directly, so plain, textureless surfaces read as well as patterned ones.
 
-**B1 · Contour** | USB-C depth sensor | **Register interest**
+**B1 · Contour** | USB-C depth sensor | **$349**
 
 **B2 · Contour Wrist** | Gripper mount, on the station clock | **Stations**
 
@@ -803,6 +804,18 @@ Each shipped unit comes with its own measured test card.
 **Fig. 05** Cut-away, port side
 
 **Fig. 06** Top
+
+**05** Hub 5
+
+## Hub 5: five node ports on one USB-C cable. $89
+
+The smaller hub, for a four-axis arm with a gripper or a bench of nodes. One USB-C power input, five node ports, CAN to every node and a hardware stop.
+
+| Ports | 5 node ports, USB-C |
+|---|---|
+| Power in | One USB-C PD input. 60 W on a plain charger; 100 W with a 100 W charger and a 5 A cable. Works with any USB-C PD charger; none in the box |
+| Bus | CAN to every node port |
+| Safety | Hardware stop |
 
 Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Components](https://checkmatedynamics.com/components.html)
 

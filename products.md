@@ -28,7 +28,7 @@ Contour | **54 × 42 zones**
 
 Wireframe from CAD
 
-**B1–B2** Contour, Contour Wrist Waitlist
+**B1–B2** Contour, Contour Wrist Contour $349
 
 Metric time-of-flight depth over USB-C, synced to your cameras. The Wrist version rides on the gripper.
 

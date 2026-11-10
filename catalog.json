@@ -298,8 +298,13 @@
       "for": "Makers · OEM",
       "description": "Time-of-flight lidar depth sensor",
       "status": "prototype",
-      "price": null,
-      "price_as_shown": "Register interest",
+      "price": {
+        "amount": 349,
+        "currency": "USD",
+        "from": false,
+        "note": ""
+      },
+      "price_as_shown": "$349",
       "orderable": false,
       "url": "https://checkmatedynamics.com/contour.html",
       "family": "B1",
@@ -376,6 +381,25 @@
       "url": "https://checkmatedynamics.com/hub-8.html",
       "family": "D1",
       "image": "https://checkmatedynamics.com/assets/img/hub8-hero-1200.webp"
+    },
+    {
+      "code": "D5",
+      "name": "Hub 5",
+      "type": "product",
+      "group": "Power & connect",
+      "for": "Makers · OEM",
+      "description": "Five node ports on one USB-C power input, CAN and a hardware stop",
+      "status": "in design",
+      "price": {
+        "amount": 89,
+        "currency": "USD",
+        "from": false,
+        "note": ""
+      },
+      "price_as_shown": "$89",
+      "orderable": false,
+      "url": "https://checkmatedynamics.com/hub-8.html#hub-5",
+      "image": "https://checkmatedynamics.com/assets/img/og.png"
     },
     {
       "code": "D2",

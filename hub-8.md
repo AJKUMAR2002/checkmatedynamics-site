@@ -109,6 +109,18 @@ Each shipped unit comes with its own measured test card.
 
 **Fig. 06** Top
 
+**05** Hub 5
+
+## Hub 5: five node ports on one USB-C cable. $89
+
+The smaller hub, for a four-axis arm with a gripper or a bench of nodes. One USB-C power input, five node ports, CAN to every node and a hardware stop.
+
+| Ports | 5 node ports, USB-C |
+|---|---|
+| Power in | One USB-C PD input. 60 W on a plain charger; 100 W with a 100 W charger and a 5 A cable. Works with any USB-C PD charger; none in the box |
+| Bus | CAN to every node port |
+| Safety | Hardware stop |
+
 Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [SmartServo G](https://checkmatedynamics.com/smartservo-g.html) · [Components](https://checkmatedynamics.com/components.html)
 
 ## Eight nodes on one hub.

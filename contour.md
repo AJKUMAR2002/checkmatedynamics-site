@@ -6,7 +6,7 @@ Source: https://checkmatedynamics.com/contour.html
 
 Metric depth from a sensor the size of a thumb, over one USB-C cable and on the same clock as your cameras. It measures distance directly, so plain, textureless surfaces read as well as patterned ones.
 
-**B1 · Contour** | USB-C depth sensor | **Register interest**
+**B1 · Contour** | USB-C depth sensor | **$349**
 
 **B2 · Contour Wrist** | Gripper mount, on the station clock | **Stations**
 

@@ -34,11 +34,12 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | A2.3 | G-2804 · 20:1 | All | Cycloidal, output encoder, I/O tile | $249 |
 | A2.4 | G-5208 · Direct | Makers · OEM | Direct drive, larger motor, for haptics and test benches | $249 |
 | A2.5 | G-5208 · 25:1 | All | Cycloidal, output encoder, I/O tile | $399 |
-| B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | Register interest |
+| B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | $349 |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | Register interest |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
 | C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
+| D5 | Hub 5 | Makers · OEM | Five node ports on one USB-C power input, CAN and a hardware stop | $89 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
 | D3 | I/O tile | Makers · OEM | Qwiic and AUX ports for SmartServo G | $19 |
 | D4 | Cable Clip | All | Anodized 6061 clamp that holds the USB-C cable in its port | $9 or in the box |
