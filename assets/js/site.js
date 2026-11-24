@@ -85,6 +85,8 @@
   // Off entirely with prefers-reduced-motion. Without script or with IntersectionObserver
   // missing, everything stays in its finished state.
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Looping clips do not autoplay with prefers-reduced-motion: they show their poster and controls instead.
+  if (reduce) document.querySelectorAll("video[autoplay]").forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); v.controls = true; });
   if (!reduce && "IntersectionObserver" in window) {
     var sel = ".sec-head, .point, .stat, .plan, .door, .variant, .index-row:not(.head), .tile, .fig, .copy, .card-doc, .faq details, .ph-side, .ph .d1";
     var items = document.querySelectorAll(sel);

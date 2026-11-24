@@ -905,6 +905,10 @@ You get dropped frames, repeated frames, true frame intervals, host-timestamp la
 
 **Fig. 03** The LED face: 8 × 8, stepping every 1 ms Diagram
 
+**Photo** A Sync Beacon running on the bench November 2026
+
+**Video** The LED clock stepping, filmed on a phone 2 s loop, no sound
+
 **1 ms**
 
 LED clock step. Selectable at 0.5 ms and 2 ms.

@@ -934,3 +934,6 @@ body.bag-lock { overflow: hidden; }
 
 /* a table straight after a heading gets room */
 :is(h2, h3) + .spec-wrap, :is(h2, h3) + .spec { margin-top: 24px; }
+
+/* Nov 24: real photos and video (founder's own shots, used as shot), framed like the plates */
+.fig.photo img, .fig.photo video { display: block; width: 100%; height: auto; background: #000; }
