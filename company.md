@@ -2,9 +2,9 @@
 
 Source: https://checkmatedynamics.com/company.html
 
-Company | Dallas, Texas
+Company | Nodes · Sensing · Hubs
 
-Checkmate Dynamics is a Dallas robotics and drone hardware company. We make motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs for robot arms and robot training-data rigs, and we are developing a flight-sensor node for drones.
+Checkmate Dynamics makes motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs for robot arms and robot training-data rigs, and we are developing a flight-sensor node for drones.
 
 **01** Principles
 
@@ -78,11 +78,11 @@ Register interest
 
 Data floors
 
-### Book a call
+### Email us
 
 Sync Kit, Leader, commissioning, service.
 
-Book a call
+Email us
 
 Robotics companies
 

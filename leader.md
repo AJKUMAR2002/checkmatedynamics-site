@@ -16,7 +16,7 @@ A leader arm that carries its own weight, lets the operator feel the follower’
 
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
-Fig. 01 — Eight SmartServo G nodes on one Hub 8 Pro: the catalog parts the Leader is built from, as sold. The arm is not shown; links, base and handle are Leader-specific.
+Fig. 01 — The parts that make a Leader: eight SmartServo G nodes on one Hub 8 Pro, as sold.
 
 **01** Operator
 
@@ -99,4 +99,4 @@ Related: [Stations](https://checkmatedynamics.com/stations.html) · [SmartServo 
 
 ## Twenty minutes to see if it fits your floor.
 
-[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader) | [Leader Care](https://checkmatedynamics.com/stations.html#service)
+[Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader) | [Leader Care](https://checkmatedynamics.com/stations.html#service)

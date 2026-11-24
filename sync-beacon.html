@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sync Beacon: put every camera on one clock — Checkmate Dynamics</title>
-<meta name="description" content="An LED clock your cameras film. It puts every frame on one clock and shows how far apart your cameras and joints are. Rent it for a 14-day check or own one.">
+<title>Sync Beacon: camera sync and timestamp check — Checkmate Dynamics</title>
+<meta name="description" content="An LED clock your cameras film. It measures each camera true frame rate, dropped frames, host-timestamp latency and camera-to-camera offset. No trigger cable.">
 <link rel="canonical" href="https://checkmatedynamics.com/sync-beacon.html">
 <link rel="alternate" type="text/markdown" href="sync-beacon.md">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Checkmate Dynamics">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://checkmatedynamics.com/sync-beacon.html">
-<meta property="og:title" content="Sync Beacon: put every camera on one clock — Checkmate Dynamics">
-<meta property="og:description" content="An LED clock your cameras film. It puts every frame on one clock and shows how far apart your cameras and joints are. Rent it for a 14-day check or own one.">
+<meta property="og:title" content="Sync Beacon: camera sync and timestamp check — Checkmate Dynamics">
+<meta property="og:description" content="An LED clock your cameras film. It measures each camera true frame rate, dropped frames, host-timestamp latency and camera-to-camera offset. No trigger cable.">
 <meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sync Beacon: put every camera on one clock — Checkmate Dynamics">
-<meta name="twitter:description" content="An LED clock your cameras film. It puts every frame on one clock and shows how far apart your cameras and joints are. Rent it for a 14-day check or own one.">
+<meta name="twitter:title" content="Sync Beacon: camera sync and timestamp check — Checkmate Dynamics">
+<meta name="twitter:description" content="An LED clock your cameras film. It measures each camera true frame rate, dropped frames, host-timestamp latency and camera-to-camera offset. No trigger cable.">
 <meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
@@ -75,7 +75,125 @@
     "name": "Checkmate Dynamics"
   },
   "image": "https://checkmatedynamics.com/assets/img/wf-beacon-1200.webp",
-  "url": "https://checkmatedynamics.com/sync-beacon.html"
+  "url": "https://checkmatedynamics.com/sync-beacon.html",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Own one: Sync Beacon",
+      "price": "1250",
+      "priceCurrency": "USD",
+      "url": "https://checkmatedynamics.com/sync-beacon.html#offers",
+      "eligibleRegion": {
+        "@type": "Country",
+        "name": "US"
+      },
+      "seller": {
+        "@id": "https://checkmatedynamics.com/#organization"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "14-day rental, per station",
+      "price": "999",
+      "priceCurrency": "USD",
+      "url": "https://checkmatedynamics.com/sync-beacon.html#offers",
+      "eligibleRegion": {
+        "@type": "Country",
+        "name": "US"
+      },
+      "seller": {
+        "@id": "https://checkmatedynamics.com/#organization"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check that my cameras are in sync without a hardware trigger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Film one LED clock with every camera and decode each recording. Every frame lands on the clock’s time, so you read each camera’s offset to the others, its dropped and repeated frames and its true frame interval. Nothing is wired to the cameras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I measure camera latency per frame?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The clock’s reading in a frame is when the sensor saw it. Compare that with the host’s timestamp for the same frame and the difference is the capture-to-host latency. On our bench one USB camera showed a median of 2.95 ms and a 99th percentile of 9.32 ms (one camera, one PC, Nov 3, 2026)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my 120 fps camera really 120 fps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The decoder reports the true frame rate from the clock, not from the label. The 120 fps camera on our bench ran at 120.625 fps, so trusting the label would misplace frames by about 313 ms after one minute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I detect dropped or repeated frames in a multi-camera recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The decoder lists every dropped and repeated frame per camera and when it happened. A 2.4 second USB stall (292 frames) on our bench was found and placed exactly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check the camera timestamps in a LeRobot dataset?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LeRobot stamps each frame as frame_index divided by fps, so the stored timestamps cannot show camera skew. Film the beacon with the same cameras, decode the videos and compare. In a synthetic test the decoder read LeRobot’s default AV1, MJPEG and H.264 at crf 23, and did not read H.265."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the beacon trigger or synchronize my cameras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It measures; it does not trigger cameras, and nothing changes on your cameras or in your recorder. If you already trigger your cameras, it shows what the trigger achieved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it line up my robot joints with the camera frames?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It measures the camera half: each camera’s latency and jitter against true time. Camera-to-robot-action timing on your rig is not available yet, because it needs the robot’s clock tied to the beacon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to 37 µs. That is repeatability on our bench, not a certified accuracy figure, and we have not yet measured it against an independent reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do I put it, and can a wrist camera see it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Put it where every camera can see its face. In a synthetic test at 640 x 480 the decoder worked within 0.6 m and 45 degrees of the lens axis, and at 720p within 2.1 m facing the camera. A wrist camera sees it only when the arm points at it, so the check is something you run, not something left in every episode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 14-day rental is $999 per station and owning one is $1,250. Both are sold to labs and companies as test equipment."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -149,7 +267,7 @@
       <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
       <div class="nav-cta">
         <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Sync%20Beacon">Register interest</a>
-        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Beacon" data-booking>Book a call</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Beacon" data-booking><span data-book-label="Book a call">Email us</span></a>
       </div>
     </nav>
   </div>
@@ -159,19 +277,19 @@
 <section class="ph phx cm-grid">
   <div class="wrap">
     <div class="ph-meta"><span class="label"><a href="stations.html">Stations</a> / C — Sync / C1</span><span class="label">Timing test instrument · Patent pending</span></div>
-    <div class="ph-title"><h1 class="d1">Prove your cameras agree on time.</h1></div>
+    <div class="ph-title"><h1 class="d1">Check whether your cameras agree on time.</h1></div>
     <div class="grid phx-body">
       <div class="c1-5">
-        <p class="lede">Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and most rigs never measure by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.</p>
-        <div class="variants">
-          <div class="variant"><strong>14-day rental</strong><span>A beacon ships to you, per station</span><b><span class="mono">$1,250</span></b></div>
-          <div class="variant"><strong>Own one</strong><span>A founding Sync Beacon, yours</span><b><span class="mono">$999</span></b></div>
+        <p class="lede">The cameras in a robot recording rarely share a clock. Host timestamps are late and noisy, frames drop or repeat, and a camera’s labeled frame rate is often not its real one. The Sync Beacon is an LED clock that steps every <span class="mono">1 ms</span>. Film it with every camera, and the decoder reports each camera’s true frame rate, dropped and repeated frames, host-timestamp latency and the offset between cameras. There is no trigger cable and no change to the camera. It measures; it does not trigger cameras.</p>
+        <div class="variants price-first">
+          <div class="variant"><strong>14-day rental</strong><span>A beacon ships to you, per station</span><b><span class="mono">$999</span></b></div>
+          <div class="variant"><strong>Own one</strong><span>A founding Sync Beacon, yours</span><b><span class="mono">$1,250</span></b></div>
         </div>
         <div class="btns">
           <a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20timing%20check&amp;body=Cameras%20and%20frame%20rates%3A%0ARobot%20and%20recorder%3A%0ALocation%3A">Book a timing check</a>
           <a class="btn btn-line" href="#offers">See the offers</a>
         </div>
-        <p class="fine mt-s">A timing test instrument for rig validation and QA. Sold to labs and companies.</p>
+        <p class="fine mt-s">A timing test instrument for rig validation and QA. Sold to labs and companies. Guides: <a class="link" href="check-multi-camera-sync-in-a-recording.html">check sync in a recording</a>, <a class="link" href="measure-camera-latency-per-frame.html">measure latency per frame</a>, <a class="link" href="sync-cameras-and-joints.html">sync cameras and joints</a>.</p>
       </div>
       <div class="c7-12">
         <figure class="fig" style="margin:0">
@@ -224,7 +342,7 @@
     <div class="c4-7 copy">
       <h2 class="d2 balance">A clock your cameras can film.</h2>
       <p class="lede">The beacon sits in view of your cameras and shows an LED clock that steps every <span class="mono"><span class="mono">1 ms</span></span>. Every camera films it. The decoder reads the clock in each frame, so every frame’s exposure time lands on one clock.</p>
-      <p>You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It is built for any camera that can see it, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.</p>
+      <p>You get dropped frames, repeated frames, true frame intervals, host-timestamp latency and the offset between cameras, per camera. It works with cameras that can see the face, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.</p>
     </div>
     <figure class="fig c8-12">
       <div class="crop"><div class="cplate" style="aspect-ratio:1" role="img" aria-label="An eight by eight grid of small circles. One circle is lit white with a faint ring, and the two before it are dimmer, showing the lit position stepping across the face.">
@@ -302,7 +420,7 @@
     <div class="stats mt-l">
       <div class="stat"><b><span class="mono">1 ms</span></b><p>LED clock step. Selectable at <span class="mono">0.5 ms</span> and <span class="mono">2 ms</span>.</p></div>
       <div class="stat"><b><span class="mono">8 × 8</span></b><p>Green LED face, <span class="mono">525 nm</span>. Green light passes the IR-cut filter on camera sensors.</p></div>
-      <div class="stat"><b>Any camera</b><p>Built for webcams, machine-vision cameras and phones that can see the face. Your Station Report confirms each camera.</p></div>
+      <div class="stat"><b>Camera-agnostic</b><p>Built for webcams, machine-vision cameras and phones that can see the face. Your Station Report confirms each camera on your rig.</p></div>
     </div>
   </div>
 </section>
@@ -314,7 +432,7 @@
       <h2 class="d2 balance">Proof, not a feeling.</h2>
       <p class="lede">The Station Report lists, for each camera, how many frames were placed on the beacon clock, what was dropped or repeated, the true frame interval, and the offset to every other camera.</p>
       <p>Keep it with the dataset. When a data buyer or a reviewer asks how well aligned the streams are, you have the measurement.</p>
-      <p>Accuracy on real cameras is measured for your rig in the Station Report.<!-- ACCURACY: fill after camera test --></p>
+      <p>On a <span class="mono">120 fps</span> global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to <span class="mono">37 µs</span>. That is repeatability on our bench, not a certified accuracy figure. Accuracy on your cameras is measured for your rig in the Station Report.<!-- ACCURACY: fill after camera test --></p>
     </div>
     <div class="c8-12">
       <div class="card-doc" aria-label="Station Report">
@@ -375,7 +493,7 @@
       <div class="offer">
         <div class="o-name"><span class="label">Rental</span><h3 class="d3">14-day rental</h3></div>
         <p class="o-text">A beacon ships to your lab. A 60-minute setup call, a Station Report for one station, a closing call to go through it, and shipping both ways. US only. Keep that beacon within 30 days of the rental starting and <span class="mono">$500</span> of the rental counts toward it.</p>
-        <div class="o-buy"><b class="o-price"><span class="mono">$1,250</span></b><span class="fine">per station, 14 days</span><a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%2014-day%20rental&amp;body=Cameras%20and%20frame%20rates%3A%0APreferred%20dates%3A">Reserve a rental</a></div>
+        <div class="o-buy"><b class="o-price"><span class="mono">$999</span></b><span class="fine">per station, 14 days</span><a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%2014-day%20rental&amp;body=Cameras%20and%20frame%20rates%3A%0APreferred%20dates%3A">Reserve a rental</a></div>
       </div>
       <div class="offer">
         <div class="o-name"><span class="label">Subscription</span><h3 class="d3">Remote timing check</h3></div>
@@ -384,8 +502,8 @@
       </div>
       <div class="offer">
         <div class="o-name"><span class="label">Own</span><h3 class="d3">Own one</h3></div>
-        <p class="o-text">A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return. At <span class="mono">$999</span> it fits a university P-card.</p>
-        <div class="o-buy"><b class="o-price"><span class="mono">$999</span></b><span class="fine">per beacon</span><a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&amp;body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A">Ask to buy one</a></div>
+        <p class="o-text">A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return. At <span class="mono">$1,250</span> it fits a university P-card.</p>
+        <div class="o-buy"><b class="o-price"><span class="mono">$1,250</span></b><span class="fine">per beacon</span><a class="btn btn-ink" href="mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&amp;body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A">Ask to buy one</a></div>
       </div>
     </div>
     <p class="fine mt-s">Prices in US dollars. Ships within 2 weeks of your order. Invoiced by card, ACH, P-card or purchase order. Shipped offers are US only. Sold and rented to labs and companies as test equipment, for timing measurement, rig validation and QA. Patent pending.</p>
@@ -402,7 +520,7 @@
           <tbody>
             <tr><th>LED clock</th><td><span class="mono">1 ms</span> step, with <span class="mono">0.5 ms</span> and <span class="mono">2 ms</span> selectable</td></tr>
             <tr><th>LED face</th><td><span class="mono">8 × 8</span> green LEDs, <span class="mono">525 nm</span></td></tr>
-            <tr><th>Cameras</th><td>Built for any camera that can see the face; confirmed per camera in the Station Report. No wiring to the camera</td></tr>
+            <tr><th>Cameras</th><td>Works with cameras that can see the face; confirmed per camera in the Station Report. No wiring to the camera. It measures; it does not trigger</td></tr>
             <tr><th>Reference pulses</th><td>Two SYNC outputs, <span class="mono">100 µs</span> active-low pulses, <span class="mono">30 Hz</span> by default</td></tr>
             <tr><th>Clock stability</th><td>±<span class="mono">0.14 ppm</span> over <span class="mono">3 h</span> on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate</td></tr>
             <tr><th>Power</th><td>USB-C, <span class="mono">5 V</span>. No radio, no network</td></tr>
@@ -415,7 +533,26 @@
   </div>
 </section>
 
-<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="stations.html">Stations</a> · <a class="link" href="contour.html">Contour</a> · <a class="link" href="hub-8.html">Hub 8 Pro</a> · <a class="link" href="leader.html">Checkmate Leader</a></p></div></section>
+<section class="sec" id="faq">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>08</b>Questions</div>
+    <div class="c4-12 faq">
+      <h2 class="d2 balance" style="margin-top:0">Camera timing questions, answered.</h2>
+      <details><summary>How do I check that my cameras are in sync without a hardware trigger?</summary><p>Film one LED clock with every camera and decode each recording. Every frame lands on the clock’s time, so you read each camera’s offset to the others, its dropped and repeated frames and its true frame interval. Nothing is wired to the cameras.</p></details>
+      <details><summary>How do I measure camera latency per frame?</summary><p>The clock’s reading in a frame is when the sensor saw it. Compare that with the host’s timestamp for the same frame and the difference is the capture-to-host latency. On our bench one USB camera showed a median of <span class="mono">2.95 ms</span> and a 99th percentile of <span class="mono">9.32 ms</span> (one camera, one PC, Nov 3, 2026).</p></details>
+      <details><summary>Is my <span class="mono">120 fps</span> camera really <span class="mono">120 fps</span>?</summary><p>The decoder reports the true frame rate from the clock, not from the label. The <span class="mono">120 fps</span> camera on our bench ran at <span class="mono">120.625 fps</span>, so trusting the label would misplace frames by about <span class="mono">313 ms</span> after one minute.</p></details>
+      <details><summary>How do I detect dropped or repeated frames in a multi-camera recording?</summary><p>The decoder lists every dropped and repeated frame per camera and when it happened. A 2.4 second USB stall (292 frames) on our bench was found and placed exactly.</p></details>
+      <details><summary>Can I check the camera timestamps in a LeRobot dataset?</summary><p>LeRobot stamps each frame as frame_index divided by fps, so the stored timestamps cannot show camera skew. Film the beacon with the same cameras, decode the videos and compare. In a synthetic test the decoder read LeRobot’s default AV1, MJPEG and H.264 at crf 23, and did not read H.265.</p></details>
+      <details><summary>Does the beacon trigger or synchronize my cameras?</summary><p>No. It measures; it does not trigger cameras, and nothing changes on your cameras or in your recorder. If you already trigger your cameras, it shows what the trigger achieved.</p></details>
+      <details><summary>Can it line up my robot joints with the camera frames?</summary><p>It measures the camera half: each camera’s latency and jitter against true time. Camera-to-robot-action timing on your rig is not available yet, because it needs the robot’s clock tied to the beacon.</p></details>
+      <details><summary>How accurate is it?</summary><p>On a <span class="mono">120 fps</span> global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to <span class="mono">37 µs</span>. That is repeatability on our bench, not a certified accuracy figure, and we have not yet measured it against an independent reference.</p></details>
+      <details><summary>Where do I put it, and can a wrist camera see it?</summary><p>Put it where every camera can see its face. In a synthetic test at 640 x 480 the decoder worked within <span class="mono">0.6 m</span> and 45 degrees of the lens axis, and at 720p within <span class="mono">2.1 m</span> facing the camera. A wrist camera sees it only when the arm points at it, so the check is something you run, not something left in every episode.</p></details>
+      <details><summary>How much does it cost?</summary><p>A 14-day rental is <span class="mono">$999</span> per station and owning one is <span class="mono">$1,250</span>. Both are sold to labs and companies as test equipment.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="stations.html">Stations</a> · <a class="link" href="sync-cameras-and-joints.html">Sync cameras and joints</a> · <a class="link" href="check-multi-camera-sync-in-a-recording.html">Check multi-camera sync in a recording</a> · <a class="link" href="measure-camera-latency-per-frame.html">Measure camera latency per frame</a> · <a class="link" href="contour.html">Contour</a></p></div></section>
 <section class="closer">
   <div class="wrap grid">
     <h2 class="c1-8 d2 balance">Find out how far apart your streams really are.</h2>
@@ -430,11 +567,11 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="grid foot-grid">
-      <div class="c1-4">
+      <div class="c1-3">
         <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
-        <p>Robotics and drone hardware. Designed and tested in Dallas, Texas.</p>
+        <p>Robotics and drone hardware.</p>
       </div>
-      <div class="c5-12 foot-links">
+      <div class="c4-12 foot-links">
         <div>
           <span class="label">Move · Sense</span>
           <a href="smartstepper-17.html">SmartStepper 17</a>
@@ -458,7 +595,7 @@
           <span class="label">Company</span>
           <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
           <a href="company.html">About</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Beacon">Book a call</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20Beacon" data-booking><span data-book-label="Book a call">Email us</span></a>
           <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Sync%20Beacon">Talk to us</a>
           <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Sync%20Beacon">Register interest</a>
           <a href="privacy.html">Privacy</a>
@@ -466,8 +603,8 @@
       </div>
     </div>
     <div class="foot-base">
-      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas · <span class="mono">32.78°</span> N <span class="mono">96.80°</span> W</span>
-      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://x.com/checkmatedyn" rel="me noopener">X</a><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas</span>
+      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
       <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
     </div>
   </div>

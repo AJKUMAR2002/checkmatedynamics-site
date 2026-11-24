@@ -17,7 +17,7 @@ Most open rigs pair a follower arm with a small leader that has the same joint l
 - **Cameras:** at least one wrist camera and one fixed view. Add Contour depth at the gripper if your policy uses it.
 - **Power and connection:** one supply and bus per arm. Hub 8 Pro powers and connects up to eight Checkmate nodes over a single USB link.
 - **Recorder:** LeRobot, or the SDK of your arm maker.
-- **Timing check:** measure camera skew before you record, not after episodes are rejected. The [sync guide](https://checkmatedynamics.com/sync-cameras-and-joints.html) shows how.
+- **Timing check:** measure camera skew before you record, not after episodes are rejected. The [sync guide](https://checkmatedynamics.com/sync-cameras-and-joints.html) shows how, and [this guide](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html) covers checking a recording for dropped frames and camera offset. The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) is the instrument we make for it.
 
 **02** Leader options
 

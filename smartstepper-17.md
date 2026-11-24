@@ -25,6 +25,7 @@ Key figures
 - **Bus**: CAN 1 Mbit/s
 - **Reduction**: 25:1 cycloidal
 - **Gearbox**: 42 mm square
+- **Rear unit**: 45.3 mm square
 
 45.3 mm
 

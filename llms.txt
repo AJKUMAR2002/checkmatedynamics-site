@@ -1,12 +1,12 @@
 # Checkmate Dynamics
 
-> Checkmate Dynamics is a Dallas robotics and drone hardware company. It makes motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs; a flight-sensor node for drones is in development. Everything works together out of the box. Makers use the nodes one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Prices are list prices in US dollars.
+> Checkmate Dynamics makes motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs; a flight-sensor node for drones is in development. Everything works together out of the box. Makers use the nodes one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Prices are list prices in US dollars.
 
 Specifications are datasheet figures, values set by our design, or bench measurements. Prices are list prices in USD. Legal notices and pre-order terms: https://checkmatedynamics.com/legal.md. Every page has a markdown version at the same address ending in .md.
 
 ## Overview
 
-- [Home](https://checkmatedynamics.com/index.md): Dallas robotics and drone hardware company: motion nodes, actuators, cycloidal gearboxes, Contour lidar and hubs for robot arms and training-data rigs.
+- [Home](https://checkmatedynamics.com/index.md): Motion nodes, actuators, cycloidal gearboxes, Contour lidar and hubs for robot arms and training-data rigs, built to work together out of the box.
 - [Products](https://checkmatedynamics.com/products.md): One family of complete motion, sensing and sync nodes in four groups: Move, Sense, Sync, Power and connect. Each works alone and joins the same bus.
 
 ## Products
@@ -18,9 +18,20 @@ Specifications are datasheet figures, values set by our design, or bench measure
 
 ## Stations
 
-- [Sync Beacon](https://checkmatedynamics.com/sync-beacon.md): An LED clock your cameras film. It puts every frame on one clock and shows how far apart your cameras and joints are. Rent it for a 14-day check or own one.
+- [Sync Beacon](https://checkmatedynamics.com/sync-beacon.md): An LED clock your cameras film. It measures each camera true frame rate, dropped frames, host-timestamp latency and camera-to-camera offset. No trigger cable.
 - [Checkmate Leader](https://checkmatedynamics.com/leader.md): A leader arm that carries its own weight, lets the operator feel the follower’s limits and grip, and returns home by itself. Every joint is a SmartServo G node.
 - [Stations](https://checkmatedynamics.com/stations.md): Sync QA, a motorized leader arm, commissioning and service for teleoperation stations, built from the nodes we sell on their own. Fewer rejected episodes.
+
+## Camera timing questions
+
+- [How do I check that my cameras are in sync without a hardware trigger?](https://checkmatedynamics.com/sync-beacon.md): Film an LED clock with every camera and decode each recording. The Sync Beacon steps every 1 ms and reports each camera's true frame rate, dropped and repeated frames, host-timestamp latency and offset to the other cameras. It measures; it does not trigger cameras.
+- [How do I measure camera latency per frame?](https://checkmatedynamics.com/measure-camera-latency-per-frame.md): Read an LED clock in each frame; its time is the exposure time, and the difference from the host timestamp is the capture-to-host latency. On our bench one USB camera showed a 2.95 ms median and a 9.32 ms 99th percentile (one camera, one PC).
+- [Is my 120 fps camera really 120 fps?](https://checkmatedynamics.com/sync-beacon.md): Measure frame spacing against a clock in view. The 120 fps camera on our bench ran at 120.625 fps.
+- [How do I detect dropped or repeated frames in a multi-camera recording?](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.md): Read a continuous clock in every frame: a gap is a drop, a repeated reading is a repeat. A 2.4 s USB stall (292 frames) was found and placed exactly on our bench.
+- [Can I check camera timestamps in a LeRobot dataset?](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.md): LeRobot stamps frames as frame_index / fps, so stored timestamps cannot show camera skew. Film a clock with the same cameras and decode the videos.
+- [How do I align camera frames with robot joint data?](https://checkmatedynamics.com/align-camera-and-joint-timestamps.md): Put both on one clock and measure the delay on each side. The Sync Beacon measures the camera side; camera-to-robot-action timing on a customer rig is not available yet.
+- [How do I sync multiple cameras for robot data?](https://checkmatedynamics.com/sync-cameras-and-joints.md): Hardware trigger, timecode or PTP where cameras support them, then measure the result with a clock in view. Prices and limits of each option are listed.
+- [How accurate is the Sync Beacon, and what does it cost?](https://checkmatedynamics.com/sync-beacon.md): On a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames and frame times repeat to 37 µs. That is repeatability on our bench, not a certified accuracy figure. A 14-day rental is $999 per station; owning one is $1,250.
 
 ## Ways in
 
@@ -30,19 +41,22 @@ Specifications are datasheet figures, values set by our design, or bench measure
 
 ## Company
 
-- [Company](https://checkmatedynamics.com/company.md): Dallas robotics and drone hardware company making motion nodes, actuators, cycloidal gearboxes, lidar sensors and hubs for robot arms and data rigs.
+- [Company](https://checkmatedynamics.com/company.md): Checkmate Dynamics makes motion nodes, actuators, cycloidal gearboxes, lidar sensors and hubs for robot arms and robot training-data rigs, out of the box.
 
 ## Guides
 
-- [Guides](https://checkmatedynamics.com/guides.md): Plain guides for robot builders: a teleoperation data rig, syncing cameras and joints, choosing a smart actuator, and a cycloidal gearbox for NEMA 17.
+- [Guides](https://checkmatedynamics.com/guides.md): Plain guides for robot builders: a teleoperation data rig, camera and joint sync, camera latency, smart actuators and a NEMA 17 cycloidal gearbox.
 - [Build a teleoperation rig](https://checkmatedynamics.com/build-a-teleoperation-rig.md): What to buy for a robot teleoperation data rig: leader arm options (SO-101, GELLO, Franka GELLO, Checkmate Leader), cameras, power and a timing check.
-- [Sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.md): How to put cameras and robot joint data on one clock for robot learning datasets, the hardware options and prices, and how to measure whether the streams agree.
+- [Sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.md): How to sync cameras and robot joint data: hardware trigger, timecode, PTP or a clock in view. Options with prices, and how to measure whether the streams agree.
+- [Check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.md): How to check whether the cameras in a recording are in sync: dropped and repeated frames and camera offset, with no trigger. Works on recorded robot datasets.
+- [Measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.md): How to measure a camera capture-to-host latency, jitter and real frame rate frame by frame: four methods, the limits of each, and where a clock in view fits.
+- [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.md): Why camera frames and robot joint readings drift apart in teleoperation datasets, how teams align them today, and which half a camera-visible clock can measure.
 - [Smart actuators for a robot arm](https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.md): How to choose a smart actuator or closed-loop stepper for a DIY robot arm: torque, backlash, encoder, bus and price for Dynamixel, Feetech, CubeMars and ours.
 - [Cycloidal gearbox for NEMA 17](https://checkmatedynamics.com/cycloidal-gearbox-for-nema-17.md): Cycloidal gearbox for NEMA 17: how it compares with planetary and harmonic reducers on backlash, ratio and price, and what Checkmate sells today.
 
 ## Data
 
-- [Catalog (JSON)](https://checkmatedynamics.com/catalog.json): every catalogue number with name, group, status, list price and the Key figures as shown on the pages
+- [Catalog (JSON)](https://checkmatedynamics.com/catalog.json): every catalog number with name, group, status, list price and the Key figures as shown on the pages
 - [Full text of the site](https://checkmatedynamics.com/llms-full.txt): every page as markdown in one file
 
 ## Optional

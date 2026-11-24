@@ -6,7 +6,7 @@ Ways in / 01 | Makers, students, labs
 
 Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a USB-C charger, open the app in a browser, move. They’re the units our commercial leader arm is built from.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
 
 **A2.3 · A2.5** SmartServo G · G-2804 20:1 and G-5208 25:1
 
@@ -114,4 +114,4 @@ Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) �
 
 Tell us which nodes you want and what you are building.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest)

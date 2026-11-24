@@ -2,9 +2,9 @@
 
 Source: https://checkmatedynamics.com/sync-cameras-and-joints.html
 
-Guide | Updated November 10, 2026
+Guide | Updated November 24, 2026
 
-There are two jobs: make the streams share a clock, and measure how far apart they still are. Hardware trigger or timecode does the first. A camera-visible clock does the second, on any camera.
+There are two jobs: make the streams share a clock, and measure how far apart they still are. A hardware trigger, timecode or PTP does the first, on cameras that support it. A clock the cameras can see does the second, with no wiring to the camera.
 
 **01** Answer
 
@@ -19,6 +19,7 @@ LeRobot computes each recorded frame’s timestamp as frame_index / fps, from th
 - **Trigger the cameras together.** A trigger hub or GPIO cable starts every exposure at the same moment. It needs cameras with a trigger input.
 - **Stamp the streams with timecode.** A timecode generator writes the same time to audio and video devices. It does not measure per-frame skew on a robot rig.
 - **Measure the result.** Put a clock in view of every camera, record it, and read the clock out of each frame. This works for webcams and for hardware-synced rigs alike, and it shows what the other two approaches actually achieved.
+- **PTP or a vendor global time.** Device clocks are kept together over a network or by the camera SDK, where the device supports it. Most USB webcams do not ([Stereolabs ZED docs](https://docs.stereolabs.com/docs/development/zed-sdk/modules/camera/multi-camera), read Nov 24, 2026). It aligns clocks; it does not show whether each frame’s stamp matches its exposure.
 
 **02** Options
 
@@ -30,7 +31,7 @@ LeRobot computes each recorded frame’s timestamp as frame_index / fps, from th
 | Camera trigger cables | Trigger machine-vision cameras with a trigger input | From $85 (vendor listing, read 2026-11-10) | Needs cameras with trigger inputs |
 | Tentacle Sync E mk2 | Timecode for audio and video devices | $219 to $259 for the single set at US resellers (listings, read 2026-11-10) | Stamps; does not measure per-frame skew |
 | OptiTrack eSync 2 | Syncs OptiTrack systems with other devices | $2,199 (OptiTrack, read 2026-11-10) | Built for OptiTrack’s own system |
-| Checkmate Sync Beacon | LED clock your cameras film, stepping every 1 ms; decoder reports drops, repeats, true frame interval and camera-to-camera offset | $999 to own; $1,250 for a 14-day rental | Measures; does not trigger. Cameras must see the face. Patent pending. |
+| Checkmate Sync Beacon | LED clock your cameras film, stepping every 1 ms; decoder reports drops, repeats, true frame interval and camera-to-camera offset | $1,250 to own; $999 for a 14-day rental | Measures; does not trigger. Cameras must see the face. Patent pending. |
 
 Competitor prices are list prices or retailer listings read on the dates shown; check the vendor before you rely on them (source note: research/aeo/guide-price-check-2026-11-10.md). Beacon prices are on the [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) page. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
 
@@ -43,11 +44,17 @@ Competitor prices are list prices or retailer listings read on the dates shown; 
 - Read the clock in every frame. Count dropped and repeated frames, compare the true frame interval with the nominal one, and compute each camera’s offset to the others.
 - Repeat after any camera swap, USB change or rebuild.
 
-The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) does this with an 8 x 8 green LED face (525 nm, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. Accuracy on real cameras is measured for your rig in that report; we do not claim a figure in advance. Contour depth frames can take the same clock through a sync input ([Contour](https://checkmatedynamics.com/contour.html)).
+The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) does this with an 8 x 8 green LED face (525 nm, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. On a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to 37 µs. That is repeatability on our bench, not a certified accuracy figure; accuracy on your cameras is measured for your rig in the report. It measures; it does not trigger cameras. Contour depth frames can take the same clock through a sync input ([Contour](https://checkmatedynamics.com/contour.html)).
 
 ## If you already trigger your cameras.
 
 Keep the trigger. A measurement shows whether it reaches every stream on the station, including webcams and joint logs that the trigger does not touch.
+
+## More detail.
+
+- [How to check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html): dropped and repeated frames and camera-to-camera offset.
+- [How to measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html): capture-to-host latency, jitter and the real frame rate.
+- [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html): the robot side, and what is not available yet.
 
 **04** Questions
 
@@ -57,7 +64,15 @@ Trigger cameras that have a trigger input from one hub or GPIO source, log joint
 
 **Is there a device I can put in view of my cameras to check their timestamps?**
 
-Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval and camera-to-camera offset. It is patent pending and costs $999 to own or $1,250 for a 14-day rental.
+Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval, host-timestamp latency and camera-to-camera offset. It is patent pending and costs $1,250 to own or $999 for a 14-day rental.
+
+**How do I sync multiple USB cameras without a hardware trigger?**
+
+USB has no broadcast trigger, so you cannot start every webcam at the same instant. Instead, record a clock that all cameras can see and read each frame’s true time from it afterwards; this shows the offset, the drops and the real frame rate. It measures the problem; it does not trigger the cameras.
+
+**Can I check camera timestamps without changing my cameras or recorder?**
+
+Yes. Film the Sync Beacon with the cameras you already use and decode the recordings on your PC. The Station Report confirms each camera on your rig.
 
 **Does LeRobot measure camera skew?**
 
@@ -67,4 +82,4 @@ No. LeRobot stamps each frame from its frame index and the frame rate. Its toler
 
 No. It is a separate USB-powered device with no radio. Nothing is wired to the cameras and nothing changes in your recorder.
 
-Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Stations](https://checkmatedynamics.com/stations.html)
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html) · [Measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html) · [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html)

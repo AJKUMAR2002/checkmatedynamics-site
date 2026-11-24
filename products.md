@@ -44,7 +44,7 @@ The Sync Beacon doesn’t measure the scene or a joint. It is a clock your camer
 
 [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html)
 
-A 14-day timing check is $1,250 per station; owning a beacon is $999. Patent pending.
+A 14-day timing check is $999 per station; owning a beacon is $1,250. Patent pending.
 
 **Station Report** episode 000127
 
@@ -94,4 +94,4 @@ Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https
 
 ## Choose how you build.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Products) | [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Products)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guides for robot builders — Checkmate Dynamics</title>
-<meta name="description" content="Plain guides for robot builders: a teleoperation data rig, syncing cameras and joints, choosing a smart actuator, and a cycloidal gearbox for NEMA 17.">
+<meta name="description" content="Plain guides for robot builders: a teleoperation data rig, camera and joint sync, camera latency, smart actuators and a NEMA 17 cycloidal gearbox.">
 <link rel="canonical" href="https://checkmatedynamics.com/guides.html">
 <link rel="alternate" type="text/markdown" href="guides.md">
 <meta property="og:type" content="website">
@@ -12,14 +12,14 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://checkmatedynamics.com/guides.html">
 <meta property="og:title" content="Guides for robot builders — Checkmate Dynamics">
-<meta property="og:description" content="Plain guides for robot builders: a teleoperation data rig, syncing cameras and joints, choosing a smart actuator, and a cycloidal gearbox for NEMA 17.">
+<meta property="og:description" content="Plain guides for robot builders: a teleoperation data rig, camera and joint sync, camera latency, smart actuators and a NEMA 17 cycloidal gearbox.">
 <meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Guides for robot builders — Checkmate Dynamics">
-<meta name="twitter:description" content="Plain guides for robot builders: a teleoperation data rig, syncing cameras and joints, choosing a smart actuator, and a cycloidal gearbox for NEMA 17.">
+<meta name="twitter:description" content="Plain guides for robot builders: a teleoperation data rig, camera and joint sync, camera latency, smart actuators and a NEMA 17 cycloidal gearbox.">
 <meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
@@ -126,8 +126,8 @@
       <div class="nav-item"><a href="components.html" data-nav="components"><sup>04</sup>Components</a></div>
       <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
       <div class="nav-cta">
-        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Guides%20for%20robot%20builders">Register interest</a>
-        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Guides%20for%20robot%20builders" data-booking>Book a call</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
       </div>
     </nav>
   </div>
@@ -136,7 +136,7 @@
 <main id="main">
 <section class="ph cm-grid">
   <div class="wrap">
-    <div class="ph-meta"><span class="label">Guides</span><span class="label">Updated November 10, 2026</span></div>
+    <div class="ph-meta"><span class="label">Guides</span><span class="label">Updated November 24, 2026</span></div>
     <div class="grid">
       <h1 class="d1 balance">Guides for robot builders.</h1>
       <div class="ph-side"><p class="lede">Answers to the questions builders ask before they buy. Each guide compares the real options, names the alternatives with their sources and dates, and says where our products fit and where they do not.</p></div>
@@ -152,6 +152,12 @@
       <p>The five parts of a data-collection rig, and four ways to build the leader arm: SO-101, GELLO, Franka GELLO and the Checkmate Leader.</p>
       <h2><a class="link" href="sync-cameras-and-joints.html">Sync cameras and joint data to one clock</a></h2>
       <p>Why timestamps drift, three ways to deal with it, and how to measure the skew on your own rig.</p>
+      <h2><a class="link" href="check-multi-camera-sync-in-a-recording.html">How to check multi-camera sync in a recording</a></h2>
+      <p>Dropped and repeated frames, camera-to-camera offset and the limits of LeRobot timestamps, checked after the fact with no trigger.</p>
+      <h2><a class="link" href="measure-camera-latency-per-frame.html">How to measure camera latency per frame</a></h2>
+      <p>Capture-to-host latency, jitter and the real frame rate of a camera, and four ways to measure them.</p>
+      <h2><a class="link" href="align-camera-and-joint-timestamps.html">Camera and joint timestamp alignment</a></h2>
+      <p>Why camera frames and joint readings drift apart in teleoperation data, how teams align them, and which half we can measure.</p>
       <h2><a class="link" href="smart-actuator-for-a-robot-arm.html">Choose a smart actuator for a robot arm</a></h2>
       <p>Torque, backlash, encoder and bus for Dynamixel, Feetech, CubeMars, MyActuator and SmartServo G, and a closed-loop NEMA 17 you can script.</p>
       <h2><a class="link" href="cycloidal-gearbox-for-nema-17.html">A cycloidal gearbox for a NEMA 17 stepper</a></h2>
@@ -167,11 +173,11 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="grid foot-grid">
-      <div class="c1-4">
+      <div class="c1-3">
         <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
-        <p>Robotics and drone hardware. Designed and tested in Dallas, Texas.</p>
+        <p>Robotics and drone hardware.</p>
       </div>
-      <div class="c5-12 foot-links">
+      <div class="c4-12 foot-links">
         <div>
           <span class="label">Move · Sense</span>
           <a href="smartstepper-17.html">SmartStepper 17</a>
@@ -195,16 +201,16 @@
           <span class="label">Company</span>
           <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
           <a href="company.html">About</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Guides%20for%20robot%20builders">Book a call</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Guides%20for%20robot%20builders">Talk to us</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Guides%20for%20robot%20builders">Register interest</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry">Talk to us</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
           <a href="privacy.html">Privacy</a>
         </div>
       </div>
     </div>
     <div class="foot-base">
-      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas · <span class="mono">32.78°</span> N <span class="mono">96.80°</span> W</span>
-      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://x.com/checkmatedyn" rel="me noopener">X</a><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas</span>
+      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
       <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
     </div>
   </div>

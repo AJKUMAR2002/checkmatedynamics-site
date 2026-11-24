@@ -1,20 +1,20 @@
 # Checkmate Dynamics: full site text
 
-> Checkmate Dynamics is a Dallas robotics and drone hardware company. It makes motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs; a flight-sensor node for drones is in development. Everything works together out of the box. Makers use the nodes one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Prices are list prices in US dollars.
+> Checkmate Dynamics makes motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs; a flight-sensor node for drones is in development. Everything works together out of the box. Makers use the nodes one at a time, robotics companies build them in, and our data-station hardware is assembled from them. Prices are list prices in US dollars.
 
 Specifications are datasheet figures, values set by our design, or bench measurements. Prices are list prices in USD. Legal notices and pre-order terms: https://checkmatedynamics.com/legal.md. Every page has a markdown version at the same address ending in .md.
 
 ---
 
-# A Dallas robotics and drone hardware company.
+# Robot hardware that works together.
 
 Source: https://checkmatedynamics.com/
 
-Built as nodes. Measured like instruments. | Catalog rev. 2026.10
+Built as nodes. Measured like instruments. | Catalog rev. 2026.11
 
 Motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs. A flight-sensor node for drones is in development. Everything works together out of the box.
 
-[View the index](https://checkmatedynamics.com/products.html) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+[View the index](https://checkmatedynamics.com/products.html) | [Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
 **A1.3** SmartStepper 17 · 25:1
 
@@ -45,7 +45,7 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | $349 |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | Register interest |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
-| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
+| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $1,250 |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
 | D5 | Hub 5 | Makers · OEM | Five node ports on one USB-C power input, CAN and a hardware stop | $89 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
@@ -72,7 +72,7 @@ Register interest
 
 Sync QA on every episode, a motorized leader arm, commissioning and service plans.
 
-Book a call
+Email us
 
 03 Robotics companies
 
@@ -125,7 +125,7 @@ Thermal soak, 30 min | 41 °C | at test
 
 PD contract | 20 V | at test
 
-Each unit’s values are measured at final test. | Dallas, TX
+Each unit’s values are measured at final test. | Final test report
 
 **05** Assembled
 
@@ -151,7 +151,7 @@ C1 Station timing
 
 Makers register interest. Data floors book a call. Robotics companies talk to engineering.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
 ---
 
@@ -201,7 +201,7 @@ The Sync Beacon doesn’t measure the scene or a joint. It is a clock your camer
 
 [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html)
 
-A 14-day timing check is $1,250 per station; owning a beacon is $999. Patent pending.
+A 14-day timing check is $999 per station; owning a beacon is $1,250. Patent pending.
 
 **Station Report** episode 000127
 
@@ -251,7 +251,7 @@ Related: [Makers](https://checkmatedynamics.com/makers.html) · [Stations](https
 
 ## Choose how you build.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Products) | [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Products)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)
 
 ---
 
@@ -282,6 +282,7 @@ Key figures
 - **Bus**: CAN 1 Mbit/s
 - **Reduction**: 25:1 cycloidal
 - **Gearbox**: 42 mm square
+- **Rear unit**: 45.3 mm square
 
 45.3 mm
 
@@ -439,9 +440,12 @@ Key figures
 - **Encoder**: 14-bit
 - **Power**: USB-C PD, 5–20 V
 - **Bus**: CAN-FD
+- **Board**: Ø35 mm
 - **Torque**: Measured per unit
 
 Ø35 mm
+
+SmartServo G board
 
 Controller board, to scale | Diagram
 
@@ -704,7 +708,7 @@ Powers, connects and protects a whole arm of nodes. Every port is its own USB-C 
 
 **D1 · Hub 8 Pro** | Hub only; power supply optional | **$399**
 
-[Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
+[Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
 
 Ships inside the Checkmate Leader and on its own.
 
@@ -720,6 +724,9 @@ Key figures
 - **Power in**: 12–48 V DC
 - **Host**: 1 × USB
 - **E-stop**: 2-channel NC
+- **Size**: 218 × 120 mm
+
+Hub 8 Pro
 
 218 mm
 
@@ -805,14 +812,15 @@ Each shipped unit comes with its own measured test card.
 
 **Fig. 06** Top
 
-**05** Hub 5
+**06** Hub 5
 
-## Hub 5: five node ports on one USB-C cable. $89
+## Hub 5: five node ports on one USB-C cable.
 
 The smaller hub, for a four-axis arm with a gripper or a bench of nodes. One USB-C power input, five node ports, CAN to every node and a hardware stop.
 
-| Ports | 5 node ports, USB-C |
+| Price | $89 |
 |---|---|
+| Ports | 5 node ports, USB-C |
 | Power in | One USB-C PD input. 60 W on a plain charger; 100 W with a 100 W charger and a 5 A cable. Works with any USB-C PD charger; none in the box |
 | Bus | CAN to every node port |
 | Safety | Hardware stop |
@@ -825,21 +833,21 @@ Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync 
 
 ---
 
-# Prove your cameras agree on time.
+# Check whether your cameras agree on time.
 
 Source: https://checkmatedynamics.com/sync-beacon.html
 
 [Stations](https://checkmatedynamics.com/stations.html) / C — Sync / C1 | Timing test instrument · Patent pending
 
-Cameras, robot joints and sensors each keep their own clock. Your training data comes out misaligned, and most rigs never measure by how much. The Sync Beacon is a clock your cameras can film. It puts every frame on one timeline, and a Station Report shows the result.
+The cameras in a robot recording rarely share a clock. Host timestamps are late and noisy, frames drop or repeat, and a camera’s labeled frame rate is often not its real one. The Sync Beacon is an LED clock that steps every 1 ms. Film it with every camera, and the decoder reports each camera’s true frame rate, dropped and repeated frames, host-timestamp latency and the offset between cameras. There is no trigger cable and no change to the camera. It measures; it does not trigger cameras.
 
-**14-day rental** | A beacon ships to you, per station | **$1,250**
+**14-day rental** | A beacon ships to you, per station | **$999**
 
-**Own one** | A founding Sync Beacon, yours | **$999**
+**Own one** | A founding Sync Beacon, yours | **$1,250**
 
 [Book a timing check](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20timing%20check&body=Cameras%20and%20frame%20rates%3A%0ARobot%20and%20recorder%3A%0ALocation%3A) | See the offers
 
-A timing test instrument for rig validation and QA. Sold to labs and companies.
+A timing test instrument for rig validation and QA. Sold to labs and companies. Guides: [check sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html), [measure latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html), [sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.html).
 
 **Fig. 01** Sync Beacon, exterior Wireframe from CAD
 
@@ -893,7 +901,7 @@ How LeRobot computes each recorded frame’s timestamp: from the frame counter, 
 
 The beacon sits in view of your cameras and shows an LED clock that steps every 1 ms. Every camera films it. The decoder reads the clock in each frame, so every frame’s exposure time lands on one clock.
 
-You get dropped frames, repeated frames, true frame intervals and the offset between cameras, per camera. It is built for any camera that can see it, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.
+You get dropped frames, repeated frames, true frame intervals, host-timestamp latency and the offset between cameras, per camera. It works with cameras that can see the face, and your Station Report confirms it on your cameras. Nothing is wired to the cameras, and nothing changes in your recorder.
 
 **Fig. 03** The LED face: 8 × 8, stepping every 1 ms Diagram
 
@@ -905,9 +913,9 @@ LED clock step. Selectable at 0.5 ms and 2 ms.
 
 Green LED face, 525 nm. Green light passes the IR-cut filter on camera sensors.
 
-**Any camera**
+**Camera-agnostic**
 
-Built for webcams, machine-vision cameras and phones that can see the face. Your Station Report confirms each camera.
+Built for webcams, machine-vision cameras and phones that can see the face. Your Station Report confirms each camera on your rig.
 
 **03** Station Report
 
@@ -917,7 +925,7 @@ The Station Report lists, for each camera, how many frames were placed on the be
 
 Keep it with the dataset. When a data buyer or a reviewer asks how well aligned the streams are, you have the measurement.
 
-Accuracy on real cameras is measured for your rig in the Station Report.
+On a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to 37 µs. That is repeatability on our bench, not a certified accuracy figure. Accuracy on your cameras is measured for your rig in the Station Report.
 
 **Station Report** session 03 · station B-04
 
@@ -993,7 +1001,7 @@ Rental
 
 A beacon ships to your lab. A 60-minute setup call, a Station Report for one station, a closing call to go through it, and shipping both ways. US only. Keep that beacon within 30 days of the rental starting and $500 of the rental counts toward it.
 
-**$1,250** | per station, 14 days | [Reserve a rental](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%2014-day%20rental&body=Cameras%20and%20frame%20rates%3A%0APreferred%20dates%3A)
+**$999** | per station, 14 days | [Reserve a rental](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%2014-day%20rental&body=Cameras%20and%20frame%20rates%3A%0APreferred%20dates%3A)
 
 Subscription
 
@@ -1007,9 +1015,9 @@ Own
 
 ### Own one
 
-A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return. At $999 it fits a university P-card.
+A founding Sync Beacon, numbered on its calibration certificate. With a tripod adapter, a USB-C cable, the decoder and a quickstart. Includes a free Station Report call, 12 months of warranty and a 30-day return. At $1,250 it fits a university P-card.
 
-**$999** | per beacon | [Ask to buy one](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A)
+**$1,250** | per beacon | [Ask to buy one](mailto:contact@checkmatedynamics.com?subject=Sync%20Beacon%20purchase&body=Cameras%20and%20frame%20rates%3A%0AShip%20to%3A)
 
 Prices in US dollars. Ships within 2 weeks of your order. Invoiced by card, ACH, P-card or purchase order. Shipped offers are US only. Sold and rented to labs and companies as test equipment, for timing measurement, rig validation and QA. Patent pending.
 
@@ -1020,14 +1028,58 @@ Prices in US dollars. Ships within 2 weeks of your order. Invoiced by card, ACH,
 | LED clock | 1 ms step, with 0.5 ms and 2 ms selectable |
 |---|---|
 | LED face | 8 × 8 green LEDs, 525 nm |
-| Cameras | Built for any camera that can see the face; confirmed per camera in the Station Report. No wiring to the camera |
+| Cameras | Works with cameras that can see the face; confirmed per camera in the Station Report. No wiring to the camera. It measures; it does not trigger |
 | Reference pulses | Two SYNC outputs, 100 µs active-low pulses, 30 Hz by default |
 | Clock stability | ±0.14 ppm over 3 h on the first unit measured (bench result, Oct 26, 2026). Each unit ships with its own calibration certificate |
 | Power | USB-C, 5 V. No radio, no network |
 | Mounting | 1/4”-20 tripod adapter |
 | Decoder | Runs on your PC in Python 3 with numpy and OpenCV |
 
-Related: [Stations](https://checkmatedynamics.com/stations.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Hub 8 Pro](https://checkmatedynamics.com/hub-8.html) · [Checkmate Leader](https://checkmatedynamics.com/leader.html)
+**08** Questions
+
+## Camera timing questions, answered.
+
+**How do I check that my cameras are in sync without a hardware trigger?**
+
+Film one LED clock with every camera and decode each recording. Every frame lands on the clock’s time, so you read each camera’s offset to the others, its dropped and repeated frames and its true frame interval. Nothing is wired to the cameras.
+
+**How do I measure camera latency per frame?**
+
+The clock’s reading in a frame is when the sensor saw it. Compare that with the host’s timestamp for the same frame and the difference is the capture-to-host latency. On our bench one USB camera showed a median of 2.95 ms and a 99th percentile of 9.32 ms (one camera, one PC, Nov 3, 2026).
+
+**Is my 120 fps camera really 120 fps?**
+
+The decoder reports the true frame rate from the clock, not from the label. The 120 fps camera on our bench ran at 120.625 fps, so trusting the label would misplace frames by about 313 ms after one minute.
+
+**How do I detect dropped or repeated frames in a multi-camera recording?**
+
+The decoder lists every dropped and repeated frame per camera and when it happened. A 2.4 second USB stall (292 frames) on our bench was found and placed exactly.
+
+**Can I check the camera timestamps in a LeRobot dataset?**
+
+LeRobot stamps each frame as frame_index divided by fps, so the stored timestamps cannot show camera skew. Film the beacon with the same cameras, decode the videos and compare. In a synthetic test the decoder read LeRobot’s default AV1, MJPEG and H.264 at crf 23, and did not read H.265.
+
+**Does the beacon trigger or synchronize my cameras?**
+
+No. It measures; it does not trigger cameras, and nothing changes on your cameras or in your recorder. If you already trigger your cameras, it shows what the trigger achieved.
+
+**Can it line up my robot joints with the camera frames?**
+
+It measures the camera half: each camera’s latency and jitter against true time. Camera-to-robot-action timing on your rig is not available yet, because it needs the robot’s clock tied to the beacon.
+
+**How accurate is it?**
+
+On a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to 37 µs. That is repeatability on our bench, not a certified accuracy figure, and we have not yet measured it against an independent reference.
+
+**Where do I put it, and can a wrist camera see it?**
+
+Put it where every camera can see its face. In a synthetic test at 640 x 480 the decoder worked within 0.6 m and 45 degrees of the lens axis, and at 720p within 2.1 m facing the camera. A wrist camera sees it only when the arm points at it, so the check is something you run, not something left in every episode.
+
+**How much does it cost?**
+
+A 14-day rental is $999 per station and owning one is $1,250. Both are sold to labs and companies as test equipment.
+
+Related: [Stations](https://checkmatedynamics.com/stations.html) · [Sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.html) · [Check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html) · [Measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html) · [Contour](https://checkmatedynamics.com/contour.html)
 
 ## Find out how far apart your streams really are.
 
@@ -1055,7 +1107,7 @@ A leader arm that carries its own weight, lets the operator feel the follower’
 
 *D1 · Hub 8 Pro* *A2.5 · G-5208 · 25:1* *A2.3 · G-2804 · 20:1*
 
-Fig. 01 — Eight SmartServo G nodes on one Hub 8 Pro: the catalog parts the Leader is built from, as sold. The arm is not shown; links, base and handle are Leader-specific.
+Fig. 01 — The parts that make a Leader: eight SmartServo G nodes on one Hub 8 Pro, as sold.
 
 **01** Operator
 
@@ -1138,7 +1190,7 @@ Related: [Stations](https://checkmatedynamics.com/stations.html) · [SmartServo 
 
 ## Twenty minutes to see if it fits your floor.
 
-[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader) | [Leader Care](https://checkmatedynamics.com/stations.html#service)
+[Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Checkmate%20Leader) | [Leader Care](https://checkmatedynamics.com/stations.html#service)
 
 ---
 
@@ -1150,7 +1202,7 @@ Ways in / 02 | Robot data floors
 
 Sync QA, a motorized leader arm, commissioning and service for teleoperation stations, built from the nodes we sell on their own.
 
-[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Stations) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+[Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
 
 **01** Context
 
@@ -1291,7 +1343,7 @@ Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync 
 
 ## Twenty minutes, one station, a real number.
 
-[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Stations) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+[Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
 
 ---
 
@@ -1303,7 +1355,7 @@ Ways in / 01 | Makers, students, labs
 
 Motor nodes with the driver, encoder, controller and gearbox built in. Plug in a USB-C charger, open the app in a browser, move. They’re the units our commercial leader arm is built from.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
 
 **A2.3 · A2.5** SmartServo G · G-2804 20:1 and G-5208 25:1
 
@@ -1411,7 +1463,7 @@ Related: [SmartStepper 17](https://checkmatedynamics.com/smartstepper-17.html) �
 
 Tell us which nodes you want and what you are building.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Makers)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
 
 ---
 
@@ -1509,6 +1561,10 @@ Contact | Interest · Call · Parts
 
 Makers register interest, data floors book a call, robotics companies talk to engineering.
 
+Write to the team [contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Hello)
+
+A person on the team replies. The three lines below send the same address a subject that gets your note to the right desk.
+
 **01** Register interest
 
 ## Makers, students and labs.
@@ -1517,13 +1573,9 @@ Tell us which nodes you want and what you are building, and we will write back.
 
 A reply from the team, and the occasional build note.
 
-By email
+Interest in the nodes
 
-### Write to us.
-
-Send a line and a person on the team replies.
-
-[contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
+[Register interest by email](mailto:contact@checkmatedynamics.com?subject=Register%20interest)
 
 **02** Call
 
@@ -1533,13 +1585,9 @@ Twenty minutes about your stations: Sync Beacon, Leader design-partner interest,
 
 [Open the calendar](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
-By email
+A station enquiry
 
-### Write to us.
-
-Send a line and a person on the team replies.
-
-[contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+[Ask about a station by email](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
 **03** Components
 
@@ -1551,13 +1599,9 @@ Nodes, Hub 8 Pro, Contour OEM or the Sync Beacon inside your product. Talk to en
 - Evaluation units and integration support
 - Volume terms discussed with engineering
 
-By email
+Parts and OEM
 
-### Write to us.
-
-Send a line and a person on the team replies.
-
-[contact@checkmatedynamics.com](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)
+[Write to engineering by email](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry)
 
 ---
 
@@ -1565,9 +1609,9 @@ Send a line and a person on the team replies.
 
 Source: https://checkmatedynamics.com/company.html
 
-Company | Dallas, Texas
+Company | Nodes · Sensing · Hubs
 
-Checkmate Dynamics is a Dallas robotics and drone hardware company. We make motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs for robot arms and robot training-data rigs, and we are developing a flight-sensor node for drones.
+Checkmate Dynamics makes motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs for robot arms and robot training-data rigs, and we are developing a flight-sensor node for drones.
 
 **01** Principles
 
@@ -1641,11 +1685,11 @@ Register interest
 
 Data floors
 
-### Book a call
+### Email us
 
 Sync Kit, Leader, commissioning, service.
 
-Book a call
+Email us
 
 Robotics companies
 
@@ -1661,7 +1705,7 @@ Talk to us
 
 Source: https://checkmatedynamics.com/guides.html
 
-Guides | Updated November 10, 2026
+Guides | Updated November 24, 2026
 
 Answers to the questions builders ask before they buy. Each guide compares the real options, names the alternatives with their sources and dates, and says where our products fit and where they do not.
 
@@ -1674,6 +1718,18 @@ The five parts of a data-collection rig, and four ways to build the leader arm: 
 ## [Sync cameras and joint data to one clock](https://checkmatedynamics.com/sync-cameras-and-joints.html)
 
 Why timestamps drift, three ways to deal with it, and how to measure the skew on your own rig.
+
+## [How to check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html)
+
+Dropped and repeated frames, camera-to-camera offset and the limits of LeRobot timestamps, checked after the fact with no trigger.
+
+## [How to measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html)
+
+Capture-to-host latency, jitter and the real frame rate of a camera, and four ways to measure them.
+
+## [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html)
+
+Why camera frames and joint readings drift apart in teleoperation data, how teams align them, and which half we can measure.
 
 ## [Choose a smart actuator for a robot arm](https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.html)
 
@@ -1708,7 +1764,7 @@ Most open rigs pair a follower arm with a small leader that has the same joint l
 - **Cameras:** at least one wrist camera and one fixed view. Add Contour depth at the gripper if your policy uses it.
 - **Power and connection:** one supply and bus per arm. Hub 8 Pro powers and connects up to eight Checkmate nodes over a single USB link.
 - **Recorder:** LeRobot, or the SDK of your arm maker.
-- **Timing check:** measure camera skew before you record, not after episodes are rejected. The [sync guide](https://checkmatedynamics.com/sync-cameras-and-joints.html) shows how.
+- **Timing check:** measure camera skew before you record, not after episodes are rejected. The [sync guide](https://checkmatedynamics.com/sync-cameras-and-joints.html) shows how, and [this guide](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html) covers checking a recording for dropped frames and camera offset. The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) is the instrument we make for it.
 
 **02** Leader options
 
@@ -1766,9 +1822,9 @@ Related: [Guides](https://checkmatedynamics.com/guides.html) · [Checkmate Leade
 
 Source: https://checkmatedynamics.com/sync-cameras-and-joints.html
 
-Guide | Updated November 10, 2026
+Guide | Updated November 24, 2026
 
-There are two jobs: make the streams share a clock, and measure how far apart they still are. Hardware trigger or timecode does the first. A camera-visible clock does the second, on any camera.
+There are two jobs: make the streams share a clock, and measure how far apart they still are. A hardware trigger, timecode or PTP does the first, on cameras that support it. A clock the cameras can see does the second, with no wiring to the camera.
 
 **01** Answer
 
@@ -1783,6 +1839,7 @@ LeRobot computes each recorded frame’s timestamp as frame_index / fps, from th
 - **Trigger the cameras together.** A trigger hub or GPIO cable starts every exposure at the same moment. It needs cameras with a trigger input.
 - **Stamp the streams with timecode.** A timecode generator writes the same time to audio and video devices. It does not measure per-frame skew on a robot rig.
 - **Measure the result.** Put a clock in view of every camera, record it, and read the clock out of each frame. This works for webcams and for hardware-synced rigs alike, and it shows what the other two approaches actually achieved.
+- **PTP or a vendor global time.** Device clocks are kept together over a network or by the camera SDK, where the device supports it. Most USB webcams do not ([Stereolabs ZED docs](https://docs.stereolabs.com/docs/development/zed-sdk/modules/camera/multi-camera), read Nov 24, 2026). It aligns clocks; it does not show whether each frame’s stamp matches its exposure.
 
 **02** Options
 
@@ -1794,7 +1851,7 @@ LeRobot computes each recorded frame’s timestamp as frame_index / fps, from th
 | Camera trigger cables | Trigger machine-vision cameras with a trigger input | From $85 (vendor listing, read 2026-11-10) | Needs cameras with trigger inputs |
 | Tentacle Sync E mk2 | Timecode for audio and video devices | $219 to $259 for the single set at US resellers (listings, read 2026-11-10) | Stamps; does not measure per-frame skew |
 | OptiTrack eSync 2 | Syncs OptiTrack systems with other devices | $2,199 (OptiTrack, read 2026-11-10) | Built for OptiTrack’s own system |
-| Checkmate Sync Beacon | LED clock your cameras film, stepping every 1 ms; decoder reports drops, repeats, true frame interval and camera-to-camera offset | $999 to own; $1,250 for a 14-day rental | Measures; does not trigger. Cameras must see the face. Patent pending. |
+| Checkmate Sync Beacon | LED clock your cameras film, stepping every 1 ms; decoder reports drops, repeats, true frame interval and camera-to-camera offset | $1,250 to own; $999 for a 14-day rental | Measures; does not trigger. Cameras must see the face. Patent pending. |
 
 Competitor prices are list prices or retailer listings read on the dates shown; check the vendor before you rely on them (source note: research/aeo/guide-price-check-2026-11-10.md). Beacon prices are on the [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) page. Checkmate products are shown before FCC authorization; see [Legal](https://checkmatedynamics.com/legal.html#fcc).
 
@@ -1807,11 +1864,17 @@ Competitor prices are list prices or retailer listings read on the dates shown; 
 - Read the clock in every frame. Count dropped and repeated frames, compare the true frame interval with the nominal one, and compute each camera’s offset to the others.
 - Repeat after any camera swap, USB change or rebuild.
 
-The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) does this with an 8 x 8 green LED face (525 nm, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. Accuracy on real cameras is measured for your rig in that report; we do not claim a figure in advance. Contour depth frames can take the same clock through a sync input ([Contour](https://checkmatedynamics.com/contour.html)).
+The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) does this with an 8 x 8 green LED face (525 nm, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. On a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to 37 µs. That is repeatability on our bench, not a certified accuracy figure; accuracy on your cameras is measured for your rig in the report. It measures; it does not trigger cameras. Contour depth frames can take the same clock through a sync input ([Contour](https://checkmatedynamics.com/contour.html)).
 
 ## If you already trigger your cameras.
 
 Keep the trigger. A measurement shows whether it reaches every stream on the station, including webcams and joint logs that the trigger does not touch.
+
+## More detail.
+
+- [How to check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html): dropped and repeated frames and camera-to-camera offset.
+- [How to measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html): capture-to-host latency, jitter and the real frame rate.
+- [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html): the robot side, and what is not available yet.
 
 **04** Questions
 
@@ -1821,7 +1884,15 @@ Trigger cameras that have a trigger input from one hub or GPIO source, log joint
 
 **Is there a device I can put in view of my cameras to check their timestamps?**
 
-Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval and camera-to-camera offset. It is patent pending and costs $999 to own or $1,250 for a 14-day rental.
+Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval, host-timestamp latency and camera-to-camera offset. It is patent pending and costs $1,250 to own or $999 for a 14-day rental.
+
+**How do I sync multiple USB cameras without a hardware trigger?**
+
+USB has no broadcast trigger, so you cannot start every webcam at the same instant. Instead, record a clock that all cameras can see and read each frame’s true time from it afterwards; this shows the offset, the drops and the real frame rate. It measures the problem; it does not trigger the cameras.
+
+**Can I check camera timestamps without changing my cameras or recorder?**
+
+Yes. Film the Sync Beacon with the cameras you already use and decode the recordings on your PC. The Station Report confirms each camera on your rig.
 
 **Does LeRobot measure camera skew?**
 
@@ -1831,7 +1902,234 @@ No. LeRobot stamps each frame from its frame index and the frame rate. Its toler
 
 No. It is a separate USB-powered device with no radio. Nothing is wired to the cameras and nothing changes in your recorder.
 
-Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Contour](https://checkmatedynamics.com/contour.html) · [Stations](https://checkmatedynamics.com/stations.html)
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html) · [Measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html) · [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html)
+
+---
+
+# How to check multi-camera sync in a recording.
+
+Source: https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html
+
+Guide | Updated November 24, 2026
+
+Matching frame rates do not prove that cameras are in sync. To check, you need something every camera filmed at the same moment. This guide covers the ways to do that after the fact, without a hardware trigger.
+
+**01** Answer
+
+## Why the dataset cannot tell you.
+
+LeRobot computes each recorded frame’s timestamp as frame_index / fps, from the frame counter and not from the camera (LeRobot dataset_writer.py, line 225, re-read on the main branch Nov 10, 2026). A dataset built that way can look perfectly regular while one camera runs late, drops frames or runs at a slightly different rate.
+
+Other datasets show the same thing. Published multi-camera sets report cameras that repeat or skip frames and firmware timestamps off by roughly 0.1 to 1 s ([I24-3D, arXiv 2308.14833](https://arxiv.org/pdf/2308.14833), read Nov 24, 2026). A lunar stereo dataset kept only the frame pairs that matched ([arXiv 2506.22956](https://arxiv.org/pdf/2506.22956), read Nov 24, 2026).
+
+Intel’s guidance for RealSense is that working hardware sync shows timestamps that slowly drift apart, a few milliseconds over tens of minutes, and that identical timestamps mean sync is not operating ([Intel white paper](https://simplecore.intel.com/realsensehub/wp-content/uploads/sites/63/Multiple_Camera_WhitePaper04.pdf), read Nov 24, 2026, as summarised by search). That is a check of the device’s own stamps, not of when the light reached each sensor.
+
+**02** Options
+
+## Ways to check sync after recording.
+
+| Method | What it shows | Limit |
+|---|---|---|
+| Clap or clapperboard in view | One shared event; align by the frame it appears in | Accuracy is capped at about half a frame, and it checks one instant, not drift or drops over a session (search results, Nov 24, 2026) |
+| Flash or LED blink sequence | Each camera’s frame of onset; open-source scripts plot detected on/off signals ([ledtime](https://github.com/scivision/ledtime), read Nov 24, 2026) | Needs a known flash sequence; reports onsets, not every frame |
+| Compare the devices’ own timestamps | Whether the cameras’ stamps agree with each other | Stamps may be assigned on arrival; agreement does not mean the exposures were together |
+| Software alignment tools | Align and check streams in software; for example the open Embodied Sync project (posted Aug 30, 2026, [Open Robotics Discourse](https://discourse.openrobotics.org/t/embodied-sync-synchronize-calibrate-align-and-validate-multimodal-robot-learning-data-across-sensors-clocks-live-sessions-and-recordings/57766)) | We could not confirm from the post whether it uses a physical clock |
+| A continuous LED clock in view | Every frame’s exposure time on one clock: offset between cameras, true frame rate, drops, repeats | The clock must be in view of every camera. The research version, RocSync, is a device you build ([arXiv 2511.14948](https://arxiv.org/abs/2511.14948), read Nov 24, 2026) |
+
+Competitor and research figures are from sources read on the dates shown; check the source before you rely on them.
+
+**03** Procedure
+
+## A one-minute check you can repeat.
+
+- Put the clock where every camera sees it. Use a short manual exposure and locked focus.
+- Record all cameras over the same 60 seconds, with your normal recording software and settings.
+- Read the clock in every frame. For each camera, count the dropped frames (gaps in the clock) and repeated frames (the same clock reading twice), and compute the true frame interval.
+- Compute each camera’s offset to the others by comparing the clock readings of frames taken at the same moment.
+- Repeat after any camera swap, USB change, resolution change or rebuild.
+
+Compression matters. The clock has to survive video encoding to be readable. In a synthetic test of the Sync Beacon decoder, LeRobot’s default AV1, MJPEG and H.264 at crf 23 decoded; H.265 did not, and neither did H.264 at crf 30 with a 2-frame GOP (Oct 28, 2026, synthetic frames, not a recorded dataset).
+
+## Where the Sync Beacon fits, and where it does not.
+
+The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) is a continuous LED clock (1 ms steps) and a decoder that writes a Station Report with each camera’s dropped frames, repeated frames, true frame interval, host-timestamp latency and offset to the other cameras. It measures; it does not trigger cameras or change your recorder.
+
+- Two cameras on one time base (a 120 fps global-shutter camera on a PC and a laptop camera): 61.5 s of overlap, 1,796 frame pairs, and a Station Report pass. Bench result, Nov 6, 2026.
+- A 2.4 s USB stall (292 frames) was found and placed exactly on the 120 fps camera.
+- No accuracy figure against an independent reference exists yet. The 37 µs figure on the 120 fps camera is repeatability on our bench.
+- At 640 x 480 the decoder worked within 0.6 m and 45 degrees of the lens axis in a synthetic test, so wrist cameras see the clock only when the arm points at it; for those, the check is something you run, not something left in every episode.
+
+If you already hardware-trigger your cameras, keep the trigger. This check shows what the trigger achieved on every stream, including webcams and joint logs it does not touch. For the hardware options and prices see [sync cameras and joint data to one clock](https://checkmatedynamics.com/sync-cameras-and-joints.html). Rent it for $999 for 14 days or own one for $1,250 ([offers](https://checkmatedynamics.com/sync-beacon.html#offers)).
+
+**04** Questions
+
+**How do I check whether the cameras in a recording are in sync?**
+
+Film a clock that every camera can see, record about a minute, and read the clock in each frame. Compare each camera’s clock readings for the same moment to get the offset between cameras.
+
+**How do I detect dropped frames in a multi-camera recording?**
+
+Read a continuous clock in every frame and look for gaps in the readings. A gap in the clock means the camera or the pipeline lost frames at that time.
+
+**How do I detect repeated or duplicate frames?**
+
+The same clock reading appearing in two consecutive frames means the frame was delivered twice. A frame-time derivative that is not steady near the expected interval gives the same warning without a clock.
+
+**Can LeRobot tell me if my cameras are out of sync?**
+
+No. LeRobot stamps each frame from its frame index and the frame rate, so its stored timestamps do not show how far apart the cameras are.
+
+**Can I verify camera sync without a hardware trigger?**
+
+Yes. A clock in view of every camera is read after the fact, so no trigger or wiring is needed. It shows what a trigger achieved too.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.html) · [Measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html)
+
+---
+
+# How to measure camera latency per frame.
+
+Source: https://checkmatedynamics.com/measure-camera-latency-per-frame.html
+
+Guide | Updated November 24, 2026
+
+A camera’s timestamp is usually when your computer received the frame, not when the sensor saw it. To measure the gap you need a reference that the sensor can see. This guide covers four ways to get one and what each can and cannot tell you.
+
+**01** Answer
+
+## What you are measuring.
+
+Four numbers describe a camera’s timing, and a host timestamp alone gives you none of them reliably.
+
+- **Capture-to-host latency:** the time from the sensor exposing a frame to your program receiving it. It includes the sensor readout, the camera’s buffer, the USB transfer and the operating system’s scheduling.
+- **Jitter:** how much that latency changes from frame to frame. A steady 30 ms is easier to correct than a latency that swings between 20 and 45 ms.
+- **True frame rate:** the real spacing of frames, which can differ from the labeled rate. Auto exposure can also lower the rate in dim light, and a requested rate may not exist at your resolution and image format (forum answers, read Nov 24, 2026: [webcamtests.com](https://webcamtests.com/fps), [OpenCV Q&A](https://answers.opencv.org/questions/185613/revisions)).
+- **Dropped and repeated frames:** frames the camera never produced, frames lost later, and frames delivered twice. They need different fixes, so a count of “missing frames” is not enough.
+
+A host timestamp records when a frame arrived. USB scheduling and bus contention add jitter between exposure and arrival, and USB has no broadcast trigger that starts every camera at once ([OpenCV forum](https://forum.opencv.org/t/how-would-you-synchronize-two-webcams-to-be-acquiring-their-images-at-the-same-times/16409), read Nov 24, 2026).
+
+**02** Methods
+
+## Four ways to measure it.
+
+| Method | What it gives you | Cost and effort | Limit |
+|---|---|---|---|
+| Software timestamps only | Arrival time on the host; frame-to-frame spacing | Free | Cannot see latency, because it never sees the sensor. Shows arrival jitter only |
+| Hardware trigger and a trigger log | Latency from a known exposure start, for cameras with a trigger input | From $85 for trigger cables (vendor listing, read 2026-11-10); wiring and a logger | Needs cameras with a trigger input; the trigger starts the exposure, so webcams are out |
+| PTP or a vendor “global time” | Device clocks kept together over a network or by the SDK | Network or SDK setup; device support required | Syncs clocks, but you still cannot see whether a frame’s stamp matches its exposure. Intel notes that matching frame rates does not prove sync ([librealsense #11669](https://github.com/IntelRealSense/librealsense/issues/11669), read Nov 24, 2026) |
+| Film a clock, read it in each frame | True exposure time of every frame, so latency, jitter, real frame rate, drops and repeats | An LED clock and a decoder; one minute of recording per camera | The clock must be in view; rolling-shutter cameras need the row position taken into account |
+
+LED-based latency rigs are published: one drives an LED from the host and compares the first bright frame with the pulse time ([White Rose paper](https://eprints.whiterose.ac.uk/179726/1/A-LED-Based-IRRGB-End-to-End-Latency-Measurement-Device-Paper.pdf), read Nov 24, 2026), and NVIDIA’s Holoscan tool uses a photodetector against PTP-stamped events ([NVIDIA docs](https://docs.nvidia.com/holoscan/sensor-bridge-e2e-latency-tool/introduction/getting-started), read Nov 24, 2026). Both measure a single path. A clock that counts continuously and is read from every frame measures all of them in one recording.
+
+**03** Procedure
+
+## How to do it with a clock in view.
+
+- Place the clock where the camera sees it. Set a short manual exposure and lock focus, so the lit LEDs are crisp.
+- Record 60 seconds with the same settings you use for data collection.
+- Read the clock in every frame. The clock time is the exposure time. The difference from the host’s timestamp for that frame is that frame’s latency.
+- Report the median and the 99th percentile, and the spread (jitter). Repeat after a USB, driver, resolution or camera change.
+
+## Where the Sync Beacon fits, and where it does not.
+
+The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) is an LED clock that steps every 1 ms, with a decoder that does the reading above. It measures; it does not trigger cameras and it does not change the camera.
+
+What we have measured so far, on our bench only:
+
+- On a 120 fps global-shutter camera (Arducam OV9281) it decoded 7,241 of 7,241 frames, and frame times repeat to 37 µs. That is repeatability, not a certified accuracy figure. We have not measured against an independent reference.
+- The same camera’s capture-to-host latency was a median of 2.95 ms and a 99th percentile of 9.32 ms on one PC (Nov 3, 2026). The beacon’s frame timing was about 130 times steadier than that PC’s arrival stamps (37 µs against 4.8 ms).
+- That camera’s labeled 120 fps was really 120.625 fps. Trusting the label misplaces frames by about 313 ms after one minute.
+- A laptop camera (1080p, 30 fps, rolling shutter) decoded 99.8 percent of frames, with a scatter of 216 µs; its readout time (6.4 ms) and exposure (17 ms) were measured.
+
+The [Station Report](https://checkmatedynamics.com/sync-beacon.html#report) confirms each camera on your rig. It reports the capture-to-host latency of each camera; it does not measure camera-to-robot-action timing on your rig today. For that see [camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html).
+
+A 14-day rental is $999 per station and owning one is $1,250. See [the offers](https://checkmatedynamics.com/sync-beacon.html#offers).
+
+**04** Questions
+
+**How do I measure the latency of a USB camera?**
+
+Put a clock that the sensor can see in front of the camera, record it, and read the clock in each frame. The clock time is the exposure time, so the difference from the host timestamp for that frame is the capture-to-host latency.
+
+**Why can’t I measure camera latency from timestamps alone?**
+
+A host timestamp is taken when the frame arrives, so it cannot show how long the frame took to get there. You need a reference that the sensor itself saw.
+
+**Is my 30 fps or 120 fps camera really running at that rate?**
+
+Not always. Measure the spacing of frames against a clock in view. The 120 fps camera on our bench ran at 120.625 fps, and auto exposure can lower a camera’s rate in dim light.
+
+**What is a good latency for a robot-learning camera?**
+
+We found no standard figure. What matters is that you know the latency and that it is steady, because a known fixed latency can be corrected and an unknown, jittery one cannot.
+
+**Does the Sync Beacon measure latency to the robot’s actions?**
+
+Not today. It measures each camera’s capture-to-host latency and jitter. Tying camera time to robot action time needs the robot’s clock connected to the beacon, which is not available yet.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html) · [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html)
+
+---
+
+# Camera and joint timestamp alignment.
+
+Source: https://checkmatedynamics.com/align-camera-and-joint-timestamps.html
+
+Guide | Updated November 24, 2026
+
+A teleoperation dataset pairs camera frames with joint readings and actions. If the two sides are offset in time, each frame is paired with the wrong joint state. This guide covers where the offset comes from, how teams handle it, and what we can and cannot measure.
+
+**01** Answer
+
+## Where the offset comes from.
+
+Cameras stream over USB and joints often over CAN or a serial bus, so the two arrive at the computer at different times ([Seeed Studio dataset-quality guide](https://wiki.seeedstudio.com/robotics/hands_on_dataset_quality/), read Nov 24, 2026). A camera’s timestamp is usually when the host received the frame, not when the sensor exposed it. Joint encoders log on the controller’s clock and cameras on the PC’s, so the two start apart and move apart over a session. LeRobot stamps each frame as frame_index / fps (LeRobot dataset_writer.py, line 225, read Nov 10, 2026).
+
+The size of the offset on real rigs is reported in a few places. A surgical-robot data library measured median residuals of about 8 ms and 95th percentiles of about 17 ms between a reference camera and robot-state timestamps after alignment ([Sensorium, arXiv 2610.41946](https://arxiv.org/pdf/2610.41946), read Nov 24, 2026). One practitioner write-up reports that sub-frame misalignment between state and action degraded a policy even though it was invisible in the raw logs ([Medium, read Nov 24, 2026](https://medium.com/@hehu2280/behind-a-failed-robot-learning-project-dataset-engineering-training-and-inference-efc1c2bd10e8)). That is one person’s experience, not a controlled study. We found no paper that gives a standard way to estimate camera-to-joint latency on a teleoperation rig.
+
+**02** Options
+
+## How teams align them today.
+
+| Approach | How it works | Limit |
+|---|---|---|
+| Stamp everything on one host clock | Log the camera’s arrival time and the joint reading’s arrival time on the same PC clock | Both stamps are arrival times, so each carries its own unknown delay |
+| Estimate the offset after the fact | Match motion in video with motion in the joint log and solve for the delay | Needs motion that is visible in the cameras; assumes a constant delay |
+| Hardware trigger plus logged edge | A trigger starts the exposure and the same edge is logged by the controller | Needs cameras with a trigger input; webcams are out |
+| PTP or a shared network clock | Devices that support it share one clock | Many USB cameras and many joint buses do not support it |
+| Measure the camera side with a clock in view | Film an LED clock; each frame’s exposure time and capture-to-host latency are read from the video | Measures the camera half only; the joint half needs the robot’s clock |
+
+Sources for the hardware options and their prices are in [sync cameras and joint data to one clock](https://checkmatedynamics.com/sync-cameras-and-joints.html).
+
+**03** Fit
+
+## What the Sync Beacon does here, and what it does not.
+
+The [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) is an LED clock your cameras film. For each camera it reports the true frame times, the real frame rate, dropped and repeated frames, and the host-timestamp latency and its jitter. That is the camera half of the camera-to-joint gap. On our bench, one USB camera showed a capture-to-host latency with a median of 2.95 ms and a 99th percentile of 9.32 ms (Nov 3, 2026, one camera, one PC). A simulated robot stream with an injected 12.5 ms offset and 80 ppm drift was re-timed to within 0.26 µs and 0.005 ppm in software; that is a simulation, not a real rig.
+
+**What it does not do today.** Camera-to-robot-action timing on a customer rig is not available. It needs the robot’s clock tied to the beacon through a SYNC edge, and there is no cable for that now. The beacon does not trigger cameras, and no real robot station has been measured with it yet. It gives no accuracy figure against an independent reference; on a 120 fps global-shutter camera it decoded 7,241 of 7,241 frames and frame times repeat to 37 µs, which is repeatability on our bench.
+
+The useful first step is the camera half: knowing each camera’s latency and jitter takes the camera side out of the question, so what is left is the offset to the joints. A 14-day rental is $999 per station and owning one is $1,250 ([offers](https://checkmatedynamics.com/sync-beacon.html#offers)). For checking cameras against each other, see [how to check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html).
+
+**04** Questions
+
+**How do I align camera frames with robot joint data in a teleoperation dataset?**
+
+Put both on a common clock, measure the delay on each side, and correct for it. The camera side can be measured by filming a clock; the joint side needs the robot’s clock tied to the same reference.
+
+**Why are my camera and joint timestamps offset?**
+
+Camera stamps are usually taken when the frame reaches the host, joint stamps on the controller or when they arrive, and the two clocks start apart and drift. Neither stamp records when the camera exposed the frame.
+
+**Can the Sync Beacon measure the delay between camera and robot action?**
+
+Not today. It measures each camera’s latency and jitter. Tying camera time to robot action time needs the robot’s clock connected to the beacon, which is not available yet.
+
+**How large is the offset in real datasets?**
+
+One surgical-robot data library reports median camera-to-state residuals of about 8 ms and 95th percentiles of about 17 ms after alignment. Other rigs differ, and we found no standard figure.
+
+Related: [Guides](https://checkmatedynamics.com/guides.html) · [Sync Beacon](https://checkmatedynamics.com/sync-beacon.html) · [Sync cameras and joints](https://checkmatedynamics.com/sync-cameras-and-joints.html) · [Measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html)
 
 ---
 

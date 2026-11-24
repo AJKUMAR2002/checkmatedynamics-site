@@ -2,7 +2,7 @@
 
 Source: https://checkmatedynamics.com/guides.html
 
-Guides | Updated November 10, 2026
+Guides | Updated November 24, 2026
 
 Answers to the questions builders ask before they buy. Each guide compares the real options, names the alternatives with their sources and dates, and says where our products fit and where they do not.
 
@@ -15,6 +15,18 @@ The five parts of a data-collection rig, and four ways to build the leader arm: 
 ## [Sync cameras and joint data to one clock](https://checkmatedynamics.com/sync-cameras-and-joints.html)
 
 Why timestamps drift, three ways to deal with it, and how to measure the skew on your own rig.
+
+## [How to check multi-camera sync in a recording](https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html)
+
+Dropped and repeated frames, camera-to-camera offset and the limits of LeRobot timestamps, checked after the fact with no trigger.
+
+## [How to measure camera latency per frame](https://checkmatedynamics.com/measure-camera-latency-per-frame.html)
+
+Capture-to-host latency, jitter and the real frame rate of a camera, and four ways to measure them.
+
+## [Camera and joint timestamp alignment](https://checkmatedynamics.com/align-camera-and-joint-timestamps.html)
+
+Why camera frames and joint readings drift apart in teleoperation data, how teams align them, and which half we can measure.
 
 ## [Choose a smart actuator for a robot arm](https://checkmatedynamics.com/smart-actuator-for-a-robot-arm.html)
 

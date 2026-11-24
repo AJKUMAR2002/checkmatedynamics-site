@@ -2,7 +2,7 @@
 
 Source: https://checkmatedynamics.com/kravmaga.html
 
-Domain notice | Dallas, Texas
+Domain notice | Checkmate Dynamics
 
 checkmatedynamics.com belongs to Checkmate Dynamics, a robotics hardware company in Dallas, Texas. It has no connection to an earlier business that used this domain.
 

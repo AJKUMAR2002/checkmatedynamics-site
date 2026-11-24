@@ -8,7 +8,7 @@ Powers, connects and protects a whole arm of nodes. Every port is its own USB-C 
 
 **D1 · Hub 8 Pro** | Hub only; power supply optional | **$399**
 
-[Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
+[Talk to us](mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Hub%208%20Pro) | [Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Hub%208%20Pro)
 
 Ships inside the Checkmate Leader and on its own.
 
@@ -24,6 +24,9 @@ Key figures
 - **Power in**: 12–48 V DC
 - **Host**: 1 × USB
 - **E-stop**: 2-channel NC
+- **Size**: 218 × 120 mm
+
+Hub 8 Pro
 
 218 mm
 
@@ -109,14 +112,15 @@ Each shipped unit comes with its own measured test card.
 
 **Fig. 06** Top
 
-**05** Hub 5
+**06** Hub 5
 
-## Hub 5: five node ports on one USB-C cable. $89
+## Hub 5: five node ports on one USB-C cable.
 
 The smaller hub, for a four-axis arm with a gripper or a bench of nodes. One USB-C power input, five node ports, CAN to every node and a hardware stop.
 
-| Ports | 5 node ports, USB-C |
+| Price | $89 |
 |---|---|
+| Ports | 5 node ports, USB-C |
 | Power in | One USB-C PD input. 60 W on a plain charger; 100 W with a 100 W charger and a 5 A cable. Works with any USB-C PD charger; none in the box |
 | Bus | CAN to every node port |
 | Safety | Hardware stop |

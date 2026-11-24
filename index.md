@@ -1,12 +1,12 @@
-# A Dallas robotics and drone hardware company.
+# Robot hardware that works together.
 
 Source: https://checkmatedynamics.com/
 
-Built as nodes. Measured like instruments. | Catalog rev. 2026.10
+Built as nodes. Measured like instruments. | Catalog rev. 2026.11
 
 Motion nodes, actuators and cycloidal gearboxes, sensors such as the Contour lidar, and hubs, for robot arms and robot training-data rigs. A flight-sensor node for drones is in development. Everything works together out of the box.
 
-[View the index](https://checkmatedynamics.com/products.html) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+[View the index](https://checkmatedynamics.com/products.html) | [Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
 
 **A1.3** SmartStepper 17 · 25:1
 
@@ -37,7 +37,7 @@ Every node, sensor, hub and station product, with its catalog number and list pr
 | B1 | Contour | Makers · OEM | Time-of-flight lidar depth sensor | $349 |
 | B2 | Contour Wrist | Stations | Depth at the gripper, on the station clock | Register interest |
 | B3 | Output encoder | Makers · OEM | Reads a reducer’s output angle directly | $29 |
-| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $999 |
+| C1 | Sync Beacon | Stations · OEM | Timing test instrument: every camera on one clock. Patent pending | $1,250 |
 | D1 | Hub 8 Pro | Stations · OEM | Eight node ports, per-port power and CAN, e-stop | $399 |
 | D5 | Hub 5 | Makers · OEM | Five node ports on one USB-C power input, CAN and a hardware stop | $89 |
 | D2 | Bus cable | All | Power, USB and CAN on one USB-C cable | In the box |
@@ -64,7 +64,7 @@ Register interest
 
 Sync QA on every episode, a motorized leader arm, commissioning and service plans.
 
-Book a call
+Email us
 
 03 Robotics companies
 
@@ -117,7 +117,7 @@ Thermal soak, 30 min | 41 °C | at test
 
 PD contract | 20 V | at test
 
-Each unit’s values are measured at final test. | Dallas, TX
+Each unit’s values are measured at final test. | Final test report
 
 **05** Assembled
 
@@ -143,4 +143,4 @@ C1 Station timing
 
 Makers register interest. Data floors book a call. Robotics companies talk to engineering.
 
-[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)
+[Register interest](mailto:contact@checkmatedynamics.com?subject=Register%20interest) | [Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call)

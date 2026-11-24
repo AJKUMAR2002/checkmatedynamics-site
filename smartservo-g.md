@@ -29,9 +29,12 @@ Key figures
 - **Encoder**: 14-bit
 - **Power**: USB-C PD, 5–20 V
 - **Bus**: CAN-FD
+- **Board**: Ø35 mm
 - **Torque**: Measured per unit
 
 Ø35 mm
+
+SmartServo G board
 
 Controller board, to scale | Diagram
 

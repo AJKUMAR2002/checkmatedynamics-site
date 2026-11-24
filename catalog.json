@@ -28,6 +28,10 @@
         {
           "name": "Gearbox",
           "value": "42 mm square"
+        },
+        {
+          "name": "Rear unit",
+          "value": "45.3 mm square"
         }
       ],
       "key_specs_note": "Rows of the Key figures panel on the page, copied as shown."
@@ -56,6 +60,10 @@
         {
           "name": "Bus",
           "value": "CAN-FD"
+        },
+        {
+          "name": "Board",
+          "value": "Ø35 mm"
         },
         {
           "name": "Torque",
@@ -124,6 +132,10 @@
         {
           "name": "E-stop",
           "value": "2-channel NC"
+        },
+        {
+          "name": "Size",
+          "value": "218 × 120 mm"
         }
       ],
       "key_specs_note": "Rows of the Key figures panel on the page, copied as shown."
@@ -352,12 +364,12 @@
       "description": "Timing test instrument: every camera on one clock. Patent pending",
       "status": "in design",
       "price": {
-        "amount": 999,
+        "amount": 1250,
         "currency": "USD",
         "from": false,
         "note": ""
       },
-      "price_as_shown": "$999",
+      "price_as_shown": "$1,250",
       "orderable": false,
       "url": "https://checkmatedynamics.com/sync-beacon.html",
       "image": "https://checkmatedynamics.com/assets/img/wf-beacon-1200.webp"

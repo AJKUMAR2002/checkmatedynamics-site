@@ -111,6 +111,7 @@
       a.target = "_blank";
       a.rel = "noopener";
     });
+    document.querySelectorAll("[data-book-label]").forEach(function (el) { el.textContent = el.getAttribute("data-book-label"); });
   }
 
   // Contact route: a mailto link only when the founder has set an address; otherwise the static "Contact details coming soon" stays.

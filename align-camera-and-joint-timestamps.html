@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Camera and joint timestamp alignment — Checkmate Dynamics</title>
+<meta name="description" content="Why camera frames and robot joint readings drift apart in teleoperation datasets, how teams align them today, and which half a camera-visible clock can measure.">
+<link rel="canonical" href="https://checkmatedynamics.com/align-camera-and-joint-timestamps.html">
+<link rel="alternate" type="text/markdown" href="align-camera-and-joint-timestamps.md">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Checkmate Dynamics">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://checkmatedynamics.com/align-camera-and-joint-timestamps.html">
+<meta property="og:title" content="Camera and joint timestamp alignment — Checkmate Dynamics">
+<meta property="og:description" content="Why camera frames and robot joint readings drift apart in teleoperation datasets, how teams align them today, and which half a camera-visible clock can measure.">
+<meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Camera and joint timestamp alignment — Checkmate Dynamics">
+<meta name="twitter:description" content="Why camera frames and robot joint readings drift apart in teleoperation datasets, how teams align them today, and which half a camera-visible clock can measure.">
+<meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/brand/favicon/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon-180.png">
+<link rel="manifest" href="assets/brand/manifest.webmanifest">
+<link rel="mask-icon" href="assets/brand/favicon/safari-pinned-tab.svg" color="#000000">
+<link rel="preload" href="assets/fonts/inter-opsz-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://checkmatedynamics.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://checkmatedynamics.com/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Camera and joint timestamp alignment",
+      "item": "https://checkmatedynamics.com/align-camera-and-joint-timestamps.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Camera and joint timestamp alignment",
+  "description": "Why camera frames and robot joint readings drift apart in teleoperation datasets, how teams align them today, and which half a camera-visible clock can measure.",
+  "url": "https://checkmatedynamics.com/align-camera-and-joint-timestamps.html",
+  "inLanguage": "en-US",
+  "dateModified": "2026-11-24",
+  "author": {
+    "@id": "https://checkmatedynamics.com/#organization"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://checkmatedynamics.com/#organization",
+    "name": "Checkmate Dynamics"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I align camera frames with robot joint data in a teleoperation dataset?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Put both on a common clock, measure the delay on each side, and correct for it. The camera side can be measured by filming a clock; the joint side needs the robot’s clock tied to the same reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are my camera and joint timestamps offset?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Camera stamps are usually taken when the frame reaches the host, joint stamps on the controller or when they arrive, and the two clocks start apart and drift. Neither stamp records when the camera exposed the frame."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the Sync Beacon measure the delay between camera and robot action?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not today. It measures each camera’s latency and jitter. Tying camera time to robot action time needs the robot’s clock connected to the beacon, which is not available yet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How large is the offset in real datasets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One surgical-robot data library reports median camera-to-state residuals of about 8 ms and 95th percentiles of about 17 ms after alignment. Other rigs differ, and we found no standard figure."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <div class="nav-item has-menu">
+        <a href="products.html" data-nav="products" aria-haspopup="true"><sup>01</sup>Products</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Products menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Products</p>
+            <p>Complete nodes in four families. Each one works alone and joins the same USB-C bus.</p>
+            <a class="link small" href="products.html">Full index</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">A — Move</span>
+            <a href="smartstepper-17.html"><strong>SmartStepper 17</strong><span>Closed-loop NEMA 17</span></a>
+            <a href="smartservo-g.html"><strong>SmartServo G</strong><span>Brushless servo node</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">B — Sense</span>
+            <a href="contour.html"><strong>Contour</strong><span>Time-of-flight depth</span></a>
+            <a href="contour.html#wrist"><strong>Contour Wrist</strong><span>Depth at the gripper</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">C — Sync</span>
+            <a href="sync-beacon.html"><strong>Sync Beacon</strong><span>Camera timing instrument</span></a>
+            <a href="sync-beacon.html#report"><strong>Station Report</strong><span>Timing proof per session</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">D — Power &amp; connect</span>
+            <a href="hub-8.html"><strong>Hub 8</strong><span>Eight-port node hub</span></a>
+            <a href="hub-8.html#cable"><strong>Bus cable</strong><span>Power, USB and CAN</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="makers.html" data-nav="makers"><sup>02</sup>Makers</a></div>
+      <div class="nav-item has-menu">
+        <a href="stations.html" data-nav="stations" aria-haspopup="true"><sup>03</sup>Stations</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Stations menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Stations</p>
+            <p>Hardware and service for teleoperation data floors, built from the nodes we sell.</p>
+            <a class="link small" href="stations.html">Overview</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Sync QA</span>
+            <a href="sync-beacon.html"><strong>Sync Beacon</strong><span>Camera timing instrument</span></a>
+            <a href="stations.html#audit"><strong>Skew Audit</strong><span>One station, one week</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Teleoperation</span>
+            <a href="leader.html"><strong>Checkmate Leader</strong><span>Motorized leader arm</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Service</span>
+            <a href="stations.html#commissioning"><strong>Commissioning</strong><span>New rigs, signed off</span></a>
+            <a href="stations.html#service"><strong>Service plans</strong><span>Spares and reports</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="components.html" data-nav="components"><sup>04</sup>Components</a></div>
+      <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
+      <div class="nav-cta">
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="ph cm-grid">
+  <div class="wrap">
+    <div class="ph-meta"><span class="label">Guide</span><span class="label">Updated November 24, 2026</span></div>
+    <div class="grid">
+      <h1 class="d1 balance">Camera and joint timestamp alignment.</h1>
+      <div class="ph-side"><p class="lede">A teleoperation dataset pairs camera frames with joint readings and actions. If the two sides are offset in time, each frame is paired with the wrong joint state. This guide covers where the offset comes from, how teams handle it, and what we can and cannot measure.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>01</b>Answer</div>
+    <div class="c4-10 prose">
+      <h2 style="margin-top:0">Where the offset comes from.</h2>
+      <p>Cameras stream over USB and joints often over CAN or a serial bus, so the two arrive at the computer at different times (<a class="link" href="https://wiki.seeedstudio.com/robotics/hands_on_dataset_quality/" target="_blank" rel="noopener">Seeed Studio dataset-quality guide</a>, read Nov 24, 2026). A camera’s timestamp is usually when the host received the frame, not when the sensor exposed it. Joint encoders log on the controller’s clock and cameras on the PC’s, so the two start apart and move apart over a session. LeRobot stamps each frame as <code>frame_index / fps</code> (LeRobot <code>dataset_writer.py</code>, line 225, read Nov 10, 2026).</p>
+      <p>The size of the offset on real rigs is reported in a few places. A surgical-robot data library measured median residuals of about <span class="mono">8 ms</span> and 95th percentiles of about <span class="mono">17 ms</span> between a reference camera and robot-state timestamps after alignment (<a class="link" href="https://arxiv.org/pdf/2610.41946" target="_blank" rel="noopener">Sensorium, arXiv 2610.41946</a>, read Nov 24, 2026). One practitioner write-up reports that sub-frame misalignment between state and action degraded a policy even though it was invisible in the raw logs (<a class="link" href="https://medium.com/@hehu2280/behind-a-failed-robot-learning-project-dataset-engineering-training-and-inference-efc1c2bd10e8" target="_blank" rel="noopener">Medium, read Nov 24, 2026</a>). That is one person’s experience, not a controlled study. We found no paper that gives a standard way to estimate camera-to-joint latency on a teleoperation rig.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>02</b>Options</div>
+    <div class="c4-12">
+      <h2 class="d2 balance" style="margin-top:0">How teams align them today.</h2>
+      <div class="spec-wrap"><table class="spec wide">
+        <thead><tr><th>Approach</th><th>How it works</th><th>Limit</th></tr></thead>
+        <tbody>
+          <tr><th>Stamp everything on one host clock</th><td>Log the camera’s arrival time and the joint reading’s arrival time on the same PC clock</td><td>Both stamps are arrival times, so each carries its own unknown delay</td></tr>
+          <tr><th>Estimate the offset after the fact</th><td>Match motion in video with motion in the joint log and solve for the delay</td><td>Needs motion that is visible in the cameras; assumes a constant delay</td></tr>
+          <tr><th>Hardware trigger plus logged edge</th><td>A trigger starts the exposure and the same edge is logged by the controller</td><td>Needs cameras with a trigger input; webcams are out</td></tr>
+          <tr><th>PTP or a shared network clock</th><td>Devices that support it share one clock</td><td>Many USB cameras and many joint buses do not support it</td></tr>
+          <tr><th>Measure the camera side with a clock in view</th><td>Film an LED clock; each frame’s exposure time and capture-to-host latency are read from the video</td><td>Measures the camera half only; the joint half needs the robot’s clock</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fine mt-m">Sources for the hardware options and their prices are in <a class="link" href="sync-cameras-and-joints.html">sync cameras and joint data to one clock</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>03</b>Fit</div>
+    <div class="c4-10 prose">
+      <h2 style="margin-top:0">What the Sync Beacon does here, and what it does not.</h2>
+      <p>The <a class="link" href="sync-beacon.html">Sync Beacon</a> is an LED clock your cameras film. For each camera it reports the true frame times, the real frame rate, dropped and repeated frames, and the host-timestamp latency and its jitter. That is the camera half of the camera-to-joint gap. On our bench, one USB camera showed a capture-to-host latency with a median of <span class="mono">2.95 ms</span> and a 99th percentile of <span class="mono">9.32 ms</span> (Nov 3, 2026, one camera, one PC). A simulated robot stream with an injected <span class="mono">12.5 ms</span> offset and <span class="mono">80 ppm</span> drift was re-timed to within <span class="mono">0.26 µs</span> and <span class="mono">0.005 ppm</span> in software; that is a simulation, not a real rig.</p>
+      <p><b>What it does not do today.</b> Camera-to-robot-action timing on a customer rig is not available. It needs the robot’s clock tied to the beacon through a SYNC edge, and there is no cable for that now. The beacon does not trigger cameras, and no real robot station has been measured with it yet. It gives no accuracy figure against an independent reference; on a <span class="mono">120 fps</span> global-shutter camera it decoded 7,241 of 7,241 frames and frame times repeat to <span class="mono">37 µs</span>, which is repeatability on our bench.</p>
+      <p>The useful first step is the camera half: knowing each camera’s latency and jitter takes the camera side out of the question, so what is left is the offset to the joints. A 14-day rental is <span class="mono">$999</span> per station and owning one is <span class="mono">$1,250</span> (<a class="link" href="sync-beacon.html#offers">offers</a>). For checking cameras against each other, see <a class="link" href="check-multi-camera-sync-in-a-recording.html">how to check multi-camera sync in a recording</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>04</b>Questions</div>
+    <div class="c4-12 faq">
+      <details><summary>How do I align camera frames with robot joint data in a teleoperation dataset?</summary><p>Put both on a common clock, measure the delay on each side, and correct for it. The camera side can be measured by filming a clock; the joint side needs the robot’s clock tied to the same reference.</p></details>
+      <details><summary>Why are my camera and joint timestamps offset?</summary><p>Camera stamps are usually taken when the frame reaches the host, joint stamps on the controller or when they arrive, and the two clocks start apart and drift. Neither stamp records when the camera exposed the frame.</p></details>
+      <details><summary>Can the Sync Beacon measure the delay between camera and robot action?</summary><p>Not today. It measures each camera’s latency and jitter. Tying camera time to robot action time needs the robot’s clock connected to the beacon, which is not available yet.</p></details>
+      <details><summary>How large is the offset in real datasets?</summary><p>One surgical-robot data library reports median camera-to-state residuals of about <span class="mono">8 ms</span> and 95th percentiles of about <span class="mono">17 ms</span> after alignment. Other rigs differ, and we found no standard figure.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="guides.html">Guides</a> · <a class="link" href="sync-beacon.html">Sync Beacon</a> · <a class="link" href="sync-cameras-and-joints.html">Sync cameras and joints</a> · <a class="link" href="measure-camera-latency-per-frame.html">Measure camera latency per frame</a></p></div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid foot-grid">
+      <div class="c1-3">
+        <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
+        <p>Robotics and drone hardware.</p>
+      </div>
+      <div class="c4-12 foot-links">
+        <div>
+          <span class="label">Move · Sense</span>
+          <a href="smartstepper-17.html">SmartStepper 17</a>
+          <a href="smartservo-g.html">SmartServo G</a>
+          <a href="contour.html">Contour</a>
+        </div>
+        <div>
+          <span class="label">Sync · Connect</span>
+          <a href="sync-beacon.html">Sync Beacon</a>
+          <a href="hub-8.html">Hub 8</a>
+          <a href="hub-8.html#cable">Bus cable</a>
+        </div>
+        <div>
+          <span class="label">Stations &amp; kit</span>
+          <a href="makers.html">Makers</a>
+          <a href="stations.html">Stations</a>
+          <a href="leader.html">Checkmate Leader</a>
+          <a href="components.html">Components</a>
+        </div>
+        <div>
+          <span class="label">Company</span>
+          <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
+          <a href="company.html">About</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry">Talk to us</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas</span>
+      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
+      <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

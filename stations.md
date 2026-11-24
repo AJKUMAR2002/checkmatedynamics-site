@@ -6,7 +6,7 @@ Ways in / 02 | Robot data floors
 
 Sync QA, a motorized leader arm, commissioning and service for teleoperation stations, built from the nodes we sell on their own.
 
-[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Stations) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+[Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
 
 **01** Context
 
@@ -147,4 +147,4 @@ Related: [Checkmate Leader](https://checkmatedynamics.com/leader.html) · [Sync 
 
 ## Twenty minutes, one station, a real number.
 
-[Book a call](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Stations) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)
+[Email us](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call) | [Skew Audit](mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Skew%20Audit)

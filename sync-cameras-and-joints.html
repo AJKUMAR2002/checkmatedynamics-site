@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sync cameras and joint data to one clock — Checkmate Dynamics</title>
-<meta name="description" content="How to put cameras and robot joint data on one clock for robot learning datasets, the hardware options and prices, and how to measure whether the streams agree.">
+<title>Sync cameras and joint data for robots — Checkmate Dynamics</title>
+<meta name="description" content="How to sync cameras and robot joint data: hardware trigger, timecode, PTP or a clock in view. Options with prices, and how to measure whether the streams agree.">
 <link rel="canonical" href="https://checkmatedynamics.com/sync-cameras-and-joints.html">
 <link rel="alternate" type="text/markdown" href="sync-cameras-and-joints.md">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Checkmate Dynamics">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://checkmatedynamics.com/sync-cameras-and-joints.html">
-<meta property="og:title" content="Sync cameras and joint data to one clock — Checkmate Dynamics">
-<meta property="og:description" content="How to put cameras and robot joint data on one clock for robot learning datasets, the hardware options and prices, and how to measure whether the streams agree.">
+<meta property="og:title" content="Sync cameras and joint data for robots — Checkmate Dynamics">
+<meta property="og:description" content="How to sync cameras and robot joint data: hardware trigger, timecode, PTP or a clock in view. Options with prices, and how to measure whether the streams agree.">
 <meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sync cameras and joint data to one clock — Checkmate Dynamics">
-<meta name="twitter:description" content="How to put cameras and robot joint data on one clock for robot learning datasets, the hardware options and prices, and how to measure whether the streams agree.">
+<meta name="twitter:title" content="Sync cameras and joint data for robots — Checkmate Dynamics">
+<meta name="twitter:description" content="How to sync cameras and robot joint data: hardware trigger, timecode, PTP or a clock in view. Options with prices, and how to measure whether the streams agree.">
 <meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
 <link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
@@ -66,11 +66,11 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Sync cameras and joint data to one clock",
-  "description": "How to put cameras and robot joint data on one clock for robot learning datasets, the hardware options and prices, and how to measure whether the streams agree.",
+  "headline": "Sync cameras and joint data for robots",
+  "description": "How to sync cameras and robot joint data: hardware trigger, timecode, PTP or a clock in view. Options with prices, and how to measure whether the streams agree.",
   "url": "https://checkmatedynamics.com/sync-cameras-and-joints.html",
   "inLanguage": "en-US",
-  "dateModified": "2026-11-10",
+  "dateModified": "2026-11-24",
   "author": {
     "@id": "https://checkmatedynamics.com/#organization"
   },
@@ -99,7 +99,23 @@
       "name": "Is there a device I can put in view of my cameras to check their timestamps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval and camera-to-camera offset. It is patent pending and costs $999 to own or $1,250 for a 14-day rental."
+        "text": "Yes. The Checkmate Sync Beacon is an LED clock that steps every 1 ms. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval, host-timestamp latency and camera-to-camera offset. It is patent pending and costs $1,250 to own or $999 for a 14-day rental."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I sync multiple USB cameras without a hardware trigger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "USB has no broadcast trigger, so you cannot start every webcam at the same instant. Instead, record a clock that all cameras can see and read each frame’s true time from it afterwards; this shows the offset, the drops and the real frame rate. It measures the problem; it does not trigger the cameras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I check camera timestamps without changing my cameras or recorder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Film the Sync Beacon with the cameras you already use and decode the recordings on your PC. The Station Report confirms each camera on your rig."
       }
     },
     {
@@ -191,8 +207,8 @@
       <div class="nav-item"><a href="components.html" data-nav="components"><sup>04</sup>Components</a></div>
       <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
       <div class="nav-cta">
-        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Sync%20cameras%20and%20joint%20data%20to%20one%20clock">Register interest</a>
-        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20cameras%20and%20joint%20data%20to%20one%20clock" data-booking>Book a call</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
       </div>
     </nav>
   </div>
@@ -201,10 +217,10 @@
 <main id="main">
 <section class="ph cm-grid">
   <div class="wrap">
-    <div class="ph-meta"><span class="label">Guide</span><span class="label">Updated November 10, 2026</span></div>
+    <div class="ph-meta"><span class="label">Guide</span><span class="label">Updated November 24, 2026</span></div>
     <div class="grid">
       <h1 class="d1 balance">Sync cameras and joint data to one clock.</h1>
-      <div class="ph-side"><p class="lede">There are two jobs: make the streams share a clock, and measure how far apart they still are. Hardware trigger or timecode does the first. A camera-visible clock does the second, on any camera.</p></div>
+      <div class="ph-side"><p class="lede">There are two jobs: make the streams share a clock, and measure how far apart they still are. A hardware trigger, timecode or PTP does the first, on cameras that support it. A clock the cameras can see does the second, with no wiring to the camera.</p></div>
     </div>
   </div>
 </section>
@@ -221,6 +237,7 @@
         <li><b>Trigger the cameras together.</b> A trigger hub or GPIO cable starts every exposure at the same moment. It needs cameras with a trigger input.</li>
         <li><b>Stamp the streams with timecode.</b> A timecode generator writes the same time to audio and video devices. It does not measure per-frame skew on a robot rig.</li>
         <li><b>Measure the result.</b> Put a clock in view of every camera, record it, and read the clock out of each frame. This works for webcams and for hardware-synced rigs alike, and it shows what the other two approaches actually achieved.</li>
+        <li><b>PTP or a vendor global time.</b> Device clocks are kept together over a network or by the camera SDK, where the device supports it. Most USB webcams do not (<a class="link" href="https://docs.stereolabs.com/docs/development/zed-sdk/modules/camera/multi-camera" target="_blank" rel="noopener">Stereolabs ZED docs</a>, read Nov 24, 2026). It aligns clocks; it does not show whether each frame’s stamp matches its exposure.</li>
       </ul>
     </div>
   </div>
@@ -231,16 +248,16 @@
     <div class="c1-3 sec-index"><b>02</b>Options</div>
     <div class="c4-12">
       <h2 class="d2 balance" style="margin-top:0">What is on the market.</h2>
-      <table class="spec wide">
+      <div class="spec-wrap"><table class="spec wide">
         <thead><tr><th>Option</th><th>What it does</th><th>List price</th><th>Limit</th></tr></thead>
         <tbody>
           <tr><th>Orbbec Sync Hub Pro</th><td>Triggers Orbbec cameras together</td><td><span class="mono">$70 to $76</span> at US resellers; Orbbec publishes no list price (Knoxlabs listing, read 2026-11-10)</td><td>Orbbec cameras only</td></tr>
           <tr><th>Camera trigger cables</th><td>Trigger machine-vision cameras with a trigger input</td><td>From <span class="mono">$85</span> (vendor listing, read 2026-11-10)</td><td>Needs cameras with trigger inputs</td></tr>
           <tr><th>Tentacle Sync E mk2</th><td>Timecode for audio and video devices</td><td><span class="mono">$219 to $259</span> for the single set at US resellers (listings, read 2026-11-10)</td><td>Stamps; does not measure per-frame skew</td></tr>
           <tr><th>OptiTrack eSync 2</th><td>Syncs OptiTrack systems with other devices</td><td><span class="mono">$2,199</span> (OptiTrack, read 2026-11-10)</td><td>Built for OptiTrack’s own system</td></tr>
-          <tr><th>Checkmate Sync Beacon</th><td>LED clock your cameras film, stepping every <span class="mono">1 ms</span>; decoder reports drops, repeats, true frame interval and camera-to-camera offset</td><td><span class="mono">$999</span> to own; <span class="mono">$1,250</span> for a 14-day rental</td><td>Measures; does not trigger. Cameras must see the face. Patent pending.</td></tr>
+          <tr><th>Checkmate Sync Beacon</th><td>LED clock your cameras film, stepping every <span class="mono">1 ms</span>; decoder reports drops, repeats, true frame interval and camera-to-camera offset</td><td><span class="mono">$1,250</span> to own; <span class="mono">$999</span> for a 14-day rental</td><td>Measures; does not trigger. Cameras must see the face. Patent pending.</td></tr>
         </tbody>
-      </table>
+      </table></div>
       <p class="fine mt-m">Competitor prices are list prices or retailer listings read on the dates shown; check the vendor before you rely on them (source note: <code>research/aeo/guide-price-check-2026-11-10.md</code>). Beacon prices are on the <a class="link" href="sync-beacon.html">Sync Beacon</a> page. Checkmate products are shown before FCC authorization; see <a class="link" href="legal.html#fcc">Legal</a>.</p>
     </div>
   </div>
@@ -257,9 +274,15 @@
         <li>Read the clock in every frame. Count dropped and repeated frames, compare the true frame interval with the nominal one, and compute each camera’s offset to the others.</li>
         <li>Repeat after any camera swap, USB change or rebuild.</li>
       </ul>
-      <p>The <a class="link" href="sync-beacon.html">Sync Beacon</a> does this with an 8 x 8 green LED face (<span class="mono">525 nm</span>, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. Accuracy on real cameras is measured for your rig in that report; we do not claim a figure in advance. Contour depth frames can take the same clock through a sync input (<a class="link" href="contour.html">Contour</a>).</p>
+      <p>The <a class="link" href="sync-beacon.html">Sync Beacon</a> does this with an 8 x 8 green LED face (<span class="mono">525 nm</span>, which passes the IR-cut filter on camera sensors) and a decoder that writes a Station Report. On a <span class="mono">120 fps</span> global-shutter camera it decoded 7,241 of 7,241 frames, and frame times repeat to <span class="mono">37 µs</span>. That is repeatability on our bench, not a certified accuracy figure; accuracy on your cameras is measured for your rig in the report. It measures; it does not trigger cameras. Contour depth frames can take the same clock through a sync input (<a class="link" href="contour.html">Contour</a>).</p>
       <h2>If you already trigger your cameras.</h2>
       <p>Keep the trigger. A measurement shows whether it reaches every stream on the station, including webcams and joint logs that the trigger does not touch.</p>
+      <h2>More detail.</h2>
+      <ul>
+        <li><a class="link" href="check-multi-camera-sync-in-a-recording.html">How to check multi-camera sync in a recording</a>: dropped and repeated frames and camera-to-camera offset.</li>
+        <li><a class="link" href="measure-camera-latency-per-frame.html">How to measure camera latency per frame</a>: capture-to-host latency, jitter and the real frame rate.</li>
+        <li><a class="link" href="align-camera-and-joint-timestamps.html">Camera and joint timestamp alignment</a>: the robot side, and what is not available yet.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -269,24 +292,26 @@
     <div class="c1-3 sec-index"><b>04</b>Questions</div>
     <div class="c4-12 faq">
       <details><summary>How do I hardware-sync several cameras and robot joint data to one clock?</summary><p>Trigger cameras that have a trigger input from one hub or GPIO source, log joint data against a shared clock, and then measure the result with a clock all cameras can film. Measurement matters because host timestamps record when a frame arrived, not when it was exposed.</p></details>
-      <details><summary>Is there a device I can put in view of my cameras to check their timestamps?</summary><p>Yes. The Checkmate Sync Beacon is an LED clock that steps every <span class="mono">1 ms</span>. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval and camera-to-camera offset. It is patent pending and costs <span class="mono">$999</span> to own or <span class="mono">$1,250</span> for a 14-day rental.</p></details>
+      <details><summary>Is there a device I can put in view of my cameras to check their timestamps?</summary><p>Yes. The Checkmate Sync Beacon is an LED clock that steps every <span class="mono">1 ms</span>. You film it with every camera, decode each video on your PC, and read a Station Report with drops, repeats, true frame interval, host-timestamp latency and camera-to-camera offset. It is patent pending and costs <span class="mono">$1,250</span> to own or <span class="mono">$999</span> for a 14-day rental.</p></details>
+      <details><summary>How do I sync multiple USB cameras without a hardware trigger?</summary><p>USB has no broadcast trigger, so you cannot start every webcam at the same instant. Instead, record a clock that all cameras can see and read each frame’s true time from it afterwards; this shows the offset, the drops and the real frame rate. It measures the problem; it does not trigger the cameras.</p></details>
+      <details><summary>Can I check camera timestamps without changing my cameras or recorder?</summary><p>Yes. Film the Sync Beacon with the cameras you already use and decode the recordings on your PC. The Station Report confirms each camera on your rig.</p></details>
       <details><summary>Does LeRobot measure camera skew?</summary><p>No. LeRobot stamps each frame from its frame index and the frame rate. Its <code>tolerance_s</code> setting (default 1e-4 s) checks that stored timestamps are spaced 1/fps apart, and since those timestamps come from the frame counter, it does not measure how far the cameras themselves are apart (LeRobot source and docstring, read Nov 10, 2026).</p></details>
       <details><summary>Does the beacon change my recorder or cameras?</summary><p>No. It is a separate USB-powered device with no radio. Nothing is wired to the cameras and nothing changes in your recorder.</p></details>
     </div>
   </div>
 </section>
 
-<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="guides.html">Guides</a> · <a class="link" href="sync-beacon.html">Sync Beacon</a> · <a class="link" href="contour.html">Contour</a> · <a class="link" href="stations.html">Stations</a></p></div></section>
+<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="guides.html">Guides</a> · <a class="link" href="sync-beacon.html">Sync Beacon</a> · <a class="link" href="check-multi-camera-sync-in-a-recording.html">Check multi-camera sync in a recording</a> · <a class="link" href="measure-camera-latency-per-frame.html">Measure camera latency per frame</a> · <a class="link" href="align-camera-and-joint-timestamps.html">Camera and joint timestamp alignment</a></p></div></section>
 
 </main>
 <footer class="site-footer">
   <div class="wrap">
     <div class="grid foot-grid">
-      <div class="c1-4">
+      <div class="c1-3">
         <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
-        <p>Robotics and drone hardware. Designed and tested in Dallas, Texas.</p>
+        <p>Robotics and drone hardware.</p>
       </div>
-      <div class="c5-12 foot-links">
+      <div class="c4-12 foot-links">
         <div>
           <span class="label">Move · Sense</span>
           <a href="smartstepper-17.html">SmartStepper 17</a>
@@ -310,16 +335,16 @@
           <span class="label">Company</span>
           <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
           <a href="company.html">About</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call%3A%20Sync%20cameras%20and%20joint%20data%20to%20one%20clock">Book a call</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry%3A%20Sync%20cameras%20and%20joint%20data%20to%20one%20clock">Talk to us</a>
-          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest%3A%20Sync%20cameras%20and%20joint%20data%20to%20one%20clock">Register interest</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry">Talk to us</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
           <a href="privacy.html">Privacy</a>
         </div>
       </div>
     </div>
     <div class="foot-base">
-      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas · <span class="mono">32.78°</span> N <span class="mono">96.80°</span> W</span>
-      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://x.com/checkmatedyn" rel="me noopener">X</a><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas</span>
+      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
       <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
     </div>
   </div>

@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check multi-camera sync in a recording — Checkmate Dynamics</title>
+<meta name="description" content="How to check whether the cameras in a recording are in sync: dropped and repeated frames and camera offset, with no trigger. Works on recorded robot datasets.">
+<link rel="canonical" href="https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html">
+<link rel="alternate" type="text/markdown" href="check-multi-camera-sync-in-a-recording.md">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Checkmate Dynamics">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html">
+<meta property="og:title" content="Check multi-camera sync in a recording — Checkmate Dynamics">
+<meta property="og:description" content="How to check whether the cameras in a recording are in sync: dropped and repeated frames and camera offset, with no trigger. Works on recorded robot datasets.">
+<meta property="og:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Checkmate Dynamics logo on the brand grid">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Check multi-camera sync in a recording — Checkmate Dynamics">
+<meta name="twitter:description" content="How to check whether the cameras in a recording are in sync: dropped and repeated frames and camera offset, with no trigger. Works on recorded robot datasets.">
+<meta name="twitter:image" content="https://checkmatedynamics.com/assets/img/og.png">
+<link rel="icon" href="assets/brand/favicon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon/favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/brand/favicon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/brand/favicon/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/favicon/apple-touch-icon-180.png">
+<link rel="manifest" href="assets/brand/manifest.webmanifest">
+<link rel="mask-icon" href="assets/brand/favicon/safari-pinned-tab.svg" color="#000000">
+<link rel="preload" href="assets/fonts/inter-opsz-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+<script src="assets/js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://checkmatedynamics.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://checkmatedynamics.com/guides.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Check multi-camera sync in a recording",
+      "item": "https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Check multi-camera sync in a recording",
+  "description": "How to check whether the cameras in a recording are in sync: dropped and repeated frames and camera offset, with no trigger. Works on recorded robot datasets.",
+  "url": "https://checkmatedynamics.com/check-multi-camera-sync-in-a-recording.html",
+  "inLanguage": "en-US",
+  "dateModified": "2026-11-24",
+  "author": {
+    "@id": "https://checkmatedynamics.com/#organization"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://checkmatedynamics.com/#organization",
+    "name": "Checkmate Dynamics"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check whether the cameras in a recording are in sync?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Film a clock that every camera can see, record about a minute, and read the clock in each frame. Compare each camera’s clock readings for the same moment to get the offset between cameras."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I detect dropped frames in a multi-camera recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Read a continuous clock in every frame and look for gaps in the readings. A gap in the clock means the camera or the pipeline lost frames at that time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I detect repeated or duplicate frames?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The same clock reading appearing in two consecutive frames means the frame was delivered twice. A frame-time derivative that is not steady near the expected interval gives the same warning without a clock."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can LeRobot tell me if my cameras are out of sync?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. LeRobot stamps each frame from its frame index and the frame rate, so its stored timestamps do not show how far apart the cameras are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I verify camera sync without a hardware trigger?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A clock in view of every camera is read after the fact, so no trigger or wiring is needed. It shows what a trigger achieved too."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <div class="nav-item has-menu">
+        <a href="products.html" data-nav="products" aria-haspopup="true"><sup>01</sup>Products</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Products menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Products</p>
+            <p>Complete nodes in four families. Each one works alone and joins the same USB-C bus.</p>
+            <a class="link small" href="products.html">Full index</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">A — Move</span>
+            <a href="smartstepper-17.html"><strong>SmartStepper 17</strong><span>Closed-loop NEMA 17</span></a>
+            <a href="smartservo-g.html"><strong>SmartServo G</strong><span>Brushless servo node</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">B — Sense</span>
+            <a href="contour.html"><strong>Contour</strong><span>Time-of-flight depth</span></a>
+            <a href="contour.html#wrist"><strong>Contour Wrist</strong><span>Depth at the gripper</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">C — Sync</span>
+            <a href="sync-beacon.html"><strong>Sync Beacon</strong><span>Camera timing instrument</span></a>
+            <a href="sync-beacon.html#report"><strong>Station Report</strong><span>Timing proof per session</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">D — Power &amp; connect</span>
+            <a href="hub-8.html"><strong>Hub 8</strong><span>Eight-port node hub</span></a>
+            <a href="hub-8.html#cable"><strong>Bus cable</strong><span>Power, USB and CAN</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="makers.html" data-nav="makers"><sup>02</sup>Makers</a></div>
+      <div class="nav-item has-menu">
+        <a href="stations.html" data-nav="stations" aria-haspopup="true"><sup>03</sup>Stations</a>
+        <button class="sub-toggle" aria-expanded="false" aria-label="Show Stations menu"></button>
+        <div class="menu">
+          <div class="menu-intro">
+            <p class="label">Stations</p>
+            <p>Hardware and service for teleoperation data floors, built from the nodes we sell.</p>
+            <a class="link small" href="stations.html">Overview</a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Sync QA</span>
+            <a href="sync-beacon.html"><strong>Sync Beacon</strong><span>Camera timing instrument</span></a>
+            <a href="stations.html#audit"><strong>Skew Audit</strong><span>One station, one week</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Teleoperation</span>
+            <a href="leader.html"><strong>Checkmate Leader</strong><span>Motorized leader arm</span></a>
+          </div>
+          <div class="menu-col">
+            <span class="label">Service</span>
+            <a href="stations.html#commissioning"><strong>Commissioning</strong><span>New rigs, signed off</span></a>
+            <a href="stations.html#service"><strong>Service plans</strong><span>Spares and reports</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="components.html" data-nav="components"><sup>04</sup>Components</a></div>
+      <div class="nav-item"><a href="company.html" data-nav="company"><sup>05</sup>Company</a></div>
+      <div class="nav-cta">
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+        <a class="btn btn-line" href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="ph cm-grid">
+  <div class="wrap">
+    <div class="ph-meta"><span class="label">Guide</span><span class="label">Updated November 24, 2026</span></div>
+    <div class="grid">
+      <h1 class="d1 balance">How to check multi-camera sync in a recording.</h1>
+      <div class="ph-side"><p class="lede">Matching frame rates do not prove that cameras are in sync. To check, you need something every camera filmed at the same moment. This guide covers the ways to do that after the fact, without a hardware trigger.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>01</b>Answer</div>
+    <div class="c4-10 prose">
+      <h2 style="margin-top:0">Why the dataset cannot tell you.</h2>
+      <p>LeRobot computes each recorded frame’s timestamp as <code>frame_index / fps</code>, from the frame counter and not from the camera (LeRobot <code>dataset_writer.py</code>, line 225, re-read on the main branch Nov 10, 2026). A dataset built that way can look perfectly regular while one camera runs late, drops frames or runs at a slightly different rate.</p>
+      <p>Other datasets show the same thing. Published multi-camera sets report cameras that repeat or skip frames and firmware timestamps off by roughly 0.1 to <span class="mono">1 s</span> (<a class="link" href="https://arxiv.org/pdf/2308.14833" target="_blank" rel="noopener">I24-3D, arXiv 2308.14833</a>, read Nov 24, 2026). A lunar stereo dataset kept only the frame pairs that matched (<a class="link" href="https://arxiv.org/pdf/2506.22956" target="_blank" rel="noopener">arXiv 2506.22956</a>, read Nov 24, 2026).</p>
+      <p>Intel’s guidance for RealSense is that working hardware sync shows timestamps that slowly drift apart, a few milliseconds over tens of minutes, and that identical timestamps mean sync is not operating (<a class="link" href="https://simplecore.intel.com/realsensehub/wp-content/uploads/sites/63/Multiple_Camera_WhitePaper04.pdf" target="_blank" rel="noopener">Intel white paper</a>, read Nov 24, 2026, as summarised by search). That is a check of the device’s own stamps, not of when the light reached each sensor.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>02</b>Options</div>
+    <div class="c4-12">
+      <h2 class="d2 balance" style="margin-top:0">Ways to check sync after recording.</h2>
+      <div class="spec-wrap"><table class="spec wide">
+        <thead><tr><th>Method</th><th>What it shows</th><th>Limit</th></tr></thead>
+        <tbody>
+          <tr><th>Clap or clapperboard in view</th><td>One shared event; align by the frame it appears in</td><td>Accuracy is capped at about half a frame, and it checks one instant, not drift or drops over a session (search results, Nov 24, 2026)</td></tr>
+          <tr><th>Flash or LED blink sequence</th><td>Each camera’s frame of onset; open-source scripts plot detected on/off signals (<a class="link" href="https://github.com/scivision/ledtime" target="_blank" rel="noopener">ledtime</a>, read Nov 24, 2026)</td><td>Needs a known flash sequence; reports onsets, not every frame</td></tr>
+          <tr><th>Compare the devices’ own timestamps</th><td>Whether the cameras’ stamps agree with each other</td><td>Stamps may be assigned on arrival; agreement does not mean the exposures were together</td></tr>
+          <tr><th>Software alignment tools</th><td>Align and check streams in software; for example the open Embodied Sync project (posted Aug 30, 2026, <a class="link" href="https://discourse.openrobotics.org/t/embodied-sync-synchronize-calibrate-align-and-validate-multimodal-robot-learning-data-across-sensors-clocks-live-sessions-and-recordings/57766" target="_blank" rel="noopener">Open Robotics Discourse</a>)</td><td>We could not confirm from the post whether it uses a physical clock</td></tr>
+          <tr><th>A continuous LED clock in view</th><td>Every frame’s exposure time on one clock: offset between cameras, true frame rate, drops, repeats</td><td>The clock must be in view of every camera. The research version, RocSync, is a device you build (<a class="link" href="https://arxiv.org/abs/2511.14948" target="_blank" rel="noopener">arXiv 2511.14948</a>, read Nov 24, 2026)</td></tr>
+        </tbody>
+      </table></div>
+      <p class="fine mt-m">Competitor and research figures are from sources read on the dates shown; check the source before you rely on them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>03</b>Procedure</div>
+    <div class="c4-10 prose">
+      <h2 style="margin-top:0">A one-minute check you can repeat.</h2>
+      <ul>
+        <li>Put the clock where every camera sees it. Use a short manual exposure and locked focus.</li>
+        <li>Record all cameras over the same 60 seconds, with your normal recording software and settings.</li>
+        <li>Read the clock in every frame. For each camera, count the dropped frames (gaps in the clock) and repeated frames (the same clock reading twice), and compute the true frame interval.</li>
+        <li>Compute each camera’s offset to the others by comparing the clock readings of frames taken at the same moment.</li>
+        <li>Repeat after any camera swap, USB change, resolution change or rebuild.</li>
+      </ul>
+      <p>Compression matters. The clock has to survive video encoding to be readable. In a synthetic test of the Sync Beacon decoder, LeRobot’s default AV1, MJPEG and H.264 at crf 23 decoded; H.265 did not, and neither did H.264 at crf 30 with a 2-frame GOP (Oct 28, 2026, synthetic frames, not a recorded dataset).</p>
+      <h2>Where the Sync Beacon fits, and where it does not.</h2>
+      <p>The <a class="link" href="sync-beacon.html">Sync Beacon</a> is a continuous LED clock (<span class="mono">1 ms</span> steps) and a decoder that writes a Station Report with each camera’s dropped frames, repeated frames, true frame interval, host-timestamp latency and offset to the other cameras. It measures; it does not trigger cameras or change your recorder.</p>
+      <ul>
+        <li>Two cameras on one time base (a <span class="mono">120 fps</span> global-shutter camera on a PC and a laptop camera): <span class="mono">61.5 s</span> of overlap, 1,796 frame pairs, and a Station Report pass. Bench result, Nov 6, 2026.</li>
+        <li>A <span class="mono">2.4 s</span> USB stall (292 frames) was found and placed exactly on the <span class="mono">120 fps</span> camera.</li>
+        <li>No accuracy figure against an independent reference exists yet. The <span class="mono">37 µs</span> figure on the <span class="mono">120 fps</span> camera is repeatability on our bench.</li>
+        <li>At 640 x 480 the decoder worked within <span class="mono">0.6 m</span> and 45 degrees of the lens axis in a synthetic test, so wrist cameras see the clock only when the arm points at it; for those, the check is something you run, not something left in every episode.</li>
+      </ul>
+      <p>If you already hardware-trigger your cameras, keep the trigger. This check shows what the trigger achieved on every stream, including webcams and joint logs it does not touch. For the hardware options and prices see <a class="link" href="sync-cameras-and-joints.html">sync cameras and joint data to one clock</a>. Rent it for <span class="mono">$999</span> for 14 days or own one for <span class="mono">$1,250</span> (<a class="link" href="sync-beacon.html#offers">offers</a>).</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap grid">
+    <div class="c1-3 sec-index"><b>04</b>Questions</div>
+    <div class="c4-12 faq">
+      <details><summary>How do I check whether the cameras in a recording are in sync?</summary><p>Film a clock that every camera can see, record about a minute, and read the clock in each frame. Compare each camera’s clock readings for the same moment to get the offset between cameras.</p></details>
+      <details><summary>How do I detect dropped frames in a multi-camera recording?</summary><p>Read a continuous clock in every frame and look for gaps in the readings. A gap in the clock means the camera or the pipeline lost frames at that time.</p></details>
+      <details><summary>How do I detect repeated or duplicate frames?</summary><p>The same clock reading appearing in two consecutive frames means the frame was delivered twice. A frame-time derivative that is not steady near the expected interval gives the same warning without a clock.</p></details>
+      <details><summary>Can LeRobot tell me if my cameras are out of sync?</summary><p>No. LeRobot stamps each frame from its frame index and the frame rate, so its stored timestamps do not show how far apart the cameras are.</p></details>
+      <details><summary>Can I verify camera sync without a hardware trigger?</summary><p>Yes. A clock in view of every camera is read after the fact, so no trigger or wiring is needed. It shows what a trigger achieved too.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec flush related" aria-label="Related pages" style="padding:0 0 32px"><div class="wrap"><p class="fine">Related: <a class="link" href="guides.html">Guides</a> · <a class="link" href="sync-beacon.html">Sync Beacon</a> · <a class="link" href="sync-cameras-and-joints.html">Sync cameras and joints</a> · <a class="link" href="measure-camera-latency-per-frame.html">Measure camera latency per frame</a></p></div></section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="grid foot-grid">
+      <div class="c1-3">
+        <a class="logo" href="index.html" aria-label="Checkmate Dynamics, home"><img src="assets/brand/logo/checkmate-dynamics-horizontal-white.svg" alt="Checkmate Dynamics" height="21"></a>
+        <p>Robotics and drone hardware.</p>
+      </div>
+      <div class="c4-12 foot-links">
+        <div>
+          <span class="label">Move · Sense</span>
+          <a href="smartstepper-17.html">SmartStepper 17</a>
+          <a href="smartservo-g.html">SmartServo G</a>
+          <a href="contour.html">Contour</a>
+        </div>
+        <div>
+          <span class="label">Sync · Connect</span>
+          <a href="sync-beacon.html">Sync Beacon</a>
+          <a href="hub-8.html">Hub 8</a>
+          <a href="hub-8.html#cable">Bus cable</a>
+        </div>
+        <div>
+          <span class="label">Stations &amp; kit</span>
+          <a href="makers.html">Makers</a>
+          <a href="stations.html">Stations</a>
+          <a href="leader.html">Checkmate Leader</a>
+          <a href="components.html">Components</a>
+        </div>
+        <div>
+          <span class="label">Company</span>
+          <a class="foot-mail" href="mailto:contact@checkmatedynamics.com?subject=Hello">contact@checkmatedynamics.com</a>
+          <a href="company.html">About</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Data%20station%20call" data-booking><span data-book-label="Book a call">Email us</span></a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Parts%20and%20OEM%20enquiry">Talk to us</a>
+          <a href="mailto:contact@checkmatedynamics.com?subject=Register%20interest">Register interest</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span class="fine">© 2026 Checkmate Dynamics · Dallas, Texas</span>
+      <nav class="fine foot-social" aria-label="Checkmate Dynamics elsewhere"><a href="https://www.instagram.com/checkmatedynamics/" rel="me noopener">Instagram</a><a href="https://www.youtube.com/@CheckmateDynamics" rel="me noopener">YouTube</a><a href="https://www.reddit.com/user/CheckmateDynamics/" rel="me noopener">Reddit</a></nav>
+      <span class="fine">Prices in US dollars. No cookies, no analytics. <a href="legal.html">Legal and pre-order terms</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
